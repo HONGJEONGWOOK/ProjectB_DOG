@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class PlayerStat : MonoBehaviour
 {
-    public static PlayerStat inst;
-
+    
 
     public int character_Lv;
     public float[] needExp;
@@ -16,9 +15,10 @@ public class PlayerStat : MonoBehaviour
     public int def;
 
 
-    private void Start()
+    private void Awake()
     {
-        inst = this;
+        
+        
     }
 
 
