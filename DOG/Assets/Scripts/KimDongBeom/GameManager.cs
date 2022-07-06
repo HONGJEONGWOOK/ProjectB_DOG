@@ -6,19 +6,20 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public TalkManager talkManager;
+    public QuestManager questManager;
     public GameObject talkPanel;
     public Text talkText;
     public GameObject scanObject;
 
     //퀘스트매니저
-    public QuestManager questManager;
+   
 
     public bool isAction;
     public int talkIndex;
 
     private void Start()
     {
-        Debug.Log(questManager.CheckQuest());
+        //Debug.Log(questManager.CheckQuest());
     }
 
     public void Awake()

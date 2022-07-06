@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -31,11 +30,13 @@ public class QuestManager : MonoBehaviour
     {
         //리스트에 Add 명령어로 더하는 것은 동일
         //10 - 퀘스트 고유 넘버, 퀘스트데이타는 퀘스트 명과 관련된 엔피시 번호를 받아옴?
-        questList.Add(10, new QuestData("갑자기 나타난 몬스터들이 의심스러워!", new int[] { 1000, 2000 }));
+        questList.Add(10, new QuestData("사라진 마을 주민들", new int[] { 1000, 2000 }));
 
-        questList.Add(20, new QuestData("유일한 목격자, 주민1", new int[] { 2000, 3000 }));
+        questList.Add(20, new QuestData("갑자기 꽃?", new int[] { 3000, 2000 }));
 
-        questList.Add(30, new QuestData("꽃을 획득했다.", new int[] { 0 }));
+        questList.Add(30, new QuestData("마을의 위험요소 처치", new int[] { 2000, 1000 }));
+
+        questList.Add(40, new QuestData("몬스터들은 어디서 왔을까", new int[] { 0 }));
 
     }
 
@@ -87,7 +88,7 @@ public class QuestManager : MonoBehaviour
                 }
                 break;
             case 20:
-                if(questActionIndex == 2)
+                if(questActionIndex == 1)
                 {
                     questObject[0].SetActive(false);
                 }
