@@ -146,8 +146,10 @@ MonoBehaviour:
   strength: 5
   moveSpeed: 3
   attackRange: 1.5
+  attackDelay: 5
   status: 0
   detectRadius: 5
+  waypoint: []
 --- !u!1001 &4648705966103067265
 PrefabInstance:
   m_ObjectHideFlags: 0

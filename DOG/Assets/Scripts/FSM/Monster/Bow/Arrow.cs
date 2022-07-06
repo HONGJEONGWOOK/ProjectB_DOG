@@ -6,8 +6,8 @@ using UnityEngine;
 public class Arrow : MonoBehaviour
 {
     private Rigidbody2D rigid = null;
-
-    private Vector2 flyDirection = Vector2.zero;
+    private SpriteRenderer arrowSprite = null;
+    Monster_Bow monster = null;
 
     public float shootSpeed = 3.0f;
 
@@ -15,17 +15,27 @@ public class Arrow : MonoBehaviour
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
+        arrowSprite = GetComponent<SpriteRenderer>();
+        monster = FindObjectOfType<Monster_Bow>();
     }
 
     private void OnEnable()
     {
-        flyDirection *= Monster_Bow.arrowDirection;
-        rigid.velocity = shootSpeed * transform.right; //* Monster_Bow.arrowDirection;
+        rigid.velocity = shootSpeed * monster.ArrowDirection * transform.right; //* Monster_Bow.arrowDirection;
+        
+        if(monster.ArrowDirection == 1)
+        {
+            arrowSprite.flipX = false;
+        }
+        else if(monster.ArrowDirection == -1)
+        {
+            arrowSprite.flipX = true;
+        }
     }
 
     private void OnDisable()
     {
-        flyDirection = Vector2.zero;
+        //Monster_Bow.arrowDirection = 1;
         rigid.velocity = Vector2.zero;
     }
 

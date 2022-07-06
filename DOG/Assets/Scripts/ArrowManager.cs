@@ -43,12 +43,15 @@ public class ArrowManager : MonoBehaviour
 
     }
 
+
+
     public GameObject GetPooledArrow()
     {
         if (arrows.Count > 0)
         {
             GameObject arr = arrows.Dequeue();
             arr.SetActive(true);
+            //arrow onEnable 작동 -> 방향 결정
             return arr;
         }
         return null;

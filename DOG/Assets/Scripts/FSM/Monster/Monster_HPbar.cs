@@ -16,7 +16,7 @@ public class Monster_HPbar : MonoBehaviour
     private void Awake()
     {
         monster = FindObjectOfType<Monsters>();
-        rect = GetComponent<RectTransform>();
+        rect = gameObject.transform.Find("HP_Bar").GetComponent<RectTransform>();
         cam = Camera.main;
     }
 
