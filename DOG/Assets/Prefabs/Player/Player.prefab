@@ -550,8 +550,8 @@ MonoBehaviour:
   hp: 10
   moveSpeed: 5
   currentHP: 0
-  hpSlider: {fileID: 0}
-  hpSlider2: {fileID: 0}
+  hpSlider: {fileID: 2653278251186413872, guid: b96c04c5a58cfc64b80211bd7b845203, type: 3}
+  hpSlider2: {fileID: 440648557780459150, guid: 30d22af5cd2b3e74e8647f78c89e1c65, type: 3}
 --- !u!95 &6761863133378473891
 Animator:
   serializedVersion: 4
