@@ -546,11 +546,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3898c0aa601716f428f772950b7fc034, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   hp: 10
   moveSpeed: 5
   currentHP: 0
-  hpSlider: {fileID: 0}
-  hpSlider2: {fileID: 0}
+  hpSlider: {fileID: 2653278251186413872, guid: b96c04c5a58cfc64b80211bd7b845203, type: 3}
+  hpSlider2: {fileID: 440648557780459150, guid: 30d22af5cd2b3e74e8647f78c89e1c65, type: 3}
 --- !u!95 &6761863133378473891
 Animator:
   serializedVersion: 4
@@ -561,7 +562,7 @@ Animator:
   m_GameObject: {fileID: 6761863133378473888}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1527eff569dfc904f9daa74983b62d1c, type: 2}
+  m_Controller: {fileID: 9100000, guid: afc1dd7bad9b4094788f792386fb8839, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
