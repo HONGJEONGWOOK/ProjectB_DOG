@@ -7,7 +7,10 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    public GameManager manager;
+
     PlayerInputActions actions = null;
+    GameObject scanObject;
 
     public float hp = 10.0f;
 
@@ -69,6 +72,17 @@ public class Player : MonoBehaviour
             currentHP -= 0.1f;
         }*/
         Move();
+
+        Debug.DrawRay(rigid.position, direction * 1.0f, new Color(0, 1, 0));
+        RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, direction, 1.0f, LayerMask.GetMask("Npc"));
+        if (rayHit.collider != null)
+        {
+            scanObject = rayHit.collider.gameObject;
+        }
+        else
+        {
+            scanObject = null;
+        }
     }
 
     private void Move()
@@ -81,6 +95,11 @@ public class Player : MonoBehaviour
     private void OnAttack(InputAction.CallbackContext context)
     {
         //equipWeapon.Use();
+        Debug.Log("공격 및 말걸기");
+        if (scanObject != null)
+        {
+            manager.AskAction(scanObject);
+        }
 
     }
 
@@ -98,6 +117,25 @@ public class Player : MonoBehaviour
         }
         else
             anim.SetBool("input", false);
+
+        if (direction.y == 1)
+        {
+            direction = Vector3.up;
+        }
+        else if (direction.y == -1)
+        {
+            direction = Vector3.down;
+        }
+        else if (direction.x == 1)
+        {
+            direction = Vector3.right;
+        }
+        else if (direction.x == -1)
+        {
+            direction = Vector3.left;
+        }
+
+
     }
 
 }

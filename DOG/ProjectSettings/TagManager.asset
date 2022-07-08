@@ -4,12 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-<<<<<<< HEAD
-  - Melee
-=======
   - Monster
-  - Border
->>>>>>> PSW
+  - Melee
   layers:
   - Default
   - TransparentFX
@@ -17,7 +13,7 @@ TagManager:
   - 
   - Water
   - UI
-  - Line
+  - Npc
   - 
   - 
   - 
@@ -48,5 +44,11 @@ TagManager:
     uniqueID: 0
     locked: 0
   - name: Player
-    uniqueID: 3127834083
+    uniqueID: 2037997451
+    locked: 0
+  - name: Npc
+    uniqueID: 2727291029
+    locked: 0
+  - name: BackGround
+    uniqueID: 2283262919
     locked: 0
