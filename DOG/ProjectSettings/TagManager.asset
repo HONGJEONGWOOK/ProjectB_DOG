@@ -3,14 +3,23 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
+<<<<<<< HEAD
   tags:
   - Monster
+<<<<<<< Updated upstream
   - Border
+=======
+  - Melee
+  - Border
+=======
+  tags: []
+>>>>>>> 540f4e7231b55bacad99f8d01c320d10a56130e8
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - 
@@ -43,6 +52,17 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+<<<<<<< Updated upstream
   - name: Player
     uniqueID: 3127834083
+=======
+  - name: BackGround_Map
+    uniqueID: 428132979
+    locked: 0
+  - name: Player
+    uniqueID: 1706871269
+    locked: 0
+  - name: MapObjects
+    uniqueID: 2141772255
+>>>>>>> Stashed changes
     locked: 0

@@ -2,35 +2,45 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
+using Monster.Enums;
 
 public class Monsters : MonoBehaviour
 {
     private Rigidbody2D rigid = null;
     protected Animator anim = null;
-    private CircleCollider2D circleColl = null;
     protected SpriteRenderer sprite = null;
 
-    public Transform player = null;
-    public enum CurrentState { idle, patrol, track, attack, hit, dead };
+    
     
     public static bool isDead = false;
 
     public System.Action onHit = null;
 
+    [Header("몬스터 AI 관련")]
+    public MonsterCurrentState status = MonsterCurrentState.IDLE;
+    protected Vector2 trackDirection = Vector2.zero;
+    [SerializeField] protected float detectRadius = 5.0f;
+
     [Header("몬스터 기본스탯")]
     [SerializeField] protected float healthPoint = 100.0f;
     [SerializeField] protected int strength = 5;
     [SerializeField] protected float moveSpeed = 3.0f;
+
+    //###################################### TRACK ##############################################################
+    private Vector2 target = new();
+
+    //###################################### ATTACK #########################################################
     [SerializeField] protected float attackRange = 1.5f;
-    [SerializeField] protected float attackDelay = 5.0f;
+    [SerializeField] protected float attackDelay = 3.0f;
 
-    [Header("몬스터 AI 관련")]
-    public CurrentState status = CurrentState.idle;
-    private Vector2 trackDirection = Vector2.zero;
-    private bool isAttack = false;
-    private IEnumerator attack = null;
-    [SerializeField] protected float detectRadius = 5.0f;
+    private CircleCollider2D cCollider = null;
+    IEnumerator attack = null;
 
+    //###################################### PATROL #########################################################
+    float waitCounter = 0.0f;
+    float waitTime = 2.0f;
+    int waypointIndex = 0;
     public Transform[] waypoint = null;
 
     public float HealthPoint { get => healthPoint; set { healthPoint = value; } }
@@ -39,17 +49,12 @@ public class Monsters : MonoBehaviour
     {
         rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        circleColl = GetComponent<CircleCollider2D>();
         sprite = GetComponent<SpriteRenderer>();
-
-        circleColl.radius = detectRadius;
+        cCollider = GetComponent<CircleCollider2D>();
 
         attack = Attack();
-    }
 
-    private void Start()
-    {
-        //StartCoroutine(CheckStatus());
+        cCollider.radius = attackRange;
     }
 
     private void FixedUpdate()
@@ -57,84 +62,98 @@ public class Monsters : MonoBehaviour
         CheckStatus();
     }
 
-    void Move_Monster()
-    {
-        rigid.position = Vector2.MoveTowards(rigid.position, player.position, moveSpeed * Time.fixedDeltaTime);
-    }
-
     void CheckStatus()
     {
         if (!isDead)
         {
-            if (status == CurrentState.idle)
+            //trackDirection = player.position - this.transform.position;
+            switch (status)
             {
-                anim.SetBool("isMoving", false);
-                trackDirection = Vector2.zero;
-            }
-            else if (status == CurrentState.patrol)
-            {
-                
-            }
-            else if (status == CurrentState.track)
-            {
-                trackDirection = player.position - this.transform.position;
-                Track();
-                StopCoroutine(attack);
-            }
-            else if (status == CurrentState.attack)
-            {
-                if (isAttack)
-                {
-                    trackDirection = player.position - this.transform.position;
-                    StartCoroutine(attack);
-                    isAttack = false;
-                }
-            }
-            else if (status == CurrentState.hit)
-            {
-                OnHit();
-            }
-            else if (status == CurrentState.dead)
-            {
-                //죽는 애니메이션 재생. 재생 완료 후 Monster pool로 반환
+                case MonsterCurrentState.IDLE:
+                    Idle();
+                    break;
+
+                case MonsterCurrentState.PATROL:
+                    Patrol();
+                    break;
+
+                case MonsterCurrentState.TRACK:
+                    Track();
+                    break;
+
+                case MonsterCurrentState.ATTACK:
+                    break;
+
+                case MonsterCurrentState.HIT:
+                    OnHit();
+                    break;
+
+                case MonsterCurrentState.DEAD:
+                    //죽는 애니메이션 재생. 재생 완료 후 Monster pool로 반환
+                    break;
             }
         }
     }
 
-    //void Patrol()
-    //{
-    //    bool isWait = true;
-    //    float waitCounter = 0.0f;
-    //    float waitTime = 2.0f;
-
-    //    waitCounter += Time.fixedDeltaTime;
-
-    //    if (waitCounter > waitTime)
-    //    {
-    //        isWait = false;
-    //    }
-
-    //    int waypointIndex = 0;
-    //    if (Vector2.SqrMagnitude(transform.position - waypoint[waypointIndex].position) < 0.01f)
-    //    {
-    //        //waypoint 변경
-    //        waitCounter = 0.0f;
-    //        isWait = true;
-
-    //        waypointIndex = (waypointIndex + 1) % waypoint.Length;
-    //    }
-    //    else
-    //    {
-    //        transform.position = Vector2.MoveTowards(transform.position, waypoint[waypointIndex].position,
-    //            Time.fixedDeltaTime * moveSpeed);
-    //        transform.LookAt(waypoint[waypointIndex]);
-    //    }
-    //}
-
-    protected virtual void Track()
+    void Idle()
     {
-        anim.SetBool("isMoving", true);
-        Move_Monster();
+        if (Search())
+        {
+            ChangeStatus(MonsterCurrentState.TRACK);
+            return;
+        }
+
+        waitCounter += Time.fixedDeltaTime;
+        if (waitCounter > waitTime )
+        {
+            waitCounter = 0f;
+            waypointIndex++;
+            waypointIndex %= waypoint.Length;
+
+            ChangeStatus(MonsterCurrentState.PATROL);
+            return;
+        }
+    }
+
+    void Patrol()
+    {
+        if (Search())
+        {
+            ChangeStatus(MonsterCurrentState.TRACK);
+            return;
+        }
+
+        // waypoint 움직임 및 변경
+        if (Vector2.SqrMagnitude(transform.position - waypoint[waypointIndex].position) < 0.01f)
+        {
+            ChangeStatus(MonsterCurrentState.IDLE);
+        }
+        else
+        {
+            transform.position = Vector2.MoveTowards(transform.position, waypoint[waypointIndex].position,
+                  Time.fixedDeltaTime * moveSpeed);
+        }
+    }
+
+    bool Search()
+    {
+        bool result = false;
+        Collider2D collider = Physics2D.OverlapCircle(this.transform.position, detectRadius, LayerMask.GetMask("Player"));
+
+        if (collider)
+        {
+            target = collider.transform.position;
+            result = true;
+        }
+
+        return result;
+    }
+
+    void Move_Monster()
+    {
+        rigid.position = Vector2.MoveTowards(rigid.position, target, moveSpeed * Time.fixedDeltaTime);
+
+
 
         // sprite 방향
         var cross = Vector3.Cross(trackDirection, this.transform.up);
@@ -148,55 +167,92 @@ public class Monsters : MonoBehaviour
             //Debug.Log("오른쪽이다.");
             sprite.flipX = false;
         }
+    }
 
-
-        // 공격사거리 관련
-        if (trackDirection.magnitude < attackRange && trackDirection.y < 0.1f)
+    void Track()
+    {
+        if (!Search())
         {
-            status = CurrentState.attack;
-            isAttack = true;
-            trackDirection = Vector2.zero;
+            ChangeStatus(MonsterCurrentState.IDLE);
+            return;
+        }
+
+        Move_Monster();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Triggered!");
+            ChangeStatus(MonsterCurrentState.ATTACK);
         }
     }
 
-    protected virtual IEnumerator Attack()
+    private IEnumerator Attack()
     {
-        while (status == CurrentState.attack)
+        while (true)
         {
-            if (trackDirection.magnitude < attackRange)
-            {
-                anim.SetBool("isMoving", false);
-                anim.SetTrigger("onAttack");
-            }
-            else if (trackDirection.magnitude > attackRange)
-            {
-                status = CurrentState.track;
-            }
+            anim.SetTrigger("onAttack");
             yield return new WaitForSeconds(attackDelay);
         }
     }
 
     private void OnHit()
     {
-        //anim.SetBool("isHit", true);
         anim.SetTrigger("onHit");
     }
 
-    private void OnTriggerEnter2D(Collider2D detection)
+    void ChangeStatus(MonsterCurrentState newState)
     {
-        if (detection.gameObject.CompareTag("Player"))
+        // On Status Exit
+        switch (status)
         {
-            status = CurrentState.track;
+            case MonsterCurrentState.IDLE:
+                break;
+            case MonsterCurrentState.PATROL:
+                break;
+            case MonsterCurrentState.TRACK:
+                break;
+            case MonsterCurrentState.ATTACK:
+                StopCoroutine(attack);
+                break;
+            case MonsterCurrentState.HIT:
+                break;
+            case MonsterCurrentState.DEAD:
+                break;
+            default:
+                break;
         }
+
+        // On Status Enter
+        switch (newState)
+        {
+            case MonsterCurrentState.IDLE:
+                trackDirection = Vector2.zero;
+                break;
+            case MonsterCurrentState.PATROL:
+                break;
+            case MonsterCurrentState.TRACK:
+                break;
+            case MonsterCurrentState.ATTACK:
+                StartCoroutine(attack);
+                break;
+            case MonsterCurrentState.HIT:
+                break;
+            case MonsterCurrentState.DEAD:
+                break;
+            default:
+                break;
+        }
+        status = newState;
+        anim.SetInteger("CurrentStatus", (int)newState);
     }
-    private void OnTriggerExit2D(Collider2D detection)
-    {
-        status = CurrentState.idle;
-    }
+
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(transform.position, attackRange);
-        //Gizmos.color = new Color(0.5f, 0.5f, 0.5f, 0.3f);
+        Handles.DrawWireDisc(this.transform.position, transform.forward, detectRadius);
+        Handles.DrawWireDisc(this.transform.position, transform.forward, trackDirection.magnitude);
     }
 }

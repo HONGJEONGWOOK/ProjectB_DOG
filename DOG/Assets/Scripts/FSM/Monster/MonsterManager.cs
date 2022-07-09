@@ -7,17 +7,19 @@ public class MonsterManager : MonoBehaviour
     private static MonsterManager instance = null;
     public static MonsterManager Inst { get => instance; }
 
-    private CircleCollider2D detectCollider = null;
-    private Transform target = null;
+    Monsters monster_Goblin = null;
+    Monster_Bow monster_Bow = null;
 
-    public CircleCollider2D DetectCollider { get => detectCollider; }
-    public Transform Target { get => target; }
+    public Monsters goblinInst { get => monster_Goblin; }
+    public Monster_Bow BowInst { get => monster_Bow; }
+
     private void Awake()
     {
         if (instance = null)
         {
             instance = this;
             instance.Initialize();
+            DontDestroyOnLoad(this.gameObject);
         }
         else
         {
@@ -26,20 +28,18 @@ public class MonsterManager : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
+<<<<<<< Updated upstream:DOG/Assets/Scripts/FSM/Monster/MonsterManager.cs
 
         detectCollider = FindObjectOfType<MonsterManager>().GetComponent<CircleCollider2D>();
         target = FindObjectOfType<Player_Move>().GetComponent<Transform>();
 
+=======
+>>>>>>> Stashed changes:DOG/Assets/Scripts/Monster/FSM/Monster/MonsterManager.cs
     }
 
     private void Initialize()
     {
-
-    }
-
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("Detected");
+        monster_Goblin = FindObjectOfType<Monsters>().GetComponent<Monsters>();
+        monster_Bow = FindObjectOfType<Monster_Bow>().GetComponent<Monster_Bow>();
     }
 }

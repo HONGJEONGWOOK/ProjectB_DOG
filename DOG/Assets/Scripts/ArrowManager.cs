@@ -8,8 +8,11 @@ public class ArrowManager : MonoBehaviour
     public Queue<GameObject> arrows;
     public GameObject arrow;
     private int ArrowNum = 30;
+    private int arrowDirecction = 1;
 
     public static ArrowManager Arrow_Instance { get => arrow_Instance; }
+
+    public int ArrowDirection { get => arrowDirecction; set { arrowDirecction = value; } }
     void Awake()
     {
         if (arrow_Instance == null)
