@@ -28,13 +28,6 @@ public class MonsterManager : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
-<<<<<<< Updated upstream:DOG/Assets/Scripts/FSM/Monster/MonsterManager.cs
-
-        detectCollider = FindObjectOfType<MonsterManager>().GetComponent<CircleCollider2D>();
-        //target = FindObjectOfType<Player_Move>().GetComponent<Transform>();
-
-=======
->>>>>>> Stashed changes:DOG/Assets/Scripts/Monster/FSM/Monster/MonsterManager.cs
     }
 
     private void Initialize()
