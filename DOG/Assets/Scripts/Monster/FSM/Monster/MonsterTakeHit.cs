@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Monster.Enums;
 
 public class MonsterTakeHit : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class MonsterTakeHit : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            goblin.status = Monsters.CurrentState.hit;
+            goblin.status = MonsterCurrentState.HIT;
         }
     }
 }

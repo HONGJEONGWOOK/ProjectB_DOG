@@ -40,12 +40,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 7730765985955779052}
     m_Modifications:
     - target: {fileID: 3414411039327232712, guid: 6783f7f9f1020554597096cf6f3cfe26, type: 3}
+      propertyPath: attackDelay
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3414411039327232712, guid: 6783f7f9f1020554597096cf6f3cfe26, type: 3}
       propertyPath: attackRange
-      value: 1.9
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 3414411039327232712, guid: 6783f7f9f1020554597096cf6f3cfe26, type: 3}
       propertyPath: detectRadius
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3414411039327232712, guid: 6783f7f9f1020554597096cf6f3cfe26, type: 3}
+      propertyPath: waypoint.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4203505491763373220, guid: 6783f7f9f1020554597096cf6f3cfe26, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6475941995298777375, guid: 6783f7f9f1020554597096cf6f3cfe26, type: 3}
       propertyPath: m_Radius
@@ -97,7 +109,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8455920291223352766, guid: 6783f7f9f1020554597096cf6f3cfe26, type: 3}
       propertyPath: m_Name
-      value: Bow
+      value: Monster_Bow
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6783f7f9f1020554597096cf6f3cfe26, type: 3}
