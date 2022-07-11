@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - WeaponSlot
   layers:
   - Default
   - TransparentFX
@@ -40,4 +41,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2146637799
+    locked: 0
+  - name: WeaponSlot
+    uniqueID: 734136763
+    locked: 0
+  - name: WeaponSwitch
+    uniqueID: 2385340999
     locked: 0
