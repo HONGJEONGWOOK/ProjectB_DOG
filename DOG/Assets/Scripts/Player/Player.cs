@@ -27,14 +27,19 @@ public class Player : MonoBehaviour
 
 
    
+
+
+   
     private void Awake()
     {
-       
+        
         actions = new PlayerInputActions();
         rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        //equipWeapon = new Weapon();
+        
 
+        
+        
         currentHP = hp;
     }
    
@@ -61,16 +66,7 @@ public class Player : MonoBehaviour
     
     private void FixedUpdate()
     {
-        //hpSlider.maxValue = hp;
-        //hpSlider2.maxValue = hp;
-
-        //hpSlider.value = currentHP;
-        //hpSlider2.value = currentHP;
-
-        /*if (currentHP > 0)
-        {
-            currentHP -= 0.1f;
-        }*/
+        
         Move();
 
         Debug.DrawRay(rigid.position, direction * 1.0f, new Color(0, 1, 0));
@@ -83,6 +79,8 @@ public class Player : MonoBehaviour
         {
             scanObject = null;
         }
+
+        //HpControlor();
     }
 
     private void Move()
@@ -100,9 +98,24 @@ public class Player : MonoBehaviour
         {
             manager.AskAction(scanObject);
         }
+        Weapon.instance.Swing();
 
+        
     }
 
+   /* private void HpControlor()
+    {
+        hpSlider.maxValue = hp;
+        hpSlider2.maxValue = hp;
+
+        hpSlider.value = currentHP;
+        hpSlider2.value = currentHP;
+
+        if (currentHP > 0.1)
+        {
+            currentHP -= 0.1f;
+        }
+    }*/
 
     private void OnMoveInput(InputAction.CallbackContext context)
     {

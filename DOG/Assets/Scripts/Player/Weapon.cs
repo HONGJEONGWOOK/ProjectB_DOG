@@ -5,33 +5,37 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
 
+    
 
-    public enum Type { Melee,Range};
-    public Type type;
-    public int damage;
-    public float rate;
-    public BoxCollider2D mellArea;
-    public TrailRenderer trailEffect;
+    public static Weapon instance;
 
-    public void Use()
+    Animator anim;
+    BoxCollider2D box;
+
+    private void Awake()
     {
-        if (type == Type.Melee)
-        {
-            StopCoroutine("Swing");
-            StartCoroutine("Swing");
-        }
+        instance = this;
+
+        anim = GetComponent<Animator>();
+        box = GetComponentInChildren<BoxCollider2D>();
     }
 
-    IEnumerator Swing()
+
+    public void Swing()
     {
-        yield return new WaitForSeconds(0.1f);
-        mellArea.enabled = true;
-        trailEffect.enabled = true;
+        box.enabled = true;
+        
+        anim.SetTrigger("Attack");
 
-        yield return new WaitForSeconds(0.3f);
-        mellArea.enabled = false;
-
-        yield return new WaitForSeconds(0.3f);
-        trailEffect.enabled = false;
+        Invoke("OffBox", 1.0f);
+        
     }
+
+    public void OffBox()
+    {
+        box.enabled = false;
+    }
+
+
+
 }
