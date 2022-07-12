@@ -1,0 +1,6513 @@
+fileFormatVersion: 2
+guid: 49ebf7de40457d84495983a6734b2c68
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8163881058519588145
+    second: Grass16_Minifantasy_ForgottenPlainsTiles_0
+  - first:
+      213: 8170302452853305954
+    second: Grass17_Minifantasy_ForgottenPlainsTiles_1
+  - first:
+      213: 6194187767919663805
+    second: Grass18_Minifantasy_ForgottenPlainsTiles_2
+  - first:
+      213: 9217061925416098833
+    second: Grass19_Minifantasy_ForgottenPlainsTiles_3
+  - first:
+      213: -7910306303201999464
+    second: Dirt19_Minifantasy_ForgottenPlainsTiles_4
+  - first:
+      213: -405098324259038093
+    second: Dirt16_Minifantasy_ForgottenPlainsTiles_5
+  - first:
+      213: -6510359806332002992
+    second: Dirt17_Minifantasy_ForgottenPlainsTiles_6
+  - first:
+      213: 4455865136271514690
+    second: Dirt18_Minifantasy_ForgottenPlainsTiles_7
+  - first:
+      213: -526908632251229320
+    second: Cliff36_Minifantasy_ForgottenPlainsTiles_8
+  - first:
+      213: -4914212286587763718
+    second: Cliff37_Minifantasy_ForgottenPlainsTiles_9
+  - first:
+      213: 2074992903299538766
+    second: Cliff38_Minifantasy_ForgottenPlainsTiles_10
+  - first:
+      213: -4416118572682991526
+    second: HillRed_Minifantasy_ForgottenPlainsTiles_11
+  - first:
+      213: 5814508574505517240
+    second: Hill57_Minifantasy_ForgottenPlainsTiles_12
+  - first:
+      213: 5402989614622835303
+    second: HillDiagonal1_Minifantasy_ForgottenPlainsTiles_13
+  - first:
+      213: 5444163818856308123
+    second: HillDiagonal2_Minifantasy_ForgottenPlainsTiles_14
+  - first:
+      213: 5261281921886370080
+    second: HillDiagonal3_Minifantasy_ForgottenPlainsTiles_15
+  - first:
+      213: -4043459509603987514
+    second: HillDiagonal4_Minifantasy_ForgottenPlainsTiles_16
+  - first:
+      213: -696654465008527618
+    second: Grass1_Minifantasy_ForgottenPlainsTiles_17
+  - first:
+      213: -6723554196787993037
+    second: Grass2_Minifantasy_ForgottenPlainsTiles_18
+  - first:
+      213: 4959342113610361446
+    second: Grass3_Minifantasy_ForgottenPlainsTiles_19
+  - first:
+      213: 2634119036987483898
+    second: Dirt1_Minifantasy_ForgottenPlainsTiles_20
+  - first:
+      213: -1875059082174145934
+    second: Dirt2_Minifantasy_ForgottenPlainsTiles_21
+  - first:
+      213: -8988517981366986819
+    second: Dirt3_Minifantasy_ForgottenPlainsTiles_22
+  - first:
+      213: -322706168206865058
+    second: Cobblestone1_Minifantasy_ForgottenPlainsTiles_23
+  - first:
+      213: 2975530826323893400
+    second: Cobblestone2_Minifantasy_ForgottenPlainsTiles_24
+  - first:
+      213: -7451596547521832489
+    second: Cobblestone3_Minifantasy_ForgottenPlainsTiles_25
+  - first:
+      213: -5524295968405812971
+    second: Cobblestone16_Minifantasy_ForgottenPlainsTiles_26
+  - first:
+      213: -4271812543496821812
+    second: Cobblestone17_Minifantasy_ForgottenPlainsTiles_27
+  - first:
+      213: -6015679772019069520
+    second: Cobblestone18_Minifantasy_ForgottenPlainsTiles_28
+  - first:
+      213: 3862306132930967525
+    second: Cobblestone31_Minifantasy_ForgottenPlainsTiles_29
+  - first:
+      213: -7863711057116192080
+    second: Cobblestone32_Minifantasy_ForgottenPlainsTiles_30
+  - first:
+      213: 3788468917655773827
+    second: Cobblestone33_Minifantasy_ForgottenPlainsTiles_31
+  - first:
+      213: -5168040815232592561
+    second: LakeGrass1a_Minifantasy_ForgottenPlainsTiles_32
+  - first:
+      213: 3765233093305786911
+    second: LakeGrass2a_Minifantasy_ForgottenPlainsTiles_33
+  - first:
+      213: -3093023096474644574
+    second: LakeGrass3a_Minifantasy_ForgottenPlainsTiles_34
+  - first:
+      213: -5311050402585112350
+    second: LakeGrass1b_Minifantasy_ForgottenPlainsTiles_35
+  - first:
+      213: -6506514647827721572
+    second: LakeGrass2b_Minifantasy_ForgottenPlainsTiles_36
+  - first:
+      213: -3233832380815565200
+    second: LakeGrass3b_Minifantasy_ForgottenPlainsTiles_37
+  - first:
+      213: 6310122605123573066
+    second: HillDiagonal5_Minifantasy_ForgottenPlainsTiles_38
+  - first:
+      213: 8331141037414878666
+    second: HillDiagonal6_Minifantasy_ForgottenPlainsTiles_39
+  - first:
+      213: -6887149896287967767
+    second: HillDiagonal7_Minifantasy_ForgottenPlainsTiles_40
+  - first:
+      213: -2723166384715657677
+    second: HillDiagonal8_Minifantasy_ForgottenPlainsTiles_41
+  - first:
+      213: -8112496800722139697
+    second: Grass4_Minifantasy_ForgottenPlainsTiles_42
+  - first:
+      213: 8892620804246492495
+    second: Grass5_Minifantasy_ForgottenPlainsTiles_43
+  - first:
+      213: 1855472826433282859
+    second: Grass6_Minifantasy_ForgottenPlainsTiles_44
+  - first:
+      213: -4347491678797418330
+    second: Dirt4_Minifantasy_ForgottenPlainsTiles_45
+  - first:
+      213: 379406905535426505
+    second: Dirt5_Minifantasy_ForgottenPlainsTiles_46
+  - first:
+      213: -1748832395696345806
+    second: Dirt6_Minifantasy_ForgottenPlainsTiles_47
+  - first:
+      213: -8706433476318823229
+    second: Cobblestone4_Minifantasy_ForgottenPlainsTiles_48
+  - first:
+      213: -7603092456225813721
+    second: Cobblestone5_Minifantasy_ForgottenPlainsTiles_49
+  - first:
+      213: -3737707458618277094
+    second: Cobblestone6_Minifantasy_ForgottenPlainsTiles_50
+  - first:
+      213: -5360660620944690164
+    second: Cobblestone19_Minifantasy_ForgottenPlainsTiles_51
+  - first:
+      213: -6189812000013468590
+    second: Cobblestone20_Minifantasy_ForgottenPlainsTiles_52
+  - first:
+      213: -8124086799710556490
+    second: Cobblestone21_Minifantasy_ForgottenPlainsTiles_53
+  - first:
+      213: -8681114602919847155
+    second: Cobblestone34_Minifantasy_ForgottenPlainsTiles_54
+  - first:
+      213: -38588482260016299
+    second: Cobblestone35_Minifantasy_ForgottenPlainsTiles_55
+  - first:
+      213: -9112105784952453106
+    second: Cobblestone36_Minifantasy_ForgottenPlainsTiles_56
+  - first:
+      213: -3123210492697546674
+    second: LakeGrass4a_Minifantasy_ForgottenPlainsTiles_57
+  - first:
+      213: 8769477312700077242
+    second: LakeGrass5a_Minifantasy_ForgottenPlainsTiles_58
+  - first:
+      213: -7470577720828876
+    second: LakeGrass6a_Minifantasy_ForgottenPlainsTiles_59
+  - first:
+      213: 14565115268857
+    second: LakeGrass4b_Minifantasy_ForgottenPlainsTiles_60
+  - first:
+      213: 7077750735549151254
+    second: LakeGrass5b_Minifantasy_ForgottenPlainsTiles_61
+  - first:
+      213: 9218296383687302457
+    second: LakeGrass6b_Minifantasy_ForgottenPlainsTiles_62
+  - first:
+      213: -7755726384519209558
+    second: HillDiagonal9_Minifantasy_ForgottenPlainsTiles_63
+  - first:
+      213: 3791333211163139352
+    second: HillDiagonal10_Minifantasy_ForgottenPlainsTiles_64
+  - first:
+      213: 4553033935373241965
+    second: Hill58_Minifantasy_ForgottenPlainsTiles_65
+  - first:
+      213: -7096800926602032771
+    second: PathRed_Minifantasy_ForgottenPlainsTiles_66
+  - first:
+      213: -2312857263472460830
+    second: DirtRed_Minifantasy_ForgottenPlainsTiles_67
+  - first:
+      213: 4176888712659698878
+    second: GrassRed_Minifantasy_ForgottenPlainsTiles_68
+  - first:
+      213: -3587659183287784021
+    second: CobblestoneRed1_Minifantasy_ForgottenPlainsTiles_69
+  - first:
+      213: -1391373748628232827
+    second: Grass7_Minifantasy_ForgottenPlainsTiles_70
+  - first:
+      213: 7834792174395292375
+    second: Grass8_Minifantasy_ForgottenPlainsTiles_71
+  - first:
+      213: 4597406943155738836
+    second: Grass9_Minifantasy_ForgottenPlainsTiles_72
+  - first:
+      213: 7663075464098576306
+    second: Dirt7_Minifantasy_ForgottenPlainsTiles_73
+  - first:
+      213: -8469148042810489581
+    second: Dirt8_Minifantasy_ForgottenPlainsTiles_74
+  - first:
+      213: 8807267928992789121
+    second: Dirt9_Minifantasy_ForgottenPlainsTiles_75
+  - first:
+      213: 5797141495302184475
+    second: Cobblestone7_Minifantasy_ForgottenPlainsTiles_76
+  - first:
+      213: 1346658296133103896
+    second: Cobblestone8_Minifantasy_ForgottenPlainsTiles_77
+  - first:
+      213: 5428996616675934595
+    second: Cobblestone9_Minifantasy_ForgottenPlainsTiles_78
+  - first:
+      213: 3934320468523223389
+    second: Cobblestone22_Minifantasy_ForgottenPlainsTiles_79
+  - first:
+      213: 7915624992077606304
+    second: Cobblestone23_Minifantasy_ForgottenPlainsTiles_80
+  - first:
+      213: 807601458871330183
+    second: Cobblestone24_Minifantasy_ForgottenPlainsTiles_81
+  - first:
+      213: 2133669709595634281
+    second: Cobblestone37_Minifantasy_ForgottenPlainsTiles_82
+  - first:
+      213: 3258529250474653698
+    second: Cobblestone38_Minifantasy_ForgottenPlainsTiles_83
+  - first:
+      213: 4413147969798166273
+    second: Cobblestone39_Minifantasy_ForgottenPlainsTiles_84
+  - first:
+      213: -5142985224987346401
+    second: LakeGrass7a_Minifantasy_ForgottenPlainsTiles_85
+  - first:
+      213: 7307207491082985977
+    second: LakeGrass8a_Minifantasy_ForgottenPlainsTiles_86
+  - first:
+      213: 6376822986008453909
+    second: LakeGrass9a_Minifantasy_ForgottenPlainsTiles_87
+  - first:
+      213: -1456378614208964141
+    second: LakeGrass7b_Minifantasy_ForgottenPlainsTiles_88
+  - first:
+      213: -3163642778822800188
+    second: LakeGrass8b_Minifantasy_ForgottenPlainsTiles_89
+  - first:
+      213: -8905371680243631910
+    second: LakeGrass9b_Minifantasy_ForgottenPlainsTiles_90
+  - first:
+      213: -8455904629307353324
+    second: HillDiagonal11_Minifantasy_ForgottenPlainsTiles_91
+  - first:
+      213: 4817575310218823017
+    second: HillDiagonal12_Minifantasy_ForgottenPlainsTiles_92
+  - first:
+      213: -6041122909637212217
+    second: HillDiagonal13_Minifantasy_ForgottenPlainsTiles_93
+  - first:
+      213: 7934691992143355554
+    second: HillDiagonal14_Minifantasy_ForgottenPlainsTiles_94
+  - first:
+      213: 1526557158510595095
+    second: HillDiagonal15_Minifantasy_ForgottenPlainsTiles_95
+  - first:
+      213: -9222978030060188490
+    second: HillDiagonal16_Minifantasy_ForgottenPlainsTiles_96
+  - first:
+      213: -2110042712347727191
+    second: CobblestoneRed2_Minifantasy_ForgottenPlainsTiles_97
+  - first:
+      213: 1006085810292343893
+    second: CobblestoneRed3_Minifantasy_ForgottenPlainsTiles_98
+  - first:
+      213: -1166011962993991456
+    second: CobblestoneRed4_Minifantasy_ForgottenPlainsTiles_99
+  - first:
+      213: -5049927526407010635
+    second: CobblestoneRed5_Minifantasy_ForgottenPlainsTiles_100
+  - first:
+      213: 3678162888181693533
+    second: CobblestoneRed6_Minifantasy_ForgottenPlainsTiles_101
+  - first:
+      213: 6972464331449536496
+    second: Grass10_Minifantasy_ForgottenPlainsTiles_102
+  - first:
+      213: -895709937133249447
+    second: Grass11_Minifantasy_ForgottenPlainsTiles_103
+  - first:
+      213: 1433732898496577818
+    second: Grass12_Minifantasy_ForgottenPlainsTiles_104
+  - first:
+      213: -5908335885316342472
+    second: Dirt10_Minifantasy_ForgottenPlainsTiles_105
+  - first:
+      213: 3168479926340215187
+    second: Dirt11_Minifantasy_ForgottenPlainsTiles_106
+  - first:
+      213: -621620952382282789
+    second: Dirt12_Minifantasy_ForgottenPlainsTiles_107
+  - first:
+      213: 2383556733372750088
+    second: Cobblestone10_Minifantasy_ForgottenPlainsTiles_108
+  - first:
+      213: -3711402455772129382
+    second: Cobblestone11_Minifantasy_ForgottenPlainsTiles_109
+  - first:
+      213: 1931152706404973021
+    second: Cobblestone12_Minifantasy_ForgottenPlainsTiles_110
+  - first:
+      213: -772338997196136994
+    second: Cobblestone25_Minifantasy_ForgottenPlainsTiles_111
+  - first:
+      213: -827670085130584023
+    second: Cobblestone26_Minifantasy_ForgottenPlainsTiles_112
+  - first:
+      213: -8842103600094942649
+    second: Cobblestone27_Minifantasy_ForgottenPlainsTiles_113
+  - first:
+      213: 3682547688303539920
+    second: Cobblestone40_Minifantasy_ForgottenPlainsTiles_114
+  - first:
+      213: 7527292512489313705
+    second: Cobblestone41_Minifantasy_ForgottenPlainsTiles_115
+  - first:
+      213: -3668181590615008542
+    second: Cobblestone42_Minifantasy_ForgottenPlainsTiles_116
+  - first:
+      213: -2202592744467658255
+    second: LakeGrass10a_Minifantasy_ForgottenPlainsTiles_117
+  - first:
+      213: -5815736184513189670
+    second: LakeGrass11a_Minifantasy_ForgottenPlainsTiles_118
+  - first:
+      213: 2186427529521710212
+    second: LakeGrass12a_Minifantasy_ForgottenPlainsTiles_119
+  - first:
+      213: -1246188947823022559
+    second: LakeGrass10b_Minifantasy_ForgottenPlainsTiles_120
+  - first:
+      213: -2715241273640187481
+    second: LakeGrass11b_Minifantasy_ForgottenPlainsTiles_121
+  - first:
+      213: 7066067342859227769
+    second: LakeGrass12b_Minifantasy_ForgottenPlainsTiles_122
+  - first:
+      213: -4961990447109663054
+    second: HillDiagonal17_Minifantasy_ForgottenPlainsTiles_123
+  - first:
+      213: -7809030099707359554
+    second: HillDiagonal18_Minifantasy_ForgottenPlainsTiles_124
+  - first:
+      213: -8553607410600719413
+    second: HillDiagonal19_Minifantasy_ForgottenPlainsTiles_125
+  - first:
+      213: -3381869503581607680
+    second: HillDiagonal20_Minifantasy_ForgottenPlainsTiles_126
+  - first:
+      213: -5852996969169418061
+    second: CliffRed_Minifantasy_ForgottenPlainsTiles_127
+  - first:
+      213: -9125520848482850863
+    second: LakeRed1_Minifantasy_ForgottenPlainsTiles_128
+  - first:
+      213: -5598943059628661997
+    second: LakeRed2_Minifantasy_ForgottenPlainsTiles_129
+  - first:
+      213: -9018199023828282346
+    second: CliffWallRed1_Minifantasy_ForgottenPlainsTiles_130
+  - first:
+      213: -1989101455663105290
+    second: CliffWallRed2_Minifantasy_ForgottenPlainsTiles_131
+  - first:
+      213: -2736357235925509484
+    second: CliffWallRed3_Minifantasy_ForgottenPlainsTiles_132
+  - first:
+      213: 2408291586703569826
+    second: CliffStairsRed_Minifantasy_ForgottenPlainsTiles_133
+  - first:
+      213: 9158298232193234603
+    second: Grass13_Minifantasy_ForgottenPlainsTiles_134
+  - first:
+      213: 5548967055928398283
+    second: Grass14_Minifantasy_ForgottenPlainsTiles_135
+  - first:
+      213: 5601282923502899091
+    second: Grass15_Minifantasy_ForgottenPlainsTiles_136
+  - first:
+      213: -6349967763104249912
+    second: Dirt13_Minifantasy_ForgottenPlainsTiles_137
+  - first:
+      213: -4383200904871947276
+    second: Dirt14_Minifantasy_ForgottenPlainsTiles_138
+  - first:
+      213: 8108014313574528216
+    second: Dirt15_Minifantasy_ForgottenPlainsTiles_139
+  - first:
+      213: 5555387919399740626
+    second: Cobblestone13_Minifantasy_ForgottenPlainsTiles_140
+  - first:
+      213: -3032784720682111644
+    second: Cobblestone14_Minifantasy_ForgottenPlainsTiles_141
+  - first:
+      213: 2573619400469118381
+    second: Cobblestone15_Minifantasy_ForgottenPlainsTiles_142
+  - first:
+      213: -4937974188585387277
+    second: Cobblestone28_Minifantasy_ForgottenPlainsTiles_143
+  - first:
+      213: -4052161693322161772
+    second: Cobblestone29_Minifantasy_ForgottenPlainsTiles_144
+  - first:
+      213: 5722932829261651997
+    second: Cobblestone30_Minifantasy_ForgottenPlainsTiles_145
+  - first:
+      213: 7385040703868274097
+    second: Cobblestone43_Minifantasy_ForgottenPlainsTiles_146
+  - first:
+      213: -4131358018784568616
+    second: Cobblestone44_Minifantasy_ForgottenPlainsTiles_147
+  - first:
+      213: 8764171547743228341
+    second: Cobblestone45_Minifantasy_ForgottenPlainsTiles_148
+  - first:
+      213: -2898857517003678170
+    second: LakeGrass13a_Minifantasy_ForgottenPlainsTiles_149
+  - first:
+      213: 723821681983666684
+    second: LakeGrass14a_Minifantasy_ForgottenPlainsTiles_150
+  - first:
+      213: 537062328767693549
+    second: LakeGrass15a_Minifantasy_ForgottenPlainsTiles_151
+  - first:
+      213: 7727157871311100431
+    second: LakeGrass13b_Minifantasy_ForgottenPlainsTiles_152
+  - first:
+      213: 6448933789285281108
+    second: LakeGrass14b_Minifantasy_ForgottenPlainsTiles_153
+  - first:
+      213: 4265465359916075392
+    second: LakeGrass15b_Minifantasy_ForgottenPlainsTiles_154
+  - first:
+      213: 4313757523190542780
+    second: Cliff_40
+  - first:
+      213: -3060297750224214528
+    second: Cliff_39
+  - first:
+      213: -7188676492307289244
+    second: Cliff_41
+  - first:
+      213: 5246455030725327739
+    second: Cliff_42
+  - first:
+      213: -1264883426487150002
+    second: Cliff_44
+  - first:
+      213: -7656697386457067451
+    second: Cliff_43
+  - first:
+      213: 5421150664290682031
+    second: Cliff_45
+  - first:
+      213: -5330671388224781540
+    second: Cliff_46
+  - first:
+      213: -7966482895178238964
+    second: Cliff_47
+  - first:
+      213: -8717160545582013568
+    second: Cliff_48
+  - first:
+      213: 8263000620674300320
+    second: Cliff_49
+  - first:
+      213: 5011238533703800083
+    second: Cliff_53
+  - first:
+      213: -1742090798937858409
+    second: Cliff_54
+  - first:
+      213: -5100347621746568231
+    second: Cliff_50
+  - first:
+      213: 1653049901306399264
+    second: Cliff_51
+  - first:
+      213: -279105542158766551
+    second: Cliff_52
+  - first:
+      213: 7465698656167621756
+    second: Cliff_55
+  - first:
+      213: 6450478762909504066
+    second: Cliff_56
+  - first:
+      213: -8443621086643762005
+    second: Hill24_Minifantasy_ForgottenPlainsTiles_173
+  - first:
+      213: -1655162350319030573
+    second: Cliff_57
+  - first:
+      213: 2357794600575852240
+    second: Cliff_58
+  - first:
+      213: 1098476660468066413
+    second: Cliff_59
+  - first:
+      213: -5070576785175143232
+    second: Cliff_60
+  - first:
+      213: 3679757800925825656
+    second: Cliff_61
+  - first:
+      213: 3747903619694936343
+    second: Minifantasy_ForgottenPlainsTiles_179
+  - first:
+      213: 1233496076871670474
+    second: Minifantasy_ForgottenPlainsTiles_180
+  - first:
+      213: -6796238685341116380
+    second: Minifantasy_ForgottenPlainsTiles_181
+  - first:
+      213: -1100752599012024412
+    second: Minifantasy_ForgottenPlainsTiles_182
+  - first:
+      213: -4572828363646193642
+    second: Minifantasy_ForgottenPlainsTiles_183
+  - first:
+      213: 4247891325488191012
+    second: Minifantasy_ForgottenPlainsTiles_184
+  - first:
+      213: -7109243391913847170
+    second: Minifantasy_ForgottenPlainsTiles_185
+  - first:
+      213: -205706959720785367
+    second: Minifantasy_ForgottenPlainsTiles_186
+  - first:
+      213: 6581111628873336390
+    second: Minifantasy_ForgottenPlainsTiles_187
+  - first:
+      213: 8959508035613836270
+    second: Minifantasy_ForgottenPlainsTiles_188
+  - first:
+      213: -43727059442874723
+    second: Minifantasy_ForgottenPlainsTiles_189
+  - first:
+      213: -3608444621380901435
+    second: Minifantasy_ForgottenPlainsTiles_190
+  - first:
+      213: 3581150737322521634
+    second: Minifantasy_ForgottenPlainsTiles_191
+  - first:
+      213: -7583777823891987096
+    second: Cliff1_Minifantasy_ForgottenPlainsTiles_192
+  - first:
+      213: -628898891973736699
+    second: Cliff2_Minifantasy_ForgottenPlainsTiles_193
+  - first:
+      213: -2273810267464160379
+    second: Cliff3_Minifantasy_ForgottenPlainsTiles_194
+  - first:
+      213: -554320492150209318
+    second: Cobblestone46_Minifantasy_ForgottenPlainsTiles_195
+  - first:
+      213: 7631723066359359052
+    second: Cobblestone47_Minifantasy_ForgottenPlainsTiles_196
+  - first:
+      213: 4824316627741258146
+    second: Cobblestone48_Minifantasy_ForgottenPlainsTiles_197
+  - first:
+      213: 5477503974785937359
+    second: Cobblestone61_Minifantasy_ForgottenPlainsTiles_198
+  - first:
+      213: -8744844952341063642
+    second: Cobblestone62_Minifantasy_ForgottenPlainsTiles_199
+  - first:
+      213: -7516508778161660496
+    second: Cobblestone63_Minifantasy_ForgottenPlainsTiles_200
+  - first:
+      213: -2533802426284823840
+    second: Cobblestone76_Minifantasy_ForgottenPlainsTiles_201
+  - first:
+      213: -6595815651991560548
+    second: Cobblestone77_Minifantasy_ForgottenPlainsTiles_202
+  - first:
+      213: -6328784598117176427
+    second: Cobblestone78_Minifantasy_ForgottenPlainsTiles_203
+  - first:
+      213: -6172919280516811109
+    second: LakeDirt1a_Minifantasy_ForgottenPlainsTiles_204
+  - first:
+      213: 3425367079500313002
+    second: LakeDirt2a_Minifantasy_ForgottenPlainsTiles_205
+  - first:
+      213: -2734967884921206326
+    second: LakeDirt3a_Minifantasy_ForgottenPlainsTiles_206
+  - first:
+      213: 4501610876014118498
+    second: LakeDirt1b_Minifantasy_ForgottenPlainsTiles_207
+  - first:
+      213: -7633760841724850862
+    second: LakeDirt2b_Minifantasy_ForgottenPlainsTiles_208
+  - first:
+      213: -3620536133939249470
+    second: LakeDirt3b_Minifantasy_ForgottenPlainsTiles_209
+  - first:
+      213: 8399395247733357832
+    second: Minifantasy_ForgottenPlainsTiles_210
+  - first:
+      213: 5579505641975002516
+    second: Minifantasy_ForgottenPlainsTiles_211
+  - first:
+      213: 8127113082684736744
+    second: Minifantasy_ForgottenPlainsTiles_212
+  - first:
+      213: 2713703042023058453
+    second: Minifantasy_ForgottenPlainsTiles_213
+  - first:
+      213: 7463103889375851136
+    second: Minifantasy_ForgottenPlainsTiles_214
+  - first:
+      213: -2547548385029118949
+    second: Minifantasy_ForgottenPlainsTiles_215
+  - first:
+      213: -3344575269546130938
+    second: Minifantasy_ForgottenPlainsTiles_216
+  - first:
+      213: 6342386268669131769
+    second: Minifantasy_ForgottenPlainsTiles_217
+  - first:
+      213: 7840176113496837190
+    second: Minifantasy_ForgottenPlainsTiles_218
+  - first:
+      213: 1715753549759761407
+    second: Minifantasy_ForgottenPlainsTiles_219
+  - first:
+      213: 4600188226519834266
+    second: Minifantasy_ForgottenPlainsTiles_220
+  - first:
+      213: 634357765001926492
+    second: Minifantasy_ForgottenPlainsTiles_221
+  - first:
+      213: 6433040083250553733
+    second: Minifantasy_ForgottenPlainsTiles_222
+  - first:
+      213: -852360432762036371
+    second: Minifantasy_ForgottenPlainsTiles_223
+  - first:
+      213: 3928130086521422914
+    second: Hill42_Minifantasy_ForgottenPlainsTiles_224
+  - first:
+      213: 6888916561447043941
+    second: Hill43_Minifantasy_ForgottenPlainsTiles_225
+  - first:
+      213: 7237122973246035534
+    second: Minifantasy_ForgottenPlainsTiles_226
+  - first:
+      213: -8545279310203012296
+    second: Minifantasy_ForgottenPlainsTiles_227
+  - first:
+      213: -5030523904975785982
+    second: Minifantasy_ForgottenPlainsTiles_228
+  - first:
+      213: -69300549083361346
+    second: Minifantasy_ForgottenPlainsTiles_229
+  - first:
+      213: -7372045939530811911
+    second: Minifantasy_ForgottenPlainsTiles_230
+  - first:
+      213: -8141547397989764434
+    second: Minifantasy_ForgottenPlainsTiles_231
+  - first:
+      213: 7745615542522424125
+    second: Minifantasy_ForgottenPlainsTiles_232
+  - first:
+      213: 8135113248249079757
+    second: Minifantasy_ForgottenPlainsTiles_233
+  - first:
+      213: -5854889565462491514
+    second: Minifantasy_ForgottenPlainsTiles_234
+  - first:
+      213: -6834347440270916541
+    second: Hill55_Minifantasy_ForgottenPlainsTiles_235
+  - first:
+      213: 6515670418458428080
+    second: Hill56_Minifantasy_ForgottenPlainsTiles_236
+  - first:
+      213: 7049501812705623691
+    second: Cliff16_Minifantasy_ForgottenPlainsTiles_237
+  - first:
+      213: -3037922311549652288
+    second: Cliff4_Minifantasy_ForgottenPlainsTiles_238
+  - first:
+      213: 4319082817293394212
+    second: Cliff5_Minifantasy_ForgottenPlainsTiles_239
+  - first:
+      213: -5689352404372570758
+    second: Cliff6_Minifantasy_ForgottenPlainsTiles_240
+  - first:
+      213: 1078208664054038751
+    second: Cobblestone49_Minifantasy_ForgottenPlainsTiles_241
+  - first:
+      213: -3698025751066974641
+    second: Cobblestone50_Minifantasy_ForgottenPlainsTiles_242
+  - first:
+      213: -8893890985848954956
+    second: Cobblestone51_Minifantasy_ForgottenPlainsTiles_243
+  - first:
+      213: 238488608736778264
+    second: Cobblestone64_Minifantasy_ForgottenPlainsTiles_244
+  - first:
+      213: -2800661900902505749
+    second: Cobblestone65_Minifantasy_ForgottenPlainsTiles_245
+  - first:
+      213: -2189924741227308238
+    second: Cobblestone66_Minifantasy_ForgottenPlainsTiles_246
+  - first:
+      213: 7744404587916001556
+    second: Cobblestone79_Minifantasy_ForgottenPlainsTiles_247
+  - first:
+      213: -253395684201487199
+    second: Cobblestone80_Minifantasy_ForgottenPlainsTiles_248
+  - first:
+      213: -8096298417172543951
+    second: Cobblestone81_Minifantasy_ForgottenPlainsTiles_249
+  - first:
+      213: -3001279636277510845
+    second: LakeDirt4a_Minifantasy_ForgottenPlainsTiles_250
+  - first:
+      213: 2020650358091822098
+    second: LakeDirt5a_Minifantasy_ForgottenPlainsTiles_251
+  - first:
+      213: -787192361124865296
+    second: LakeDirt6a_Minifantasy_ForgottenPlainsTiles_252
+  - first:
+      213: 9200567803777883369
+    second: LakeDirt4b_Minifantasy_ForgottenPlainsTiles_253
+  - first:
+      213: -6011278852249763683
+    second: LakeDirt5b_Minifantasy_ForgottenPlainsTiles_254
+  - first:
+      213: 3396118314492644049
+    second: LakeDirt6b_Minifantasy_ForgottenPlainsTiles_255
+  - first:
+      213: -1426443488887083965
+    second: Hill2_Minifantasy_ForgottenPlainsTiles_256
+  - first:
+      213: 6659268368480765483
+    second: Hill23_Minifantasy_ForgottenPlainsTiles_257
+  - first:
+      213: 5393140126197990368
+    second: Minifantasy_ForgottenPlainsTiles_258
+  - first:
+      213: -3517410314370050647
+    second: Hill22_Minifantasy_ForgottenPlainsTiles_259
+  - first:
+      213: -8994448137459846622
+    second: Minifantasy_ForgottenPlainsTiles_260
+  - first:
+      213: 723356617888387579
+    second: Hill20_Minifantasy_ForgottenPlainsTiles_261
+  - first:
+      213: 2414985739340026875
+    second: Minifantasy_ForgottenPlainsTiles_262
+  - first:
+      213: 6892322623397516774
+    second: Hill25_Minifantasy_ForgottenPlainsTiles_263
+  - first:
+      213: -2050651067973404110
+    second: Hill19_Minifantasy_ForgottenPlainsTiles_264
+  - first:
+      213: 5869068167950956315
+    second: Hill26_Minifantasy_ForgottenPlainsTiles_265
+  - first:
+      213: -8275674477664619241
+    second: Minifantasy_ForgottenPlainsTiles_266
+  - first:
+      213: -7252125267359369137
+    second: Minifantasy_ForgottenPlainsTiles_267
+  - first:
+      213: 545970602336363652
+    second: Minifantasy_ForgottenPlainsTiles_268
+  - first:
+      213: -8478800304520180929
+    second: Minifantasy_ForgottenPlainsTiles_269
+  - first:
+      213: 8444334811860612763
+    second: Minifantasy_ForgottenPlainsTiles_270
+  - first:
+      213: 2793138919998800880
+    second: Minifantasy_ForgottenPlainsTiles_271
+  - first:
+      213: -7807000815124366310
+    second: Minifantasy_ForgottenPlainsTiles_272
+  - first:
+      213: 3141184343605105841
+    second: Hill41_Minifantasy_ForgottenPlainsTiles_273
+  - first:
+      213: -4871598930721691187
+    second: Minifantasy_ForgottenPlainsTiles_274
+  - first:
+      213: -8749472929602134184
+    second: Hill44_Minifantasy_ForgottenPlainsTiles_275
+  - first:
+      213: 8826753796458004173
+    second: Minifantasy_ForgottenPlainsTiles_276
+  - first:
+      213: 5547914544599251721
+    second: Minifantasy_ForgottenPlainsTiles_277
+  - first:
+      213: -7200938955286600942
+    second: Minifantasy_ForgottenPlainsTiles_278
+  - first:
+      213: -5811757707384356791
+    second: Minifantasy_ForgottenPlainsTiles_279
+  - first:
+      213: -9208134942086375813
+    second: Minifantasy_ForgottenPlainsTiles_280
+  - first:
+      213: 4199168717265787416
+    second: Minifantasy_ForgottenPlainsTiles_281
+  - first:
+      213: -8388184456010931237
+    second: Minifantasy_ForgottenPlainsTiles_282
+  - first:
+      213: -6313504033367160130
+    second: Minifantasy_ForgottenPlainsTiles_283
+  - first:
+      213: -8050255650505232789
+    second: Minifantasy_ForgottenPlainsTiles_284
+  - first:
+      213: -7758667917155488409
+    second: Hill54_Minifantasy_ForgottenPlainsTiles_285
+  - first:
+      213: 356876694771432725
+    second: Minifantasy_ForgottenPlainsTiles_286
+  - first:
+      213: 5330620465662002547
+    second: Cliff17_Minifantasy_ForgottenPlainsTiles_287
+  - first:
+      213: 8189713782397531181
+    second: Cliff7_Minifantasy_ForgottenPlainsTiles_288
+  - first:
+      213: 6810361817690676055
+    second: Cliff8_Minifantasy_ForgottenPlainsTiles_289
+  - first:
+      213: -5656346488148160034
+    second: Cliff9_Minifantasy_ForgottenPlainsTiles_290
+  - first:
+      213: 6030080497366988655
+    second: Cobblestone52_Minifantasy_ForgottenPlainsTiles_291
+  - first:
+      213: 9042573890372305651
+    second: Cobblestone53_Minifantasy_ForgottenPlainsTiles_292
+  - first:
+      213: -3259719909884631123
+    second: Cobblestone54_Minifantasy_ForgottenPlainsTiles_293
+  - first:
+      213: -5813318991914637323
+    second: Cobblestone67_Minifantasy_ForgottenPlainsTiles_294
+  - first:
+      213: -6257977265184517638
+    second: Cobblestone68_Minifantasy_ForgottenPlainsTiles_295
+  - first:
+      213: 7282339002687143453
+    second: Cobblestone69_Minifantasy_ForgottenPlainsTiles_296
+  - first:
+      213: 5271393229018138912
+    second: Cobblestone82_Minifantasy_ForgottenPlainsTiles_297
+  - first:
+      213: -9012252879505420864
+    second: Cobblestone83_Minifantasy_ForgottenPlainsTiles_298
+  - first:
+      213: -6927052861548094943
+    second: Cobblestone84_Minifantasy_ForgottenPlainsTiles_299
+  - first:
+      213: 3701897945671224638
+    second: LakeDirt7a_Minifantasy_ForgottenPlainsTiles_300
+  - first:
+      213: -3489956195118528441
+    second: LakeDirt8a_Minifantasy_ForgottenPlainsTiles_301
+  - first:
+      213: 4840055168104764528
+    second: LakeDirt9a_Minifantasy_ForgottenPlainsTiles_302
+  - first:
+      213: 5878641157100447856
+    second: LakeDirt7b_Minifantasy_ForgottenPlainsTiles_303
+  - first:
+      213: -6769328226976119029
+    second: LakeDirt8b_Minifantasy_ForgottenPlainsTiles_304
+  - first:
+      213: -2893110829644422687
+    second: LakeDirt9b_Minifantasy_ForgottenPlainsTiles_305
+  - first:
+      213: 992426442349224354
+    second: Minifantasy_ForgottenPlainsTiles_306
+  - first:
+      213: -3081796035956415433
+    second: Minifantasy_ForgottenPlainsTiles_307
+  - first:
+      213: -7219733582780185311
+    second: Minifantasy_ForgottenPlainsTiles_308
+  - first:
+      213: 3628295143021649010
+    second: Minifantasy_ForgottenPlainsTiles_309
+  - first:
+      213: -5844160943511762779
+    second: Hill21_Minifantasy_ForgottenPlainsTiles_310
+  - first:
+      213: 8965060440001641928
+    second: Minifantasy_ForgottenPlainsTiles_311
+  - first:
+      213: -6429409130937903612
+    second: Minifantasy_ForgottenPlainsTiles_312
+  - first:
+      213: -5396329232077103896
+    second: Minifantasy_ForgottenPlainsTiles_313
+  - first:
+      213: 7355260484393978660
+    second: Minifantasy_ForgottenPlainsTiles_314
+  - first:
+      213: 119301940193599039
+    second: Hill27_Minifantasy_ForgottenPlainsTiles_315
+  - first:
+      213: -5660102304050367984
+    second: Minifantasy_ForgottenPlainsTiles_316
+  - first:
+      213: -799109328842620525
+    second: Minifantasy_ForgottenPlainsTiles_317
+  - first:
+      213: -2534561109837552093
+    second: Minifantasy_ForgottenPlainsTiles_318
+  - first:
+      213: -7710497982877693703
+    second: Minifantasy_ForgottenPlainsTiles_319
+  - first:
+      213: -8795769354446639783
+    second: Minifantasy_ForgottenPlainsTiles_320
+  - first:
+      213: 1566975603366357867
+    second: Minifantasy_ForgottenPlainsTiles_321
+  - first:
+      213: -2381563126781943779
+    second: Minifantasy_ForgottenPlainsTiles_322
+  - first:
+      213: -3751635620221326304
+    second: Hill40_Minifantasy_ForgottenPlainsTiles_323
+  - first:
+      213: -7944691299837727761
+    second: Minifantasy_ForgottenPlainsTiles_324
+  - first:
+      213: 8373927542812143915
+    second: Hill45_Minifantasy_ForgottenPlainsTiles_325
+  - first:
+      213: -2534941809452527988
+    second: Minifantasy_ForgottenPlainsTiles_326
+  - first:
+      213: 4331938350873139395
+    second: Minifantasy_ForgottenPlainsTiles_327
+  - first:
+      213: 2602153049179313659
+    second: Minifantasy_ForgottenPlainsTiles_328
+  - first:
+      213: 3408903427800862054
+    second: Minifantasy_ForgottenPlainsTiles_329
+  - first:
+      213: 6874813074300400247
+    second: Minifantasy_ForgottenPlainsTiles_330
+  - first:
+      213: -3166602208812021928
+    second: Minifantasy_ForgottenPlainsTiles_331
+  - first:
+      213: 8491388840349219473
+    second: Minifantasy_ForgottenPlainsTiles_332
+  - first:
+      213: -2253220745225493333
+    second: Minifantasy_ForgottenPlainsTiles_333
+  - first:
+      213: -8646260386080204728
+    second: Minifantasy_ForgottenPlainsTiles_334
+  - first:
+      213: 4020362424188240888
+    second: Hill53_Minifantasy_ForgottenPlainsTiles_335
+  - first:
+      213: -2579496498627460735
+    second: Minifantasy_ForgottenPlainsTiles_336
+  - first:
+      213: -6196348735134223376
+    second: Cliff18_Minifantasy_ForgottenPlainsTiles_337
+  - first:
+      213: -5734375402147954748
+    second: Cliff20_Minifantasy_ForgottenPlainsTiles_338
+  - first:
+      213: 2655180460648200333
+    second: Cliff21_Minifantasy_ForgottenPlainsTiles_339
+  - first:
+      213: 2390074777560545983
+    second: Cliff22_Minifantasy_ForgottenPlainsTiles_340
+  - first:
+      213: -3249289018024729512
+    second: Cliff10_Minifantasy_ForgottenPlainsTiles_341
+  - first:
+      213: 3544609373908863452
+    second: Cliff11_Minifantasy_ForgottenPlainsTiles_342
+  - first:
+      213: 1027550940926726954
+    second: Cliff12_Minifantasy_ForgottenPlainsTiles_343
+  - first:
+      213: -3023410728320318872
+    second: Cobblestone55_Minifantasy_ForgottenPlainsTiles_344
+  - first:
+      213: -5778501088168705250
+    second: Cobblestone56_Minifantasy_ForgottenPlainsTiles_345
+  - first:
+      213: -1401142948304944241
+    second: Cobblestone57_Minifantasy_ForgottenPlainsTiles_346
+  - first:
+      213: 8415238496746426707
+    second: Cobblestone70_Minifantasy_ForgottenPlainsTiles_347
+  - first:
+      213: 316409954963828886
+    second: Cobblestone71_Minifantasy_ForgottenPlainsTiles_348
+  - first:
+      213: -1075315052660386025
+    second: Cobblestone72_Minifantasy_ForgottenPlainsTiles_349
+  - first:
+      213: -854643233180118499
+    second: Cobblestone85_Minifantasy_ForgottenPlainsTiles_350
+  - first:
+      213: 689756760807259383
+    second: Cobblestone86_Minifantasy_ForgottenPlainsTiles_351
+  - first:
+      213: -3174113187423358086
+    second: Cobblestone87_Minifantasy_ForgottenPlainsTiles_352
+  - first:
+      213: -156350560340397366
+    second: LakeDirt10a_Minifantasy_ForgottenPlainsTiles_353
+  - first:
+      213: 826807845919064449
+    second: LakeDirt11a_Minifantasy_ForgottenPlainsTiles_354
+  - first:
+      213: 2721517115195051213
+    second: LakeDirt12a_Minifantasy_ForgottenPlainsTiles_355
+  - first:
+      213: 7378129753536578331
+    second: LakeDirt10b_Minifantasy_ForgottenPlainsTiles_356
+  - first:
+      213: 7699298985400157248
+    second: LakeDirt11b_Minifantasy_ForgottenPlainsTiles_357
+  - first:
+      213: 4330814387474717367
+    second: LakeDirt12b_Minifantasy_ForgottenPlainsTiles_358
+  - first:
+      213: 7564725944762220717
+    second: Minifantasy_ForgottenPlainsTiles_359
+  - first:
+      213: -1929986402628117646
+    second: Minifantasy_ForgottenPlainsTiles_360
+  - first:
+      213: 9122798417062243704
+    second: Minifantasy_ForgottenPlainsTiles_361
+  - first:
+      213: 925141679683938519
+    second: Hill9_Minifantasy_ForgottenPlainsTiles_362
+  - first:
+      213: -3176526064374257741
+    second: Minifantasy_ForgottenPlainsTiles_363
+  - first:
+      213: -7433867350394248726
+    second: Hill14_Minifantasy_ForgottenPlainsTiles_364
+  - first:
+      213: -6389515186860767483
+    second: Minifantasy_ForgottenPlainsTiles_365
+  - first:
+      213: 5787513925340292308
+    second: Minifantasy_ForgottenPlainsTiles_366
+  - first:
+      213: 8683101766349659840
+    second: Minifantasy_ForgottenPlainsTiles_367
+  - first:
+      213: -6102464417215118086
+    second: Minifantasy_ForgottenPlainsTiles_368
+  - first:
+      213: -7422070355356708829
+    second: Minifantasy_ForgottenPlainsTiles_369
+  - first:
+      213: 7193959089986640724
+    second: Hill30_Minifantasy_ForgottenPlainsTiles_370
+  - first:
+      213: 9159336353219354503
+    second: Minifantasy_ForgottenPlainsTiles_371
+  - first:
+      213: 4419769798346830345
+    second: Minifantasy_ForgottenPlainsTiles_372
+  - first:
+      213: -3417286639685110147
+    second: Minifantasy_ForgottenPlainsTiles_373
+  - first:
+      213: -7954525314318764463
+    second: Hill37_Minifantasy_ForgottenPlainsTiles_374
+  - first:
+      213: 1558583620414935766
+    second: Minifantasy_ForgottenPlainsTiles_375
+  - first:
+      213: 2089298718133189603
+    second: Minifantasy_ForgottenPlainsTiles_376
+  - first:
+      213: 2037168657303131449
+    second: Minifantasy_ForgottenPlainsTiles_377
+  - first:
+      213: -4149207019411745397
+    second: Hill46_Minifantasy_ForgottenPlainsTiles_378
+  - first:
+      213: -5904221488641537536
+    second: Minifantasy_ForgottenPlainsTiles_379
+  - first:
+      213: -3084731199061339194
+    second: Minifantasy_ForgottenPlainsTiles_380
+  - first:
+      213: -6217725633728830640
+    second: Hill47_Minifantasy_ForgottenPlainsTiles_381
+  - first:
+      213: -5841610243602589622
+    second: Minifantasy_ForgottenPlainsTiles_382
+  - first:
+      213: 1293725566264156548
+    second: Minifantasy_ForgottenPlainsTiles_383
+  - first:
+      213: -2417059578160453160
+    second: Minifantasy_ForgottenPlainsTiles_384
+  - first:
+      213: 4054438072915033574
+    second: Hill52_Minifantasy_ForgottenPlainsTiles_385
+  - first:
+      213: 903373430593024903
+    second: Minifantasy_ForgottenPlainsTiles_386
+  - first:
+      213: 3769126461853235919
+    second: Minifantasy_ForgottenPlainsTiles_387
+  - first:
+      213: 4417858098564675107
+    second: Hill53_Minifantasy_ForgottenPlainsTiles_388
+  - first:
+      213: 6541683678440668511
+    second: Minifantasy_ForgottenPlainsTiles_389
+  - first:
+      213: -6424616569833199833
+    second: Cliff19_Minifantasy_ForgottenPlainsTiles_390
+  - first:
+      213: 2617337369539894587
+    second: Cliff24_Minifantasy_ForgottenPlainsTiles_391
+  - first:
+      213: -6275098772522018600
+    second: Cliff23_Minifantasy_ForgottenPlainsTiles_392
+  - first:
+      213: -5030520507953257148
+    second: Cliff13_Minifantasy_ForgottenPlainsTiles_393
+  - first:
+      213: -9097735869496629021
+    second: Cliff14_Minifantasy_ForgottenPlainsTiles_394
+  - first:
+      213: 4149652894736043356
+    second: Cliff15_Minifantasy_ForgottenPlainsTiles_395
+  - first:
+      213: -3751950853960319004
+    second: Cobblestone58_Minifantasy_ForgottenPlainsTiles_396
+  - first:
+      213: 406900258604844230
+    second: Cobblestone59_Minifantasy_ForgottenPlainsTiles_397
+  - first:
+      213: -5497729285235128710
+    second: Cobblestone60_Minifantasy_ForgottenPlainsTiles_398
+  - first:
+      213: 4463499954687948896
+    second: Cobblestone73_Minifantasy_ForgottenPlainsTiles_399
+  - first:
+      213: 3079389850276751541
+    second: Cobblestone74_Minifantasy_ForgottenPlainsTiles_400
+  - first:
+      213: 2369922858639762663
+    second: Cobblestone75_Minifantasy_ForgottenPlainsTiles_401
+  - first:
+      213: 4492174557885079726
+    second: Cobblestone88_Minifantasy_ForgottenPlainsTiles_402
+  - first:
+      213: 3347981598235983953
+    second: Cobblestone89_Minifantasy_ForgottenPlainsTiles_403
+  - first:
+      213: 4801110810057689802
+    second: Cobblestone90_Minifantasy_ForgottenPlainsTiles_404
+  - first:
+      213: 4166629672879623180
+    second: LakeDirt13a_Minifantasy_ForgottenPlainsTiles_405
+  - first:
+      213: -7182890509019832670
+    second: LakeDirt14a_Minifantasy_ForgottenPlainsTiles_406
+  - first:
+      213: -1862774936582810376
+    second: LakeDirt15a_Minifantasy_ForgottenPlainsTiles_407
+  - first:
+      213: 539201802173208502
+    second: LakeDirt13b_Minifantasy_ForgottenPlainsTiles_408
+  - first:
+      213: -4029505535587542385
+    second: LakeDirt14b_Minifantasy_ForgottenPlainsTiles_409
+  - first:
+      213: -2894878241242559648
+    second: LakeDirt15b_Minifantasy_ForgottenPlainsTiles_410
+  - first:
+      213: -2109436772023874938
+    second: Hill1_Minifantasy_ForgottenPlainsTiles_411
+  - first:
+      213: 3641636871342769408
+    second: Hill3_Minifantasy_ForgottenPlainsTiles_412
+  - first:
+      213: -8082284768366111521
+    second: Hill4_Minifantasy_ForgottenPlainsTiles_413
+  - first:
+      213: -2912442393251364826
+    second: Hill8_Minifantasy_ForgottenPlainsTiles_414
+  - first:
+      213: 1553114993568111726
+    second: Minifantasy_ForgottenPlainsTiles_415
+  - first:
+      213: 4269812595729375584
+    second: Hill13_Minifantasy_ForgottenPlainsTiles_416
+  - first:
+      213: 5825372304349074978
+    second: Hill17_Minifantasy_ForgottenPlainsTiles_417
+  - first:
+      213: 7567951645332220124
+    second: Minifantasy_ForgottenPlainsTiles_418
+  - first:
+      213: -4585696895799458723
+    second: Hill18_Minifantasy_ForgottenPlainsTiles_419
+  - first:
+      213: 5743708548890765255
+    second: Hill28_Minifantasy_ForgottenPlainsTiles_420
+  - first:
+      213: -7654518322336165030
+    second: Hill29_Minifantasy_ForgottenPlainsTiles_421
+  - first:
+      213: -8617975458298076888
+    second: Hill31_Minifantasy_ForgottenPlainsTiles_422
+  - first:
+      213: 4146392534838382583
+    second: Minifantasy_ForgottenPlainsTiles_423
+  - first:
+      213: 8714307760226830584
+    second: Minifantasy_ForgottenPlainsTiles_424
+  - first:
+      213: 5825148721363763819
+    second: Minifantasy_ForgottenPlainsTiles_425
+  - first:
+      213: 6451290469315146256
+    second: Hill36_Minifantasy_ForgottenPlainsTiles_426
+  - first:
+      213: -4842557544833603767
+    second: Hill38_Minifantasy_ForgottenPlainsTiles_427
+  - first:
+      213: -8870844482909596393
+    second: Hill39_Minifantasy_ForgottenPlainsTiles_428
+  - first:
+      213: -1315414582845067819
+    second: Minifantasy_ForgottenPlainsTiles_429
+  - first:
+      213: -328139089004794878
+    second: Hill48_Minifantasy_ForgottenPlainsTiles_430
+  - first:
+      213: 4352651917873335674
+    second: Minifantasy_ForgottenPlainsTiles_431
+  - first:
+      213: -8214342820722200392
+    second: Minifantasy_ForgottenPlainsTiles_432
+  - first:
+      213: 1682176675259934547
+    second: Minifantasy_ForgottenPlainsTiles_433
+  - first:
+      213: 5034948529936923786
+    second: Hill51_Minifantasy_ForgottenPlainsTiles_434
+  - first:
+      213: 5775877517947316947
+    second: Minifantasy_ForgottenPlainsTiles_435
+  - first:
+      213: -1396358301602513775
+    second: Cliff25_Minifantasy_ForgottenPlainsTiles_436
+  - first:
+      213: 7684392470309269888
+    second: Hill5_Minifantasy_ForgottenPlainsTiles_437
+  - first:
+      213: -6593254826960494661
+    second: Hill7_Minifantasy_ForgottenPlainsTiles_438
+  - first:
+      213: -2136313522233825004
+    second: Hill10_Minifantasy_ForgottenPlainsTiles_439
+  - first:
+      213: 3944373447193247977
+    second: Hill12_Minifantasy_ForgottenPlainsTiles_440
+  - first:
+      213: -6382560835142732947
+    second: Hill16_Minifantasy_ForgottenPlainsTiles_441
+  - first:
+      213: -5023663691752961989
+    second: Hill32_Minifantasy_ForgottenPlainsTiles_442
+  - first:
+      213: -4659968077668499533
+    second: Minifantasy_ForgottenPlainsTiles_443
+  - first:
+      213: -3747242871485122495
+    second: Minifantasy_ForgottenPlainsTiles_444
+  - first:
+      213: -4824935189351196112
+    second: Minifantasy_ForgottenPlainsTiles_445
+  - first:
+      213: -560979931124987262
+    second: Hill35_Minifantasy_ForgottenPlainsTiles_446
+  - first:
+      213: -4521399182001955946
+    second: Minifantasy_ForgottenPlainsTiles_447
+  - first:
+      213: -8910293193016298992
+    second: Hill49_Minifantasy_ForgottenPlainsTiles_448
+  - first:
+      213: 1112417442825497092
+    second: Minifantasy_ForgottenPlainsTiles_449
+  - first:
+      213: -2654127313132940480
+    second: Minifantasy_ForgottenPlainsTiles_450
+  - first:
+      213: 4720827037555342929
+    second: Minifantasy_ForgottenPlainsTiles_451
+  - first:
+      213: -1996741259284955334
+    second: Hill50_Minifantasy_ForgottenPlainsTiles_452
+  - first:
+      213: 5590685726973243580
+    second: Minifantasy_ForgottenPlainsTiles_453
+  - first:
+      213: 8813435448533744725
+    second: Cliff26_Minifantasy_ForgottenPlainsTiles_454
+  - first:
+      213: -713178205520745419
+    second: Minifantasy_ForgottenPlainsTiles_455
+  - first:
+      213: -8883609812482210387
+    second: Minifantasy_ForgottenPlainsTiles_456
+  - first:
+      213: 8885975213781660923
+    second: Minifantasy_ForgottenPlainsTiles_457
+  - first:
+      213: -6400116975249335710
+    second: Hill6_Minifantasy_ForgottenPlainsTiles_458
+  - first:
+      213: 7238738429251388315
+    second: Hill11_Minifantasy_ForgottenPlainsTiles_459
+  - first:
+      213: 7496333759915359434
+    second: Minifantasy_ForgottenPlainsTiles_460
+  - first:
+      213: 4497720354504417712
+    second: Minifantasy_ForgottenPlainsTiles_461
+  - first:
+      213: -7576320236054340339
+    second: Hill15_Minifantasy_ForgottenPlainsTiles_462
+  - first:
+      213: -4928425845996876769
+    second: Hill33_Minifantasy_ForgottenPlainsTiles_463
+  - first:
+      213: 1461552708606283794
+    second: Minifantasy_ForgottenPlainsTiles_464
+  - first:
+      213: -2292117595807493789
+    second: Minifantasy_ForgottenPlainsTiles_465
+  - first:
+      213: -1923177489174388594
+    second: Minifantasy_ForgottenPlainsTiles_466
+  - first:
+      213: 4989698193070002963
+    second: Hill34_Minifantasy_ForgottenPlainsTiles_467
+  - first:
+      213: 7193003779139172862
+    second: Minifantasy_ForgottenPlainsTiles_468
+  - first:
+      213: 2192556032154873045
+    second: Minifantasy_ForgottenPlainsTiles_469
+  - first:
+      213: 6354745027081418533
+    second: Minifantasy_ForgottenPlainsTiles_470
+  - first:
+      213: -4657997091639552848
+    second: Minifantasy_ForgottenPlainsTiles_471
+  - first:
+      213: -5421760143066887553
+    second: Minifantasy_ForgottenPlainsTiles_472
+  - first:
+      213: -857395096845949777
+    second: Minifantasy_ForgottenPlainsTiles_473
+  - first:
+      213: -1247913478876954008
+    second: Minifantasy_ForgottenPlainsTiles_474
+  - first:
+      213: 6812869751049383584
+    second: Minifantasy_ForgottenPlainsTiles_475
+  - first:
+      213: -6161027374564111385
+    second: Minifantasy_ForgottenPlainsTiles_476
+  - first:
+      213: -2381815074071191080
+    second: Minifantasy_ForgottenPlainsTiles_477
+  - first:
+      213: 7694890806216058311
+    second: Minifantasy_ForgottenPlainsTiles_478
+  - first:
+      213: 8903598456021967956
+    second: Minifantasy_ForgottenPlainsTiles_479
+  - first:
+      213: -370827158716992426
+    second: Minifantasy_ForgottenPlainsTiles_480
+  - first:
+      213: 6432750091654716245
+    second: Minifantasy_ForgottenPlainsTiles_481
+  - first:
+      213: 6839053794270850258
+    second: Minifantasy_ForgottenPlainsTiles_482
+  - first:
+      213: -1230607158620516409
+    second: Minifantasy_ForgottenPlainsTiles_483
+  - first:
+      213: -3399502843587893633
+    second: Minifantasy_ForgottenPlainsTiles_484
+  - first:
+      213: -590390545194685930
+    second: Minifantasy_ForgottenPlainsTiles_485
+  - first:
+      213: 7999490623645333305
+    second: Minifantasy_ForgottenPlainsTiles_486
+  - first:
+      213: 3316806360643575204
+    second: Minifantasy_ForgottenPlainsTiles_487
+  - first:
+      213: -4371297941131522681
+    second: Minifantasy_ForgottenPlainsTiles_488
+  - first:
+      213: 3658341198729060068
+    second: Minifantasy_ForgottenPlainsTiles_489
+  - first:
+      213: 911780284891408944
+    second: Path10_Minifantasy_ForgottenPlainsTiles_490
+  - first:
+      213: 759429649703818656
+    second: Path11_Minifantasy_ForgottenPlainsTiles_491
+  - first:
+      213: 3970487048791556788
+    second: Path12_Minifantasy_ForgottenPlainsTiles_492
+  - first:
+      213: -3954187563737235824
+    second: Minifantasy_ForgottenPlainsTiles_493
+  - first:
+      213: -3435253206894404288
+    second: Minifantasy_ForgottenPlainsTiles_494
+  - first:
+      213: 5330211150184817348
+    second: Minifantasy_ForgottenPlainsTiles_495
+  - first:
+      213: -925393130121306202
+    second: Minifantasy_ForgottenPlainsTiles_496
+  - first:
+      213: 921252272642749592
+    second: Minifantasy_ForgottenPlainsTiles_497
+  - first:
+      213: -5501071739265485175
+    second: Minifantasy_ForgottenPlainsTiles_498
+  - first:
+      213: 2886124236731265756
+    second: Minifantasy_ForgottenPlainsTiles_499
+  - first:
+      213: -8098479077156284541
+    second: Minifantasy_ForgottenPlainsTiles_500
+  - first:
+      213: -2809049519545546012
+    second: Minifantasy_ForgottenPlainsTiles_501
+  - first:
+      213: -1337966704436421353
+    second: Path13_Minifantasy_ForgottenPlainsTiles_502
+  - first:
+      213: 8018067390814807308
+    second: Path1_Minifantasy_ForgottenPlainsTiles_503
+  - first:
+      213: -5929583112215490963
+    second: Path2_Minifantasy_ForgottenPlainsTiles_504
+  - first:
+      213: -449969554694646727
+    second: Path3_Minifantasy_ForgottenPlainsTiles_505
+  - first:
+      213: 2362378401650640054
+    second: Minifantasy_ForgottenPlainsTiles_506
+  - first:
+      213: -4130113281907124147
+    second: Minifantasy_ForgottenPlainsTiles_507
+  - first:
+      213: 3249601661272263933
+    second: Minifantasy_ForgottenPlainsTiles_508
+  - first:
+      213: -8702418200153160368
+    second: Cliff33_Minifantasy_ForgottenPlainsTiles_509
+  - first:
+      213: -8694713157233325495
+    second: Cliff34_Minifantasy_ForgottenPlainsTiles_510
+  - first:
+      213: -5656879159022141002
+    second: Cliff35_Minifantasy_ForgottenPlainsTiles_511
+  - first:
+      213: 4841369445512321175
+    second: Minifantasy_ForgottenPlainsTiles_512
+  - first:
+      213: -3367947012447352492
+    second: Minifantasy_ForgottenPlainsTiles_513
+  - first:
+      213: 2260189238536726726
+    second: Minifantasy_ForgottenPlainsTiles_514
+  - first:
+      213: 3623880081268746987
+    second: Path14_Minifantasy_ForgottenPlainsTiles_515
+  - first:
+      213: -230412719083885522
+    second: Path4_Minifantasy_ForgottenPlainsTiles_516
+  - first:
+      213: -7512212014148272078
+    second: Path5_Minifantasy_ForgottenPlainsTiles_517
+  - first:
+      213: 491045394357892640
+    second: Path6_Minifantasy_ForgottenPlainsTiles_518
+  - first:
+      213: 6576386867314494571
+    second: Cliff27_Minifantasy_ForgottenPlainsTiles_519
+  - first:
+      213: 3674885954294020099
+    second: Cliff28_Minifantasy_ForgottenPlainsTiles_520
+  - first:
+      213: 2280851931077979430
+    second: Cliff29_Minifantasy_ForgottenPlainsTiles_521
+  - first:
+      213: -3631161583991667605
+    second: Cliff30_Minifantasy_ForgottenPlainsTiles_522
+  - first:
+      213: -2418220956999656998
+    second: Cliff31_Minifantasy_ForgottenPlainsTiles_523
+  - first:
+      213: -7792671821749925123
+    second: Cliff32_Minifantasy_ForgottenPlainsTiles_524
+  - first:
+      213: -1709279085198592370
+    second: Minifantasy_ForgottenPlainsTiles_525
+  - first:
+      213: -4461082649063887858
+    second: Minifantasy_ForgottenPlainsTiles_526
+  - first:
+      213: 896290794458746479
+    second: Minifantasy_ForgottenPlainsTiles_527
+  - first:
+      213: 5316939577844888454
+    second: Path15_Minifantasy_ForgottenPlainsTiles_528
+  - first:
+      213: -3302856517846097519
+    second: Path7_Minifantasy_ForgottenPlainsTiles_529
+  - first:
+      213: -8613624937929624364
+    second: Path8_Minifantasy_ForgottenPlainsTiles_530
+  - first:
+      213: 8595849554165390320
+    second: Path9_Minifantasy_ForgottenPlainsTiles_531
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 8
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Grass16Tiles_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 160
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc2666e6e6114be80800000000000000
+      internalID: -8163881058519588145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass17Tiles_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 160
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 262f2d1faceb26170800000000000000
+      internalID: 8170302452853305954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass18Tiles_2
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 160
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbadbeae4fc26f550800000000000000
+      internalID: 6194187767919663805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass19Tiles_3
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 160
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11c5431bcf499ef70800000000000000
+      internalID: 9217061925416098833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt19Tiles_4
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 160
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8958c1de352f83290800000000000000
+      internalID: -7910306303201999464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass1Tiles_17
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 144
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef61af1847cf456f0800000000000000
+      internalID: -696654465008527618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass2Tiles_18
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 144
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3366d58b41321b2a0800000000000000
+      internalID: -6723554196787993037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass3Tiles_19
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 144
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66a6169606f13d440800000000000000
+      internalID: 4959342113610361446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt1Tiles_20
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 144
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af6abb7de454e8420800000000000000
+      internalID: 2634119036987483898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt2Tiles_21
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 144
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27ad32203b37af5e0800000000000000
+      internalID: -1875059082174145934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt3Tiles_22
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 144
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db7d867e48e524380800000000000000
+      internalID: -8988517981366986819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone1Tiles_23
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 144
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5dc3352374858bf0800000000000000
+      internalID: -322706168206865058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone2Tiles_24
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 144
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89c924185853b4920800000000000000
+      internalID: 2975530826323893400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone3Tiles_25
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 144
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d91f679b6c969890800000000000000
+      internalID: -7451596547521832489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone16Tiles_26
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 144
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5198c01f512c553b0800000000000000
+      internalID: -5524295968405812971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone17Tiles_27
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 144
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc360ddef1977b4c0800000000000000
+      internalID: -4271812543496821812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone18Tiles_28
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 144
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bdec4aae13048ca0800000000000000
+      internalID: -6015679772019069520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone31Tiles_29
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 144
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e7b92be6faa99530800000000000000
+      internalID: 3862306132930967525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone32Tiles_30
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 144
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b22740157c7ed290800000000000000
+      internalID: -7863711057116192080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone33Tiles_31
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 144
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3822b7f8868539430800000000000000
+      internalID: 3788468917655773827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LakeGrass1aTiles_32
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 144
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f45575f824e6748b0800000000000000
+      internalID: -5168040815232592561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LakeGrass2aTiles_33
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 144
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f12690f9c8bc04430800000000000000
+      internalID: 3765233093305786911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LakeGrass3aTiles_34
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 144
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2afcc8c91ef5315d0800000000000000
+      internalID: -3093023096474644574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LakeGrass1bTiles_35
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 144
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e018b94ccb5b46b0800000000000000
+      internalID: -5311050402585112350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LakeGrass2bTiles_36
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 144
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c925a5a966734b5a0800000000000000
+      internalID: -6506514647827721572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LakeGrass3bTiles_37
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 144
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07e155e459e1f13d0800000000000000
+      internalID: -3233832380815565200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass4Tiles_42
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 136
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc5c67f342f9a6f80800000000000000
+      internalID: -8112496800722139697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass5Tiles_43
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 136
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f455c5f918fe86b70800000000000000
+      internalID: 8892620804246492495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass6Tiles_44
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 136
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2322f574b6ffb910800000000000000
+      internalID: 1855472826433282859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt4Tiles_45
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 136
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a030552a5b9aa3c0800000000000000
+      internalID: -4347491678797418330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt5Tiles_46
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 136
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cfe4c5029ce34500800000000000000
+      internalID: 379406905535426505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt6Tiles_47
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 136
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23de2daa336eab7e0800000000000000
+      internalID: -1748832395696345806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone4Tiles_48
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 136
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cc7277c1e88c2780800000000000000
+      internalID: -8706433476318823229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone5Tiles_49
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 136
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72b4538a1b36c7690800000000000000
+      internalID: -7603092456225813721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone6Tiles_50
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 136
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a13cabe9edef02cc0800000000000000
+      internalID: -3737707458618277094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone19Tiles_51
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 136
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c04ba27319b1b95b0800000000000000
+      internalID: -5360660620944690164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone20Tiles_52
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 136
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25c3fb0f7ce591aa0800000000000000
+      internalID: -6189812000013468590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone21Tiles_53
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 136
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6beefc25912714f80800000000000000
+      internalID: -8124086799710556490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone34Tiles_54
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 136
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0b918e534c768780800000000000000
+      internalID: -8681114602919847155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone35Tiles_55
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 136
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5536876daf7e67ff0800000000000000
+      internalID: -38588482260016299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone36Tiles_56
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 136
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e08802c011c4b8180800000000000000
+      internalID: -9112105784952453106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LakeGrass4aTiles_57
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 136
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e407df7ba9028a4d0800000000000000
+      internalID: -3123210492697546674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LakeGrass5aTiles_58
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 136
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab4d559372173b970800000000000000
+      internalID: 8769477312700077242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LakeGrass6aTiles_59
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 136
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43cdea49c8575eff0800000000000000
+      internalID: -7470577720828876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LakeGrass4bTiles_60
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 136
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fe85843f3d000000800000000000000
+      internalID: 14565115268857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LakeGrass5bTiles_61
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 136
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 618ba216bc8393260800000000000000
+      internalID: 7077750735549151254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LakeGrass6bTiles_62
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 136
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93d13f768b7fdef70800000000000000
+      internalID: 9218296383687302457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass7Tiles_70
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 128
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 585e53b82f8d0bce0800000000000000
+      internalID: -1391373748628232827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass8Tiles_71
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 128
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7da77dbd8f5cabc60800000000000000
+      internalID: 7834792174395292375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass9Tiles_72
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 128
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d856b6b1454dcf30800000000000000
+      internalID: 4597406943155738836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt7Tiles_73
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 128
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b77b9ca886b85a60800000000000000
+      internalID: 7663075464098576306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt8Tiles_74
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 315061ef9ba877a80800000000000000
+      internalID: -8469148042810489581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt9Tiles_75
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 128
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1823e4db483b93a70800000000000000
+      internalID: 8807267928992789121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone7Tiles_76
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 128
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1ed924b975937050800000000000000
+      internalID: 5797141495302184475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone8Tiles_77
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 128
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 811b8ded59a40b210800000000000000
+      internalID: 1346658296133103896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone9Tiles_78
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 128
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38144c7a8aba75b40800000000000000
+      internalID: 5428996616675934595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone22Tiles_79
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5900e60f93899630800000000000000
+      internalID: 3934320468523223389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone23Tiles_80
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 128
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ad6df3ddf2f9dd60800000000000000
+      internalID: 7915624992077606304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone24Tiles_81
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 128
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 785ec1c7f3d253b00800000000000000
+      internalID: 807601458871330183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone37Tiles_82
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 128
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96a6574db415c9d10800000000000000
+      internalID: 2133669709595634281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone38Tiles_83
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 128
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 208f2c0c61f983d20800000000000000
+      internalID: 3258529250474653698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone39Tiles_84
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 128
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1075e0952b6ae3d30800000000000000
+      internalID: 4413147969798166273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LakeGrass7aTiles_85
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 128
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1afb83cf2270a8b0800000000000000
+      internalID: -5142985224987346401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LakeGrass8aTiles_86
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 128
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f123167f7a686560800000000000000
+      internalID: 7307207491082985977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LakeGrass9aTiles_87
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 128
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 513649c48b60f7850800000000000000
+      internalID: 6376822986008453909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LakeGrass7bTiles_88
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 128
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d95999dd57e9cbe0800000000000000
+      internalID: -1456378614208964141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LakeGrass8bTiles_89
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 128
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cc890487ab7814d0800000000000000
+      internalID: -3163642778822800188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LakeGrass9bTiles_90
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 128
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad83146b3a3c96480800000000000000
+      internalID: -8905371680243631910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass10Tiles_102
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 120
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ff81252e5b23c060800000000000000
+      internalID: 6972464331449536496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass11Tiles_103
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 120
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95c926fce8cc193f0800000000000000
+      internalID: -895709937133249447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass12Tiles_104
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 120
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a110ea59974a5e310800000000000000
+      internalID: 1433732898496577818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt10Tiles_105
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 120
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83db606e0df510ea0800000000000000
+      internalID: -5908335885316342472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt11Tiles_106
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 120
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 391e677a4b3b8fb20800000000000000
+      internalID: 3168479926340215187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt12Tiles_107
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 120
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd3605c890f8f57f0800000000000000
+      internalID: -621620952382282789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone10Tiles_108
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 120
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8095caa6838141120800000000000000
+      internalID: 2383556733372750088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone11Tiles_109
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 120
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a97903d51237e7cc0800000000000000
+      internalID: -3711402455772129382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone12Tiles_110
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 120
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd97d40a725dcca10800000000000000
+      internalID: 1931152706404973021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone25Tiles_111
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 120
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edd51f926c91845f0800000000000000
+      internalID: -772338997196136994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone26Tiles_112
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 120
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 920039851768384f0800000000000000
+      internalID: -827670085130584023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone27Tiles_113
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 120
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74a63298f998a4580800000000000000
+      internalID: -8842103600094942649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone40Tiles_114
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 120
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d6b4cd8c990b1330800000000000000
+      internalID: 3682547688303539920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone41Tiles_115
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 120
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a51267a8a0567860800000000000000
+      internalID: 7527292512489313705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone42Tiles_116
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 120
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ead3c73740081dc0800000000000000
+      internalID: -3668181590615008542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LakeGrass10aTiles_117
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 120
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f907299191de61e0800000000000000
+      internalID: -2202592744467658255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LakeGrass11aTiles_118
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 120
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad8a4b6d0ca5a4fa0800000000000000
+      internalID: -5815736184513189670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LakeGrass12aTiles_119
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 120
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 484c6400140c75e10800000000000000
+      internalID: 2186427529521710212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LakeGrass10bTiles_120
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 120
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12eadf921c5a4bee0800000000000000
+      internalID: -1246188947823022559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LakeGrass11bTiles_121
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 120
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a982359276815ad0800000000000000
+      internalID: -2715241273640187481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LakeGrass12bTiles_122
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 120
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 972dc1a8fc6bf0260800000000000000
+      internalID: 7066067342859227769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass13Tiles_134
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 112
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba637fc28bfc81f70800000000000000
+      internalID: 9158298232193234603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass14Tiles_135
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 112
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc115fe3324e10d40800000000000000
+      internalID: 5548967055928398283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass15Tiles_137
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 112
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39f0add5421cbbd40800000000000000
+      internalID: 5601282923502899091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt13Tiles_137
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 112
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c74df886f160e7a0800000000000000
+      internalID: -6349967763104249912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt14Tiles_138
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 112
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f3dfed000ebb23c0800000000000000
+      internalID: -4383200904871947276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt15Tiles_139
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 112
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d474626f04758070800000000000000
+      internalID: 8108014313574528216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone13Tiles_140
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 112
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d4615501e3b81d40800000000000000
+      internalID: 5555387919399740626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone14Tiles_141
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 112
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46da28b6d5269e5d0800000000000000
+      internalID: -3032784720682111644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone15Tiles_142
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 112
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dadf308853557b320800000000000000
+      internalID: 2573619400469118381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone28Tiles_143
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 112
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3faf15353aac87bb0800000000000000
+      internalID: -4937974188585387277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone29Tiles_144
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 112
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4915611c864d3c7c0800000000000000
+      internalID: -4052161693322161772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone30Tiles_145
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 112
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d10ef893611fb6f40800000000000000
+      internalID: 5722932829261651997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone43Tiles_146
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 112
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b58edd746fec7660800000000000000
+      internalID: 7385040703868274097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone44Tiles_147
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 112
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8da526255c77aa6c0800000000000000
+      internalID: -4131358018784568616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cobblestone45Tiles_148
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 112
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b112dd869790a970800000000000000
+      internalID: 8764171547743228341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LakeGrass13aTiles_149
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 112
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62e5684727035c7d0800000000000000
+      internalID: -2898857517003678170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LakeGrass14aTiles_150
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 112
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf9bc5b1cf78b0a00800000000000000
+      internalID: 723821681983666684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LakeGrass15aTiles_151
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 112
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de24170b757047700800000000000000
+      internalID: 537062328767693549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LakeGrass13bTiles_152
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 112
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0a9cdac4216c3b60800000000000000
+      internalID: 7727157871311100431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LakeGrass14bTiles_153
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 112
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45dec5a0d173f7950800000000000000
+      internalID: 6448933789285281108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LakeGrass15bTiles_154
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 112
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 089088b352af13b30800000000000000
+      internalID: 4265465359916075392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill24Tiles_173
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 104
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bacc990ab5b32da80800000000000000
+      internalID: -8443621086643762005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill42Tiles_224
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 96
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24442a66085838630800000000000000
+      internalID: 3928130086521422914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill43Tiles_225
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 96
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5634b541d195a9f50800000000000000
+      internalID: 6888916561447043941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill55Tiles_235
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 96
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3444d0786358721a0800000000000000
+      internalID: -6834347440270916541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill56Tiles_236
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 96
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b24cbd59bf4c6a50800000000000000
+      internalID: 6515670418458428080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cliff16Tiles_237
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 88
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8e7acd7c8cd4d160800000000000000
+      internalID: 7049501812705623691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill2Tiles_256
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 88
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34c67b85431443ce0800000000000000
+      internalID: -1426443488887083965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill23Tiles_257
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 104
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b268a4f7c497a6c50800000000000000
+      internalID: 6659268368480765483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill22Tiles_259
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 88
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a59da284f5af2fc0800000000000000
+      internalID: -3517410314370050647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill20Tiles_261
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 88
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf15a2fe201e90a00800000000000000
+      internalID: 723356617888387579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill25Tiles_263
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 104
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e55ffca8e276af50800000000000000
+      internalID: 6892322623397516774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill19Tiles_264
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 88
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23a7b2fe7bf9a83e0800000000000000
+      internalID: -2050651067973404110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill26Tiles_265
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 88
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b17f441376e137150800000000000000
+      internalID: 5869068167950956315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill41Tiles_273
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 88
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b4d99e848ab79b20800000000000000
+      internalID: 3141184343605105841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill44Tiles_275
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 88
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85f1b2b2ab0a39680800000000000000
+      internalID: -8749472929602134184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill54Tiles_285
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 88
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76d2ab3f2aca35490800000000000000
+      internalID: -7758667917155488409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill21Tiles_310
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 80
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a805c7e59e55eea0800000000000000
+      internalID: -5844160943511762779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill27Tiles_315
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 80
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3e11468b78d7a100800000000000000
+      internalID: 119301940193599039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill40Tiles_323
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 80
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02c610ac7438febc0800000000000000
+      internalID: -3751635620221326304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill45Tiles_325
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 80
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b217d24bbba263470800000000000000
+      internalID: 8373927542812143915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill53Tiles_335
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 80
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f38112f2523bc730800000000000000
+      internalID: 4020362424188240888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cliff18Tiles_337
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 72
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f332e1b7a5220aa0800000000000000
+      internalID: -6196348735134223376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cliff22Tiles_340
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 72
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbafd17d8504b2120800000000000000
+      internalID: 2390074777560545983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cliff10Tiles_341
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 72
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 854ee048ad438e2d0800000000000000
+      internalID: -3249289018024729512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cliff11Tiles_342
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 72
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd98b57027bf03130800000000000000
+      internalID: 3544609373908863452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cliff12Tiles_343
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 72
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a235e86f228924e00800000000000000
+      internalID: 1027550940926726954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill9Tiles_362
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 72
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d82870c473c6dc00800000000000000
+      internalID: 925141679683938519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill14Tiles_364
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 72
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae16068f70995d890800000000000000
+      internalID: -7433867350394248726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill30Tiles_370
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 72
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45b98575da316d360800000000000000
+      internalID: 7193959089986640724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill37Tiles_374
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 72
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1567d2b1f59db9190800000000000000
+      internalID: -7954525314318764463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill46Tiles_378
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 72
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b85d764033e0b66c0800000000000000
+      internalID: -4149207019411745397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill47Tiles_381
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 72
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 053a0c2aa7336b9a0800000000000000
+      internalID: -6217725633728830640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill52Tiles_385
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 72
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ed7beb22f1444830800000000000000
+      internalID: 4054438072915033574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill53Tiles_388
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 72
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 326b709a8826f4d30800000000000000
+      internalID: 4417858098564675107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cliff13Tiles_393
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 64
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 445e0283040003ab0800000000000000
+      internalID: -5030520507953257148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cliff14Tiles_394
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e8e256bd695eb180800000000000000
+      internalID: -9097735869496629021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cliff15Tiles_395
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 64
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5dc9eb6257869930800000000000000
+      internalID: 4149652894736043356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill1Tiles_411
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 64
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68ace5f9e66c9b2e0800000000000000
+      internalID: -2109436772023874938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill3Tiles_412
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 64
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 005c955b071b98230800000000000000
+      internalID: 3641636871342769408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill4Tiles_413
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 64
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd4dcff23d4f5df80800000000000000
+      internalID: -8082284768366111521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill8Tiles_414
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 64
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 620c679f21de497d0800000000000000
+      internalID: -2912442393251364826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill13Tiles_416
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 64
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06120f1feeb614b30800000000000000
+      internalID: 4269812595729375584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill17Tiles_417
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 64
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22610252f31e7d050800000000000000
+      internalID: 5825372304349074978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill18Tiles_419
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 64
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d54034628f45c50c0800000000000000
+      internalID: -4585696895799458723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill28Tiles_420
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 64
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c722066e70c5bf40800000000000000
+      internalID: 5743708548890765255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill29Tiles_421
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 64
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a531f662420b5c590800000000000000
+      internalID: -7654518322336165030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill31Tiles_422
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 64
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 821eb1d0bfcc66880800000000000000
+      internalID: -8617975458298076888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill36Tiles_426
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 64
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 012746e5086978950800000000000000
+      internalID: 6451290469315146256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill38Tiles_427
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 64
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9472ec7e197cbccb0800000000000000
+      internalID: -4842557544833603767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill39Tiles_428
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 64
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 715907a41fd64e480800000000000000
+      internalID: -8870844482909596393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill48Tiles_430
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 64
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20ce2f2bc37327bf0800000000000000
+      internalID: -328139089004794878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill51Tiles_434
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 64
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8cf34df20bbfd540800000000000000
+      internalID: 5034948529936923786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill5Tiles_437
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 56
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0817873fc3274aa60800000000000000
+      internalID: 7684392470309269888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill7Tiles_438
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 56
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbfd36ddaad0084a0800000000000000
+      internalID: -6593254826960494661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill10Tiles_439
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 56
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 419a3629b2a4a52e0800000000000000
+      internalID: -2136313522233825004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill12Tiles_440
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 56
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e0cf6580ca3db630800000000000000
+      internalID: 3944373447193247977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill16Tiles_441
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 56
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d633ff79cb69c67a0800000000000000
+      internalID: -6382560835142732947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill32Tiles_442
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 56
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3889062d7c584ab0800000000000000
+      internalID: -5023663691752961989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill35Tiles_446
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 56
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28a0c2f89bff638f0800000000000000
+      internalID: -560979931124987262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill49Tiles_448
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 56
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 012bea9bc87485480800000000000000
+      internalID: -8910293193016298992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill50Tiles_452
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 56
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3f34f367662a44e0800000000000000
+      internalID: -1996741259284955334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill6Tiles_458
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 48
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26ad05135873e27a0800000000000000
+      internalID: -6400116975249335710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill11Tiles_459
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 48
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b938f79bf3a257460800000000000000
+      internalID: 7238738429251388315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill15Tiles_462
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 48
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0d9069e2e08bd690800000000000000
+      internalID: -7576320236054340339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill33Tiles_463
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 48
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1c80831ec6ba9bb0800000000000000
+      internalID: -4928425845996876769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill34Tiles_467
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 48
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 313985ee118fe3540800000000000000
+      internalID: 4989698193070002963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HillRedTiles_11
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 32
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a58a9354e8bc6b2c0800000000000000
+      internalID: -4416118572682991526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill57Tiles_12
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 80
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b04ddeedb841b050800000000000000
+      internalID: 5814508574505517240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hill58Tiles_65
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 80
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6e8830cd30af2f30800000000000000
+      internalID: 4553033935373241965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CobblestoneRed1Tiles_69
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 152
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bada6f42bf2163ec0800000000000000
+      internalID: -3587659183287784021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CobblestoneRed2Tiles_97
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 152
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9aaac95255f97b2e0800000000000000
+      internalID: -2110042712347727191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CobblestoneRed3Tiles_98
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 152
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5544908c6b556fd00800000000000000
+      internalID: 1006085810292343893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LakeRed1Tiles_128
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 152
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d722cb2323ab5180800000000000000
+      internalID: -9125520848482850863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LakeRed2Tiles_129
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 56
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 313e135a3fe8c42b0800000000000000
+      internalID: -5598943059628661997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cliff_40
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 48
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb1f0f0bc9b8ddb30800000000000000
+      internalID: 4313757523190542780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cliff_39
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 48
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00665fa0963a785d0800000000000000
+      internalID: -3060297750224214528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cliff_41
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 48
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46ba2d641d0bc3c90800000000000000
+      internalID: -7188676492307289244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cliff_42
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 24
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7bb174bd072fc840800000000000000
+      internalID: 5246455030725327739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cliff_44
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4a54f9a93b327ee0800000000000000
+      internalID: -1264883426487150002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cliff_43
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 24
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 540909f3b42fdb590800000000000000
+      internalID: -7656697386457067451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cliff_45
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa44be28ecbcb3b40800000000000000
+      internalID: 5421150664290682031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cliff_46
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1306829d96a506b0800000000000000
+      internalID: -5330671388224781540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cliff_47
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c04fcabd30e517190800000000000000
+      internalID: -7966482895178238964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cliff_48
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 083a8865bac660780800000000000000
+      internalID: -8717160545582013568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cliff_49
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a9bf1609431ca270800000000000000
+      internalID: 8263000620674300320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cliff_53
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 32
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3151a2e45ee7b8540800000000000000
+      internalID: 5011238533703800083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cliff_54
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 24
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79e15daf5a9d2d7e0800000000000000
+      internalID: -1742090798937858409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cliff_50
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 40
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d399ce5cdce739b0800000000000000
+      internalID: -5100347621746568231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cliff_51
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 40
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02acc538020d0f610800000000000000
+      internalID: 1653049901306399264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cliff_52
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 40
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92ea8c8fcfa602cf0800000000000000
+      internalID: -279105542158766551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cliff_55
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 32
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c747bf07f5d7b9760800000000000000
+      internalID: 7465698656167621756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cliff_56
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 24
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2421c6e3244b48950800000000000000
+      internalID: 6450478762909504066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cliff_57
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 16
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3de22af9c9ea709e0800000000000000
+      internalID: -1655162350319030573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cliff_58
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 16
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0de58a472b198b020800000000000000
+      internalID: 2357794600575852240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cliff_59
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 16
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d68a145e3b29e3f00800000000000000
+      internalID: 1098476660468066413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cliff_60
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 16
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cc1b496741b1a9b0800000000000000
+      internalID: -5070576785175143232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cliff_61
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 16
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87a08a74930211330800000000000000
+      internalID: 3679757800925825656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cliff11Tiles_001
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 89
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 098114b5a1e576148b022900cbdce978
+      internalID: 1410585998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass15Tiles_136
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 112
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1bf8f37f8a1bf54980c631b0d7b32c5
+      internalID: 1527897062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dirt15Tiles_140
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 112
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f16f8217e73a2524e89c02d582c47ada
+      internalID: 1155202163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lake0Tiles_0
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 87
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46892e355912de746bb0945152c44dac
+      internalID: 607595226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Cobblestone78_Minifantasy_ForgottenPlainsTiles_203: -6328784598117176427
+      Cliff1_Minifantasy_ForgottenPlainsTiles_192: -7583777823891987096
+      Cobblestone24Tiles_81: -4052161693322161772
+      Hill32Tiles_442: -5023663691752961989
+      LakeDirt8a_Minifantasy_ForgottenPlainsTiles_301: -3489956195118528441
+      Hill18Tiles_419: -4585696895799458723
+      HillDiagonal17_Minifantasy_ForgottenPlainsTiles_123: -4961990447109663054
+      LakeDirt2a_Minifantasy_ForgottenPlainsTiles_205: 3425367079500313002
+      Hill35Tiles_446: -560979931124987262
+      Cobblestone45Tiles_148: 8764171547743228341
+      Cobblestone38Tiles_83: 7385040703868274097
+      LakeGrass2bTiles_36: -6506514647827721572
+      Cliff23_Minifantasy_ForgottenPlainsTiles_392: -6275098772522018600
+      Dirt6Tiles_47: -1748832395696345806
+      Cliff31_Minifantasy_ForgottenPlainsTiles_523: -2418220956999656998
+      Cobblestone5Tiles_49: -3711402455772129382
+      Hill42Tiles_224: 3928130086521422914
+      Grass2Tiles_18: 4959342113610361446
+      Cobblestone27Tiles_113: -7863711057116192080
+      LakeDirt9b_Minifantasy_ForgottenPlainsTiles_305: -2893110829644422687
+      Cliff8_Minifantasy_ForgottenPlainsTiles_289: 6810361817690676055
+      Cobblestone70_Minifantasy_ForgottenPlainsTiles_347: 8415238496746426707
+      CliffWallRed3_Minifantasy_ForgottenPlainsTiles_132: -2736357235925509484
+      LakeGrass9bTiles_90: -8905371680243631910
+      Cliff_45: 5421150664290682031
+      Cliff21_Minifantasy_ForgottenPlainsTiles_339: 2655180460648200333
+      Grass7Tiles_70: 7834792174395292375
+      CliffRed_Minifantasy_ForgottenPlainsTiles_127: -5852996969169418061
+      Cliff9_Minifantasy_ForgottenPlainsTiles_290: -5656346488148160034
+      HillDiagonal2_Minifantasy_ForgottenPlainsTiles_14: 5444163818856308123
+      CobblestoneRed5_Minifantasy_ForgottenPlainsTiles_100: -5049927526407010635
+      Dirt8Tiles_74: -8469148042810489581
+      Cobblestone32Tiles_30: 2133669709595634281
+      Hill14Tiles_364: -7433867350394248726
+      HillDiagonal13_Minifantasy_ForgottenPlainsTiles_93: -6041122909637212217
+      Cliff24_Minifantasy_ForgottenPlainsTiles_391: 2617337369539894587
+      Dirt15Tiles_139: 8108014313574528216
+      Grass16Tiles_0: 8170302452853305954
+      LakeGrass9aTiles_87: 6376822986008453909
+      Hill51Tiles_434: 5034948529936923786
+      Cobblestone14Tiles_141: -5524295968405812971
+      Cobblestone13Tiles_140: -9125520848482850863
+      Dirt13Tiles_137: -6349967763104249912
+      Hill11Tiles_459: 7238738429251388315
+      Hill44Tiles_275: -8749472929602134184
+      LakeGrass8aTiles_86: 7307207491082985977
+      Cliff_54: -1742090798937858409
+      Dirt7Tiles_73: 7663075464098576306
+      Cliff32_Minifantasy_ForgottenPlainsTiles_524: -7792671821749925123
+      HillDiagonal4_Minifantasy_ForgottenPlainsTiles_16: -4043459509603987514
+      Dirt3Tiles_22: -8988517981366986819
+      Grass1Tiles_17: -6723554196787993037
+      LakeDirt4b_Minifantasy_ForgottenPlainsTiles_253: 9200567803777883369
+      Hill58Tiles_65: 4553033935373241965
+      Cobblestone73_Minifantasy_ForgottenPlainsTiles_399: 4463499954687948896
+      Hill49Tiles_448: -8910293193016298992
+      Cobblestone22Tiles_79: -8842103600094942649
+      Cliff_56: 6450478762909504066
+      Cliff_43: -7656697386457067451
+      Hill53Tiles_388: 4417858098564675107
+      LakeGrass14aTiles_150: 723821681983666684
+      Cobblestone20Tiles_52: -827670085130584023
+      Hill56Tiles_236: 6515670418458428080
+      LakeRed1Tiles_128: -8124086799710556490
+      Cobblestone58_Minifantasy_ForgottenPlainsTiles_396: -3751950853960319004
+      Grass3Tiles_19: -8112496800722139697
+      Hill19Tiles_264: -2050651067973404110
+      Path1_Minifantasy_ForgottenPlainsTiles_503: 8018067390814807308
+      LakeDirt1a_Minifantasy_ForgottenPlainsTiles_204: -6172919280516811109
+      Dirt9Tiles_75: 8807267928992789121
+      Path14_Minifantasy_ForgottenPlainsTiles_515: 3623880081268746987
+      LakeGrass2aTiles_33: 3765233093305786911
+      Hill45Tiles_325: 8373927542812143915
+      LakeDirt8b_Minifantasy_ForgottenPlainsTiles_304: -6769328226976119029
+      LakeDirt5b_Minifantasy_ForgottenPlainsTiles_254: -6011278852249763683
+      Hill30Tiles_370: 7193959089986640724
+      Cobblestone7Tiles_76: 5555387919399740626
+      Hill31Tiles_422: -8617975458298076888
+      Cobblestone75_Minifantasy_ForgottenPlainsTiles_401: 2369922858639762663
+      Grass8Tiles_71: 4597406943155738836
+      Grass14Tiles_135: 5601282923502899091
+      CliffWallRed2_Minifantasy_ForgottenPlainsTiles_131: -1989101455663105290
+      Cobblestone71_Minifantasy_ForgottenPlainsTiles_348: 316409954963828886
+      Cobblestone87_Minifantasy_ForgottenPlainsTiles_352: -3174113187423358086
+      LakeGrass14bTiles_153: 6448933789285281108
+      Path8_Minifantasy_ForgottenPlainsTiles_530: -8613624937929624364
+      Cobblestone2Tiles_24: 1346658296133103896
+      Cobblestone76_Minifantasy_ForgottenPlainsTiles_201: -2533802426284823840
+      LakeGrass6bTiles_62: 9218296383687302457
+      HillDiagonal8_Minifantasy_ForgottenPlainsTiles_41: -2723166384715657677
+      Hill27Tiles_315: 119301940193599039
+      Dirt5Tiles_46: 379406905535426505
+      LakeRed2Tiles_129: -5598943059628661997
+      Cliff7_Minifantasy_ForgottenPlainsTiles_288: 8189713782397531181
+      Cliff18Tiles_337: -6196348735134223376
+      Cobblestone85_Minifantasy_ForgottenPlainsTiles_350: -854643233180118499
+      Cobblestone1Tiles_23: 5797141495302184475
+      LakeDirt7b_Minifantasy_ForgottenPlainsTiles_303: 5878641157100447856
+      LakeDirt6b_Minifantasy_ForgottenPlainsTiles_255: 3396118314492644049
+      Cliff_58: 2357794600575852240
+      Cobblestone18Tiles_28: 807601458871330183
+      Hill55Tiles_235: -6834347440270916541
+      Cobblestone89_Minifantasy_ForgottenPlainsTiles_403: 3347981598235983953
+      CobblestoneRed6_Minifantasy_ForgottenPlainsTiles_101: 3678162888181693533
+      Cliff_47: -7966482895178238964
+      Cliff_50: -5100347621746568231
+      Cobblestone34Tiles_54: 4413147969798166273
+      Cobblestone82_Minifantasy_ForgottenPlainsTiles_297: 5271393229018138912
+      LakeGrass13bTiles_152: 7727157871311100431
+      HillDiagonal1_Minifantasy_ForgottenPlainsTiles_13: 5402989614622835303
+      Cliff_51: 1653049901306399264
+      Lake0Tiles_0: 607595226
+      HillDiagonal10_Minifantasy_ForgottenPlainsTiles_64: 3791333211163139352
+      Cobblestone41Tiles_115: 7527292512489313705
+      LakeDirt10b_Minifantasy_ForgottenPlainsTiles_356: 7378129753536578331
+      LakeDirt2b_Minifantasy_ForgottenPlainsTiles_208: -7633760841724850862
+      Hill47Tiles_381: -6217725633728830640
+      LakeGrass5bTiles_61: 7077750735549151254
+      Cobblestone63_Minifantasy_ForgottenPlainsTiles_200: -7516508778161660496
+      Cobblestone21Tiles_53: -8842103600094942649
+      LakeDirt13a_Minifantasy_ForgottenPlainsTiles_405: 4166629672879623180
+      Path7_Minifantasy_ForgottenPlainsTiles_529: -3302856517846097519
+      Cobblestone3Tiles_25: 5428996616675934595
+      Path5_Minifantasy_ForgottenPlainsTiles_517: -7512212014148272078
+      Path6_Minifantasy_ForgottenPlainsTiles_518: 491045394357892640
+      Cobblestone15Tiles_142: -4271812543496821812
+      Grass6Tiles_44: -1391373748628232827
+      Hill33Tiles_463: -4928425845996876769
+      Hill52Tiles_385: 4054438072915033574
+      Cobblestone61_Minifantasy_ForgottenPlainsTiles_198: 6659268368480765483
+      Cobblestone26Tiles_112: 3862306132930967525
+      Hill20Tiles_261: 723356617888387579
+      HillDiagonal14_Minifantasy_ForgottenPlainsTiles_94: 14565115268857
+      Cliff28_Minifantasy_ForgottenPlainsTiles_520: -279105542158766551
+      Cliff_52: -8842103600094942649
+      LakeDirt13b_Minifantasy_ForgottenPlainsTiles_408: -7758667917155488409
+      Path12_Minifantasy_ForgottenPlainsTiles_492: 2280851931077979430
+      Cliff36_Minifantasy_ForgottenPlainsTiles_8: 1098476660468066413
+      Cliff29_Minifantasy_ForgottenPlainsTiles_521: 4313757523190542780
+      Cliff_59: -3587659183287784021
+      Cliff_40: 1527897062
+      Cobblestone43Tiles_146: 7385040703868274097
+      Grass15Tiles_136: -6257977265184517638
+      Cobblestone16Tiles_26: 3934320468523223389
+      Cobblestone68_Minifantasy_ForgottenPlainsTiles_295: 3682547688303539920
+      Cobblestone62_Minifantasy_ForgottenPlainsTiles_199: 5601282923502899091
+      Grass15Tiles_137: -7451596547521832489
+      Cobblestone86_Minifantasy_ForgottenPlainsTiles_351: -8988517981366986819
+      Cobblestone40Tiles_114: 3682547688303539920
+      Cobblestone37Tiles_82: -3668181590615008542
+      Hill3Tiles_412: 3641636871342769408
+      Dirt17_Minifantasy_ForgottenPlainsTiles_6: -3249289018024729512
+      Path4_Minifantasy_ForgottenPlainsTiles_516: 4176888712659698878
+      Cobblestone50_Minifantasy_ForgottenPlainsTiles_242: 5814508574505517240
+      GrassRed_Minifantasy_ForgottenPlainsTiles_68: 1855472826433282859
+      LakeGrass3aTiles_34: -3093023096474644574
+      Grass5Tiles_43: 5316939577844888454
+      Dirt15Tiles_140: -5815736184513189670
+      Path15_Minifantasy_ForgottenPlainsTiles_528: -5844160943511762779
+      Cobblestone11Tiles_109: -2110042712347727191
+      Cliff_46: 1027550940926726954
+      LakeGrass8bTiles_89: -3163642778822800188
+      Cliff12Tiles_343: 5797141495302184475
+      LakeDirt14b_Minifantasy_ForgottenPlainsTiles_409: 7699298985400157248
+      Grass18Tiles_2: -3023410728320318872
+      Cliff_57: -8469148042810489581
+      LakeDirt11b_Minifantasy_ForgottenPlainsTiles_357: 1410585998
+      Cobblestone55_Minifantasy_ForgottenPlainsTiles_344: 911780284891408944
+      Cliff11Tiles_001: 807601458871330183
+      LakeGrass1aTiles_32: -5168040815232592561
+      Hill16Tiles_441: -6382560835142732947
+      HillDiagonal16_Minifantasy_ForgottenPlainsTiles_96: 3544609373908863452
+      Hill41Tiles_273: 3141184343605105841
+      Path10_Minifantasy_ForgottenPlainsTiles_490: 826807845919064449
+      Cliff11Tiles_342: 3862306132930967525
+      Cliff38_Minifantasy_ForgottenPlainsTiles_10: -5030520507953257148
+      LakeGrass10bTiles_120: -1246188947823022559
+      LakeDirt11a_Minifantasy_ForgottenPlainsTiles_354: -4914212286587763718
+      Hill23Tiles_257: 6659268368480765483
+      Cliff13Tiles_393: 9042573890372305651
+      Cliff37_Minifantasy_ForgottenPlainsTiles_9: -1875059082174145934
+      Cobblestone17Tiles_27: 7915624992077606304
+      Dirt2Tiles_21: -1075315052660386025
+      Cobblestone53_Minifantasy_ForgottenPlainsTiles_292: -2189924741227308238
+      Cobblestone72_Minifantasy_ForgottenPlainsTiles_349: -253395684201487199
+      LakeGrass12aTiles_119: 2186427529521710212
+      Cobblestone66_Minifantasy_ForgottenPlainsTiles_246: 3928130086521422914
+      CliffWallRed1_Minifantasy_ForgottenPlainsTiles_130: 1526557158510595095
+      Cobblestone80_Minifantasy_ForgottenPlainsTiles_248: -6595815651991560548
+      HillDiagonal15_Minifantasy_ForgottenPlainsTiles_95: 4269812595729375584
+      Cobblestone77_Minifantasy_ForgottenPlainsTiles_202: 8263000620674300320
+      Cobblestone49_Minifantasy_ForgottenPlainsTiles_241: -3668181590615008542
+      Cliff_49: 5261281921886370080
+      Cobblestone25Tiles_111: 5722932829261651997
+      Cliff34_Minifantasy_ForgottenPlainsTiles_510: -2715241273640187481
+      Grass13Tiles_134: -6382560835142732947
+      HillDiagonal3_Minifantasy_ForgottenPlainsTiles_15: 925141679683938519
+      Hill22Tiles_259: -3517410314370050647
+      Grass17Tiles_1: -8702418200153160368
+      LakeGrass5aTiles_58: 8769477312700077242
+      CobblestoneRed2Tiles_97: -5360660620944690164
+      Cobblestone90_Minifantasy_ForgottenPlainsTiles_404: -4383200904871947276
+      Cliff17_Minifantasy_ForgottenPlainsTiles_287: 4319082817293394212
+      Cobblestone39Tiles_84: -4131358018784568616
+      Dirt4Tiles_45: -3517410314370050647
+      Dirt14Tiles_138: 7282339002687143453
+      CobblestoneRed1Tiles_69: -6015679772019069520
+      Hill38Tiles_427: -4842557544833603767
+      Cliff33_Minifantasy_ForgottenPlainsTiles_509: -621620952382282789
+      Cliff5_Minifantasy_ForgottenPlainsTiles_239: 3168479926340215187
+      Cobblestone69_Minifantasy_ForgottenPlainsTiles_296: 6310122605123573066
+      Dirt11Tiles_106: -3123210492697546674
+      LakeDirt12a_Minifantasy_ForgottenPlainsTiles_355: 2186427529521710212
+      Dirt16_Minifantasy_ForgottenPlainsTiles_5: 8813435448533744725
+      HillDiagonal5_Minifantasy_ForgottenPlainsTiles_38: -7188676492307289244
+      Cliff26_Minifantasy_ForgottenPlainsTiles_454: -6834347440270916541
+      Cliff_41: 5034948529936923786
+      Cobblestone46_Minifantasy_ForgottenPlainsTiles_195: 4492174557885079726
+      Cobblestone44Tiles_147: -4131358018784568616
+      Cobblestone6Tiles_50: 1931152706404973021
+      Cobblestone88_Minifantasy_ForgottenPlainsTiles_402: -3631161583991667605
+      Hill2Tiles_256: -1426443488887083965
+      Cobblestone36Tiles_56: 7527292512489313705
+      LakeGrass12bTiles_122: 7066067342859227769
+      LakeDirt5a_Minifantasy_ForgottenPlainsTiles_251: -1166011962993991456
+      Cobblestone57_Minifantasy_ForgottenPlainsTiles_346: 6972464331449536496
+      Hill57Tiles_12: 5814508574505517240
+      Hill5Tiles_437: 7684392470309269888
+      Cliff30_Minifantasy_ForgottenPlainsTiles_522: 7684392470309269888
+      Grass9Tiles_72: 7915624992077606304
+      CobblestoneRed4_Minifantasy_ForgottenPlainsTiles_99: 2573619400469118381
+      Hill24Tiles_173: -8443621086643762005
+      HillRedTiles_11: -4416118572682991526
+      Cobblestone28Tiles_143: 3788468917655773827
+      HillDiagonal12_Minifantasy_ForgottenPlainsTiles_92: 238488608736778264
+      Cliff22Tiles_340: 6376822986008453909
+      LakeGrass13aTiles_149: -2898857517003678170
+      Cobblestone31Tiles_29: -9112105784952453106
+      Cobblestone64_Minifantasy_ForgottenPlainsTiles_244: 7066067342859227769
+      Hill40Tiles_323: -3751635620221326304
+      LakeDirt7a_Minifantasy_ForgottenPlainsTiles_300: -8749472929602134184
+      LakeGrass1bTiles_35: -5311050402585112350
+      HillDiagonal9_Minifantasy_ForgottenPlainsTiles_63: -9097735869496629021
+      Cliff14Tiles_394: -3037922311549652288
+      LakeDirt1b_Minifantasy_ForgottenPlainsTiles_207: -5023663691752961989
+      Cobblestone83_Minifantasy_ForgottenPlainsTiles_298: -2273810267464160379
+      LakeGrass15bTiles_154: 4265465359916075392
+      Cobblestone29Tiles_144: -8681114602919847155
+      Cliff4_Minifantasy_ForgottenPlainsTiles_238: -5142985224987346401
+      Cliff3_Minifantasy_ForgottenPlainsTiles_194: -328139089004794878
+      Cliff19_Minifantasy_ForgottenPlainsTiles_390: -3249289018024729512
+      Path13_Minifantasy_ForgottenPlainsTiles_502: -2136313522233825004
+      Cliff10Tiles_341: -1862774936582810376
+      Cobblestone35Tiles_55: 3682547688303539920
+      Hill43Tiles_225: 6888916561447043941
+      Cliff_39: -4052161693322161772
+      Path2_Minifantasy_ForgottenPlainsTiles_504: -5908335885316342472
+      LakeDirt15a_Minifantasy_ForgottenPlainsTiles_407: -9097735869496629021
+      Cliff_55: 7744404587916001556
+      LakeGrass4bTiles_60: 14565115268857
+      Hill48Tiles_430: -328139089004794878
+      LakeDirt9a_Minifantasy_ForgottenPlainsTiles_302: 723821681983666684
+      Dirt10Tiles_105: 1433732898496577818
+      Cobblestone79_Minifantasy_ForgottenPlainsTiles_247: 7527292512489313705
+      Cliff16Tiles_237: -5656879159022141002
+      Hill29Tiles_421: -7654518322336165030
+      Grass11Tiles_103: -3259719909884631123
+      Hill15Tiles_462: -7576320236054340339
+      LakeGrass7aTiles_85: -5142985224987346401
+      Cliff35_Minifantasy_ForgottenPlainsTiles_511: -8443621086643762005
+      Hill50Tiles_452: -1996741259284955334
+      Cobblestone54_Minifantasy_ForgottenPlainsTiles_293: 6515670418458428080
+      Hill26Tiles_265: 5869068167950956315
+      PathRed_Minifantasy_ForgottenPlainsTiles_66: -5813318991914637323
+      Hill36Tiles_426: 6451290469315146256
+      LakeDirt14a_Minifantasy_ForgottenPlainsTiles_406: -7910306303201999464
+      Hill54Tiles_285: -7758667917155488409
+      Hill28Tiles_420: 5743708548890765255
+      Cliff15Tiles_395: -2912442393251364826
+      Cobblestone67_Minifantasy_ForgottenPlainsTiles_294: 7077750735549151254
+      Dirt19Tiles_4: -8455904629307353324
+      Hill7Tiles_438: -6593254826960494661
+      LakeGrass11aTiles_118: -5815736184513189670
+      Grass19Tiles_3: 9158298232193234603
+      LakeGrass6aTiles_59: -7470577720828876
+      HillDiagonal11_Minifantasy_ForgottenPlainsTiles_91: -449969554694646727
+      Grass12Tiles_104: 7193959089986640724
+      HillDiagonal20_Minifantasy_ForgottenPlainsTiles_126: 723356617888387579
+      HillDiagonal18_Minifantasy_ForgottenPlainsTiles_124: -4416118572682991526
+      Cliff_60: 8331141037414878666
+      Cobblestone12Tiles_110: 1006085810292343893
+      Path3_Minifantasy_ForgottenPlainsTiles_505: 4455865136271514690
+      HillDiagonal6_Minifantasy_ForgottenPlainsTiles_39: -8893890985848954956
+      Dirt18_Minifantasy_ForgottenPlainsTiles_7: -8096298417172543951
+      Path11_Minifantasy_ForgottenPlainsTiles_491: -7654518322336165030
+      Cobblestone30Tiles_145: -38588482260016299
+      Cobblestone84_Minifantasy_ForgottenPlainsTiles_299: 6576386867314494571
+      Cobblestone74_Minifantasy_ForgottenPlainsTiles_400: -2312857263472460830
+      Hill4Tiles_413: -8082284768366111521
+      Cobblestone4Tiles_48: 2383556733372750088
+      Cobblestone51_Minifantasy_ForgottenPlainsTiles_243: 1027550940926726954
+      Cobblestone33Tiles_31: 3258529250474653698
+      Cobblestone10Tiles_108: -3587659183287784021
+      Hill13Tiles_416: 4269812595729375584
+      Cobblestone81_Minifantasy_ForgottenPlainsTiles_249: 7385040703868274097
+      Cliff27_Minifantasy_ForgottenPlainsTiles_519: 8108014313574528216
+      Hill8Tiles_414: -2912442393251364826
+      Hill6Tiles_458: -6400116975249335710
+      Cobblestone8Tiles_77: -3032784720682111644
+      DirtRed_Minifantasy_ForgottenPlainsTiles_67: -8905371680243631910
+      Hill37Tiles_374: -7954525314318764463
+      Hill1Tiles_411: -2109436772023874938
+      Cobblestone9Tiles_78: 2573619400469118381
+      Cliff_61: -2734967884921206326
+      Cobblestone42Tiles_116: -3668181590615008542
+      Cliff_53: -6015679772019069520
+      LakeGrass10aTiles_117: -2202592744467658255
+      Cliff6_Minifantasy_ForgottenPlainsTiles_240: 7663075464098576306
+      LakeGrass4aTiles_57: -3123210492697546674
+      Hill9Tiles_362: 925141679683938519
+      Hill10Tiles_439: -2136313522233825004
+      LakeGrass15aTiles_151: 537062328767693549
+      Hill17Tiles_417: 5825372304349074978
+      LakeDirt3a_Minifantasy_ForgottenPlainsTiles_206: 4824316627741258146
+      LakeGrass7bTiles_88: -1456378614208964141
+      HillDiagonal19_Minifantasy_ForgottenPlainsTiles_125: 8595849554165390320
+      Hill25Tiles_263: 6892322623397516774
+      Hill21Tiles_310: -5844160943511762779
+      Cobblestone59_Minifantasy_ForgottenPlainsTiles_397: -1396358301602513775
+      CobblestoneRed3Tiles_98: -6189812000013468590
+      Hill12Tiles_440: 3944373447193247977
+      CliffStairsRed_Minifantasy_ForgottenPlainsTiles_133: 4054438072915033574
+      Cobblestone48_Minifantasy_ForgottenPlainsTiles_197: -621620952382282789
+      Hill34Tiles_467: 4989698193070002963
+      Path9_Minifantasy_ForgottenPlainsTiles_531: -8706433476318823229
+      LakeDirt10a_Minifantasy_ForgottenPlainsTiles_353: -2800661900902505749
+      Cliff25_Minifantasy_ForgottenPlainsTiles_436: -8717160545582013568
+      Cobblestone60_Minifantasy_ForgottenPlainsTiles_398: 2634119036987483898
+      Dirt12Tiles_107: -895709937133249447
+      Cliff_48: 7307207491082985977
+      Grass10Tiles_102: -1456378614208964141
+      Cobblestone65_Minifantasy_ForgottenPlainsTiles_245: -2894878241242559648
+      Dirt1Tiles_20: -8681114602919847155
+      Hill39Tiles_428: -8870844482909596393
+      Cliff20_Minifantasy_ForgottenPlainsTiles_338: 8892620804246492495
+      Cobblestone47_Minifantasy_ForgottenPlainsTiles_196: 379406905535426505
+      LakeDirt15b_Minifantasy_ForgottenPlainsTiles_410: 6030080497366988655
+      Cliff2_Minifantasy_ForgottenPlainsTiles_193: 4989698193070002963
+      Grass4Tiles_42: -3620536133939249470
+      LakeDirt6a_Minifantasy_ForgottenPlainsTiles_252: -6887149896287967767
+      LakeGrass3bTiles_37: -3233832380815565200
+      Cobblestone23Tiles_80: -4937974188585387277
+      LakeDirt4a_Minifantasy_ForgottenPlainsTiles_250: 4330814387474717367
+      Cobblestone52_Minifantasy_ForgottenPlainsTiles_291: -1748832395696345806
+      Cobblestone19Tiles_51: -772338997196136994
+      Cliff_42: -5778501088168705250
+      LakeGrass11bTiles_121: -2715241273640187481
+      Hill53Tiles_335: 4020362424188240888
+      Hill46Tiles_378: -4149207019411745397
+      LakeDirt3b_Minifantasy_ForgottenPlainsTiles_209: -322706168206865058
+      HillDiagonal7_Minifantasy_ForgottenPlainsTiles_40: -8706433476318823229
+      Cliff_44: -7451596547521832489
+      LakeDirt12b_Minifantasy_ForgottenPlainsTiles_358: -7603092456225813721
+      Cobblestone56_Minifantasy_ForgottenPlainsTiles_345: -3737707458618277094
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
