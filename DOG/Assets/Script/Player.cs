@@ -65,8 +65,28 @@ public class Player : MonoBehaviour
         hpSlider.maxValue = hp;
         hpSlider2.maxValue = hp;
 
+<<<<<<< Updated upstream:DOG/Assets/Script/Player.cs
         hpSlider.value = currentHP;
         hpSlider2.value = currentHP;
+=======
+        if (direction.y == 1)
+        {
+            direction = Vector3.up;
+        }
+        else if (direction.y == -1)
+        {
+            direction = Vector3.down;
+        }
+        else if (direction.x == 1)
+        {
+            direction = Vector3.right;
+            //flip x
+        }
+        else if (direction.x == -1)
+        {
+            direction = Vector3.left;
+        }
+>>>>>>> Stashed changes:DOG/Assets/Scripts/Player/Player.cs
 
         /*if (currentHP > 0)
         {
@@ -74,7 +94,11 @@ public class Player : MonoBehaviour
         }*/
         Move();
 
+<<<<<<< Updated upstream:DOG/Assets/Script/Player.cs
         
+=======
+        HpControlor();
+>>>>>>> Stashed changes:DOG/Assets/Scripts/Player/Player.cs
     }
 
     private void Move()
@@ -83,6 +107,7 @@ public class Player : MonoBehaviour
 
         if (direction.x != 0 || direction.y != 0)
         {
+<<<<<<< Updated upstream:DOG/Assets/Script/Player.cs
             anim.SetBool("input", true);
 
             anim.SetFloat("inputx", direction.x);
@@ -93,11 +118,29 @@ public class Player : MonoBehaviour
     }
 
     private void OnAttack(InputAction.CallbackContext context)
+=======
+            manager.AskAction(scanObject);
+        }
+        Weapon.instance.Swing();
+        //칼이 공격할때만 변경하기
+        
+    }
+
+    private void HpControlor()
+>>>>>>> Stashed changes:DOG/Assets/Scripts/Player/Player.cs
     {
         //equipWeapon.Use();
 
     }
 
+<<<<<<< Updated upstream:DOG/Assets/Script/Player.cs
+=======
+        if (currentHP > 0.1)
+        {
+            currentHP -= 0.1f;
+        }
+    }
+>>>>>>> Stashed changes:DOG/Assets/Scripts/Player/Player.cs
 
     private void OnMoveInput(InputAction.CallbackContext context)
     {
