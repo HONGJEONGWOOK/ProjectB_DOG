@@ -12,15 +12,6 @@ public class Monster_Bow : Monsters
     void ShootArrow()
     {
         GameObject arrow = ArrowManager.Arrow_Instance.GetPooledArrow();
-        if (sprite.flipX)
-        {
-            ArrowManager.Arrow_Instance.ArrowDirection = -1;
-        }
-        else
-        {
-            ArrowManager.Arrow_Instance.ArrowDirection = 1;
-        }
-
         arrow.transform.position = shootPosition.position;
     }
 }
