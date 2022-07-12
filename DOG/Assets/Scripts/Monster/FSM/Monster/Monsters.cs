@@ -152,8 +152,7 @@ public class Monsters : MonoBehaviour
     void Move_Monster()
     {
         rigid.position = Vector2.MoveTowards(rigid.position, target, moveSpeed * Time.fixedDeltaTime);
-
-
+        trackDirection = target - (Vector2)this.transform.position;
 
         // sprite 방향
         var cross = Vector3.Cross(trackDirection, this.transform.up);
@@ -161,11 +160,13 @@ public class Monsters : MonoBehaviour
         {
             //Debug.Log("왼쪽이다.");
             sprite.flipX = true;
+            ArrowManager.Arrow_Instance.ArrowDirection = -1;
         }
         else
         {
             //Debug.Log("오른쪽이다.");
             sprite.flipX = false;
+            ArrowManager.Arrow_Instance.ArrowDirection = 1;
         }
     }
 
@@ -184,8 +185,15 @@ public class Monsters : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Triggered!");
             ChangeStatus(MonsterCurrentState.ATTACK);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            ChangeStatus(MonsterCurrentState.IDLE);
         }
     }
 

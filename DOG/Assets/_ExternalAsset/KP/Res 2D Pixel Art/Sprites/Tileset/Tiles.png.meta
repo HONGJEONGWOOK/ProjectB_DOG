@@ -6255,9 +6255,9 @@ TextureImporter:
       Lake0Tiles_0: 607595226
       HillDiagonal10_Minifantasy_ForgottenPlainsTiles_64: 3791333211163139352
       Cobblestone41Tiles_115: 7527292512489313705
-      LakeDirt10b_Minifantasy_ForgottenPlainsTiles_356: 7378129753536578331
-      LakeDirt2b_Minifantasy_ForgottenPlainsTiles_208: -7633760841724850862
       Hill47Tiles_381: -6217725633728830640
+      LakeDirt2b_Minifantasy_ForgottenPlainsTiles_208: -7633760841724850862
+      LakeDirt10b_Minifantasy_ForgottenPlainsTiles_356: 7378129753536578331
       LakeGrass5bTiles_61: 7077750735549151254
       Cobblestone63_Minifantasy_ForgottenPlainsTiles_200: -7516508778161660496
       Cobblestone21Tiles_53: -8842103600094942649
@@ -6385,8 +6385,8 @@ TextureImporter:
       LakeGrass1bTiles_35: -5311050402585112350
       HillDiagonal9_Minifantasy_ForgottenPlainsTiles_63: -9097735869496629021
       Cliff14Tiles_394: -3037922311549652288
-      LakeDirt1b_Minifantasy_ForgottenPlainsTiles_207: -5023663691752961989
       Cobblestone83_Minifantasy_ForgottenPlainsTiles_298: -2273810267464160379
+      LakeDirt1b_Minifantasy_ForgottenPlainsTiles_207: -5023663691752961989
       LakeGrass15bTiles_154: 4265465359916075392
       Cobblestone29Tiles_144: -8681114602919847155
       Cliff4_Minifantasy_ForgottenPlainsTiles_238: -5142985224987346401
@@ -6399,9 +6399,9 @@ TextureImporter:
       Cliff_39: -4052161693322161772
       Path2_Minifantasy_ForgottenPlainsTiles_504: -5908335885316342472
       LakeDirt15a_Minifantasy_ForgottenPlainsTiles_407: -9097735869496629021
-      Cliff_55: 7744404587916001556
-      LakeGrass4bTiles_60: 14565115268857
       Hill48Tiles_430: -328139089004794878
+      LakeGrass4bTiles_60: 14565115268857
+      Cliff_55: 7744404587916001556
       LakeDirt9a_Minifantasy_ForgottenPlainsTiles_302: 723821681983666684
       Dirt10Tiles_105: 1433732898496577818
       Cobblestone79_Minifantasy_ForgottenPlainsTiles_247: 7527292512489313705
@@ -6414,10 +6414,10 @@ TextureImporter:
       Hill50Tiles_452: -1996741259284955334
       Cobblestone54_Minifantasy_ForgottenPlainsTiles_293: 6515670418458428080
       Hill26Tiles_265: 5869068167950956315
-      PathRed_Minifantasy_ForgottenPlainsTiles_66: -5813318991914637323
       Hill36Tiles_426: 6451290469315146256
       LakeDirt14a_Minifantasy_ForgottenPlainsTiles_406: -7910306303201999464
       Hill54Tiles_285: -7758667917155488409
+      PathRed_Minifantasy_ForgottenPlainsTiles_66: -5813318991914637323
       Hill28Tiles_420: 5743708548890765255
       Cliff15Tiles_395: -2912442393251364826
       Cobblestone67_Minifantasy_ForgottenPlainsTiles_294: 7077750735549151254
@@ -6440,19 +6440,19 @@ TextureImporter:
       Cobblestone84_Minifantasy_ForgottenPlainsTiles_299: 6576386867314494571
       Cobblestone74_Minifantasy_ForgottenPlainsTiles_400: -2312857263472460830
       Hill4Tiles_413: -8082284768366111521
-      Cobblestone4Tiles_48: 2383556733372750088
       Cobblestone51_Minifantasy_ForgottenPlainsTiles_243: 1027550940926726954
       Cobblestone33Tiles_31: 3258529250474653698
-      Cobblestone10Tiles_108: -3587659183287784021
       Hill13Tiles_416: 4269812595729375584
       Cobblestone81_Minifantasy_ForgottenPlainsTiles_249: 7385040703868274097
-      Cliff27_Minifantasy_ForgottenPlainsTiles_519: 8108014313574528216
       Hill8Tiles_414: -2912442393251364826
-      Hill6Tiles_458: -6400116975249335710
-      Cobblestone8Tiles_77: -3032784720682111644
+      Cliff27_Minifantasy_ForgottenPlainsTiles_519: 8108014313574528216
+      Cobblestone4Tiles_48: 2383556733372750088
       DirtRed_Minifantasy_ForgottenPlainsTiles_67: -8905371680243631910
+      Hill6Tiles_458: -6400116975249335710
       Hill37Tiles_374: -7954525314318764463
       Hill1Tiles_411: -2109436772023874938
+      Cobblestone8Tiles_77: -3032784720682111644
+      Cobblestone10Tiles_108: -3587659183287784021
       Cobblestone9Tiles_78: 2573619400469118381
       Cliff_61: -2734967884921206326
       Cobblestone42Tiles_116: -3668181590615008542

@@ -24,6 +24,7 @@ public class SpreadTilemap : MonoBehaviour
     {
         SpreadTile(positions, floor, floorTile);
     }
+
     public void SpreadWallTilemap(HashSet<Vector2Int> positions)
     {
         SpreadTile(positions, wall, wallTile);

@@ -8,9 +8,9 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     public GameManager manager;
+    GameObject scanObject;
 
     PlayerInputActions actions = null;
-    GameObject scanObject;
 
     public float hp = 10.0f;
 
@@ -25,11 +25,6 @@ public class Player : MonoBehaviour
     public Slider hpSlider;
     public Slider hpSlider2;
 
-
-   
-
-
-   
     private void Awake()
     {
         
@@ -43,7 +38,6 @@ public class Player : MonoBehaviour
         currentHP = hp;
     }
    
-
     private void OnEnable()
     {
         actions.Player.Enable();
@@ -51,8 +45,6 @@ public class Player : MonoBehaviour
         actions.Player.Move.canceled += OnMoveInput;
         actions.Player.Attack.performed += OnAttack;
     }
-
-   
 
     private void OnDisable()
     {
@@ -62,15 +54,35 @@ public class Player : MonoBehaviour
         actions.Player.Disable();
     }
 
-
-    
     private void FixedUpdate()
     {
         
         Move();
+    }
 
+    private void Update()
+    {
         Debug.DrawRay(rigid.position, direction * 1.0f, new Color(0, 1, 0));
         RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, direction, 1.0f, LayerMask.GetMask("Npc"));
+        //방향키가 누르면 켜지고 때면 꺼지는 시스템이라 direction도 누를 때만 켜지는 것 같음
+
+        if (direction.y == 1)
+        {
+            direction = Vector3.up;
+        }
+        else if (direction.y == -1)
+        {
+            direction = Vector3.down;
+        }
+        else if (direction.x == 1)
+        {
+            direction = Vector3.right;
+        }
+        else if (direction.x == -1)
+        {
+            direction = Vector3.left;
+        }
+
         if (rayHit.collider != null)
         {
             scanObject = rayHit.collider.gameObject;
@@ -86,8 +98,6 @@ public class Player : MonoBehaviour
     private void Move()
     {
         rigid.MovePosition(transform.position + (direction * moveSpeed * Time.deltaTime));
-
-        
     }
 
     private void OnAttack(InputAction.CallbackContext context)
@@ -130,25 +140,6 @@ public class Player : MonoBehaviour
         }
         else
             anim.SetBool("input", false);
-
-        if (direction.y == 1)
-        {
-            direction = Vector3.up;
-        }
-        else if (direction.y == -1)
-        {
-            direction = Vector3.down;
-        }
-        else if (direction.x == 1)
-        {
-            direction = Vector3.right;
-        }
-        else if (direction.x == -1)
-        {
-            direction = Vector3.left;
-        }
-
-
     }
 
 }

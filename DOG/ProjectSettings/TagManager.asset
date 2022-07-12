@@ -4,7 +4,6 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Monster
   - Melee
   layers:
   - Default
@@ -44,8 +43,8 @@ TagManager:
     uniqueID: 0
     locked: 0
   - name: BackGround
-    uniqueID: 4055226113
+    uniqueID: 2390780733
     locked: 0
-  - name: Player
-    uniqueID: 2617217829
+  - name: Palyer
+    uniqueID: 4288303927
     locked: 0

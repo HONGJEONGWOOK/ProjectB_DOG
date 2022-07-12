@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 264295877}
-  - component: {fileID: 8755210561229781721}
+  - component: {fileID: 1954770093}
+  - component: {fileID: 1954770092}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -24,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 264295876}
-  m_LocalRotation: {x: 0.0009876626, y: 0.00039902428, z: 0.22478026, w: 0.974409}
+  m_LocalRotation: {x: 0.0009728704, y: 0.00043384437, z: 0.19003734, w: 0.9817763}
   m_LocalPosition: {x: 0.17, y: 0.41, z: 0.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -32,8 +33,8 @@ Transform:
   - {fileID: 1923115325}
   m_Father: {fileID: 6761863133378473890}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0.1, y: 0.07, z: 25.98}
---- !u!95 &8755210561229781721
+  m_LocalEulerAnglesHint: {x: 0.1, y: 0.07, z: 21.91}
+--- !u!95 &1954770093
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -53,6 +54,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1954770092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264295876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80b625b1dcc27af4b806de0540d24db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &471167561
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,7 +321,7 @@ BoxCollider2D:
   m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.4672867, y: 1.1178174}
@@ -430,8 +443,8 @@ MonoBehaviour:
   hp: 10
   moveSpeed: 5
   currentHP: 0
-  hpSlider: {fileID: 2653278251186413872, guid: b96c04c5a58cfc64b80211bd7b845203, type: 3}
-  hpSlider2: {fileID: 440648557780459150, guid: 30d22af5cd2b3e74e8647f78c89e1c65, type: 3}
+  hpSlider: {fileID: 0}
+  hpSlider2: {fileID: 0}
 --- !u!95 &6761863133378473891
 Animator:
   serializedVersion: 4

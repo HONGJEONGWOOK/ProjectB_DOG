@@ -38,7 +38,7 @@ public class Arrow : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Border") || collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             ArrowManager.Arrow_Instance.ReturnPooledArrow(this.gameObject);
         }
