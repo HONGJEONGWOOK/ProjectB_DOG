@@ -34,9 +34,9 @@ public class QuestManager : MonoBehaviour
 
         questList.Add(20, new QuestData("갑자기 꽃?", new int[] { 3000, 2000 }));
 
-        questList.Add(30, new QuestData("마을의 위험요소 처치", new int[] { 2000, 1000 }));
-
-        questList.Add(40, new QuestData("몬스터들은 어디서 왔을까", new int[] { 0 }));
+        questList.Add(30, new QuestData("마을의 위험요소 처치", new int[] { 2000, 1000, 4000, 2000, 1000 }));
+        //4000 - 몬스터 번호
+        questList.Add(40, new QuestData("장로의 집을 수색하자", new int[] { 0 }));
 
     }
 
@@ -49,7 +49,7 @@ public class QuestManager : MonoBehaviour
 
     public string CheckQuest(int id)
     {
-
+        //다음 토크 타겟
         if (id == questList[questId].npcId[questActionIndex])
         {
             questActionIndex++;
@@ -58,11 +58,13 @@ public class QuestManager : MonoBehaviour
         //퀘스트오브젝트 컨트롤
         ControlObject();
 
+        //대화 완료 및 다음 퀘스트
         if (questActionIndex == questList[questId].npcId.Length)
         {
             NextQuest();
         }
 
+        //퀘스트 이름 리턴
         return questList[questId].questName;
     }
 
@@ -81,12 +83,15 @@ public class QuestManager : MonoBehaviour
     {
         switch(questId)
         {
+            //10번 퀘스트를 끝나치면 열쇠 꽃 등장
             case 10:
                 if(questActionIndex == 2)
                 {
                     questObject[0].SetActive(true);
                 }
                 break;
+            
+            //20번 퀘스트에서 1번째 순서가 끝나고 꽃을 먹으면 사라짐
             case 20:
                 if(questActionIndex == 1)
                 {
