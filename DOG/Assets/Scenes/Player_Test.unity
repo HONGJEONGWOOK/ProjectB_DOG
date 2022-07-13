@@ -206,6 +206,7 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+<<<<<<< HEAD
     - target: {fileID: 264295877, guid: c6d6882e2566c4842afe255e3b8b8efc, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.9817763
@@ -238,6 +239,8 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+=======
+>>>>>>> main
     - target: {fileID: 6761863133378473822, guid: c6d6882e2566c4842afe255e3b8b8efc, type: 3}
       propertyPath: hpSlider
       value: 
@@ -296,6 +299,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6d6882e2566c4842afe255e3b8b8efc, type: 3}
+<<<<<<< HEAD
 --- !u!1 &1954770090 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 264295876, guid: c6d6882e2566c4842afe255e3b8b8efc, type: 3}
@@ -333,6 +337,8 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+=======
+>>>>>>> main
 --- !u!114 &153072176016099871 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1316459253140110752, guid: 7e51abee36604d842a4e247eda9b4a6c, type: 3}
