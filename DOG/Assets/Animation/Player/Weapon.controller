@@ -90,7 +90,11 @@ AnimatorController:
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
+<<<<<<< Updated upstream
     m_DefaultBool: 1
+=======
+    m_DefaultBool: 0
+>>>>>>> Stashed changes
     m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
