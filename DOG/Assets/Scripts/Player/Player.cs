@@ -44,10 +44,12 @@ public class Player : MonoBehaviour
         actions.Player.Move.performed += OnMoveInput;
         actions.Player.Move.canceled += OnMoveInput;
         actions.Player.Attack.performed += OnAttack;
+        actions.Player.Talk.performed += OnTalk;
     }
 
     private void OnDisable()
     {
+        actions.Player.Talk.performed -= OnTalk;
         actions.Player.Attack.performed -= OnAttack;
         actions.Player.Move.canceled -= OnMoveInput;
         actions.Player.Move.performed -= OnMoveInput;
@@ -56,41 +58,13 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
         Move();
     }
 
     private void Update()
     {
-        Debug.DrawRay(rigid.position, direction * 1.0f, new Color(0, 1, 0));
-        RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, direction, 1.0f, LayerMask.GetMask("Npc"));
-        //방향키가 누르면 켜지고 때면 꺼지는 시스템이라 direction도 누를 때만 켜지는 것 같음
 
-        if (direction.y == 1)
-        {
-            direction = Vector3.up;
-        }
-        else if (direction.y == -1)
-        {
-            direction = Vector3.down;
-        }
-        else if (direction.x == 1)
-        {
-            direction = Vector3.right;
-        }
-        else if (direction.x == -1)
-        {
-            direction = Vector3.left;
-        }
-
-        if (rayHit.collider != null)
-        {
-            scanObject = rayHit.collider.gameObject;
-        }
-        else
-        {
-            scanObject = null;
-        }
+        SearchNpc();
 
         //HpControlor();
     }
@@ -102,15 +76,9 @@ public class Player : MonoBehaviour
 
     private void OnAttack(InputAction.CallbackContext context)
     {
-        //equipWeapon.Use();
-        Debug.Log("공격 및 말걸기");
-        if (scanObject != null)
-        {
-            manager.AskAction(scanObject);
-        }
-        Weapon.instance.Swing();
-
         
+        //equipWeapon.Use();
+        Weapon.instance.Swing();
     }
 
    /* private void HpControlor()
@@ -142,4 +110,32 @@ public class Player : MonoBehaviour
             anim.SetBool("input", false);
     }
 
+    private void OnTalk(InputAction.CallbackContext _)
+    {
+        if (scanObject != null)
+        {
+            manager.AskAction(scanObject);
+        }
+        else
+        {
+            Debug.Log("대상이 없습니다.");
+        }
+    }
+
+    void SearchNpc()
+    {
+        Vector3 dir = direction;
+
+        Debug.DrawRay(rigid.position, dir * 1.5f, Color.red);
+        RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, dir, 1.5f, LayerMask.GetMask("Npc"));
+
+        if (rayHit.collider != null)
+        {
+            scanObject = rayHit.collider.gameObject;
+        }
+        else
+        {
+            scanObject = null;
+        }
+    }
 }

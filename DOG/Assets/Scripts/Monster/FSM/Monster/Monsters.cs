@@ -11,7 +11,7 @@ public class Monsters : MonoBehaviour
     protected Animator anim = null;
     protected SpriteRenderer sprite = null;
 
-    
+    public int DeadCount = 0;
     
     public static bool isDead = false;
 
@@ -89,6 +89,7 @@ public class Monsters : MonoBehaviour
                     break;
 
                 case MonsterCurrentState.DEAD:
+                    DeadCount++;
                     //죽는 애니메이션 재생. 재생 완료 후 Monster pool로 반환
                     break;
             }

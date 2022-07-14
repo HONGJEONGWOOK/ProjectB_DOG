@@ -39,7 +39,7 @@ public class QuestManager : MonoBehaviour
 
         questList.Add(30, new QuestData("마을의 위험요소 처치", new int[] { 2000, 1000}));
         //4000 - 몬스터 번호
-        questList.Add(40, new QuestData("몬스터 처치 완료", new int[] { 2000, 1000 }));
+        questList.Add(40, new QuestData("몬스터 처치 완료", new int[] { 1000, 2000 }));
 
         questList.Add(50, new QuestData("의심되는 곳 수색", new int[] { 0 }));
     }
@@ -68,22 +68,22 @@ public class QuestManager : MonoBehaviour
             NextQuest();
         }
 
-        //고블린 죽은 횟수를 체크하여 +10해주는 함수로 넘김
+        ////고블린 죽은 횟수를 체크하여 +10해주는 함수로 넘김
         //if(GoblinKillCountCheck() == 5)
         //{
-        //    NextQuest();
+        //    TalkManager talkManager = GetComponent<TalkManager>();
+        //    talkManager.QuestNumber1 = 41;
         //}
 
         //퀘스트 이름 리턴
         return questList[questId].questName;
     }
 
-    //고블린 죽은 횟수를 감지하여 넘겨줄 함수, 몬스터 쪽 데이터와 연동 필요
+    ////고블린 죽은 횟수를 감지하여 넘겨줄 함수, 몬스터 쪽 데이터와 연동 필요
     //public int GoblinKillCountCheck()
     //{
-    //    int count = 0;
-    //
-    //    monsters.
+    //    Monsters monsters = GetComponent<Monsters>();
+    //    int count =  monsters.DeadCount;
     //
     //    return count;
     //}    
@@ -116,6 +116,13 @@ public class QuestManager : MonoBehaviour
                 if(questActionIndex == 1)
                 {
                     questObject[0].SetActive(false);
+                }
+                break;
+
+            case 40:
+                if(questActionIndex == 1)
+                {
+                    questObject[1].SetActive(false);
                 }
                 break;
         }
