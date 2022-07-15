@@ -5,13 +5,11 @@ using UnityEngine;
 using UnityEditor;
 using Monster.Enums;
 
-public class Monsters : MonoBehaviour
+public class Monsters : MonoBehaviour, IBattle, IHealth
 {
     private Rigidbody2D rigid = null;
     protected Animator anim = null;
     protected SpriteRenderer sprite = null;
-
-    
     
     public static bool isDead = false;
 
@@ -23,9 +21,10 @@ public class Monsters : MonoBehaviour
     [SerializeField] protected float detectRadius = 5.0f;
 
     [Header("몬스터 기본스탯")]
-    [SerializeField] protected float healthPoint = 100.0f;
+    [SerializeField] protected float maxHealthPoint = 100.0f;
     [SerializeField] protected int strength = 5;
     [SerializeField] protected float moveSpeed = 3.0f;
+    protected float healthPoint = 100.0f;
 
     //###################################### TRACK ##############################################################
     private Vector2 target = new();
@@ -33,9 +32,13 @@ public class Monsters : MonoBehaviour
     //###################################### ATTACK #########################################################
     [SerializeField] protected float attackRange = 1.5f;
     [SerializeField] protected float attackDelay = 3.0f;
+    [SerializeField] protected float attackPower = 10.0f;
+    [SerializeField] protected float defence = 10.0f;
 
     private CircleCollider2D cCollider = null;
     IEnumerator attack = null;
+
+    public System.Action OnHealthChange { get; set; }
 
     //###################################### PATROL #########################################################
     float waitCounter = 0.0f;
@@ -43,7 +46,21 @@ public class Monsters : MonoBehaviour
     int waypointIndex = 0;
     public Transform[] waypoint = null;
 
-    public float HealthPoint { get => healthPoint; set { healthPoint = value; } }
+    public float HP
+    {
+        get => healthPoint;
+        set 
+        { 
+            healthPoint = Mathf.Clamp(healthPoint, 0f, maxHealthPoint);
+            OnHealthChange?.Invoke();
+        } 
+    }
+
+    public float MaxHP { get => maxHealthPoint; }
+
+    public float AttackPower { get => attackPower; }
+
+    public float Defence { get => defence; }
 
     private void Awake()
     {
@@ -262,5 +279,25 @@ public class Monsters : MonoBehaviour
     {
         Handles.DrawWireDisc(this.transform.position, transform.forward, detectRadius);
         Handles.DrawWireDisc(this.transform.position, transform.forward, trackDirection.magnitude);
+    }
+
+    public void Attack(IBattle target)
+    {
+        if (target != null)
+        {
+            float damage = attackPower;
+            target.TakeDamage(damage);
+        }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        float finalDamage = damage - defence;
+
+        if (finalDamage < 1)
+        {
+            finalDamage = 1;
+        }
+        HP -= finalDamage;
     }
 }

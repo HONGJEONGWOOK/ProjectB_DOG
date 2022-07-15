@@ -7,34 +7,34 @@ public class Weapon : MonoBehaviour
 
     
 
-    public static Weapon instance;
+    //public static Weapon instance;
 
-    Animator anim;
-    BoxCollider2D box;
+    //Animator anim;
+    //BoxCollider2D box;
 
-    private void Awake()
-    {
-        instance = this;
+    //private void Awake()
+    //{
+    //    instance = this;
 
-        anim = GetComponent<Animator>();
-        box = GetComponentInChildren<BoxCollider2D>();
-    }
+    //    anim = GetComponent<Animator>();
+    //    box = GetComponentInChildren<BoxCollider2D>();
+    //}
 
 
-    public void Swing()
-    {
-        box.enabled = true;
+    //public void Swing()
+    //{
+    //    box.enabled = true;
         
-        anim.SetTrigger("Attack");
+    //    anim.SetTrigger("Attack");
 
-        Invoke("OffBox", 1.0f);
+    //    Invoke("OffBox", 1.0f);
         
-    }
+    //}
 
-    public void OffBox()
-    {
-        box.enabled = false;
-    }
+    //public void OffBox()
+    //{
+    //    box.enabled = false;
+    //}
 
 
 
