@@ -1130,7 +1130,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TX Props_37
+      name: DGGate
       rect:
         serializedVersion: 2
         x: 353
@@ -1499,7 +1499,6 @@ TextureImporter:
       TX Props_19: -22249546
       TX Props_30: -1907490830
       TX Props_26: 1444483601
-      TX Props_37: -903554757
       TX Props_1: -1206871962
       TX Props_43: -1581639169
       TX Props_24: -583215887
@@ -1510,6 +1509,7 @@ TextureImporter:
       TX Props_31: 996455905
       TX Props_13: 255789574
       TX Props_9: 1996837426
+      DGGate: -903554757
       TX Props_8: 306960529
       TX Props_44: -1855507178
       TX Props_3: -400480179

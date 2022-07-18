@@ -45,7 +45,7 @@ public class ArrowManager : MonoBehaviour
     {
 
     }
-
+        
 
 
     public GameObject GetPooledArrow()

@@ -138,6 +138,10 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 6761863133378473822, guid: c6d6882e2566c4842afe255e3b8b8efc, type: 3}
+      propertyPath: moveSpeed
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 6761863133378473888, guid: c6d6882e2566c4842afe255e3b8b8efc, type: 3}
       propertyPath: m_Name
       value: Player
@@ -148,7 +152,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6761863133378473889, guid: c6d6882e2566c4842afe255e3b8b8efc, type: 3}
       propertyPath: m_SortingLayerID
-      value: 1706871269
+      value: -6663369
       objectReference: {fileID: 0}
     - target: {fileID: 6761863133378473890, guid: c6d6882e2566c4842afe255e3b8b8efc, type: 3}
       propertyPath: m_RootOrder
@@ -264,6 +268,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2230447171645232496, guid: 45c1c4457f44ba541b45b56d589755f3, type: 3}
+      propertyPath: minWidth
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2230447171645232496, guid: 45c1c4457f44ba541b45b56d589755f3, type: 3}
+      propertyPath: minHeight
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2230447171645232496, guid: 45c1c4457f44ba541b45b56d589755f3, type: 3}
+      propertyPath: totalWidth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2230447171645232496, guid: 45c1c4457f44ba541b45b56d589755f3, type: 3}
+      propertyPath: totalHeight
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 2230447171645232497, guid: 45c1c4457f44ba541b45b56d589755f3, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -382,6 +402,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Entrance
       objectReference: {fileID: 0}
+    - target: {fileID: 6514548216614994840, guid: a3560c83c5773634fa16bb7f4ba36fe6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6514548216614994842, guid: a3560c83c5773634fa16bb7f4ba36fe6, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6514548216614994842, guid: a3560c83c5773634fa16bb7f4ba36fe6, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1904186563
+      objectReference: {fileID: 0}
     - target: {fileID: 6514548216614994843, guid: a3560c83c5773634fa16bb7f4ba36fe6, type: 3}
       propertyPath: makeRandomMap
       value: 
@@ -392,11 +424,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6514548216614994845, guid: a3560c83c5773634fa16bb7f4ba36fe6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.03
       objectReference: {fileID: 0}
     - target: {fileID: 6514548216614994845, guid: a3560c83c5773634fa16bb7f4ba36fe6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 6514548216614994845, guid: a3560c83c5773634fa16bb7f4ba36fe6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -493,7 +525,7 @@ PrefabInstance:
       objectReference: {fileID: 1871356410}
     - target: {fileID: 8345609858962479719, guid: 9c2c1714b914fc447a34988c2c21c9c4, type: 3}
       propertyPath: distance
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8345609858962479719, guid: 9c2c1714b914fc447a34988c2c21c9c4, type: 3}
       propertyPath: entrance
@@ -503,6 +535,14 @@ PrefabInstance:
       propertyPath: divideSpace
       value: 
       objectReference: {fileID: 820138796}
+    - target: {fileID: 8345609858962479719, guid: 9c2c1714b914fc447a34988c2c21c9c4, type: 3}
+      propertyPath: minRoomWidth
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8345609858962479719, guid: 9c2c1714b914fc447a34988c2c21c9c4, type: 3}
+      propertyPath: minRoomHeight
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8345609858962479719, guid: 9c2c1714b914fc447a34988c2c21c9c4, type: 3}
       propertyPath: spreadTilemap
       value: 
