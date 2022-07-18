@@ -8,13 +8,17 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     public GameManager manager;
-    GameObject scanObject;
+
 
     PlayerInputActions actions = null;
+    GameObject scanObject;
+    Weapon sword = null;
+    Animator sword_Animator = null;
+    Animator arm_Animator = null;
+    Animator bodyAnimtor = null;
 
     public float hp = 10.0f;
 
-    Animator anim = null;
     Rigidbody2D rigid = null;
 
     public float moveSpeed = 5.0f;
@@ -30,10 +34,11 @@ public class Player : MonoBehaviour
         
         actions = new PlayerInputActions();
         rigid = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
-        
 
-        
+        sword = FindObjectOfType<Weapon>();
+        sword_Animator = sword.GetComponent<Animator>();
+        arm_Animator = transform.Find("Player_Arm").GetComponent<Animator>();
+        bodyAnimtor = transform.Find("Player_Body").GetComponent<Animator>();
         
         currentHP = hp;
     }
@@ -41,16 +46,16 @@ public class Player : MonoBehaviour
     private void OnEnable()
     {
         actions.Player.Enable();
-        actions.Player.Move.performed += OnMoveInput;
-        actions.Player.Move.canceled += OnMoveInput;
+        //actions.Player.Move.performed += OnMoveInput;
+        //actions.Player.Move.canceled += OnMoveInput;
         actions.Player.Attack.performed += OnAttack;
     }
 
     private void OnDisable()
     {
         actions.Player.Attack.performed -= OnAttack;
-        actions.Player.Move.canceled -= OnMoveInput;
-        actions.Player.Move.performed -= OnMoveInput;
+        //actions.Player.Move.canceled -= OnMoveInput;
+        //actions.Player.Move.performed -= OnMoveInput;
         actions.Player.Disable();
     }
 
@@ -97,10 +102,10 @@ public class Player : MonoBehaviour
 
     private void Move()
     {
-        rigid.MovePosition(transform.position + (direction * moveSpeed * Time.deltaTime));
+        rigid.MovePosition(transform.position + (direction * moveSpeed * Time.fixedDeltaTime));
     }
 
-    private void OnAttack(InputAction.CallbackContext context)
+    private void OnAttack(InputAction.CallbackContext _)
     {
         //equipWeapon.Use();
         Debug.Log("공격 및 말걸기");
@@ -108,9 +113,15 @@ public class Player : MonoBehaviour
         {
             manager.AskAction(scanObject);
         }
-        Weapon.instance.Swing();
+        //Weapon.instance.Swing();
+        Attack_Sword();
+    }
 
-        
+    void Attack_Sword()
+    {
+        sword_Animator.SetTrigger("OnAttack");
+        arm_Animator.SetTrigger("OnAttack");
+        bodyAnimtor.SetTrigger("OnAttack");
     }
 
    /* private void HpControlor()
@@ -127,19 +138,19 @@ public class Player : MonoBehaviour
         }
     }*/
 
-    private void OnMoveInput(InputAction.CallbackContext context)
-    {
-        direction = context.ReadValue<Vector2>();
+    //private void OnMoveInput(InputAction.CallbackContext context)
+    //{
+    //    direction = context.ReadValue<Vector2>();
 
-        if (direction.x != 0 || direction.y != 0)
-        {
-            anim.SetBool("input", true);
+    //    if (direction.x != 0 || direction.y != 0)
+    //    {
+    //        anim.SetBool("input", true);
 
-            anim.SetFloat("inputx", direction.x);
-            anim.SetFloat("inputy", direction.y);
-        }
-        else
-            anim.SetBool("input", false);
-    }
+    //        anim.SetFloat("inputx", direction.x);
+    //        anim.SetFloat("inputy", direction.y);
+    //    }
+    //    else
+    //        anim.SetBool("input", false);
+    //}
 
 }
