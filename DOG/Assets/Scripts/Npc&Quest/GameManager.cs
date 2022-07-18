@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,11 +12,17 @@ public class GameManager : MonoBehaviour
     public Text talkText;
     public GameObject scanObject;
 
-    //Äù½ºÆ®¸Å´ÏÀú
-   
+    //í€˜ìŠ¤íŠ¸ë§¤ë‹ˆì €
+
 
     public bool isAction;
     public int talkIndex;
+
+    // ë§µ ë§¤ë‹ˆì €-----------------------------------------------------------\
+    int oldSceneIndex = 0;
+
+    public static GameManager Inst { get => instance;}
+    static GameManager instance = null;
 
     private void Start()
     {
@@ -25,11 +32,42 @@ public class GameManager : MonoBehaviour
     public void Awake()
     {
         talkPanel.SetActive(false);
+
+        if (instance == null)
+        {
+            instance = this;
+            instance.Initialize();
+            DontDestroyOnLoad(this.gameObject);     // ì”¬ì´ ë³€ê²½ë˜ë”ë¼ë„ ê²Œì„ ì˜¤ë¸Œì íŠ¸ê°€ ì‚¬ë¼ì§€ê¸° ì•Šê²Œ í•´ì£¼ëŠ” í•¨ìˆ˜
+        }
+        else
+        {
+            // ì”¬ì˜ Gamemanagerê°€ ì—¬ëŸ¬ë²ˆ ìƒì„±ëë‹¤.
+            if (instance != this)
+            {
+                Destroy(this.gameObject);
+            }
+        }
     }
 
-    //°ÔÀÓ ¿ÀºêÁ§Æ® Å¸ÀÔ¿¡ scanObjÆÄ¶ó¹ÌÅÍ·Î ¹Ş¾Æ¼­ GameObjectÅ¸ÀÔÇüÀÇ scanObject¿¡ ³Ö°í
-    //scanObject¿¡ GetComponentÇØ¼­ ±â´ÉÀ» ObjectDataÅ¸ÀÔÀÇ objData¿¡ ³Ö°í
-    //ObjectDataÅ¸ÀÔÀº public int id; public bool isNpc; ¸¦ °¡Áö°í ÀÖÀ½
+    void Initialize()
+    {
+        SceneManager.sceneLoaded += OnStageStart;   // ì”¬ì˜ ë¡œë”©ì´ ëë‚¬ì„ ë•Œ ì‹¤í–‰ë  ë¸ë¦¬ê²Œì´íŠ¸ì— OnStageStart ë“±ë¡
+    }
+
+    private void OnStageStart(Scene arg0, LoadSceneMode arg1)
+    {
+
+        if (oldSceneIndex != arg0.buildIndex)
+        {
+            oldSceneIndex = arg0.buildIndex;
+        }
+
+    }
+
+
+    //ê²Œì„ ì˜¤ë¸Œì íŠ¸ íƒ€ì…ì— scanObjíŒŒë¼ë¯¸í„°ë¡œ ë°›ì•„ì„œ GameObjectíƒ€ì…í˜•ì˜ scanObjectì— ë„£ê³ 
+    //scanObjectì— GetComponentí•´ì„œ ê¸°ëŠ¥ì„ ObjectDataíƒ€ì…ì˜ objDataì— ë„£ê³ 
+    //ObjectDataíƒ€ì…ì€ public int id; public bool isNpc; ë¥¼ ê°€ì§€ê³  ìˆìŒ
     //
     public void AskAction(GameObject scanObj)
     {
@@ -37,20 +75,20 @@ public class GameManager : MonoBehaviour
         ObjectData objData = scanObject.GetComponent<ObjectData>();
         Talk(objData.id, objData.isNpc);
 
-        //´ëÈ­Ã¢ ¿Â
+        //ëŒ€í™”ì°½ ì˜¨
         talkPanel.SetActive(isAction);
     }
 
     void Talk(int id, bool isNpc)
     {
-        //QuestManagerÀÇ GetQuestTalkIndexÀÇ ÆÄ¶ó¹ÌÅÍ¿¡ Àü´ŞÇÒ questTalkIndex
-        //GetQuestTalkIndex´Â questId °ªÀ» ¸®ÅÏ
+        //QuestManagerì˜ GetQuestTalkIndexì˜ íŒŒë¼ë¯¸í„°ì— ì „ë‹¬í•  questTalkIndex
+        //GetQuestTalkIndexëŠ” questId ê°’ì„ ë¦¬í„´
         int questTalkIndex = questManager.GetQuestTalkIndex(id);
 
-        //questId¸¦ 
+        //questIdë¥¼ 
         string talkData = talkManager.GetTalk(id + questTalkIndex, talkIndex);
 
-        if(isNpc)
+        if (isNpc)
         {
             talkText.text = talkData;
         }
@@ -59,7 +97,7 @@ public class GameManager : MonoBehaviour
             talkText.text = talkData;
         }
 
-        //´ëÈ­³¡
+        //ëŒ€í™”ë
         if (talkData == null)
         {
             isAction = false;

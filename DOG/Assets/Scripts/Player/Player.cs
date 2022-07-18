@@ -64,7 +64,7 @@ public class Player : MonoBehaviour
     {
         Debug.DrawRay(rigid.position, direction * 1.0f, new Color(0, 1, 0));
         RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, direction, 1.0f, LayerMask.GetMask("Npc"));
-        //¹æÇâÅ°°¡ ´©¸£¸é ÄÑÁö°í ¶§¸é ²¨Áö´Â ½Ã½ºÅÛÀÌ¶ó directionµµ ´©¸¦ ¶§¸¸ ÄÑÁö´Â °Í °°À½
+        //ë°©í–¥í‚¤ê°€ ëˆ„ë¥´ë©´ ì¼œì§€ê³  ë•Œë©´ êº¼ì§€ëŠ” ì‹œìŠ¤í…œì´ë¼ directionë„ ëˆ„ë¥¼ ë•Œë§Œ ì¼œì§€ëŠ” ê²ƒ ê°™ìŒ
 
         if (direction.y == 1)
         {
@@ -103,7 +103,7 @@ public class Player : MonoBehaviour
     private void OnAttack(InputAction.CallbackContext context)
     {
         //equipWeapon.Use();
-        Debug.Log("°ø°İ ¹× ¸»°É±â");
+        Debug.Log("ê³µê²© ë° ë§ê±¸ê¸°");
         if (scanObject != null)
         {
             manager.AskAction(scanObject);
