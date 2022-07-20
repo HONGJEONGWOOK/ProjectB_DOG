@@ -11,10 +11,9 @@ public class Player : MonoBehaviour
     GameObject scanObject;
 
     PlayerInputActions actions = null;
+    Animator anim = null;
 
     public float hp = 10.0f;
-
-    Animator anim = null;
     Rigidbody2D rigid = null;
 
     public float moveSpeed = 5.0f;
@@ -27,13 +26,9 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        
+        anim = GetComponent<Animator>();
         actions = new PlayerInputActions();
         rigid = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
-        
-
-        
         
         currentHP = hp;
     }
@@ -78,22 +73,27 @@ public class Player : MonoBehaviour
     {
         
         //equipWeapon.Use();
-        Weapon.instance.Swing();
+        Debug.Log("ê³µê²© ë° ë§ê±¸ê¸°");
+        if (scanObject != null)
+        {
+            manager.AskAction(scanObject);
+        }
+        //Weapon.instance.Swing();
     }
 
-   /* private void HpControlor()
-    {
-        hpSlider.maxValue = hp;
-        hpSlider2.maxValue = hp;
+    /* private void HpControlor()
+     {
+         hpSlider.maxValue = hp;
+         hpSlider2.maxValue = hp;
 
-        hpSlider.value = currentHP;
-        hpSlider2.value = currentHP;
+         hpSlider.value = currentHP;
+         hpSlider2.value = currentHP;
 
-        if (currentHP > 0.1)
-        {
-            currentHP -= 0.1f;
-        }
-    }*/
+         if (currentHP > 0.1)
+         {
+             currentHP -= 0.1f;
+         }
+     }*/
 
     private void OnMoveInput(InputAction.CallbackContext context)
     {
@@ -118,7 +118,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            Debug.Log("´ë»óÀÌ ¾ø½À´Ï´Ù.");
+            Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
         }
     }
 

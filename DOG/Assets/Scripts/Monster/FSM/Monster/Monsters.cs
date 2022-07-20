@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEditor;
 using Monster.Enums;
 
-public class Monsters : MonoBehaviour
+public class Monsters : MonoBehaviour, IHealth, IBattle
 {
     private Rigidbody2D rigid = null;
     protected Animator anim = null;
@@ -17,33 +17,61 @@ public class Monsters : MonoBehaviour
 
     public System.Action onHit = null;
 
-    [Header("¸ó½ºÅÍ AI °ü·Ã")]
+    [Header("ëª¬ìŠ¤í„° AI ê´€ë ¨")]
     public MonsterCurrentState status = MonsterCurrentState.IDLE;
     protected Vector2 trackDirection = Vector2.zero;
     [SerializeField] protected float detectRadius = 5.0f;
 
-    [Header("¸ó½ºÅÍ ±âº»½ºÅÈ")]
+    [Header("ëª¬ìŠ¤í„° ê¸°ë³¸ìŠ¤íƒ¯")]
     [SerializeField] protected float healthPoint = 100.0f;
+    protected float maxHealthPoint = 100.0f;
     [SerializeField] protected int strength = 5;
     [SerializeField] protected float moveSpeed = 3.0f;
+    private float currentSpeed = 3.0f;
 
-    //###################################### TRACK ##############################################################
+
+    // ###################################### VARIABLES #####################################
+    // ------------------------------------ TRACK ------------------------------------------
+    private float trackTimer = 1.0f;
+
+    // ------------------------------------ TARGET ------------------------------------------
     private Vector2 target = new();
 
-    //###################################### ATTACK #########################################################
+    // ------------------------------------ ATTACK ------------------------------------------
     [SerializeField] protected float attackRange = 1.5f;
-    [SerializeField] protected float attackDelay = 3.0f;
+    [SerializeField] protected float attackInterval = 3.0f;
+    [SerializeField] protected float attackPower = 5.0f;
+    [SerializeField] protected float defence = 1.0f;
+
 
     private CircleCollider2D cCollider = null;
     IEnumerator attack = null;
 
-    //###################################### PATROL #########################################################
+    public System.Action onHealthChange { get; set; }
+
+    // ------------------------------------ PATROL ------------------------------------------
     float waitCounter = 0.0f;
     float waitTime = 2.0f;
     int waypointIndex = 0;
     public Transform[] waypoint = null;
 
-    public float HealthPoint { get => healthPoint; set { healthPoint = value; } }
+
+    //################################## PROPERTIES ########################################
+    public float HP
+    {
+        get => healthPoint;
+        set 
+        { 
+            healthPoint = Mathf.Clamp(value, 0f, maxHealthPoint);
+            onHealthChange?.Invoke();
+        } 
+    }
+
+    public float MaxHP { get => maxHealthPoint; }
+
+    public float AttackPower { get => attackPower; }
+
+    public float Defence { get => defence; }
 
     private void Awake()
     {
@@ -62,11 +90,169 @@ public class Monsters : MonoBehaviour
         CheckStatus();
     }
 
-    void CheckStatus()
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            ChangeStatus(MonsterCurrentState.ATTACK);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            ChangeStatus(MonsterCurrentState.TRACK);
+        }
+    }
+
+    //################################## Method ########################################
+    // -------------------------------  IDLE  ------------------------------------------
+    void Idle()
+    {
+        if (Search())
+        {
+            ChangeStatus(MonsterCurrentState.TRACK);
+            return;
+        }
+
+        waitCounter += Time.fixedDeltaTime;
+        if (waitCounter > waitTime)
+        {
+            waitCounter = 0f;
+            waypointIndex++;
+            waypointIndex %= waypoint.Length;
+
+            ChangeStatus(MonsterCurrentState.PATROL);
+            return;
+        }
+    }
+
+    // -----------------------------  SEARCH  ------------------------------------------
+    bool Search()
+    {
+        bool result = false;
+
+        Collider2D collider = Physics2D.OverlapCircle(this.transform.position, detectRadius, LayerMask.GetMask("Player"));
+
+        if (collider)
+        {
+            target = collider.transform.position;
+            result = true;
+        }
+        
+        return result;
+    }
+
+    // -------------------------------  MOVE  ------------------------------------------
+    void Track()
+    {
+        if (!Search())
+        {
+            ChangeStatus(MonsterCurrentState.PATROL);
+            return;
+        }
+        else
+        {
+            Move_Monster(currentSpeed);
+        }
+    }
+
+
+    void Patrol()
+    {
+        if (Search())
+        {
+            ChangeStatus(MonsterCurrentState.TRACK);
+            return;
+        }
+
+        // waypoint ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        if (Vector2.SqrMagnitude(transform.position - waypoint[waypointIndex].position) < 0.01f)
+        {
+            ChangeStatus(MonsterCurrentState.IDLE);
+        }
+        else
+        {
+            transform.position = Vector2.MoveTowards(transform.position, waypoint[waypointIndex].position,
+                  Time.fixedDeltaTime * moveSpeed);
+        }
+    }
+
+    void Move_Monster(float speed)
+    {
+        rigid.position = Vector2.MoveTowards(rigid.position, target, speed * Time.fixedDeltaTime);
+        SpriteFlip();
+    }
+
+    void SpriteFlip()
+    {
+        var cross = Vector3.Cross(trackDirection, this.transform.up);
+        if (Vector3.Dot(cross, transform.forward) < 0)
+        {
+            sprite.flipX = true;
+        }
+        else
+        {
+            sprite.flipX = false;
+        }
+    }
+
+    // -------------------------------  ATTACK  ----------------------------------------
+    private IEnumerator Attack()
+    {
+        while (true)
+        {
+            anim.SetTrigger("onAttack");
+            yield return new WaitForSeconds(attackInterval);
+        }
+    }
+
+    public void Attack(IBattle target)
+    {
+        if (target != null)
+        {
+            float damage = attackPower;
+            target.TakeDamage(damage);
+        }
+    }
+
+    // -------------------------------  HIT  ----------------------------------------
+    public void TakeDamage(float damage)
+    {
+        float finalDamage = damage - defence;
+
+        if (finalDamage < 1)
+        {
+            finalDamage = 1;
+        }
+        HP -= finalDamage;
+
+        if (HP > 0)
+        {
+            anim.SetTrigger("onHit");
+            currentSpeed = 0;
+        }
+        else
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        anim.SetTrigger("onDie");
+        status = MonsterCurrentState.DEAD;
+        Destroy(gameObject, anim.GetCurrentAnimatorClipInfo(0).Length);
+    }
+
+    //########################## Monster Status Check ##################################
+    void CheckStatus()
+    { // Status Check in Update
         if (!isDead)
         {
-            //trackDirection = player.position - this.transform.position;
             switch (status)
             {
                 case MonsterCurrentState.IDLE:
@@ -84,124 +270,12 @@ public class Monsters : MonoBehaviour
                 case MonsterCurrentState.ATTACK:
                     break;
 
-                case MonsterCurrentState.HIT:
-                    OnHit();
-                    break;
-
                 case MonsterCurrentState.DEAD:
                     DeadCount++;
-                    //Á×´Â ¾Ö´Ï¸ÞÀÌ¼Ç Àç»ý. Àç»ý ¿Ï·á ÈÄ Monster pool·Î ¹ÝÈ¯
+                    //ï¿½×´ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½. ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½ ï¿½ï¿½ Monster poolï¿½ï¿½ ï¿½ï¿½È¯
                     break;
             }
         }
-    }
-
-    void Idle()
-    {
-        if (Search())
-        {
-            ChangeStatus(MonsterCurrentState.TRACK);
-            return;
-        }
-
-        waitCounter += Time.fixedDeltaTime;
-        if (waitCounter > waitTime )
-        {
-            waitCounter = 0f;
-            waypointIndex++;
-            waypointIndex %= waypoint.Length;
-
-            ChangeStatus(MonsterCurrentState.PATROL);
-            return;
-        }
-    }
-
-    void Patrol()
-    {
-        if (Search())
-        {
-            ChangeStatus(MonsterCurrentState.TRACK);
-            return;
-        }
-
-        // waypoint ¿òÁ÷ÀÓ ¹× º¯°æ
-        if (Vector2.SqrMagnitude(transform.position - waypoint[waypointIndex].position) < 0.01f)
-        {
-            ChangeStatus(MonsterCurrentState.IDLE);
-        }
-        else
-        {
-            transform.position = Vector2.MoveTowards(transform.position, waypoint[waypointIndex].position,
-                  Time.fixedDeltaTime * moveSpeed);
-        }
-    }
-
-    bool Search()
-    {
-        bool result = false;
-        Collider2D collider = Physics2D.OverlapCircle(this.transform.position, detectRadius, LayerMask.GetMask("Player"));
-
-        if (collider)
-        {
-            target = collider.transform.position;
-            result = true;
-        }
-
-        return result;
-    }
-
-    void Move_Monster()
-    {
-        rigid.position = Vector2.MoveTowards(rigid.position, target, moveSpeed * Time.fixedDeltaTime);
-
-
-
-        // sprite ¹æÇâ
-        var cross = Vector3.Cross(trackDirection, this.transform.up);
-        if (Vector3.Dot(cross, transform.forward) < 0)
-        {
-            //Debug.Log("¿ÞÂÊÀÌ´Ù.");
-            sprite.flipX = true;
-        }
-        else
-        {
-            //Debug.Log("¿À¸¥ÂÊÀÌ´Ù.");
-            sprite.flipX = false;
-        }
-    }
-
-    void Track()
-    {
-        if (!Search())
-        {
-            ChangeStatus(MonsterCurrentState.IDLE);
-            return;
-        }
-
-        Move_Monster();
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            Debug.Log("Triggered!");
-            ChangeStatus(MonsterCurrentState.ATTACK);
-        }
-    }
-
-    private IEnumerator Attack()
-    {
-        while (true)
-        {
-            anim.SetTrigger("onAttack");
-            yield return new WaitForSeconds(attackDelay);
-        }
-    }
-
-    private void OnHit()
-    {
-        anim.SetTrigger("onHit");
     }
 
     void ChangeStatus(MonsterCurrentState newState)
@@ -217,8 +291,7 @@ public class Monsters : MonoBehaviour
                 break;
             case MonsterCurrentState.ATTACK:
                 StopCoroutine(attack);
-                break;
-            case MonsterCurrentState.HIT:
+                currentSpeed = moveSpeed;
                 break;
             case MonsterCurrentState.DEAD:
                 break;
@@ -235,13 +308,14 @@ public class Monsters : MonoBehaviour
             case MonsterCurrentState.PATROL:
                 break;
             case MonsterCurrentState.TRACK:
+                currentSpeed = moveSpeed;
                 break;
             case MonsterCurrentState.ATTACK:
                 StartCoroutine(attack);
-                break;
-            case MonsterCurrentState.HIT:
+                currentSpeed = 0;
                 break;
             case MonsterCurrentState.DEAD:
+                moveSpeed = 0;
                 break;
             default:
                 break;
@@ -250,7 +324,7 @@ public class Monsters : MonoBehaviour
         anim.SetInteger("CurrentStatus", (int)newState);
     }
 
-
+    // ########################################### GIZMOS ########################################
     private void OnDrawGizmos()
     {
         Handles.DrawWireDisc(this.transform.position, transform.forward, detectRadius);
