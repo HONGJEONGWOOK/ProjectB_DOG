@@ -5,6 +5,9 @@ using UnityEngine;
 //퀘스트 넘버를 관리할 스크립트
 public class QuestManager : MonoBehaviour
 {
+    //몬스터 매니저
+    Monsters monsters;
+
     //퀘스트 아이디
     public int questId;
     public int questActionIndex;
@@ -34,10 +37,11 @@ public class QuestManager : MonoBehaviour
 
         questList.Add(20, new QuestData("갑자기 꽃?", new int[] { 3000, 2000 }));
 
-        questList.Add(30, new QuestData("마을의 위험요소 처치", new int[] { 2000, 1000, 4000, 2000, 1000 }));
+        questList.Add(30, new QuestData("마을의 위험요소 처치", new int[] { 2000, 1000}));
         //4000 - 몬스터 번호
-        questList.Add(40, new QuestData("장로의 집을 수색하자", new int[] { 0 }));
+        questList.Add(40, new QuestData("몬스터 처치 완료", new int[] { 1000, 2000 }));
 
+        questList.Add(50, new QuestData("의심되는 곳 수색", new int[] { 0 }));
     }
 
 
@@ -64,9 +68,25 @@ public class QuestManager : MonoBehaviour
             NextQuest();
         }
 
+        ////고블린 죽은 횟수를 체크하여 +10해주는 함수로 넘김
+        //if(GoblinKillCountCheck() == 5)
+        //{
+        //    TalkManager talkManager = GetComponent<TalkManager>();
+        //    talkManager.QuestNumber1 = 41;
+        //}
+
         //퀘스트 이름 리턴
         return questList[questId].questName;
     }
+
+    ////고블린 죽은 횟수를 감지하여 넘겨줄 함수, 몬스터 쪽 데이터와 연동 필요
+    //public int GoblinKillCountCheck()
+    //{
+    //    Monsters monsters = GetComponent<Monsters>();
+    //    int count =  monsters.DeadCount;
+    //
+    //    return count;
+    //}    
 
     public string CheckQuest()
     {
@@ -96,6 +116,13 @@ public class QuestManager : MonoBehaviour
                 if(questActionIndex == 1)
                 {
                     questObject[0].SetActive(false);
+                }
+                break;
+
+            case 40:
+                if(questActionIndex == 1)
+                {
+                    questObject[1].SetActive(false);
                 }
                 break;
         }

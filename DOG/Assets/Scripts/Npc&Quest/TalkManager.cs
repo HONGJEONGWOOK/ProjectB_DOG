@@ -8,6 +8,8 @@ public class TalkManager : MonoBehaviour
 {
     Dictionary<int, string[]> talkData;
 
+    public int QuestNumber1 = 0;
+
     private void Awake()
     {
         talkData = new Dictionary<int, string[]>();
@@ -33,12 +35,11 @@ public class TalkManager : MonoBehaviour
         talkData.Add(21 + 2000, new string[] { "주민 : 고마워...", "주민 : 증거는 없지만...장로에게 비밀이 있는 것 같아" });
 
         talkData.Add(30 + 2000, new string[] { "주민 : 우선....몬스터들을 해치우는게 어떨까?" });
-        talkData.Add(31 + 1000, new string[] { "장로 : 몬스터 처치는 아직이야?", "독백 : 몬스터를 처치해보자..."});
-        talkData.Add(32 + 4000, new string[] { "고블린 : 크윽, 분하다!", "고블린 : 하지만 그 사람이 돕는 한 우리는 안 사리진다고 키키킥", " 독백 : 그 사람이 누구지?"});
-        //다섯 번째 고블린에 id 4000을 부여한다음 해치우고 말을 거는 방식을 생각 중
-        //대화를 마치면 ++ 되서 33으로 넘어가게.
-        talkData.Add(33 + 2000, new string[] { "주민 : 몬스터들을 해치웠구나 정말 대단해!", "" });
-        talkData.Add(34 + 1000, new string[] { "장로 : 엇...정말 몬스터들을 해치운거야?...", "일단 나도 원인을 알아보고 있을 테니 좀 쉬고 있을레?", "독백 : 장로의 집을 수색해보자...."});
+        talkData.Add(31 + 1000, new string[] { "장로 : 몬스터 처치는 아직이야?", "독백 : 마을 밖 고블린을 5마리 처치해보자..."});
+
+        //다섯 번째 고블린 처치 카운트를 센다음 카운트 채워지면 NextQuest(); 발동해서 넘어가게끔
+        talkData.Add(40 + 1000, new string[] { "정말 해치운거야?....고생했어.", "그럼 난 마을 주민들을 찾아보러 갈게" });
+        talkData.Add(41 + 2000, new string[] { "주민 : 몬스터들을 해치웠구나 정말 대단해!", "장로가 잠깐 마을을 비운 것 같아", "독백 : 장로의 집을 수색해보자...." });
     }
 
     public string GetTalk(int id, int talkIndex)

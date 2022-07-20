@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: 90b08bb6dc292184e920479bcafe71a5
+<<<<<<<< HEAD:DOG/Assets/_ExternalAsset/KP.meta
+guid: 3364678a9f5660b4e8f186ae907e647b
+========
+guid: cc649954230bf8b4d82b6a2754d0131b
+>>>>>>>> 658250b9d4f3a2d668e550e7e4551a3388c83072:DOG/Assets/Scripts/Monster/FSM/Boss.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

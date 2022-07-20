@@ -40,6 +40,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1305130768767315610}
     m_Modifications:
+    - target: {fileID: -6339059742485343401, guid: b2a7685a32bca8e4abd168b071fb3b0b, type: 3}
+      propertyPath: waypoint.Array.data[0]
+      value: 
+      objectReference: {fileID: 7147154931256056056}
+    - target: {fileID: -6339059742485343401, guid: b2a7685a32bca8e4abd168b071fb3b0b, type: 3}
+      propertyPath: waypoint.Array.data[1]
+      value: 
+      objectReference: {fileID: 3814200720993045578}
+    - target: {fileID: -6339059742485343401, guid: b2a7685a32bca8e4abd168b071fb3b0b, type: 3}
+      propertyPath: waypoint.Array.data[2]
+      value: 
+      objectReference: {fileID: 9145922609536121729}
+    - target: {fileID: -6339059742485343401, guid: b2a7685a32bca8e4abd168b071fb3b0b, type: 3}
+      propertyPath: waypoint.Array.data[3]
+      value: 
+      objectReference: {fileID: 4178693593938988893}
     - target: {fileID: 578401991311117336, guid: b2a7685a32bca8e4abd168b071fb3b0b, type: 3}
       propertyPath: m_RootOrder
       value: 0

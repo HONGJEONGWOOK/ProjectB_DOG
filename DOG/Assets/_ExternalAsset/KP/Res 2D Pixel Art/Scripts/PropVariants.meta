@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:DOG/Assets/_ExternalAsset/KP/Res 2D Pixel Art/Scripts/PropVariants.meta
 guid: 607b3c840091628498e27f1327c1b6f7
+========
+guid: 9cbd5444b2adb8341ae27055f9ac03b8
+>>>>>>>> 658250b9d4f3a2d668e550e7e4551a3388c83072:DOG/Assets/Animation/Monster/Boss.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

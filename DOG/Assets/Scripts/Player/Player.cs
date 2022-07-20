@@ -11,10 +11,9 @@ public class Player : MonoBehaviour
     GameObject scanObject;
 
     PlayerInputActions actions = null;
+    Animator anim = null;
 
     public float hp = 10.0f;
-
-    Animator anim = null;
     Rigidbody2D rigid = null;
 
     public float moveSpeed = 5.0f;
@@ -27,13 +26,9 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        
+        anim = GetComponent<Animator>();
         actions = new PlayerInputActions();
         rigid = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
-        
-
-        
         
         currentHP = hp;
     }
@@ -44,10 +39,12 @@ public class Player : MonoBehaviour
         actions.Player.Move.performed += OnMoveInput;
         actions.Player.Move.canceled += OnMoveInput;
         actions.Player.Attack.performed += OnAttack;
+        actions.Player.Talk.performed += OnTalk;
     }
 
     private void OnDisable()
     {
+        actions.Player.Talk.performed -= OnTalk;
         actions.Player.Attack.performed -= OnAttack;
         actions.Player.Move.canceled -= OnMoveInput;
         actions.Player.Move.performed -= OnMoveInput;
@@ -56,41 +53,13 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
         Move();
     }
 
     private void Update()
     {
-        Debug.DrawRay(rigid.position, direction * 1.0f, new Color(0, 1, 0));
-        RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, direction, 1.0f, LayerMask.GetMask("Npc"));
-        //πÊ«‚≈∞∞° ¥©∏£∏È ƒ—¡ˆ∞Ì ∂ß∏È ≤®¡ˆ¥¬ Ω√Ω∫≈€¿Ã∂Û directionµµ ¥©∏¶ ∂ß∏∏ ƒ—¡ˆ¥¬ ∞Õ ∞∞¿Ω
 
-        if (direction.y == 1)
-        {
-            direction = Vector3.up;
-        }
-        else if (direction.y == -1)
-        {
-            direction = Vector3.down;
-        }
-        else if (direction.x == 1)
-        {
-            direction = Vector3.right;
-        }
-        else if (direction.x == -1)
-        {
-            direction = Vector3.left;
-        }
-
-        if (rayHit.collider != null)
-        {
-            scanObject = rayHit.collider.gameObject;
-        }
-        else
-        {
-            scanObject = null;
-        }
+        SearchNpc();
 
         //HpControlor();
     }
@@ -102,69 +71,36 @@ public class Player : MonoBehaviour
 
     private void OnAttack(InputAction.CallbackContext context)
     {
+        
         //equipWeapon.Use();
-        Debug.Log("∞¯∞› π◊ ∏ª∞…±‚");
+        Debug.Log("Í≥µÍ≤© Î∞è ÎßêÍ±∏Í∏∞");
         if (scanObject != null)
         {
             manager.AskAction(scanObject);
         }
-        Weapon.instance.Swing();
-
-        
+        //Weapon.instance.Swing();
     }
 
-   /* private void HpControlor()
-    {
-        hpSlider.maxValue = hp;
-        hpSlider2.maxValue = hp;
+    /* private void HpControlor()
+     {
+         hpSlider.maxValue = hp;
+         hpSlider2.maxValue = hp;
 
-<<<<<<< Updated upstream:DOG/Assets/Script/Player.cs
-        hpSlider.value = currentHP;
-        hpSlider2.value = currentHP;
-=======
-        if (direction.y == 1)
-        {
-            direction = Vector3.up;
-        }
-        else if (direction.y == -1)
-        {
-            direction = Vector3.down;
-        }
-        else if (direction.x == 1)
-        {
-            direction = Vector3.right;
-            //flip x
-        }
-        else if (direction.x == -1)
-        {
-            direction = Vector3.left;
-        }
->>>>>>> Stashed changes:DOG/Assets/Scripts/Player/Player.cs
+         hpSlider.value = currentHP;
+         hpSlider2.value = currentHP;
 
-        if (currentHP > 0.1)
-        {
-            currentHP -= 0.1f;
-        }
-    }*/
+         if (currentHP > 0.1)
+         {
+             currentHP -= 0.1f;
+         }
+     }*/
 
-<<<<<<< HEAD:DOG/Assets/Script/Player.cs
-<<<<<<< Updated upstream:DOG/Assets/Script/Player.cs
-        
-=======
-        HpControlor();
->>>>>>> Stashed changes:DOG/Assets/Scripts/Player/Player.cs
-    }
-
-    private void Move()
-=======
     private void OnMoveInput(InputAction.CallbackContext context)
->>>>>>> main:DOG/Assets/Scripts/Player/Player.cs
     {
         direction = context.ReadValue<Vector2>();
 
         if (direction.x != 0 || direction.y != 0)
         {
-<<<<<<< Updated upstream:DOG/Assets/Script/Player.cs
             anim.SetBool("input", true);
 
             anim.SetFloat("inputx", direction.x);
@@ -174,40 +110,32 @@ public class Player : MonoBehaviour
             anim.SetBool("input", false);
     }
 
-<<<<<<< HEAD:DOG/Assets/Script/Player.cs
-    private void OnAttack(InputAction.CallbackContext context)
-=======
+    private void OnTalk(InputAction.CallbackContext _)
+    {
+        if (scanObject != null)
+        {
             manager.AskAction(scanObject);
         }
-        Weapon.instance.Swing();
-        //ƒÆ¿Ã ∞¯∞›«“∂ß∏∏ ∫Ø∞Ê«œ±‚
-        
-    }
-
-    private void HpControlor()
->>>>>>> Stashed changes:DOG/Assets/Scripts/Player/Player.cs
-    {
-        //equipWeapon.Use();
-
-    }
-
-<<<<<<< Updated upstream:DOG/Assets/Script/Player.cs
-=======
-        if (currentHP > 0.1)
+        else
         {
-            currentHP -= 0.1f;
+            Debug.Log("ÔøΩÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩÔøΩÔøΩÔøΩœ¥ÔøΩ.");
         }
     }
->>>>>>> Stashed changes:DOG/Assets/Scripts/Player/Player.cs
 
-    private void OnMoveInput(InputAction.CallbackContext context)
+    void SearchNpc()
     {
-        direction = context.ReadValue<Vector2>();
-        
-       
+        Vector3 dir = direction;
 
+        Debug.DrawRay(rigid.position, dir * 1.5f, Color.red);
+        RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, dir, 1.5f, LayerMask.GetMask("Npc"));
+
+        if (rayHit.collider != null)
+        {
+            scanObject = rayHit.collider.gameObject;
+        }
+        else
+        {
+            scanObject = null;
+        }
     }
-
-=======
->>>>>>> main:DOG/Assets/Scripts/Player/Player.cs
 }
