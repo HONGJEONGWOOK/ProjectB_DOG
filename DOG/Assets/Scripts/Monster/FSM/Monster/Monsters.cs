@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEditor;
 using Monster.Enums;
 
-public class Monsters : MonoBehaviour, IBattle, IHealth
+public class Monsters : MonoBehaviour, IBattle 
 {
     private Rigidbody2D rigid = null;
     protected Animator anim = null;
@@ -15,12 +15,12 @@ public class Monsters : MonoBehaviour, IBattle, IHealth
 
     public System.Action onHit = null;
 
-    [Header("¸ó½ºÅÍ AI °ü·Ã")]
+    [Header("ëª¬ìŠ¤í„° AI ê´€ë ¨")]
     public MonsterCurrentState status = MonsterCurrentState.IDLE;
     protected Vector2 trackDirection = Vector2.zero;
     [SerializeField] protected float detectRadius = 5.0f;
 
-    [Header("¸ó½ºÅÍ ±âº»½ºÅÈ")]
+    [Header("ëª¬ìŠ¤í„° ê¸°ë³¸ìŠ¤íƒ¯")]
     [SerializeField] protected float maxHealthPoint = 100.0f;
     [SerializeField] protected int strength = 5;
     [SerializeField] protected float moveSpeed = 3.0f;
@@ -106,7 +106,7 @@ public class Monsters : MonoBehaviour, IBattle, IHealth
                     break;
 
                 case MonsterCurrentState.DEAD:
-                    //Á×´Â ¾Ö´Ï¸ŞÀÌ¼Ç Àç»ı. Àç»ı ¿Ï·á ÈÄ Monster pool·Î ¹İÈ¯
+                    //ì£½ëŠ” ì• ë‹ˆë©”ì´ì…˜ ì¬ìƒ. ì¬ìƒ ì™„ë£Œ í›„ Monster poolë¡œ ë°˜í™˜
                     break;
             }
         }
@@ -140,7 +140,7 @@ public class Monsters : MonoBehaviour, IBattle, IHealth
             return;
         }
 
-        // waypoint ¿òÁ÷ÀÓ ¹× º¯°æ
+        // waypoint ì›€ì§ì„ ë° ë³€ê²½
         if (Vector2.SqrMagnitude(transform.position - waypoint[waypointIndex].position) < 0.01f)
         {
             ChangeStatus(MonsterCurrentState.IDLE);
@@ -171,17 +171,17 @@ public class Monsters : MonoBehaviour, IBattle, IHealth
         rigid.position = Vector2.MoveTowards(rigid.position, target, moveSpeed * Time.fixedDeltaTime);
         trackDirection = target - (Vector2)this.transform.position;
 
-        // sprite ¹æÇâ
+        // sprite ë°©í–¥
         var cross = Vector3.Cross(trackDirection, this.transform.up);
         if (Vector3.Dot(cross, transform.forward) < 0)
         {
-            //Debug.Log("¿ŞÂÊÀÌ´Ù.");
+            //Debug.Log("ì™¼ìª½ì´ë‹¤.");
             sprite.flipX = true;
             ArrowManager.Arrow_Instance.ArrowDirection = -1;
         }
         else
         {
-            //Debug.Log("¿À¸¥ÂÊÀÌ´Ù.");
+            //Debug.Log("ì˜¤ë¥¸ìª½ì´ë‹¤.");
             sprite.flipX = false;
             ArrowManager.Arrow_Instance.ArrowDirection = 1;
         }

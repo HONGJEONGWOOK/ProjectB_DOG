@@ -6,15 +6,15 @@ using UnityEngine;
 public class MakeRandomMap : MonoBehaviour
 {
     [SerializeField]
-    private int distance;
+    private int distance;                   
     [SerializeField]
     private int minRoomWidth;
     [SerializeField]
     private int minRoomHeight;
     [SerializeField]
-    private DivideSpace divideSpace;
+    private DivideSpace divideSpace;        // 나누어진 공간들의 리스트인 SpaceList 가져오기 위한 변수
     [SerializeField]
-    private SpreadTilemap spreadTilemap;
+    private SpreadTilemap spreadTilemap;    // 방 복도에 바닥 타일을 깔고 벽에 벽 타일을 깔기위한 변수
     [SerializeField]
     private GameObject player;
     [SerializeField]
@@ -23,6 +23,9 @@ public class MakeRandomMap : MonoBehaviour
     private HashSet<Vector2Int> floor;
     private HashSet<Vector2Int> wall;
 
+    /// <summary>
+    ///  시작 시 랜덤맵 생성 시작
+    /// </summary>
     private void Start()
     {
         StartRandomMap();
@@ -30,18 +33,19 @@ public class MakeRandomMap : MonoBehaviour
 
     public void StartRandomMap()
     {
-        spreadTilemap.ClearAllTiles();
+        spreadTilemap.ClearAllTiles();      // 시작 시 ㅏㄲㄹ려있는 모든 타일 제거
         divideSpace.totalSpace = new RectangleSpace(new Vector2Int(0, 0), divideSpace.totalWidth, divideSpace.totalHeight);
         divideSpace.spaceList = new List<RectangleSpace>();
         floor = new HashSet<Vector2Int>();
         wall = new HashSet<Vector2Int>();
-        divideSpace.DivideRoom(divideSpace.totalSpace);
-        MakeRandomRooms();
+        divideSpace.DivideRoom(divideSpace.totalSpace);     // DivideRoom 함수를 통해 SpaceList 생성
+        MakeRandomRooms();  // 방 좌표
 
-        MakeCorridors();
+        MakeCorridors();    // 복도 좌표
 
-        MakeWall();
+        MakeWall();         // 벽 좌표
 
+        // 위 좌표를 받은 곳에 SpreadFloorTilemap, SpreadWallTilemap를 통해 바닥과 벽 타일을 생성
         spreadTilemap.SpreadFloorTilemap(floor);
         spreadTilemap.SpreadWallTilemap(wall);
 
@@ -50,6 +54,9 @@ public class MakeRandomMap : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// 방을 만드는 함수
+    /// </summary>
     private void MakeRandomRooms()
     {
         foreach(var space in divideSpace.spaceList)
@@ -74,6 +81,11 @@ public class MakeRandomMap : MonoBehaviour
         return position;
     }
 
+
+    /// <summary>
+    /// 방의 중심이 정해 졌다면 첫번째 방엣서 가장 가까운 방의 중심을 연결시키고 처음방은 리스트에서 제거
+    /// 이런식으로 마지막 방까지 중심을 이어 통로를 생성
+    /// </summary>
     private void MakeCorridors()
     {
         List<Vector2Int> tempCenters = new List<Vector2Int>();
@@ -81,6 +93,7 @@ public class MakeRandomMap : MonoBehaviour
         {
             tempCenters.Add(new Vector2Int(space.Center().x, space.Center().y));
         }
+
         Vector2Int nextCenter;
         Vector2Int currentCenter = tempCenters[0];
         tempCenters.Remove(currentCenter);
@@ -94,6 +107,12 @@ public class MakeRandomMap : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// 가장 가까운 중심을 찾아주는 함수
+    /// </summary>
+    /// <param name="tempCenters"></param>
+    /// <param name="previousCenter"></param>
+    /// <returns></returns>
     private Vector2Int ChooseShortestNextCorrodor(List<Vector2Int> tempCenters, Vector2Int previousCenter)
     {
         int n = 0;
@@ -109,6 +128,12 @@ public class MakeRandomMap : MonoBehaviour
         return tempCenters[n];
     }
 
+
+    /// <summary>
+    /// 복도 화된 좌표들을 지정하는 함수
+    /// </summary>
+    /// <param name="currentCenter"></param>
+    /// <param name="nextCenter"></param>
     private void MakeOneCorridor(Vector2Int currentCenter, Vector2Int nextCenter)
     {
         Vector2Int current = new Vector2Int(currentCenter.x, currentCenter.y);
@@ -142,12 +167,15 @@ public class MakeRandomMap : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 벽을 만드는 함수
+    /// </summary>
     private void MakeWall()
     {
         foreach( Vector2Int tile in floor)
         {
             HashSet<Vector2Int> boundary = Make3X3Square(tile);
-            boundary.ExceptWith(floor);
+            boundary.ExceptWith(floor); // 벽을 생성하기전 이 부분이 바닥 타일이 아닌지 확인하는 함수
             if(boundary.Count != 0)
             {
                 wall.UnionWith(boundary);

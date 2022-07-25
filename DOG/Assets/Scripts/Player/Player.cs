@@ -29,6 +29,9 @@ public class Player : MonoBehaviour
     public Slider hpSlider;
     public Slider hpSlider2;
 
+    //test--------------------------------------------------------------------
+    Animator anim;
+
     private void Awake()
     {
         
@@ -37,25 +40,26 @@ public class Player : MonoBehaviour
 
         sword = FindObjectOfType<Weapon>();
         sword_Animator = sword.GetComponent<Animator>();
-        arm_Animator = transform.Find("Player_Arm").GetComponent<Animator>();
-        bodyAnimtor = transform.Find("Player_Body").GetComponent<Animator>();
-        
+        //arm_Animator = transform.Find("Player_Arm").GetComponent<Animator>();
+        //bodyAnimtor = transform.Find("Player_Body").GetComponent<Animator>();
+        anim = GetComponent<Animator>();
+
         currentHP = hp;
     }
    
     private void OnEnable()
     {
         actions.Player.Enable();
-        //actions.Player.Move.performed += OnMoveInput;
-        //actions.Player.Move.canceled += OnMoveInput;
+        actions.Player.Move.performed += OnMoveInput;
+        actions.Player.Move.canceled += OnMoveInput;
         actions.Player.Attack.performed += OnAttack;
     }
 
     private void OnDisable()
     {
         actions.Player.Attack.performed -= OnAttack;
-        //actions.Player.Move.canceled -= OnMoveInput;
-        //actions.Player.Move.performed -= OnMoveInput;
+        actions.Player.Move.canceled -= OnMoveInput;
+        actions.Player.Move.performed -= OnMoveInput;
         actions.Player.Disable();
     }
 
@@ -124,33 +128,33 @@ public class Player : MonoBehaviour
         bodyAnimtor.SetTrigger("OnAttack");
     }
 
-   /* private void HpControlor()
+    /* private void HpControlor()
+     {
+         hpSlider.maxValue = hp;
+         hpSlider2.maxValue = hp;
+
+         hpSlider.value = currentHP;
+         hpSlider2.value = currentHP;
+
+         if (currentHP > 0.1)
+         {
+             currentHP -= 0.1f;
+         }
+     }*/
+
+    private void OnMoveInput(InputAction.CallbackContext context)
     {
-        hpSlider.maxValue = hp;
-        hpSlider2.maxValue = hp;
+        direction = context.ReadValue<Vector2>();
 
-        hpSlider.value = currentHP;
-        hpSlider2.value = currentHP;
-
-        if (currentHP > 0.1)
+        if (direction.x != 0 || direction.y != 0)
         {
-            currentHP -= 0.1f;
+            anim.SetBool("input", true);
+
+            anim.SetFloat("inputx", direction.x);
+            anim.SetFloat("inputy", direction.y);
         }
-    }*/
-
-    //private void OnMoveInput(InputAction.CallbackContext context)
-    //{
-    //    direction = context.ReadValue<Vector2>();
-
-    //    if (direction.x != 0 || direction.y != 0)
-    //    {
-    //        anim.SetBool("input", true);
-
-    //        anim.SetFloat("inputx", direction.x);
-    //        anim.SetFloat("inputy", direction.y);
-    //    }
-    //    else
-    //        anim.SetBool("input", false);
-    //}
+        else
+            anim.SetBool("input", false);
+    }
 
 }

@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class RectangleSpace 
 {
-    public Vector2Int leftDown;     // Á÷»ç°¢Çü ¿ŞÂÊ ÇÏ´Ü ÁÂÇ¥
-    public int width;               // ³Êºñ
-    public int height;              // ³ôÀÌ
+    public Vector2Int leftDown;     // ì§ì‚¬ê°í˜• ì™¼ìª½ í•˜ë‹¨ ì¢Œí‘œ
+    public int width;               // ë„ˆë¹„
+    public int height;              // ë†’ì´
+
+
 
     public RectangleSpace(Vector2Int leftDown, int width, int height)
     {
@@ -17,11 +19,12 @@ public class RectangleSpace
 
 
     /// <summary>
-    /// °ø°£ÀÇ Áß½É ÁÂÇ¥¸¦ ¸®ÅÏÇÏ´Â ÇÔ¼ö
+    /// ê³µê°„ì˜ ì¤‘ì‹¬ ì¢Œí‘œë¥¼ ë¦¬í„´í•˜ëŠ” í•¨ìˆ˜
     /// </summary>
     /// <returns></returns>
     public Vector2Int Center()
     {
+        // ê¸¸ì´ê°€ ì§ìˆ˜ì¼ ë•ŒëŠ” ì •í™•í•œ ì¤‘ì‹¬ì´ ì—†ìŒ
         return new Vector2Int(((leftDown.x * 2) + width - 1) / 2, ((leftDown.y * 2) + height - 1) / 2);
     }
 }
