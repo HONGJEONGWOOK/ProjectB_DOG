@@ -5,14 +5,15 @@ TagManager:
   serializedVersion: 2
   tags:
   - Melee
+  - Monster
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
+  - Npc
   - 
   - 
   - 
@@ -42,9 +43,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: BackGround
-    uniqueID: 2390780733
+  - name: Player
+    uniqueID: 3754288329
     locked: 0
-  - name: Palyer
-    uniqueID: 4288303927
+  - name: Npc
+    uniqueID: 511739895
+    locked: 0
+  - name: Background
+    uniqueID: 1733052007
     locked: 0
