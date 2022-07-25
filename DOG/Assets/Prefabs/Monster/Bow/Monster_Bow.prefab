@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 070e846e8c335d64d9cb9e48dfa8fc85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DeadCount: 0
+  shootPosition: {fileID: 1218587373533954728}
   status: 0
   detectRadius: 5
   healthPoint: 100
@@ -163,9 +163,7 @@ MonoBehaviour:
   attackInterval: 3
   attackPower: 5
   defence: 1
-  waypoint: []
-  arrowOffset: {x: 1.5, y: -0.3}
-  shootPosition: {fileID: 1218587373533954728}
+  attackAngle: 45
 --- !u!95 &7031713198072598268
 Animator:
   serializedVersion: 4
@@ -176,7 +174,7 @@ Animator:
   m_GameObject: {fileID: 8455920291223352766}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4fee62118ad8d4f49a7b317fee8c897e, type: 2}
+  m_Controller: {fileID: 22100000, guid: cc62b1e2783abae4e81687df4e3569d8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

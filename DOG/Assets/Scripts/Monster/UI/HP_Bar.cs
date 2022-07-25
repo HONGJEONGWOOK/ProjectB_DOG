@@ -7,13 +7,20 @@ public class HP_Bar : MonoBehaviour
     Transform pivot = null;
     IHealth target = null;
 
+    GameObject monster = null;
+
     private void Awake()
     {
         pivot = transform.Find("Pivot");
-        target = GetComponentInParent<IHealth>();
+        target = transform.parent.GetComponentInChildren<IHealth>();
+        monster = transform.parent.GetChild(0).gameObject;
 
         target.onHealthChange += HPChange;
+    }
 
+    private void LateUpdate()
+    {
+        this.transform.position = monster.transform.position;
     }
 
     void HPChange()

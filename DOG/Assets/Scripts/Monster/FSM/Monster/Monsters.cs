@@ -7,11 +7,9 @@ using Monster.Enums;
 
 public class Monsters : MonoBehaviour, IHealth, IBattle
 {
-    private Rigidbody2D rigid = null;
-    protected Animator anim = null;
+    protected Rigidbody2D rigid = null;
     protected SpriteRenderer sprite = null;
-
-    public int DeadCount = 0;
+    protected Animator anim = null;
     
     public static bool isDead = false;
 
@@ -27,15 +25,14 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
     protected float maxHealthPoint = 100.0f;
     [SerializeField] protected int strength = 5;
     [SerializeField] protected float moveSpeed = 3.0f;
-    private float currentSpeed = 3.0f;
+    protected float currentSpeed = 3.0f;
 
 
-    // ###################################### VARIABLES #####################################
+    // #################################### VARIABLES #####################################
     // ------------------------------------ TRACK ------------------------------------------
-    private float trackTimer = 1.0f;
 
     // ------------------------------------ TARGET ------------------------------------------
-    private Vector2 target = new();
+    protected Vector2 target = new();
 
     // ------------------------------------ ATTACK ------------------------------------------
     [SerializeField] protected float attackRange = 1.5f;
@@ -43,8 +40,6 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
     [SerializeField] protected float attackPower = 5.0f;
     [SerializeField] protected float defence = 1.0f;
 
-
-    private CircleCollider2D cCollider = null;
     IEnumerator attack = null;
 
     public System.Action onHealthChange { get; set; }
@@ -73,16 +68,14 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
 
     public float Defence { get => defence; }
 
+    public Vector2 TrackDirection { get => trackDirection; }
+
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
-        cCollider = GetComponent<CircleCollider2D>();
-
         attack = Attack();
-
-        cCollider.radius = attackRange;
     }
 
     private void FixedUpdate()
@@ -90,9 +83,7 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
         CheckStatus();
     }
 
-
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -100,7 +91,7 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    protected virtual void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -117,21 +108,10 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
             ChangeStatus(MonsterCurrentState.TRACK);
             return;
         }
-
-        waitCounter += Time.fixedDeltaTime;
-        if (waitCounter > waitTime)
-        {
-            waitCounter = 0f;
-            waypointIndex++;
-            waypointIndex %= waypoint.Length;
-
-            ChangeStatus(MonsterCurrentState.PATROL);
-            return;
-        }
     }
 
     // -----------------------------  SEARCH  ------------------------------------------
-    bool Search()
+    protected virtual bool Search()
     {
         bool result = false;
 
@@ -142,12 +122,11 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
             target = collider.transform.position;
             result = true;
         }
-        
         return result;
     }
 
     // -------------------------------  MOVE  ------------------------------------------
-    void Track()
+    protected virtual void Track()
     {
         if (!Search())
         {
@@ -169,7 +148,6 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
             return;
         }
 
-        // waypoint ������ �� ����
         if (Vector2.SqrMagnitude(transform.position - waypoint[waypointIndex].position) < 0.01f)
         {
             ChangeStatus(MonsterCurrentState.IDLE);
@@ -181,27 +159,28 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
         }
     }
 
-    void Move_Monster(float speed)
+    protected virtual void Move_Monster(float speed)
     {
+        trackDirection = target - (Vector2)this.transform.position;
         rigid.position = Vector2.MoveTowards(rigid.position, target, speed * Time.fixedDeltaTime);
         SpriteFlip();
     }
 
-    void SpriteFlip()
+    protected virtual void SpriteFlip()
     {
-        var cross = Vector3.Cross(trackDirection, this.transform.up);
+        var cross = Vector3.Cross(trackDirection, (Vector2)this.transform.up);
         if (Vector3.Dot(cross, transform.forward) < 0)
-        {
+        {   // 왼쪽
             sprite.flipX = true;
         }
         else
-        {
+        {   // 오른쪽
             sprite.flipX = false;
         }
     }
 
     // -------------------------------  ATTACK  ----------------------------------------
-    private IEnumerator Attack()
+    protected IEnumerator Attack()
     {
         while (true)
         {
@@ -271,14 +250,13 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
                     break;
 
                 case MonsterCurrentState.DEAD:
-                    DeadCount++;
                     //�״� �ִϸ��̼� ���. ��� �Ϸ� �� Monster pool�� ��ȯ
                     break;
             }
         }
     }
 
-    void ChangeStatus(MonsterCurrentState newState)
+    protected void ChangeStatus(MonsterCurrentState newState)
     {
         // On Status Exit
         switch (status)
@@ -327,7 +305,6 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
     // ########################################### GIZMOS ########################################
     private void OnDrawGizmos()
     {
-        Handles.DrawWireDisc(this.transform.position, transform.forward, detectRadius);
         Handles.DrawWireDisc(this.transform.position, transform.forward, trackDirection.magnitude);
     }
 }

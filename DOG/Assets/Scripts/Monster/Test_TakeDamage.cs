@@ -5,13 +5,13 @@ using UnityEngine.InputSystem;
 
 public class Test_TakeDamage : MonoBehaviour
 {
-    public Monsters testMonster = null;
+    public Goblin goblin = null;
 
     private void Update()
     {
         if (Keyboard.current.digit1Key.wasPressedThisFrame)
         {
-            testMonster.TakeDamage(30f);
+            goblin.TakeDamage(30f);
         }
     }
 }

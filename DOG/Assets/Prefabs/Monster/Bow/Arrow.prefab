@@ -12,14 +12,14 @@ GameObject:
   - component: {fileID: 210467296085450539}
   - component: {fileID: 6528160444006603442}
   - component: {fileID: -3856813052202980805}
-  - component: {fileID: -8516156433687126384}
+  - component: {fileID: -2497097483064826860}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1546102102618224696
 Transform:
   m_ObjectHideFlags: 0
@@ -124,7 +124,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-8516156433687126384
+--- !u!114 &-2497097483064826860
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
