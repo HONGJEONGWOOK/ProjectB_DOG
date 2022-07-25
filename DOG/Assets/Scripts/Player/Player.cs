@@ -8,12 +8,17 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     public GameManager manager;
-    GameObject scanObject;
+
 
     PlayerInputActions actions = null;
-    Animator anim = null;
+    GameObject scanObject;
+    Weapon sword = null;
+    Animator sword_Animator = null;
+    Animator arm_Animator = null;
+    Animator bodyAnimtor = null;
 
     public float hp = 10.0f;
+
     Rigidbody2D rigid = null;
 
     public float moveSpeed = 5.0f;
@@ -24,12 +29,21 @@ public class Player : MonoBehaviour
     public Slider hpSlider;
     public Slider hpSlider2;
 
+    //test--------------------------------------------------------------------
+    Animator anim;
+
     private void Awake()
     {
-        anim = GetComponent<Animator>();
+        
         actions = new PlayerInputActions();
         rigid = GetComponent<Rigidbody2D>();
-        
+
+        sword = FindObjectOfType<Weapon>();
+        sword_Animator = sword.GetComponent<Animator>();
+        //arm_Animator = transform.Find("Player_Arm").GetComponent<Animator>();
+        //bodyAnimtor = transform.Find("Player_Body").GetComponent<Animator>();
+        anim = GetComponent<Animator>();
+
         currentHP = hp;
     }
    
@@ -39,12 +53,10 @@ public class Player : MonoBehaviour
         actions.Player.Move.performed += OnMoveInput;
         actions.Player.Move.canceled += OnMoveInput;
         actions.Player.Attack.performed += OnAttack;
-        actions.Player.Talk.performed += OnTalk;
     }
 
     private void OnDisable()
     {
-        actions.Player.Talk.performed -= OnTalk;
         actions.Player.Attack.performed -= OnAttack;
         actions.Player.Move.canceled -= OnMoveInput;
         actions.Player.Move.performed -= OnMoveInput;
@@ -53,25 +65,52 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        
         Move();
     }
 
     private void Update()
     {
+        Debug.DrawRay(rigid.position, direction * 1.0f, new Color(0, 1, 0));
+        RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, direction, 1.0f, LayerMask.GetMask("Npc"));
+        //방향키가 누르면 켜지고 때면 꺼지는 시스템이라 direction도 누를 때만 켜지는 것 같음
 
-        SearchNpc();
+        if (direction.y == 1)
+        {
+            direction = Vector3.up;
+        }
+        else if (direction.y == -1)
+        {
+            direction = Vector3.down;
+        }
+        else if (direction.x == 1)
+        {
+            direction = Vector3.right;
+        }
+        else if (direction.x == -1)
+        {
+            direction = Vector3.left;
+        }
+
+        if (rayHit.collider != null)
+        {
+            scanObject = rayHit.collider.gameObject;
+        }
+        else
+        {
+            scanObject = null;
+        }
 
         //HpControlor();
     }
 
     private void Move()
     {
-        rigid.MovePosition(transform.position + (direction * moveSpeed * Time.deltaTime));
+        rigid.MovePosition(transform.position + (direction * moveSpeed * Time.fixedDeltaTime));
     }
 
-    private void OnAttack(InputAction.CallbackContext context)
+    private void OnAttack(InputAction.CallbackContext _)
     {
-        
         //equipWeapon.Use();
         Debug.Log("공격 및 말걸기");
         if (scanObject != null)
@@ -79,6 +118,14 @@ public class Player : MonoBehaviour
             manager.AskAction(scanObject);
         }
         //Weapon.instance.Swing();
+        Attack_Sword();
+    }
+
+    void Attack_Sword()
+    {
+        sword_Animator.SetTrigger("OnAttack");
+        arm_Animator.SetTrigger("OnAttack");
+        bodyAnimtor.SetTrigger("OnAttack");
     }
 
     /* private void HpControlor()
@@ -110,32 +157,4 @@ public class Player : MonoBehaviour
             anim.SetBool("input", false);
     }
 
-    private void OnTalk(InputAction.CallbackContext _)
-    {
-        if (scanObject != null)
-        {
-            manager.AskAction(scanObject);
-        }
-        else
-        {
-            Debug.Log("����� �����ϴ�.");
-        }
-    }
-
-    void SearchNpc()
-    {
-        Vector3 dir = direction;
-
-        Debug.DrawRay(rigid.position, dir * 1.5f, Color.red);
-        RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, dir, 1.5f, LayerMask.GetMask("Npc"));
-
-        if (rayHit.collider != null)
-        {
-            scanObject = rayHit.collider.gameObject;
-        }
-        else
-        {
-            scanObject = null;
-        }
-    }
 }

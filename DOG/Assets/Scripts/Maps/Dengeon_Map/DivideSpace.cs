@@ -3,24 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// DivideSpace ÀüÃ¼°ø°£. totalSpace ³ª´©°í ¸®½ºÆ®¿¡ ÀúÀå
+/// DivideSpace ì „ì²´ê³µê°„. totalSpace ë‚˜ëˆ„ê³  ë¦¬ìŠ¤íŠ¸ì— ì €ì¥
 /// </summary>
 public class DivideSpace : MonoBehaviour
 {
-    public int totalWidth;  // ÀüÃ¼°ø°£ÀÇ ³Êºñ
-    public int totalHeight; // ÀüÃ¼°ø°£ÀÇ ³ôÀÌ
+    public int totalWidth;  // ì „ì²´ê³µê°„ì˜ ë„ˆë¹„
+    public int totalHeight; // ì „ì²´ê³µê°„ì˜ ë†’ì´
     [SerializeField]
-    private int minWidth;   // °ø°£ÀÌ °¡Áú ¼ö ÀÖ´Â ÃÖ¼Ò ³Êºñ
+    private int minWidth;   // ê³µê°„ì´ ê°€ì§ˆ ìˆ˜ ìˆëŠ” ìµœì†Œ ë„ˆë¹„
     [SerializeField]
-    private int minHeight;  // °ø°£ÀÌ °¡Áú ¼ö ÀÖ´Â ÃÖ¼Ò ³ôÀÌ
+    private int minHeight;  // ê³µê°„ì´ ê°€ì§ˆ ìˆ˜ ìˆëŠ” ìµœì†Œ ë†’ì´
 
-    public RectangleSpace totalSpace;   // ÀüÃ¼°ø°£
+    public RectangleSpace totalSpace;   // ì „ì²´ê³µê°„
 
-    public List<RectangleSpace> spaceList;  // ³ª´©¾îÁø °ø°£µéÀ» ÀúÀåÇÏ´Â ¸®½ºÆ®
+    public List<RectangleSpace> spaceList;  // ë‚˜ëˆ„ì–´ì§„ ê³µê°„ë“¤ì„ ì €ì¥í•˜ëŠ” ë¦¬ìŠ¤íŠ¸
 
+
+    /// <summary>
+    /// ê³µê°„ì˜ ë„ˆë¹„ ë˜ëŠ” ë†’ì´ê°€ ìµœì†Œì¹˜ * 2 ì´ìƒì´ë©´ ê³µê°„ì„ ë‚˜ëˆˆë‹¤
+    /// </summary>
+    /// <param name="space"></param>
     public void DivideRoom(RectangleSpace space)
     {
-        if(space.height >= minHeight *2 && space.width >= minWidth * 2)     // °¡·Î ¶Ç´Â ¼¼·Î·Î ÀÚ¸¥´Ù.
+        if(space.height >= minHeight *2 && space.width >= minWidth * 2)     // ê°€ë¡œ ë˜ëŠ” ì„¸ë¡œë¡œ ìë¥¸ë‹¤.
         {
             if(Random.Range(0,2) < 1)
             {
@@ -37,29 +42,35 @@ public class DivideSpace : MonoBehaviour
                 DivideRoom(spaces[1]);
             }
         }
-        else if(space.height < minHeight * 2 && space.width >= minWidth * 2)    // ¼¼·Î·Î ÀÚ¸¥´Ù.
+        else if(space.height < minHeight * 2 && space.width >= minWidth * 2)    // ì„¸ë¡œë¡œ ìë¥¸ë‹¤.
         {
             RectangleSpace[] spaces = Dividevertical(space);
 
             DivideRoom(spaces[0]);
             DivideRoom(spaces[1]);
         }
-        else if(space.height >= minHeight * 2 && space.width < minWidth * 2)    // °¡·Î·Î ÀÚ¸¥´Ù.
+        else if(space.height >= minHeight * 2 && space.width < minWidth * 2)    // ê°€ë¡œë¡œ ìë¥¸ë‹¤.
         {
             RectangleSpace[] spaces = DivideHorizontal(space);
 
             DivideRoom(spaces[0]);
             DivideRoom(spaces[1]);
         }
-        else    // ÀÚ¸¦ ¼ö ¾ø´Â »óÅÂÀÌ±â ‹š¹®¿¡ ÀÚ¸£¸¥ °ÍÀ» ¸ØÃß°í ÇØ´ç °ø°£À» ¸®½ºÆ®¿¡ ÀúÀåÇÑ´Ù.
+        else    // ìë¥¼ ìˆ˜ ì—†ëŠ” ìƒíƒœì´ê¸° ë–„ë¬¸ì— ìë¥´ë¥¸ ê²ƒì„ ë©ˆì¶”ê³  í•´ë‹¹ ê³µê°„ì„ ë¦¬ìŠ¤íŠ¸ì— ì €ì¥í•œë‹¤.
         {
             spaceList.Add(space);
         }
     }
 
+
+    /// <summary>
+    /// ê³µê°„ì„ ê°€ë¡œë¡œ ìë¥´ëŠ” í•¨ìˆ˜
+    /// </summary>
+    /// <param name="space"></param>
+    /// <returns></returns>
     private RectangleSpace[] DivideHorizontal(RectangleSpace space)
     {
-        int newSpace1Height = minHeight + Random.Range(0, space.height - minHeight * 2 + 1);
+        int newSpace1Height = minHeight + Random.Range(0, space.height - minHeight * 2 + 1);    // ìƒˆë¡œìš´ ê³µê°„ ì¢Œí‘œë¥¼ ì •í• ë•Œ ê¸°ì¡´ ê³µê°„ì˜ ì¢Œí‘œì—ì„œ ìµœì†Œ ë†’ì´ì— ëœë¤í•œ ë†’ì´ë¥¼ ë”í•´ì¤€ë‹¤
         RectangleSpace newSpace1 = new RectangleSpace(space.leftDown, space.width, newSpace1Height);
 
         int newSpace2Height = space.height - newSpace1Height;
@@ -72,9 +83,15 @@ public class DivideSpace : MonoBehaviour
         return spaces;
     }
 
+
+    /// <summary>
+    /// ê³µê°„ì„ ì„¸ë¡œë¡œ ìë¥¸ë‹¤.
+    /// </summary>
+    /// <param name="space"></param>
+    /// <returns></returns>
     private RectangleSpace[] Dividevertical(RectangleSpace space)
     {
-        int newSpace1Width = minWidth + Random.Range(0, space.width - minWidth * 2 + 1);
+        int newSpace1Width = minWidth + Random.Range(0, space.width - minWidth * 2 + 1);    // ìƒˆë¡œìš´ ê³µê°„ ì¢Œí‘œë¥¼ ì •í• ë•Œ ê¸°ì¡´ ê³µê°„ì˜ ì¢Œí‘œì—ì„œ ìµœì†Œ ë„ˆë¹„ì— ëœë¤í•œ ë„ˆë¹„ë¥¼ ë”í•´ì¤€ë‹¤
         RectangleSpace newSpace1 = new RectangleSpace(space.leftDown, newSpace1Width, space.height);
 
         int newSpace2Width = space.width - newSpace1Width;

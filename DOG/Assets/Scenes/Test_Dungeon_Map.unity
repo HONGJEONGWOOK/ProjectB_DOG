@@ -525,7 +525,7 @@ PrefabInstance:
       objectReference: {fileID: 1871356410}
     - target: {fileID: 8345609858962479719, guid: 9c2c1714b914fc447a34988c2c21c9c4, type: 3}
       propertyPath: distance
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8345609858962479719, guid: 9c2c1714b914fc447a34988c2c21c9c4, type: 3}
       propertyPath: entrance
@@ -537,11 +537,11 @@ PrefabInstance:
       objectReference: {fileID: 820138796}
     - target: {fileID: 8345609858962479719, guid: 9c2c1714b914fc447a34988c2c21c9c4, type: 3}
       propertyPath: minRoomWidth
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8345609858962479719, guid: 9c2c1714b914fc447a34988c2c21c9c4, type: 3}
       propertyPath: minRoomHeight
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8345609858962479719, guid: 9c2c1714b914fc447a34988c2c21c9c4, type: 3}
       propertyPath: spreadTilemap
