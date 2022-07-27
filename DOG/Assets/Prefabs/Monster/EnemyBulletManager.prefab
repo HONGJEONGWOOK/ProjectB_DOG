@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5742655619022311132}
   - component: {fileID: 6702115417059506833}
   m_Layer: 0
-  m_Name: ArrowManager
+  m_Name: EnemyBulletManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,3 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrow: {fileID: 7406789432306371160, guid: 6c72fde9d19c67844a11c151e0ecea33, type: 3}
+  fireBall: {fileID: 2056469766304591461, guid: 052f0aee20715d843b1edb7054501246, type: 3}

@@ -8,11 +8,19 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< Updated upstream
   - component: {fileID: 8455920291223352709}
   - component: {fileID: 8455920291223352762}
   - component: {fileID: 8455920291223352708}
   - component: {fileID: 7031713198072598268}
   - component: {fileID: 1166501691290481051}
+=======
+  - component: {fileID: 578401991311117336}
+  - component: {fileID: 578401991311117351}
+  - component: {fileID: 578401991311117337}
+  - component: {fileID: -6339059742485343401}
+  - component: {fileID: 925464696}
+>>>>>>> Stashed changes
   m_Layer: 0
   m_Name: Goblin
   m_TagString: Monster
@@ -26,6 +34,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
   m_GameObject: {fileID: 8455920291223352766}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -33,6 +42,15 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4022371884166243919}
+=======
+  m_GameObject: {fileID: 578401991311117347}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.97, y: -1.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8454032721629682261}
+>>>>>>> Stashed changes
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -141,20 +159,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87e463b28b235454688c068c535b2bae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
   player: {fileID: 0}
+=======
+  status: 0
+  detectRange: 5
+>>>>>>> Stashed changes
   healthPoint: 100
   strength: 5
   moveSpeed: 3
   attackRange: 1.5
+<<<<<<< Updated upstream
   attackDelay: 5
   status: 0
   detectRadius: 5
   waypoint: []
 --- !u!1001 &4648705966103067265
+=======
+  attackCoolTime: 3
+  attackPower: 5
+  defence: 1
+  detectCoolTime: 1
+--- !u!95 &925464696
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578401991311117347}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4760429328703df4fbe301bcaef80814, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1001 &1225435743
+>>>>>>> Stashed changes
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+<<<<<<< Updated upstream
     m_TransformParent: {fileID: 8455920291223352709}
     m_Modifications:
     - target: {fileID: 8597882518922894542, guid: 91783502a3573ff4da7c54066c50fc19, type: 3}
@@ -251,4 +303,62 @@ PrefabInstance:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8597882518922894542, guid: 91783502a3573ff4da7c54066c50fc19, type: 3}
   m_PrefabInstance: {fileID: 4648705966103067265}
+=======
+    m_TransformParent: {fileID: 578401991311117336}
+    m_Modifications:
+    - target: {fileID: 6502153446885380106, guid: 4348f9f375062a54c88775992d8b060f, type: 3}
+      propertyPath: m_Name
+      value: HPBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 8454032722586677258, guid: 4348f9f375062a54c88775992d8b060f, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8454032722586677258, guid: 4348f9f375062a54c88775992d8b060f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8454032722586677258, guid: 4348f9f375062a54c88775992d8b060f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8454032722586677258, guid: 4348f9f375062a54c88775992d8b060f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8454032722586677258, guid: 4348f9f375062a54c88775992d8b060f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8454032722586677258, guid: 4348f9f375062a54c88775992d8b060f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8454032722586677258, guid: 4348f9f375062a54c88775992d8b060f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8454032722586677258, guid: 4348f9f375062a54c88775992d8b060f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8454032722586677258, guid: 4348f9f375062a54c88775992d8b060f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8454032722586677258, guid: 4348f9f375062a54c88775992d8b060f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8454032722586677258, guid: 4348f9f375062a54c88775992d8b060f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4348f9f375062a54c88775992d8b060f, type: 3}
+--- !u!4 &8454032721629682261 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8454032722586677258, guid: 4348f9f375062a54c88775992d8b060f, type: 3}
+  m_PrefabInstance: {fileID: 1225435743}
+>>>>>>> Stashed changes
   m_PrefabAsset: {fileID: 0}
