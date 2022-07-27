@@ -9,6 +9,7 @@ public class Player_Hero : MonoBehaviour
 {
     public GameManager manager;
     GameObject scanObject;
+    GameObject Sword;
 
     PlayerInputActions actions;
     Animator anim;
@@ -21,12 +22,16 @@ public class Player_Hero : MonoBehaviour
 
     private Vector3 direction = Vector3.zero;
 
+
+
+
     private void Awake()
     {
         actions = new();
         anim = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody2D>();
         Collider = GetComponent<BoxCollider2D>();
+       
     }
    
 
@@ -119,7 +124,10 @@ public class Player_Hero : MonoBehaviour
         anim.SetTrigger("Attack");
     }
 
-    
+    void WeaponOnOff()
+    {
+
+    }
 
 
 
