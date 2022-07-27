@@ -29,6 +29,8 @@ public class Player : MonoBehaviour
     public Slider hpSlider;
     public Slider hpSlider2;
 
+    bool isAction;
+
     //test--------------------------------------------------------------------
     Animator anim;
 
@@ -53,10 +55,12 @@ public class Player : MonoBehaviour
         actions.Player.Move.performed += OnMoveInput;
         actions.Player.Move.canceled += OnMoveInput;
         actions.Player.Attack.performed += OnAttack;
+        actions.Player.Talk.performed += OnTalk;
     }
 
     private void OnDisable()
     {
+        actions.Player.Talk.performed -= OnTalk;
         actions.Player.Attack.performed -= OnAttack;
         actions.Player.Move.canceled -= OnMoveInput;
         actions.Player.Move.performed -= OnMoveInput;
@@ -157,7 +161,8 @@ public class Player : MonoBehaviour
 
         if (scanObject != null)
         {
-            manager.AskAction(scanObject);
+            AskAction(scanObject);
+
         }
         else
         {
@@ -186,5 +191,51 @@ public class Player : MonoBehaviour
     {
         Gizmos.color = Color.white;
         Gizmos.DrawWireSphere(transform.position, 1.5f);
+    }
+
+    //게임 오브젝트 타입에 scanObj파라미터로 받아서 GameObject타입형의 scanObject에 넣고
+    //scanObject에 GetComponent해서 기능을 ObjectData타입의 objData에 넣고
+    //ObjectData타입은 public int id; public bool isNpc; 를 가지고 있음
+    //
+    public void AskAction(GameObject scanObj)
+    {
+        scanObject = scanObj;
+        ObjectData objData = scanObject.GetComponent<ObjectData>();
+        Talk(objData.id, objData.isNpc);
+
+        //대화창 온
+        GameManager.Inst.TalkPanel.SetActive(isAction);
+    }
+
+    void Talk(int id, bool isNpc)
+    {
+        isAction = false;
+        //QuestManager의 GetQuestTalkIndex의 파라미터에 전달할 questTalkIndex
+        //GetQuestTalkIndex는 questId 값을 리턴
+        int questTalkIndex = QuestManager.Instance.GetQuestTalkIndex(id);
+
+        //questId를 
+        string talkData =  GameManager.Inst.talkManager.GetTalk(id + questTalkIndex, QuestManager.Instance.TalkIndex);
+
+        if (isNpc)
+        {
+            GameManager.Inst.talkText.text = talkData;
+        }
+        else
+        {
+            GameManager.Inst.talkText.text = talkData;
+        }
+
+        //대화끝
+        if (talkData == null)
+        {
+            isAction = false;
+            QuestManager.Instance.TalkIndex = 0;
+            Debug.Log(QuestManager.Instance.CheckQuest(id));
+            return;
+        }
+
+        isAction = true;
+        QuestManager.Instance.TalkIndex++;
     }
 }

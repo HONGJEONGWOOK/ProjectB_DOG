@@ -2,46 +2,78 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//Äù½ºÆ® ³Ñ¹ö¸¦ °ü¸®ÇÒ ½ºÅ©¸³Æ®
+//í€˜ìŠ¤íŠ¸ ë„˜ë²„ë¥¼ ê´€ë¦¬í•  ìŠ¤í¬ë¦½íŠ¸
 public class QuestManager : MonoBehaviour
 {
-    //¸ó½ºÅÍ ¸Å´ÏÀú
+    private static QuestManager instance;
+    public static QuestManager Instance {get {return instance;}}
+
+    //ëª¬ìŠ¤í„° ë§¤ë‹ˆì €
     Monsters monsters;
 
-    //Äù½ºÆ® ¾ÆÀÌµğ
+    //í€˜ìŠ¤íŠ¸ ì•„ì´ë””
     public int questId;
     public int questActionIndex;
 
     public GameObject[] questObject;
 
-    //Äù½ºÆ® µ¥ÀÌÅÍ¸¦ ºÒ·¯¿Ã ¸®½ºÆ®
+    //í€˜ìŠ¤íŠ¸ ë°ì´í„°ë¥¼ ë¶ˆëŸ¬ì˜¬ ë¦¬ìŠ¤íŠ¸
     Dictionary<int, QuestData> questList;
 
-    
+    private int goblinQuestCount = 0;
+
+    int talkIndex;
+    public int TalkIndex
+    {
+        get {return talkIndex;}
+        set {talkIndex = value;}
+    }
+
     private void Awake()
     {
-        //°ÔÀÓ ½ÃÀÛÇÒ ¶§ ¾î¿şÀÌÅ©·Î ¸®½ºÆ® ºÒ·¯¿ÍÁÜ
-        //questList¸¦ »ç¿ëÇÏ±â À§ÇØ ÃÊ±âÈ­ ÇØÁÖ°í
+
+        if (instance == null)
+        {
+            instance = this;
+            instance.Initialize();
+            DontDestroyOnLoad(this.gameObject);     // ì”¬ì´ ë³€ê²½ë˜ë”ë¼ë„ ê²Œì„ ì˜¤ë¸Œì íŠ¸ê°€ ì‚¬ë¼ì§€ê¸° ì•Šê²Œ í•´ì£¼ëŠ” í•¨ìˆ˜
+        }
+        else
+        {
+            // ì”¬ì˜ Gamemanagerê°€ ì—¬ëŸ¬ë²ˆ ìƒì„±ëë‹¤.
+            if (instance != this)
+            {
+                Destroy(this.gameObject);
+            }
+        }
+
+        
+    }
+
+    void Initialize()
+    {
+        //ê²Œì„ ì‹œì‘í•  ë•Œ ì–´ì›¨ì´í¬ë¡œ ë¦¬ìŠ¤íŠ¸ ë¶ˆëŸ¬ì™€ì¤Œ
+        //questListë¥¼ ì‚¬ìš©í•˜ê¸° ìœ„í•´ ì´ˆê¸°í™” í•´ì£¼ê³ 
         questList = new Dictionary<int, QuestData>();
 
-        //ÀÌ ÇÔ¼ö¸¦ ÅëÇØ¼­ ½ÇÇàÇÔ
+        //ì´ í•¨ìˆ˜ë¥¼ í†µí•´ì„œ ì‹¤í–‰í•¨
         GenerateData();
     }
 
-    //ÃÊ±âÈ­µÈ questList¸¦ »ç¿ëÇÏ±â À§ÇÑ ÇÔ¼ö
+    //ì´ˆê¸°í™”ëœ questListë¥¼ ì‚¬ìš©í•˜ê¸° ìœ„í•œ í•¨ìˆ˜
     private void GenerateData()
     {
-        //¸®½ºÆ®¿¡ Add ¸í·É¾î·Î ´õÇÏ´Â °ÍÀº µ¿ÀÏ
-        //10 - Äù½ºÆ® °íÀ¯ ³Ñ¹ö, Äù½ºÆ®µ¥ÀÌÅ¸´Â Äù½ºÆ® ¸í°ú °ü·ÃµÈ ¿£ÇÇ½Ã ¹øÈ£¸¦ ¹Ş¾Æ¿È?
-        questList.Add(10, new QuestData("»ç¶óÁø ¸¶À» ÁÖ¹Îµé", new int[] { 1000, 2000 }));
+        //ë¦¬ìŠ¤íŠ¸ì— Add ëª…ë ¹ì–´ë¡œ ë”í•˜ëŠ” ê²ƒì€ ë™ì¼
+        //10 - í€˜ìŠ¤íŠ¸ ê³ ìœ  ë„˜ë²„, í€˜ìŠ¤íŠ¸ë°ì´íƒ€ëŠ” í€˜ìŠ¤íŠ¸ ëª…ê³¼ ê´€ë ¨ëœ ì—”í”¼ì‹œ ë²ˆí˜¸ë¥¼ ë°›ì•„ì˜´?
+        questList.Add(10, new QuestData("ì‚¬ë¼ì§„ ë§ˆì„ ì£¼ë¯¼ë“¤", new int[] { 1000, 2000 }));
 
-        questList.Add(20, new QuestData("°©ÀÚ±â ²É?", new int[] { 3000, 2000 }));
+        questList.Add(20, new QuestData("ê°‘ìê¸° ê½ƒ?", new int[] { 3000, 2000 }));
 
-        questList.Add(30, new QuestData("¸¶À»ÀÇ À§Çè¿ä¼Ò Ã³Ä¡", new int[] { 2000, 1000}));
-        //4000 - ¸ó½ºÅÍ ¹øÈ£
-        questList.Add(40, new QuestData("¸ó½ºÅÍ Ã³Ä¡ ¿Ï·á", new int[] { 1000, 2000 }));
+        questList.Add(30, new QuestData("ë§ˆì„ì˜ ìœ„í—˜ìš”ì†Œ ì²˜ì¹˜", new int[] { 2000, 1000}));
+        //4000 - ëª¬ìŠ¤í„° ë²ˆí˜¸
+        questList.Add(40, new QuestData("ëª¬ìŠ¤í„° ì²˜ì¹˜ ì™„ë£Œ", new int[] { 1000, 2000 }));
 
-        questList.Add(50, new QuestData("ÀÇ½ÉµÇ´Â °÷ ¼ö»ö", new int[] { 0 }));
+        questList.Add(50, new QuestData("ì˜ì‹¬ë˜ëŠ” ê³³ ìˆ˜ìƒ‰", new int[] { 0 }));
     }
 
 
@@ -53,36 +85,27 @@ public class QuestManager : MonoBehaviour
 
     public string CheckQuest(int id)
     {
-        //´ÙÀ½ ÅäÅ© Å¸°Ù
+        //ë‹¤ìŒ í† í¬ íƒ€ê²Ÿ
         if (id == questList[questId].npcId[questActionIndex])
         {
             questActionIndex++;
         }
 
-        //Äù½ºÆ®¿ÀºêÁ§Æ® ÄÁÆ®·Ñ
+        //í€˜ìŠ¤íŠ¸ì˜¤ë¸Œì íŠ¸ ì»¨íŠ¸ë¡¤
         ControlObject();
 
-        //´ëÈ­ ¿Ï·á ¹× ´ÙÀ½ Äù½ºÆ®
+        //ëŒ€í™” ì™„ë£Œ ë° ë‹¤ìŒ í€˜ìŠ¤íŠ¸
         if (questActionIndex == questList[questId].npcId.Length)
         {
             NextQuest();
         }
 
-        ////°íºí¸° Á×Àº È½¼ö¸¦ Ã¼Å©ÇÏ¿© +10ÇØÁÖ´Â ÇÔ¼ö·Î ³Ñ±è
-        //if(GoblinKillCountCheck() == 5)
-        //{
-        //    TalkManager talkManager = GetComponent<TalkManager>();
-        //    talkManager.QuestNumber1 = 41;
-        //}
-
-        //Äù½ºÆ® ÀÌ¸§ ¸®ÅÏ
         return questList[questId].questName;
     }
 
-    ////°íºí¸° Á×Àº È½¼ö¸¦ °¨ÁöÇÏ¿© ³Ñ°ÜÁÙ ÇÔ¼ö, ¸ó½ºÅÍ ÂÊ µ¥ÀÌÅÍ¿Í ¿¬µ¿ ÇÊ¿ä
+    //ê³ ë¸”ë¦° ì£½ì€ íšŸìˆ˜ë¥¼ ê°ì§€í•˜ì—¬ ë„˜ê²¨ì¤„ í•¨ìˆ˜, ëª¬ìŠ¤í„° ìª½ ë°ì´í„°ì™€ ì—°ë™ í•„ìš”
     //public int GoblinKillCountCheck()
     //{
-    //    Monsters monsters = GetComponent<Monsters>();
     //    int count =  monsters.DeadCount;
     //
     //    return count;
@@ -103,7 +126,7 @@ public class QuestManager : MonoBehaviour
     {
         switch(questId)
         {
-            //10¹ø Äù½ºÆ®¸¦ ³¡³ªÄ¡¸é ¿­¼è ²É µîÀå
+            //10ë²ˆ í€˜ìŠ¤íŠ¸ë¥¼ ëë‚˜ì¹˜ë©´ ì—´ì‡  ê½ƒ ë“±ì¥
             case 10:
                 if(questActionIndex == 2)
                 {
@@ -111,7 +134,7 @@ public class QuestManager : MonoBehaviour
                 }
                 break;
             
-            //20¹ø Äù½ºÆ®¿¡¼­ 1¹øÂ° ¼ø¼­°¡ ³¡³ª°í ²ÉÀ» ¸ÔÀ¸¸é »ç¶óÁü
+            //20ë²ˆ í€˜ìŠ¤íŠ¸ì—ì„œ 1ë²ˆì§¸ ìˆœì„œê°€ ëë‚˜ê³  ê½ƒì„ ë¨¹ìœ¼ë©´ ì‚¬ë¼ì§
             case 20:
                 if(questActionIndex == 1)
                 {
