@@ -371,7 +371,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 7
   spritePivot: {x: 0.5, y: 0}
-  spritePixelsToUnits: 130
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
@@ -426,6 +426,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
@@ -692,7 +704,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sword_12
+      name: Sword
       rect:
         serializedVersion: 2
         x: 1344
@@ -1220,6 +1232,7 @@ TextureImporter:
       sword_0: -3753825769889500098
       sword_31: 7827905936403376988
       sword_33: 8151861652172512272
+      Sword: -4519076053455810618
       sword_16: -6469916797677484604
       sword_1: 776136188158623729
       sword_13: 563748580988458004
@@ -1229,7 +1242,6 @@ TextureImporter:
       sword_5: 3650304123865126532
       sword_6: -1525763588066094277
       sword_11: 2996700135033197648
-      sword_12: -4519076053455810618
       sword_21: -5238232506152905777
       sword_27: -3670109957379440039
       sword_20: 486422696980654493

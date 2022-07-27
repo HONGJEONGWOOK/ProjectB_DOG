@@ -64,6 +64,7 @@ public class Player_Hero : MonoBehaviour
     private void OnMove(InputAction.CallbackContext context)
     {
         direction = context.ReadValue<Vector2>();
+        
 
         if (direction.x != 0 || direction.y != 0)
         {
