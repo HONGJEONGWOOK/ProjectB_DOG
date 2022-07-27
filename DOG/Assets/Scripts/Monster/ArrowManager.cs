@@ -8,11 +8,12 @@ public class ArrowManager : MonoBehaviour
     public Queue<GameObject> arrows;
     public GameObject arrow;
     private int ArrowNum = 30;
-    private int arrowDirecction = 1;
 
     public static ArrowManager Arrow_Instance { get => arrow_Instance; }
 
-    public int ArrowDirection { get => arrowDirecction; set { arrowDirecction = value; } }
+    private int arrowDirection = 1;
+    public int ArrowDirection { get => arrowDirection; set { arrowDirection = value; } }
+
     void Awake()
     {
         if (arrow_Instance == null)
@@ -45,8 +46,6 @@ public class ArrowManager : MonoBehaviour
     {
 
     }
-        
-
 
     public GameObject GetPooledArrow()
     {
@@ -54,7 +53,7 @@ public class ArrowManager : MonoBehaviour
         {
             GameObject arr = arrows.Dequeue();
             arr.SetActive(true);
-            //arrow onEnable ÀÛµ¿ -> ¹æÇâ °áÁ¤
+            //arrow onEnable ìž‘ë™ -> ë°©í–¥ ê²°ì •
             return arr;
         }
         return null;

@@ -18,16 +18,9 @@ public class Arrow : MonoBehaviour
 
     private void OnEnable()
     {
-        rigid.velocity = shootSpeed * ArrowManager.Arrow_Instance.ArrowDirection * transform.right; //* Monster_Bow.arrowDirection;
-        
-        if(ArrowManager.Arrow_Instance.ArrowDirection == 1)
-        {
-            arrowSprite.flipX = false;
-        }
-        else if(ArrowManager.Arrow_Instance.ArrowDirection == -1)
-        {
-            arrowSprite.flipX = true;
-        }
+        rigid.velocity = shootSpeed * MonsterManager.Inst.Monster_Bow_V3.TrackDirection.normalized;
+        this.transform.right = MonsterManager.Inst.Monster_Bow_V3.TrackDirection;
+        Debug.Log(MonsterManager.Inst.Monster_Bow_V3.TrackDirection);
     }
 
     private void OnDisable()
