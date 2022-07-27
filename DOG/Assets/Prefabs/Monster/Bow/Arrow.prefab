@@ -12,18 +12,14 @@ GameObject:
   - component: {fileID: 210467296085450539}
   - component: {fileID: 6528160444006603442}
   - component: {fileID: -3856813052202980805}
-<<<<<<< Updated upstream
-  - component: {fileID: -8516156433687126384}
-=======
-  - component: {fileID: 2454671746634726996}
->>>>>>> Stashed changes
+  - component: {fileID: -2497097483064826860}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1546102102618224696
 Transform:
   m_ObjectHideFlags: 0
@@ -128,11 +124,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
-<<<<<<< Updated upstream
---- !u!114 &-8516156433687126384
-=======
---- !u!114 &2454671746634726996
->>>>>>> Stashed changes
+--- !u!114 &-2497097483064826860
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,7 +133,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7406789432306371160}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e1c4beef0e57a04db14fc13607da9c3, type: 3}
+  m_Script: {fileID: 11500000, guid: 09cde793c7dfeea418a9085fbf451e64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   shootSpeed: 3

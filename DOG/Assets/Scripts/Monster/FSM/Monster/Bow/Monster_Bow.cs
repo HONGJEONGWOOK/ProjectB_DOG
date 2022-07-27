@@ -6,21 +6,20 @@ using Monster.Enums;
 
 public class Monster_Bow : MonoBehaviour, IHealth
 {
+    Arrow arrow;
+
     private Rigidbody2D rigid = null;
-    private SpriteRenderer weaponSprite = null;
+    private SpriteRenderer sprite = null;
     public Transform shootPosition = null;
     private Animator anim = null;
-    private Animator BowAnim = null;
-    private Transform weapon = null;
 
     //################################# Variables ################################
     [Header("몬스터 AI 관련")]
     public MonsterCurrentState status = MonsterCurrentState.IDLE;
     private Vector2 trackDirection = Vector2.zero;
-    [SerializeField] private float detectRange = 5.0f;
-    private float detectTimer = 0.0f;
-    private float detectCoolTime = 1.0f;
-    
+    [SerializeField] private float detectRadius = 5.0f;
+    private float attackTimer = 1.0f;
+
     public static bool isDead = false;
 
     [Header("몬스터 기본스탯")]
@@ -28,16 +27,19 @@ public class Monster_Bow : MonoBehaviour, IHealth
     private float maxHealthPoint = 100.0f;
     [SerializeField] private int strength = 5;
     [SerializeField] private float moveSpeed = 3.0f;
+    private float currentSpeed = 3.0f;
 
     // ------------------------------------ ATTACK ------------------------------------------
     [SerializeField] protected float attackRange = 1.5f;
-    [SerializeField] private float attackCoolTime = 3.0f;
-    private float attackTimer = 1.0f;
+    [SerializeField] private float attackInterval = 3.0f;
     [SerializeField] protected float attackPower = 5.0f;
     [SerializeField] protected float defence = 1.0f;
+    [SerializeField] private float attackAngle = 45.0f;
+    IEnumerator attack = null;
 
     // ------------------------------------ TARGET ------------------------------------------
-    private GameObject target;
+    protected Vector2 target = new();
+
 
     // #################################### Properties #####################################
     public float HP
@@ -59,10 +61,8 @@ public class Monster_Bow : MonoBehaviour, IHealth
     private void Awake()
     {
         anim = GetComponent<Animator>();
-        BowAnim = transform.GetChild(0).GetComponentInChildren<Animator>();
         rigid = GetComponent<Rigidbody2D>();
-        weapon = transform.GetChild(0);
-        weaponSprite = weapon.GetComponentInChildren<SpriteRenderer>();   
+        sprite = GetComponent<SpriteRenderer>();
     }
 
     private void FixedUpdate()
@@ -84,99 +84,90 @@ public class Monster_Bow : MonoBehaviour, IHealth
     // -------------------------------  MOVE  ------------------------------------------
     private void Track()
     {
-        if (!Search())
+        if (InAttackRange())
         {
-            ChangeStatus(MonsterCurrentState.IDLE);
+            Debug.Log("in attack range");
+            ChangeStatus(MonsterCurrentState.ATTACK);
             return;
         }
-        else 
-        {
-            Move_Monster();
-            RotateWeapon();
 
-            if (InAttackRange())
-            {
-                ChangeStatus(MonsterCurrentState.ATTACK);
-                return;
-            }
+        if (Search())
+        {
+            Move_Monster(currentSpeed);
         }
     }
 
     private bool Search()
     {
         bool result = false;
-        Collider2D collider = Physics2D.OverlapCircle(this.transform.position, detectRange, LayerMask.GetMask("Player"));
+        Collider2D collider = Physics2D.OverlapCircle(this.transform.position, detectRadius, LayerMask.GetMask("Player"));
 
-        if (collider != null)
+        if (collider)
         {
-            target = collider.gameObject;
+            Vector2 targetPosition = collider.transform.position;
+            if (InSight(targetPosition))
+            {
+                target = collider.transform.position;
+                result = true;
+            }
+        }
+
+        return result;
+    }
+
+    bool InAttackRange()
+    {
+        bool result = false;
+
+       if ((target - (Vector2)transform.position).sqrMagnitude < attackRange * attackRange)
+        {
             result = true;
         }
 
         return result;
     }
 
-    private bool InAttackRange()
+    bool InSight(Vector2 target)
     {
-        return (transform.position - target.transform.position).sqrMagnitude < attackRange * attackRange;
+        float angle = Vector2.Angle(transform.right, target - (Vector2)transform.position);
+        return angle < (attackAngle * 0.5f);
     }
 
-    private void Move_Monster()
+    private void Move_Monster(float speed)
     {
-        trackDirection =  target.transform.position - transform.position;
-        anim.SetFloat("Direction_X", trackDirection.x);
-        anim.SetFloat("Direction_Y", trackDirection.y);
-        
-        rigid.position = Vector2.MoveTowards
-            (rigid.position, target.transform.position, moveSpeed * Time.fixedDeltaTime);
+        trackDirection = target - (Vector2)this.transform.position;
+        rigid.position = Vector2.MoveTowards(rigid.position, target, speed * Time.fixedDeltaTime);
+        FaceTarget();
+    }
+
+    private void FaceTarget()
+    {
+        transform.right = trackDirection;
+
+        if (trackDirection.x < 0)
+        {
+            sprite.flipY = true;
+        }
+        else
+        {
+            sprite.flipY = false;
+        }
     }
 
     void ShootArrow()
     {
-        GameObject arrow = EnemyBulletManager.Inst.GetPooledArrow();
+        GameObject arrow = ArrowManager.Arrow_Instance.GetPooledArrow();
         arrow.transform.position = shootPosition.position;
-        arrow.transform.rotation = weapon.transform.rotation;
     }
 
     void Attack()
     {
-        if (InAttackRange())
-        {
-            attackTimer += Time.fixedDeltaTime;
-            RotateWeapon();
+        attackTimer -= Time.fixedDeltaTime;
 
-            if (attackTimer > attackCoolTime)
-            {
-                BowAnim.SetTrigger("onAttack");
-                ChangeStatus(MonsterCurrentState.ATTACK);
-                ShootArrow();
-                attackTimer = 0.0f;
-            }
-        }
-        else
+        if (attackTimer < 0)
         {
-            detectTimer += Time.fixedDeltaTime;
-            if (detectTimer > detectCoolTime)
-            {
-                ChangeStatus(MonsterCurrentState.TRACK);
-                detectTimer = 0f;
-                return;
-            }
-            return;
-        }
-    }
-
-    private void RotateWeapon()
-    {
-        weapon.transform.right = trackDirection;
-
-        if (trackDirection.x < 0)
-        {
-            weaponSprite.flipY = true;
-        }
-        else
-        {
-            weaponSprite.flipY = false;
+            anim.SetTrigger("onAttack");
+            attackInterval = 1.0f;
         }
     }
 
@@ -203,6 +194,7 @@ public class Monster_Bow : MonoBehaviour, IHealth
                     break;
 
                 case MonsterCurrentState.DEAD:
+                    //�״� �ִϸ��̼� ���. ��� �Ϸ� �� Monster pool�� ��ȯ
                     break;
             }
         }
@@ -220,6 +212,7 @@ public class Monster_Bow : MonoBehaviour, IHealth
             case MonsterCurrentState.TRACK:
                 break;
             case MonsterCurrentState.ATTACK:
+                currentSpeed = moveSpeed;
                 break;
             case MonsterCurrentState.DEAD:
                 break;
@@ -236,11 +229,10 @@ public class Monster_Bow : MonoBehaviour, IHealth
             case MonsterCurrentState.PATROL:
                 break;
             case MonsterCurrentState.TRACK:
-                anim.SetFloat("Speed", moveSpeed);
+                currentSpeed = moveSpeed;
                 break;
             case MonsterCurrentState.ATTACK:
-                anim.SetFloat("Speed", 0f);
-                attackTimer = 0.5f;
+                currentSpeed = 0;
                 break;
             case MonsterCurrentState.DEAD:
                 moveSpeed = 0;
@@ -256,14 +248,18 @@ public class Monster_Bow : MonoBehaviour, IHealth
 
     private void OnDrawGizmos()
     {
+        Vector2 forward = transform.right * detectRadius;
+        Quaternion q1 = Quaternion.Euler(0.5f * attackAngle * transform.forward);
+        Quaternion q2 = Quaternion.Euler(0.5f * -attackAngle * transform.forward);
+
         Handles.color = Color.green;
         if (status == MonsterCurrentState.ATTACK || status == MonsterCurrentState.TRACK)
         {
             Handles.color = Color.red;
         }
-
-        Handles.DrawWireDisc(transform.position, transform.forward, detectRange);
-        Handles.color = Color.white;
-        Handles.DrawWireDisc(transform.position, transform.forward, attackRange);
+        
+        Handles.DrawLine(transform.position, transform.position + q1 * forward, 2.0f);
+        Handles.DrawLine(transform.position, transform.position + q2 * forward, 2.0f);
+        Handles.DrawWireArc(transform.position, transform.forward, q2 * forward, attackAngle, detectRadius, 2.0f);
     }
 }

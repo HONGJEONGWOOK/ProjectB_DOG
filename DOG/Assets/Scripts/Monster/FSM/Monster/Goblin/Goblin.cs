@@ -1,18 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 using Monster.Enums;
 
 public class Goblin : Monsters, IHealth, IBattle
 {
-    private HP_Bar hpUI = null;
+    private CircleCollider2D cCollider = null;
 
-    protected override void Awake()
+    private void Awake()
     {
-        base.Awake();
-
-        hpUI = GetComponentInChildren<HP_Bar>();
-        hpUI.gameObject.SetActive(false);
+        cCollider = GetComponent<CircleCollider2D>();
+        cCollider.radius = attackRange;
     }
 }

@@ -29,7 +29,7 @@ public class ArrowV2 : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            EnemyBulletManager.Inst.ReturnPooledArrow(this.gameObject);
+            ArrowManager.Arrow_Instance.ReturnPooledArrow(this.gameObject);
         }
     }
 }

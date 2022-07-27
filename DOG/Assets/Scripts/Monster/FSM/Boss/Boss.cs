@@ -1,3 +1,4 @@
+@@ -0,0 + 1,69 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,7 +24,7 @@ public class Boss : Monsters
             if (attackRand < (1 - longRangeAttack_Prob))
             { // 근접공격
                 return;
-            } 
+            }
             else
             {// 원거리 공격 메테오
                 SpawnMeteor();

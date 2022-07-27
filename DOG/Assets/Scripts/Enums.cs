@@ -10,7 +10,6 @@ namespace Monster.Enums
         PATROL,
         TRACK,
         ATTACK,
-        HIT,
         DEAD
     }
 }
