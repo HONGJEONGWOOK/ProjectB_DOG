@@ -1,14 +1,14 @@
-@@ -0,0 + 1,69 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using Monster.Enums;
 
-public class Boss : Monsters
+public class Boss : Monsters, IHealth, IBattle
 {
     private float attackRand = 0.0f;
 
+    [Header("Meteor Stats")]
     [SerializeField] private float longRangeAttack_Range = 4.0f;
     [SerializeField] private float longRangeAttack_Prob = 0.3f;
     [SerializeField] private int fireballNum = 5;

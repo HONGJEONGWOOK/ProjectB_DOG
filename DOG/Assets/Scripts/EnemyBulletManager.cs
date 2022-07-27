@@ -36,11 +36,6 @@ public class EnemyBulletManager : MonoBehaviour
 
     void Initialize()
     {
-        
-    }
-
-    private void Start()
-    {
         arrows = new Queue<GameObject>();
         GameObject tmp;
         for (int i = 0; i < ArrowNum; i++)
@@ -59,7 +54,6 @@ public class EnemyBulletManager : MonoBehaviour
             fireBalls.Enqueue(tmp_Fire);
         }
     }
-
 
     // ##################### Bow Monster #######################
     public GameObject GetPooledArrow()

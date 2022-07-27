@@ -2,29 +2,31 @@ using UnityEngine;
 using UnityEditor;
 using Monster.Enums;
 
-public class Monsters : MonoBehaviour
-{ 
+public class Monsters : MonoBehaviour, IHealth, IBattle
+{
+    Rigidbody2D rigid;
+    protected Animator anim;
+    SpriteRenderer sprite;
 
+    private bool isDead = false;
 
+    public System.Action onHit = null;
 
-public static bool isDead = false;
-private bool isDead = false;
+    [Header("Monster AI")]
+    public MonsterCurrentState status = MonsterCurrentState.IDLE;
+    protected Vector2 trackDirection = Vector2.zero;
+    [SerializeField] protected float detectRadius = 5.0f;
+    [SerializeField] protected float detectRange = 5.0f;
 
-public System.Action onHit = null;
-
-[Header("���� AI ����")]
-public MonsterCurrentState status = MonsterCurrentState.IDLE;
-protected Vector2 trackDirection = Vector2.zero;
-[SerializeField] protected float detectRadius = 5.0f;
-[SerializeField] protected float detectRange = 5.0f;
-
-[Header("���� �⺻����")]
-[SerializeField] protected float healthPoint = 100.0f;
-[SerializeField] protected int strength = 5;
-[SerializeField] protected float moveSpeed = 3.0f;
+    [Header("Basic Stats")]
+    [SerializeField] protected float healthPoint = 100.0f;
+    [SerializeField] protected int strength = 5;
+    [SerializeField] protected float moveSpeed = 3.0f;
+    private float maxHealthPoint = 100.0f;
 
     // #################################### VARIABLES #####################################
     // ------------------------------------ TRACK ------------------------------------------
+    protected float currentSpeed = 3.0f;
 
     // ------------------------------------ TARGET ------------------------------------------
     protected Transform target = null;
@@ -65,15 +67,14 @@ protected Vector2 trackDirection = Vector2.zero;
     public float Defence { get => defence; }
 
     protected virtual void Awake()
->>>>>>> Stashed changes:DOG/Assets/Scripts/Monster/FSM/Monster/Monsters.cs
-{
-    rigid = GetComponent<Rigidbody2D>();
-    anim = GetComponent<Animator>();
-    sprite = GetComponent<SpriteRenderer>();
-}
+    {
+        rigid = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        sprite = GetComponent<SpriteRenderer>();
+    }
 
-private void FixedUpdate()
-{
+    private void FixedUpdate()
+    {
         if (!isDead)
         {
             if (status == MonsterCurrentState.TRACK)
@@ -84,10 +85,22 @@ private void FixedUpdate()
     }
 
     private void Update()
-{
-    CheckStatus();
-    Debug.Log(status);
-}
+    {
+        CheckStatus();
+        Debug.Log(status);
+    }
+
+    // ################################### METHODS ##############################################
+    // -------------------------------  IDLE  ------------------------------------------
+    void Idle()
+    {
+        if (SearchPlayer())
+        {
+            ChangeStatus(MonsterCurrentState.TRACK);
+            return;
+        }
+    }
+
     // -----------------------------  SEARCH  ------------------------------------------
     private bool SearchPlayer()
     {
@@ -109,22 +122,12 @@ private void FixedUpdate()
         if (!SearchPlayer())
         {
             ChangeStatus(MonsterCurrentState.IDLE);
->>>>>>> Stashed changes:DOG/Assets/Scripts/Monster/FSM/Monster/Monsters.cs
             return;
         }
     }
 
     void Patrol()
-{
-<<<<<<< Updated upstream:DOG/Assets/Scripts/FSM/Monster/Monsters.cs
-    if (Search())
     {
-        ChangeStatus(MonsterCurrentState.TRACK);
-@ -147,6 + 236,40 @@ public class Monsters : MonoBehaviour
-        }
-
-        return result;
-=======
         //if (Search())
         //{
         //    ChangeStatus(MonsterCurrentState.TRACK);
@@ -145,8 +148,12 @@ private void FixedUpdate()
     protected void Move_Monster(float speed)
     {
         trackDirection = target.position - this.transform.position;
-        rigid.position = Vector2.MoveTowards(rigid.position, new Vector2(rigid.position.x, target.position.y), speed * Time.fixedDeltaTime);
-        //MovePosition(rigid.position + new Vector2(rigid.position.x, target.position.y * speed * Time.fixedDeltaTime));
+        //rigid.position = Vector2.MoveTowards(rigid.position, 
+        //                new Vector2(rigid.position.x, target.position.y),
+        //                speed * Time.fixedDeltaTime
+        //                );
+         rigid.MovePosition(rigid.position + new Vector2(rigid.position.x, target.position.y * speed * Time.fixedDeltaTime));
+
         if (IsAtSameHeight())
         {
             rigid.position = Vector2.MoveTowards(rigid.position, target.position, speed * Time.fixedDeltaTime);
@@ -157,22 +164,8 @@ private void FixedUpdate()
             }
         }
         SpriteFlip();
->>>>>>> Stashed changes:DOG/Assets/Scripts/Monster/FSM/Monster/Monsters.cs
-    }
+    }   
 
-    void Move_Monster()
-@ -169,12 + 292,45 @@ public class Monsters : MonoBehaviour
-        }
-    }
-
-<<<<<<< Updated upstream:DOG/Assets/Scripts/FSM/Monster/Monsters.cs
-    void Track()
-{
-    if (!Search())
-    {
-        ChangeStatus(MonsterCurrentState.IDLE);
-        return;
-=======
     protected virtual bool InAttackRange()
     {
         return (transform.position - target.position).sqrMagnitude < attackRange * attackRange;
@@ -180,6 +173,18 @@ private void FixedUpdate()
     protected virtual bool IsAtSameHeight()
     {
         return rigid.position.y - target.position.y < 0.05f;
+    }
+    protected virtual void SpriteFlip()
+    {
+        var cross = Vector3.Cross(trackDirection, this.transform.up);
+        if (Vector3.Dot(cross, transform.forward) < 0)
+        {   // 왼쪽
+            sprite.flipX = true;
+        }
+        else
+        {   // 오른쪽
+            sprite.flipX = false;
+        }
     }
 
     // -------------------------------  ATTACK  ----------------------------------------
@@ -203,17 +208,49 @@ private void FixedUpdate()
                 detectTimer = 0f;
                 return;
             }
->>>>>>> Stashed changes:DOG/Assets/Scripts/Monster/FSM/Monster/Monsters.cs
-    }
-
-    Move_Monster();
-@ -203,7 + 359,41 @@ public class Monsters : MonoBehaviour
+        }
+        Move_Monster(currentSpeed);
         anim.SetTrigger("onHit");
     }
 
-<<<<<<< Updated upstream:DOG/Assets/Scripts/FSM/Monster/Monsters.cs
-    void ChangeStatus(MonsterCurrentState newState)
-=======
+    public void Attack(IBattle target)
+    {
+        if (target != null)
+        {
+            float damage = attackPower;
+            target.TakeDamage(damage);
+        }
+    }
+
+    // -------------------------------  HIT  ----------------------------------------
+    public void TakeDamage(float damage)
+    {
+        float finalDamage = damage - defence;
+
+        if (finalDamage < 1)
+        {
+            finalDamage = 1;
+        }
+        HP -= finalDamage;
+
+        if (HP > 0)
+        {
+            anim.SetTrigger("onHit");
+            currentSpeed = 0;
+        }
+        else
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        anim.SetTrigger("onDie");
+        status = MonsterCurrentState.DEAD;
+        Destroy(gameObject, anim.GetCurrentAnimatorClipInfo(0).Length);
+    }
+
     //########################## Monster Status Check ##################################
     void CheckStatus()
     { // Status Check in Update
@@ -245,53 +282,49 @@ private void FixedUpdate()
     }
 
     protected void ChangeStatus(MonsterCurrentState newState)
->>>>>>> Stashed changes:DOG/Assets/Scripts/Monster/FSM/Monster/Monsters.cs
-{
-    // On Status Exit
-    switch (status)
-@ -215,9 + 405,13 @@ public class Monsters : MonoBehaviour
-            case MonsterCurrentState.TRACK:
+    {
+        // On Status Exit
+        switch (status)
+        {
+            case MonsterCurrentState.IDLE:
                 break;
-            case MonsterCurrentState.ATTACK:
-<<<<<<< Updated upstream:DOG/Assets/Scripts/FSM/Monster/Monsters.cs
-                StopCoroutine(attack);
-break;
-            case MonsterCurrentState.HIT:
-=======
-                currentSpeed = moveSpeed;
->>>>>>> Stashed changes:DOG/Assets/Scripts/Monster/FSM/Monster/Monsters.cs
-                break;
-            case MonsterCurrentState.DEAD:
-                break;
-@ -234,11 + 428,17 @@ public class Monsters : MonoBehaviour
             case MonsterCurrentState.PATROL:
                 break;
             case MonsterCurrentState.TRACK:
-<<<<<<< Updated upstream:DOG/Assets/Scripts/FSM/Monster/Monsters.cs
                 break;
             case MonsterCurrentState.ATTACK:
-                StartCoroutine(attack);
-break;
-            case MonsterCurrentState.HIT:
-=======
-                //currentSpeed = moveSpeed;
-                break;
-            case MonsterCurrentState.ATTACK:
->>>>>>> Stashed changes:DOG/Assets/Scripts/Monster/FSM/Monster/Monsters.cs
+                currentSpeed = moveSpeed;
                 break;
             case MonsterCurrentState.DEAD:
                 break;
-@ -249,10 + 449,25 @@ public class Monsters : MonoBehaviour
+            default:
+                break;
+        }
+
+        // On Status Enter
+        switch (newState)
+        {
+            case MonsterCurrentState.IDLE:
+                trackDirection = Vector2.zero;
+                break;
+            case MonsterCurrentState.PATROL:
+                break;
+            case MonsterCurrentState.TRACK:
+                currentSpeed = moveSpeed;
+                break;
+            case MonsterCurrentState.ATTACK:
+                currentSpeed = 0;
+                break;
+            case MonsterCurrentState.DEAD:
+                moveSpeed = 0;
+                break;
+            default:
+                break;
+        }
+        status = newState;
         anim.SetInteger("CurrentStatus", (int)newState);
     }
 
-<<<<<<< Updated upstream:DOG/Assets/Scripts/FSM/Monster/Monsters.cs
-
-    private void OnDrawGizmos()
-{
-    Handles.DrawWireDisc(this.transform.position, transform.forward, detectRadius);
-    Handles.DrawWireDisc(this.transform.position, transform.forward, trackDirection.magnitude);
-=======
     // ########################################### GIZMOS ########################################
     protected virtual void OnDrawGizmos()
     {
@@ -304,7 +337,5 @@ break;
         Handles.DrawWireDisc(transform.position, transform.forward, detectRange);
         Handles.color = Color.white;
         Handles.DrawWireDisc(transform.position, transform.forward, attackRange);
->>>>>>> Stashed changes:DOG/Assets/Scripts/Monster/FSM/Monster/Monsters.cs
-}
-}
+    }
 }

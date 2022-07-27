@@ -5,11 +5,13 @@ using Monster.Enums;
 
 public class Goblin : Monsters, IHealth, IBattle
 {
-    private CircleCollider2D cCollider = null;
+    private HP_Bar hpUI = null;
 
-    private void Awake()
+    protected override void Awake()
     {
-        cCollider = GetComponent<CircleCollider2D>();
-        cCollider.radius = attackRange;
+        base.Awake();
+
+        hpUI = GetComponentInChildren<HP_Bar>();
+        hpUI.gameObject.SetActive(false);
     }
 }

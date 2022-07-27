@@ -142,7 +142,7 @@ public class Monster_Bow_V2 : MonoBehaviour, IHealth
 
     void ShootArrow()
     {
-        GameObject arrow = ArrowManager.Arrow_Instance.GetPooledArrow();
+        GameObject arrow = EnemyBulletManager.Inst.GetPooledArrow();
         arrow.transform.position = shootPosition.position;
         arrow.transform.rotation = weapon.transform.rotation;
     }

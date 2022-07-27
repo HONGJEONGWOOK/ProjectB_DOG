@@ -37,9 +37,9 @@ public class MonsterManager : MonoBehaviour
 
     private void Initialize()
     {
-        //monster_Goblin = FindObjectOfType<Goblin>().GetComponent<Goblin>();
-        monster_Bow = FindObjectOfType<Monster_Bow>().GetComponent<Monster_Bow>();
-        monster_Bow_V2 = FindObjectOfType<Monster_Bow_V2>().GetComponent<Monster_Bow_V2>();
-        monster_Bow_V3 = FindObjectOfType<Monster_Bow_V3>().GetComponent<Monster_Bow_V3>();
+        monster_Goblin = FindObjectOfType<Goblin>().GetComponent<Goblin>();
+        //monster_Bow = FindObjectOfType<Monster_Bow>().GetComponent<Monster_Bow>();
+        //monster_Bow_V2 = FindObjectOfType<Monster_Bow_V2>().GetComponent<Monster_Bow_V2>();
+        //monster_Bow_V3 = FindObjectOfType<Monster_Bow_V3>().GetComponent<Monster_Bow_V3>();
     }
 }

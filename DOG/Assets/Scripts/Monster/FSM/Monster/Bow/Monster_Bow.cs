@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEditor;
 using Monster.Enums;
 
-public class Monster_Bow : MonoBehaviour, IHealth
-{
+public class Monster_Bow : MonoBehaviour
+{/*
     Arrow arrow;
 
     private Rigidbody2D rigid = null;
@@ -35,7 +35,6 @@ public class Monster_Bow : MonoBehaviour, IHealth
     [SerializeField] protected float attackPower = 5.0f;
     [SerializeField] protected float defence = 1.0f;
     [SerializeField] private float attackAngle = 45.0f;
-    IEnumerator attack = null;
 
     // ------------------------------------ TARGET ------------------------------------------
     protected Vector2 target = new();
@@ -156,7 +155,7 @@ public class Monster_Bow : MonoBehaviour, IHealth
 
     void ShootArrow()
     {
-        GameObject arrow = ArrowManager.Arrow_Instance.GetPooledArrow();
+        GameObject arrow = EnemyBulletManager.Inst.GetPooledArrow();
         arrow.transform.position = shootPosition.position;
     }
 
@@ -261,5 +260,5 @@ public class Monster_Bow : MonoBehaviour, IHealth
         Handles.DrawLine(transform.position, transform.position + q1 * forward, 2.0f);
         Handles.DrawLine(transform.position, transform.position + q2 * forward, 2.0f);
         Handles.DrawWireArc(transform.position, transform.forward, q2 * forward, attackAngle, detectRadius, 2.0f);
-    }
+    }*/
 }
