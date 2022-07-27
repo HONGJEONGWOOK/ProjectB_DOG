@@ -58,9 +58,6 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-
-        SearchNpc();
-
         //HpControlor();
     }
 
@@ -73,11 +70,6 @@ public class Player : MonoBehaviour
     {
         
         //equipWeapon.Use();
-        Debug.Log("공격 및 말걸기");
-        if (scanObject != null)
-        {
-            manager.AskAction(scanObject);
-        }
         //Weapon.instance.Swing();
     }
 
@@ -112,30 +104,38 @@ public class Player : MonoBehaviour
 
     private void OnTalk(InputAction.CallbackContext _)
     {
+        SearchNpc();
+
         if (scanObject != null)
         {
             manager.AskAction(scanObject);
         }
         else
         {
-            Debug.Log("����� �����ϴ�.");
+            Debug.Log("대상이 없습니다.");
         }
     }
 
     void SearchNpc()
     {
-        Vector3 dir = direction;
+        //int layerNpc = 6 << (LayerMask.NameToLayer("Npc"));
 
-        Debug.DrawRay(rigid.position, dir * 1.5f, Color.red);
-        RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, dir, 1.5f, LayerMask.GetMask("Npc"));
+        //Collider2D[] rayHit = Physics2D.OverlapCircle(transform.position, 1.5f, LayerMask.);
+        Collider2D[] col = Physics2D.OverlapCircleAll(transform.position, 1.5f, 1 << 6);
 
-        if (rayHit.collider != null)
+        if( col.Length > 0)
         {
-            scanObject = rayHit.collider.gameObject;
+            scanObject = col[0].gameObject;
         }
         else
         {
-            scanObject = null;
+            Debug.Log("대상이 없습니다.");
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.white;
+        Gizmos.DrawWireSphere(transform.position, 1.5f);
     }
 }
