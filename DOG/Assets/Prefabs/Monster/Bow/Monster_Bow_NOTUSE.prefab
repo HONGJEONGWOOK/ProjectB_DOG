@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 7031713198072598268}
   - component: {fileID: 6475941995298777375}
   m_Layer: 0
-  m_Name: Monster_Bow
+  m_Name: Monster_Bow_NOTUSE
   m_TagString: Monster
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0

@@ -7,16 +7,21 @@ public class MonsterManager : MonoBehaviour
     private static MonsterManager instance = null;
     public static MonsterManager Inst { get => instance; }
 
-    Goblin monster_Goblin = null;
-    Monster_Bow monster_Bow = null;
-    Monster_Bow_V2 monster_Bow_V2 = null;
-    Monster_Bow_V3 monster_Bow_V3 = null;
+    public GameObject[] poolingMonsters;
+    [SerializeField] private int goblinNum = 15;
+    [SerializeField] private int treantNum = 15;
+    [SerializeField] private int bossNum = 2;
+    Transform goblinParent;
+    Transform treantParent;
+    Transform bossParent;
 
+    private Dictionary<string, Queue<GameObject>> pooledMonster = new();
 
-    public Goblin Monster_Goblin { get => monster_Goblin; }
-    public Monster_Bow Monster_Bow { get => monster_Bow; }
-    public Monster_Bow_V2 Monster_Bow_V2 => monster_Bow_V2;
-    public Monster_Bow_V3 Monster_Bow_V3 => monster_Bow_V3;
+    private Queue<GameObject> goblins;
+    private Queue<GameObject> treants;
+    private Queue<GameObject> bosses;
+
+    public Dictionary<string, Queue<GameObject>> PooledMonster => pooledMonster;
 
     private void Awake()
     {
@@ -37,9 +42,65 @@ public class MonsterManager : MonoBehaviour
 
     private void Initialize()
     {
-        //monster_Goblin = FindObjectOfType<Goblin>().GetComponent<Goblin>();
-        monster_Bow = FindObjectOfType<Monster_Bow>().GetComponent<Monster_Bow>();
-        monster_Bow_V2 = FindObjectOfType<Monster_Bow_V2>().GetComponent<Monster_Bow_V2>();
-        monster_Bow_V3 = FindObjectOfType<Monster_Bow_V3>().GetComponent<Monster_Bow_V3>();
+        goblinParent = transform.GetChild(0);
+        treantParent = transform.GetChild(1);
+        bossParent = transform.GetChild(2);
+
+        // --------------------- Goblin --------------------------------
+        goblins = new();
+        pooledMonster.Add(poolingMonsters[0].name, goblins);
+
+        for (int i = 0; i < goblinNum; i++)
+        {
+            GameObject gob = Instantiate(poolingMonsters[0], goblinParent);
+            pooledMonster[poolingMonsters[0].name].Enqueue(gob);
+            gob.SetActive(false);   
+        }
+
+
+        // --------------------- Treant --------------------------------
+        treants = new();
+        pooledMonster.Add(poolingMonsters[1].name, treants);
+
+        for (int i = 0; i < treantNum; i++)
+        {
+            GameObject trea = Instantiate(poolingMonsters[1], treantParent);
+            pooledMonster[poolingMonsters[1].name].Enqueue(trea);
+            trea.SetActive(false);
+        }
+
+        // --------------------- Boss -----------------------------------
+        bosses = new();
+        pooledMonster.Add(poolingMonsters[2].name, bosses);
+
+        for (int i = 0; i < bossNum; i++)
+        {
+            GameObject boss = Instantiate(poolingMonsters[2], bossParent);
+            pooledMonster[poolingMonsters[2].name].Enqueue(boss);
+            boss.SetActive(false);
+        }
+    }
+
+    // ######################### Methods ##########################################
+    public GameObject GetPooledMonster(Queue<GameObject> poolingQueue)
+    {
+        if (poolingQueue.Count > 0)
+        {
+            GameObject monster = poolingQueue.Dequeue();
+            monster.SetActive(true);
+            return monster;
+        }
+        else
+        {
+
+        }
+        return null;
+    }
+
+    public void ReturnPooledMonster(Queue<GameObject> returningQueue, GameObject uselessMonster)
+    {
+        returningQueue.Enqueue(uselessMonster);
+        uselessMonster.SetActive(false);
+        uselessMonster.transform.position = Vector2.zero;
     }
 }

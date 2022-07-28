@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 1013454837885420824}
   - component: {fileID: 6022732403860598593}
   m_Layer: 0
-  m_Name: Monster_Bow_V2
+  m_Name: Treant
   m_TagString: Monster
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -119,7 +119,7 @@ Animator:
   m_GameObject: {fileID: 1935523781236129370}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4fee62118ad8d4f49a7b317fee8c897e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 365bdb5a57801a440839e11e1a6ead70, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -141,17 +141,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2d4fcc2a0f940b428f39601b3dafa7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootPosition: {fileID: 0}
+  shootPosition: {fileID: 9181820295667796300}
   status: 0
-  detectRadius: 5
+  detectRange: 6
   healthPoint: 100
   strength: 5
   moveSpeed: 3
-  attackRange: 1.5
-  attackInterval: 3
+  attackRange: 4
+  attackCoolTime: 3
   attackPower: 5
   defence: 1
-  attackAngle: 45
 --- !u!1 &2172451679000632993
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,6 +161,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1720401695114362663}
   - component: {fileID: 3028629708117124315}
+  - component: {fileID: 1556421989}
   m_Layer: 0
   m_Name: Bow
   m_TagString: Untagged
@@ -237,6 +237,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1556421989
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2172451679000632993}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 22551f4f4175a224898377c8085cc84f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5168729983640671059
 GameObject:
   m_ObjectHideFlags: 0
