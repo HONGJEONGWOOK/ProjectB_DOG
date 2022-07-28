@@ -8,12 +8,17 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     public GameManager manager;
-    GameObject scanObject;
+
 
     PlayerInputActions actions = null;
-    Animator anim = null;
+    GameObject scanObject;
+    Weapon sword = null;
+    Animator sword_Animator = null;
+    Animator arm_Animator = null;
+    Animator bodyAnimtor = null;
 
     public float hp = 10.0f;
+
     Rigidbody2D rigid = null;
 
     public float moveSpeed = 5.0f;
@@ -24,12 +29,23 @@ public class Player : MonoBehaviour
     public Slider hpSlider;
     public Slider hpSlider2;
 
+    bool isAction;
+
+    //test--------------------------------------------------------------------
+    Animator anim;
+
     private void Awake()
     {
-        anim = GetComponent<Animator>();
+        
         actions = new PlayerInputActions();
         rigid = GetComponent<Rigidbody2D>();
-        
+
+        sword = FindObjectOfType<Weapon>();
+        sword_Animator = sword.GetComponent<Animator>();
+        //arm_Animator = transform.Find("Player_Arm").GetComponent<Animator>();
+        //bodyAnimtor = transform.Find("Player_Body").GetComponent<Animator>();
+        anim = GetComponent<Animator>();
+
         currentHP = hp;
     }
    
@@ -53,32 +69,61 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        
         Move();
     }
 
     private void Update()
     {
+        Debug.DrawRay(rigid.position, direction * 1.0f, new Color(0, 1, 0));
+        RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, direction, 1.0f, LayerMask.GetMask("Npc"));
+        //방향키가 누르면 켜지고 때면 꺼지는 시스템이라 direction도 누를 때만 켜지는 것 같음
 
-        SearchNpc();
+        if (direction.y == 1)
+        {
+            direction = Vector3.up;
+        }
+        else if (direction.y == -1)
+        {
+            direction = Vector3.down;
+        }
+        else if (direction.x == 1)
+        {
+            direction = Vector3.right;
+        }
+        else if (direction.x == -1)
+        {
+            direction = Vector3.left;
+        }
 
-        //HpControlor();
+        if (rayHit.collider != null)
+        {
+            scanObject = rayHit.collider.gameObject;
+        }
+        else
+        {
+            scanObject = null;
+        }
+
     }
 
     private void Move()
     {
-        rigid.MovePosition(transform.position + (direction * moveSpeed * Time.deltaTime));
+        rigid.MovePosition(transform.position + (direction * moveSpeed * Time.fixedDeltaTime));
     }
 
-    private void OnAttack(InputAction.CallbackContext context)
+    private void OnAttack(InputAction.CallbackContext _)
     {
-        
         //equipWeapon.Use();
-        Debug.Log("공격 및 말걸기");
-        if (scanObject != null)
-        {
-            manager.AskAction(scanObject);
-        }
         //Weapon.instance.Swing();
+        Attack_Sword();
+    }
+
+    void Attack_Sword()
+    {
+        sword_Animator.SetTrigger("OnAttack");
+        arm_Animator.SetTrigger("OnAttack");
+        bodyAnimtor.SetTrigger("OnAttack");
     }
 
     /* private void HpControlor()
@@ -112,30 +157,85 @@ public class Player : MonoBehaviour
 
     private void OnTalk(InputAction.CallbackContext _)
     {
+        SearchNpc();
+
         if (scanObject != null)
         {
-            manager.AskAction(scanObject);
+            AskAction(scanObject);
+
         }
         else
         {
-            Debug.Log("����� �����ϴ�.");
+            Debug.Log("대상이 없습니다.");
         }
     }
 
     void SearchNpc()
     {
-        Vector3 dir = direction;
+        //int layerNpc = 6 << (LayerMask.NameToLayer("Npc"));
 
-        Debug.DrawRay(rigid.position, dir * 1.5f, Color.red);
-        RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, dir, 1.5f, LayerMask.GetMask("Npc"));
+        //Collider2D[] rayHit = Physics2D.OverlapCircle(transform.position, 1.5f, LayerMask.);
+        Collider2D[] col = Physics2D.OverlapCircleAll(transform.position, 1.5f, 1 << 6);
 
-        if (rayHit.collider != null)
+        if( col.Length > 0)
         {
-            scanObject = rayHit.collider.gameObject;
+            scanObject = col[0].gameObject;
         }
         else
         {
-            scanObject = null;
+            Debug.Log("대상이 없습니다.");
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.white;
+        Gizmos.DrawWireSphere(transform.position, 1.5f);
+    }
+
+    //게임 오브젝트 타입에 scanObj파라미터로 받아서 GameObject타입형의 scanObject에 넣고
+    //scanObject에 GetComponent해서 기능을 ObjectData타입의 objData에 넣고
+    //ObjectData타입은 public int id; public bool isNpc; 를 가지고 있음
+    //
+    public void AskAction(GameObject scanObj)
+    {
+        scanObject = scanObj;
+        ObjectData objData = scanObject.GetComponent<ObjectData>();
+        Talk(objData.id, objData.isNpc);
+
+        //대화창 온
+        GameManager.Inst.TalkPanel.SetActive(isAction);
+    }
+
+    void Talk(int id, bool isNpc)
+    {
+        isAction = false;
+        //QuestManager의 GetQuestTalkIndex의 파라미터에 전달할 questTalkIndex
+        //GetQuestTalkIndex는 questId 값을 리턴
+        int questTalkIndex = QuestManager.Instance.GetQuestTalkIndex(id);
+
+        //questId를 
+        string talkData =  GameManager.Inst.talkManager.GetTalk(id + questTalkIndex, QuestManager.Instance.TalkIndex);
+
+        if (isNpc)
+        {
+            GameManager.Inst.talkText.text = talkData;
+        }
+        else
+        {
+            GameManager.Inst.talkText.text = talkData;
+        }
+
+        //대화끝
+        if (talkData == null)
+        {
+            isAction = false;
+            QuestManager.Instance.TalkIndex = 0;
+            Debug.Log(QuestManager.Instance.CheckQuest(id));
+            return;
+        }
+
+        isAction = true;
+        QuestManager.Instance.TalkIndex++;
     }
 }
