@@ -41,14 +41,12 @@ public class Player_Hero : MonoBehaviour
         actions.Player.Move.performed += OnMove;
         actions.Player.Move.canceled += OnMove;
         actions.Player.Attack.performed += OnAttack;
-        actions.Player.Talk.performed += OnTalk;
     }
 
     
 
     private void OnDisable()
     {
-        actions.Player.Talk.performed -= OnTalk;
         actions.Player.Attack.performed -= OnAttack;
         actions.Player.Move.canceled -= OnMove;
         actions.Player.Move.performed -= OnMove;
@@ -83,17 +81,7 @@ public class Player_Hero : MonoBehaviour
     }
     // 움직일때 마지막에 봤던 방향으로 멈춰있기
 
-    private void OnTalk(InputAction.CallbackContext _)
-    {
-        if (scanObject != null)
-        {
-            manager.AskAction(scanObject);
-        }
-        else
-        {
-            Debug.Log("����� �����ϴ�.");
-        }
-    }
+    
 
     void SearchNpc()
     {
@@ -116,10 +104,7 @@ public class Player_Hero : MonoBehaviour
     private void OnAttack(InputAction.CallbackContext context)
     {
         Debug.Log("공격 및 말걸기");
-        if (scanObject != null)
-        {
-            manager.AskAction(scanObject);
-        }
+        
 
         anim.SetTrigger("Attack");
     }
