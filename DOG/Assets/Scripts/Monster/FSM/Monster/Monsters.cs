@@ -15,7 +15,6 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
     [Header("Monster AI")]
     public MonsterCurrentState status = MonsterCurrentState.IDLE;
     protected Vector2 trackDirection = Vector2.zero;
-    [SerializeField] protected float detectRadius = 5.0f;
     [SerializeField] protected float detectRange = 5.0f;
 
     [Header("Basic Stats")]
@@ -87,7 +86,6 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
     private void Update()
     {
         CheckStatus();
-        Debug.Log(status);
     }
 
     // ################################### METHODS ##############################################
@@ -124,6 +122,10 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
             ChangeStatus(MonsterCurrentState.IDLE);
             return;
         }
+        else
+        {
+            Move_Monster(currentSpeed);
+        }
     }
 
     void Patrol()
@@ -145,14 +147,13 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
         //}
     }
 
-    protected void Move_Monster(float speed)
+    private void Move_Monster(float speed)
     {
         trackDirection = target.position - this.transform.position;
-        //rigid.position = Vector2.MoveTowards(rigid.position, 
-        //                new Vector2(rigid.position.x, target.position.y),
-        //                speed * Time.fixedDeltaTime
-        //                );
-         rigid.MovePosition(rigid.position + new Vector2(rigid.position.x, target.position.y * speed * Time.fixedDeltaTime));
+        rigid.position = Vector2.MoveTowards(rigid.position,
+                        new Vector2(rigid.position.x, target.position.y),
+                        speed * Time.fixedDeltaTime
+                        );
 
         if (IsAtSameHeight())
         {
@@ -164,17 +165,18 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
             }
         }
         SpriteFlip();
-    }   
+    }
 
     protected virtual bool InAttackRange()
     {
         return (transform.position - target.position).sqrMagnitude < attackRange * attackRange;
     }
-    protected virtual bool IsAtSameHeight()
+
+    private bool IsAtSameHeight()
     {
         return rigid.position.y - target.position.y < 0.05f;
     }
-    protected virtual void SpriteFlip()
+    private void SpriteFlip()
     {
         var cross = Vector3.Cross(trackDirection, this.transform.up);
         if (Vector3.Dot(cross, transform.forward) < 0)
@@ -196,10 +198,8 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
         {
             anim.SetTrigger("onAttack");
             attackTimer = 0.0f;
-            return;
         }
-
-        if (!InAttackRange())
+        else if (!InAttackRange() && attackTimer < attackCoolTime)
         {
             detectTimer += Time.fixedDeltaTime;
             if (detectTimer > detectCoolTime)
@@ -209,8 +209,6 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
                 return;
             }
         }
-        Move_Monster(currentSpeed);
-        anim.SetTrigger("onHit");
     }
 
     public void Attack(IBattle target)
@@ -314,9 +312,10 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
                 break;
             case MonsterCurrentState.ATTACK:
                 currentSpeed = 0;
+                attackTimer = attackCoolTime; // 즉시공격
                 break;
             case MonsterCurrentState.DEAD:
-                moveSpeed = 0;
+                currentSpeed = 0;
                 break;
             default:
                 break;
@@ -333,7 +332,6 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
         {
             Handles.color = Color.red;
         }
-
         Handles.DrawWireDisc(transform.position, transform.forward, detectRange);
         Handles.color = Color.white;
         Handles.DrawWireDisc(transform.position, transform.forward, attackRange);

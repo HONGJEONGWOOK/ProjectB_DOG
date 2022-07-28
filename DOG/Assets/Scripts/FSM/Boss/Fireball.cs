@@ -14,9 +14,11 @@ public class Fireball : MonoBehaviour
     Animator explosion;
 
     [SerializeField] private float speed = 3.0f;
+    [Range(0f,1f)]
     [SerializeField] private float shadowTweaker = 0.5f;
     [SerializeField] private Vector2 initialPosition = new Vector2(-3, 7);
     float alpha = 0f;
+    float endTimer = 0.0f;
 
     private void Awake()
     {
@@ -28,7 +30,6 @@ public class Fireball : MonoBehaviour
         ballSprite = ball.GetComponent<SpriteRenderer>();
 
         explosion = transform.GetChild(2).GetComponent<Animator>();
-
     }
 
     private void OnEnable()
@@ -47,7 +48,6 @@ public class Fireball : MonoBehaviour
             explosion.SetTrigger("isCollided");
             ballSprite.color = Color.clear;
             shadowRenderer.color = Color.clear;
-            StartCoroutine(PlayExplosionAnimation());
         }
     }
 
@@ -56,8 +56,18 @@ public class Fireball : MonoBehaviour
         if (ballSprite.color != Color.clear)
         {
             alpha = Mathf.Lerp(alpha, 1.0f, Time.deltaTime * shadowTweaker);
-            Debug.Log(alpha);
             shadowRenderer.color = new Color(0, 0, 0, alpha);
+        }
+
+        if (IsCollided())
+        {
+            endTimer += Time.deltaTime;
+            if (endTimer > explosion.GetCurrentAnimatorStateInfo(0).length)
+            {
+                EnemyBulletManager.Inst.ReturnPooledObject(
+                    EnemyBulletManager.Inst.PooledObjects[this.gameObject.name.Remove(gameObject.name.Length - 7)], this.gameObject);
+                endTimer = 0f;
+            }
         }
     }
 
@@ -68,11 +78,5 @@ public class Fireball : MonoBehaviour
         ballParticle.Play();
         ballSprite.color = Color.white;
         ball.transform.localPosition = initialPosition;
-    }
-
-    private IEnumerator PlayExplosionAnimation()
-    {
-        yield return new WaitForSeconds(explosion.GetCurrentAnimatorStateInfo(0).length + 0.5f);
-        EnemyBulletManager.Inst.ReturnPooledFireBall(this.gameObject);
     }
 }

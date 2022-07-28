@@ -201,12 +201,12 @@ GameObject:
   - component: {fileID: 2056469766304591459}
   - component: {fileID: 2056469766304591457}
   m_Layer: 0
-  m_Name: FireBall_Set
+  m_Name: Meteor_Set
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2056469766304591460
 Transform:
   m_ObjectHideFlags: 0
@@ -238,7 +238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  shadowTweaker: 0.5
+  shadowTweaker: 0.6
   initialPosition: {x: -3, y: 7}
 --- !u!212 &2056469766304591457
 SpriteRenderer:

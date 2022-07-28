@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1974554954906325105}
   - component: {fileID: 1974554954906325106}
   m_Layer: 0
-  m_Name: Fireball
+  m_Name: Meteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

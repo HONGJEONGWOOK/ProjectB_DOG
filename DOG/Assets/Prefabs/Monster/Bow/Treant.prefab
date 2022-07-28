@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1013454837885420824}
   - component: {fileID: 6022732403860598593}
   m_Layer: 0
-  m_Name: Monster_Bow_V2
+  m_Name: Treant
   m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

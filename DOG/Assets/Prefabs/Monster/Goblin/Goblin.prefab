@@ -122,16 +122,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   status: 0
-  detectRadius: 5
   detectRange: 5
   healthPoint: 100
   strength: 5
   moveSpeed: 3
   attackRange: 1.5
-  attackCoolTime: 3
+  attackCoolTime: 7
   attackPower: 5
   defence: 1
-  detectCoolTime: 1
+  detectCoolTime: 3
 --- !u!95 &1588527199
 Animator:
   serializedVersion: 4

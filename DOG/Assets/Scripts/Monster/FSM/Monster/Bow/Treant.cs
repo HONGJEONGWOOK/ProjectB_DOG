@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEditor;
 using Monster.Enums;
 
-public class Monster_Bow_V2 : MonoBehaviour, IHealth
+public class Treant : MonoBehaviour, IHealth
 {
     Arrow arrow;
 
@@ -23,9 +23,8 @@ public class Monster_Bow_V2 : MonoBehaviour, IHealth
     [SerializeField] private float detectRange = 5.0f;
     private float detectTimer = 0.0f;
     private float detectCoolTime = 1.0f;
-    
 
-    public static bool isDead = false;
+    public bool isDead = false;
 
     [Header("몬스터 기본스탯")]
     [SerializeField] private float healthPoint = 100.0f;
@@ -142,7 +141,7 @@ public class Monster_Bow_V2 : MonoBehaviour, IHealth
 
     void ShootArrow()
     {
-        GameObject arrow = EnemyBulletManager.Inst.GetPooledArrow();
+        GameObject arrow = EnemyBulletManager.Inst.GetPooledObject(EnemyBulletManager.Inst.PooledObjects["arrows"]);
         arrow.transform.position = shootPosition.position;
         arrow.transform.rotation = weapon.transform.rotation;
     }

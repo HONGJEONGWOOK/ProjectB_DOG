@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1780769681393759756}
   - component: {fileID: 1780769681393759759}
   m_Layer: 0
-  m_Name: Monster_Bow_V3
+  m_Name: Monster_Bow_V3_NOTUSE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
