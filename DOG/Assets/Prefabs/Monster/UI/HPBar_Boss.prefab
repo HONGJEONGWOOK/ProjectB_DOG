@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 2379976210923981625}
   - component: {fileID: 2653278251186413872}
   m_Layer: 5
-  m_Name: HPBar
+  m_Name: HPBar_Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

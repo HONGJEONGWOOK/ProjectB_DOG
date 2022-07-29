@@ -1,6 +1,6 @@
+using System.Collections;
 using UnityEngine;
 using UnityEditor;
-using Monster.Enums;
 
 public class Monsters : MonoBehaviour, IHealth, IBattle
 {
@@ -8,20 +8,21 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
     protected Animator anim;
     SpriteRenderer sprite;
 
+    private int monsterID = -1;
+
     private bool isDead = false;
 
-    public System.Action onHit = null;
-
     [Header("Monster AI")]
-    public MonsterCurrentState status = MonsterCurrentState.IDLE;
+    protected MonsterCurrentState status = MonsterCurrentState.IDLE;
     protected Vector2 trackDirection = Vector2.zero;
     [SerializeField] protected float detectRange = 5.0f;
 
     [Header("Basic Stats")]
     [SerializeField] protected float healthPoint = 100.0f;
+    [SerializeField] private float maxHealthPoint = 100.0f;
     [SerializeField] protected int strength = 5;
     [SerializeField] protected float moveSpeed = 3.0f;
-    private float maxHealthPoint = 100.0f;
+    
 
     // #################################### VARIABLES #####################################
     // ------------------------------------ TRACK ------------------------------------------
@@ -65,11 +66,29 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
 
     public float Defence { get => defence; }
 
+    public bool IsDead => isDead;
+    public MonsterCurrentState Status => status;
+
     protected virtual void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
+
+        // 오브젝트 풀링된 몬스터를 불러와서 배치하면 문제 없지만, 따로 배치하는 경우를 대비
+        // 오브젝트 풀링된 몬스터는 이름 뒤에 (clone)이 붙는다.
+        if (this.gameObject.name.Contains("Goblin"))
+        {
+            monsterID = MonsterManager.Inst.GoblinID;
+        }
+        else if (this.gameObject.name.Contains("Treant"))
+        {
+            monsterID = MonsterManager.Inst.TreantID;
+        }
+        else
+        {
+            monsterID = MonsterManager.Inst.BossID;
+        }
     }
 
     private void FixedUpdate()
@@ -238,15 +257,21 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
         }
         else
         {
-            Die();
+            ChangeStatus(MonsterCurrentState.DEAD);
         }
     }
 
     private void Die()
     {
         anim.SetTrigger("onDie");
-        status = MonsterCurrentState.DEAD;
-        Destroy(gameObject, anim.GetCurrentAnimatorClipInfo(0).Length);
+        StartCoroutine(DisableMonster());
+    }
+    
+    protected virtual IEnumerator DisableMonster()
+    {
+        yield return new WaitForSeconds(anim.GetCurrentAnimatorClipInfo(0).Length + 2.0f);
+        MonsterManager.Inst.ReturnPooledMonster(
+            MonsterManager.PooledMonster[MonsterManager.Inst.GoblinID], this.gameObject);
     }
 
     //########################## Monster Status Check ##################################
@@ -273,7 +298,7 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
                     break;
 
                 case MonsterCurrentState.DEAD:
-                    //�״� �ִϸ��̼� ���. ��� �Ϸ� �� Monster pool�� ��ȯ
+                    
                     break;
             }
         }
@@ -315,6 +340,7 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
                 attackTimer = attackCoolTime; // 즉시공격
                 break;
             case MonsterCurrentState.DEAD:
+                Die();
                 currentSpeed = 0;
                 break;
             default:

@@ -5,21 +5,26 @@ using UnityEngine;
 public class EnemyBulletManager : MonoBehaviour
 {
     private static EnemyBulletManager instance;
-
-    private Dictionary<string, Queue<GameObject>> pooledObjects = new();
-    private Queue<GameObject> arrows;
-    private Queue<GameObject> meteors;
-
-    public GameObject[] poolingPrefabs;
-    [SerializeField] private int ArrowNum = 30;
-    [SerializeField] private int meteorNum = 15;
-
-    Transform ArrowParent;
-    Transform MeteorParent;
-
     public static EnemyBulletManager Inst { get => instance; }
 
-    public Dictionary<string, Queue<GameObject>> PooledObjects => pooledObjects;
+    [SerializeField] private ObjectPoolingData[] poolingObjects;
+        // [0] : Arrows
+        // [1] : Meteors
+
+    private static Dictionary<int, Queue<GameObject>> pooledObjects = new();
+    public static Dictionary<int, Queue<GameObject>> PooledObjects => pooledObjects;
+
+    // ---------------- Arrows -----------------
+    private Queue<GameObject> arrows;
+    Transform arrowParent;
+    private int arrowID;
+    public int ArrowID => arrowID;
+
+    // ---------------- Meteor -----------------
+    Transform meteorParent;
+    private Queue<GameObject> meteors;
+    private int meteorsID;
+    public int MeteorID => meteorsID;
 
     void Awake()
     {
@@ -40,35 +45,39 @@ public class EnemyBulletManager : MonoBehaviour
 
     void Initialize()
     {
-        ArrowParent = transform.GetChild(0);
-        MeteorParent = transform.GetChild(1);
+        arrowParent = transform.GetChild(0);
+        arrowID = poolingObjects[0].objectID;
+
+        meteorParent = transform.GetChild(1);
+        meteorsID = poolingObjects[1].objectID;
+
 
         // ------------------- Arrow -----------------------
-
         arrows = new Queue<GameObject>();
-        pooledObjects.Add(poolingPrefabs[0].name, arrows);
+        pooledObjects.Add(arrowID, arrows);
 
         GameObject tmp;
-        for (int i = 0; i < ArrowNum; i++)
+        for (int i = 0; i < poolingObjects[0].poolSize; i++)
         {
-            tmp = Instantiate(poolingPrefabs[0], ArrowParent);
-            pooledObjects[poolingPrefabs[0].name].Enqueue(tmp);
+            tmp = Instantiate(poolingObjects[0].prefab, arrowParent);
+            pooledObjects[arrowID].Enqueue(tmp);
             tmp.SetActive(false);
         }
 
         // ------------------- Meteor -----------------------
         meteors = new Queue<GameObject>();
-        pooledObjects.Add(poolingPrefabs[1].name, meteors);
+        pooledObjects.Add(meteorsID, meteors);
         GameObject tmp_Fire;
-        for (int i = 0; i < meteorNum; i++)
+        for (int i = 0; i < poolingObjects[1].poolSize; i++)
         {
-            tmp_Fire = Instantiate(poolingPrefabs[1], MeteorParent);
-            pooledObjects[poolingPrefabs[1].name].Enqueue(tmp_Fire);
+            tmp_Fire = Instantiate(poolingObjects[1].prefab, meteorParent);
+            pooledObjects[meteorsID].Enqueue(tmp_Fire);
             tmp_Fire.SetActive(false);
         }
     }
 
-    // ##################### Bow Monster #######################
+
+    // ##################### Method #######################
     public GameObject GetPooledObject(Queue<GameObject> poolingObject)
     {
         if (poolingObject.Count > 0)
@@ -84,7 +93,7 @@ public class EnemyBulletManager : MonoBehaviour
         return null;
     }
 
-    public void ReturnPooledObject(Queue<GameObject> returnQueue, GameObject uselessObject)
+    public void ReturnPooledEnemy(Queue<GameObject> returnQueue, GameObject uselessObject)
     {
         returnQueue.Enqueue(uselessObject);
         uselessObject.SetActive(false);

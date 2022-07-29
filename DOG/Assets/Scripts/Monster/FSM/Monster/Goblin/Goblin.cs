@@ -1,17 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Monster.Enums;
 
 public class Goblin : Monsters, IHealth, IBattle
 {
-    private HP_Bar hpUI = null;
+    private GameObject hpUI = null;
 
     protected override void Awake()
     {
         base.Awake();
 
-        hpUI = GetComponentInChildren<HP_Bar>();
-        hpUI.gameObject.SetActive(false);
+        hpUI = transform.GetComponentInChildren<HP_Bar_Monster>().gameObject;
+        hpUI.SetActive(false);
+    }
+
+    private void Start()
+    {
+        
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using Monster.Enums;
+
 
 public class Treant : MonoBehaviour, IHealth
 {
@@ -141,7 +141,7 @@ public class Treant : MonoBehaviour, IHealth
 
     void ShootArrow()
     {
-        GameObject arrow = EnemyBulletManager.Inst.GetPooledObject(EnemyBulletManager.Inst.PooledObjects["arrows"]);
+        GameObject arrow = EnemyBulletManager.Inst.GetPooledObject(EnemyBulletManager.PooledObjects[EnemyBulletManager.Inst.ArrowID]);
         arrow.transform.position = shootPosition.position;
         arrow.transform.rotation = weapon.transform.rotation;
     }

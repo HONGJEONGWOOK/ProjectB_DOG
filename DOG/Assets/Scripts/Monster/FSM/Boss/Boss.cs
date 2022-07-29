@@ -2,19 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using Monster.Enums;
 
-public class Boss : Monsters, IHealth, IBattle
+public class Boss : Monsters
 {
     private float attackRand = 0.0f;
 
     [Header("Meteor Stats")]
     [SerializeField] private float longAttack_Range = 4.0f;
-    [Range(0,1f)]
+    [Range(0, 1f)]
     [SerializeField] private float longRangeAttack_Prob = 1f;
     [SerializeField] private int fireballNum = 5;
-
-    [SerializeField] private Vector2 meteorOffset = Vector2.zero;
+    [Range(1f, 7f)]
+    [SerializeField] private float meteorSpreadRange;
 
     protected override void Attack()
     {
@@ -48,15 +47,29 @@ public class Boss : Monsters, IHealth, IBattle
     {
         for (int i = 0; i < fireballNum; i++)
         {
-            GameObject ball = EnemyBulletManager.Inst.GetPooledObject(EnemyBulletManager.Inst.PooledObjects["Meteor_Set"]);
-            ball.transform.position = Random.insideUnitCircle * transform.position + meteorOffset;
-            Debug.Log(Random.insideUnitCircle * transform.position);
+            GameObject ball = EnemyBulletManager.Inst.GetPooledObject(EnemyBulletManager.PooledObjects[EnemyBulletManager.Inst.MeteorID]);
+            Vector2 randPos = Random.insideUnitCircle * meteorSpreadRange;
+            ball.transform.position = (Vector2)transform.position + randPos;
         }
     }
 
+    protected override IEnumerator DisableMonster()
+    {
+        // 시체 남기는 시간
+        yield return new WaitForSeconds(anim.GetCurrentAnimatorClipInfo(0).Length + 2.0f);
+
+        // 죽은 뒤 폭발 애니메이션 재생
+        GameObject explosion = FXManager.Inst.GetPooledFX(FXManager.PooledFX[FXManager.Inst.ExplosionID]);
+        explosion.transform.position = this.transform.position;
+        yield return new WaitForSeconds(2.0f);
+        FXManager.Inst.ReturnFX(FXManager.PooledFX[FXManager.Inst.ExplosionID], explosion);
+
+        // 보스 object pool return
+        MonsterManager.Inst.ReturnPooledMonster(MonsterManager.PooledMonster[MonsterManager.Inst.BossID], 
+                                                this.gameObject);
+    }
+
     private bool InLongRange() => (transform.position - target.position).sqrMagnitude < longAttack_Range * longAttack_Range;
-
-
 
 
     protected override void OnDrawGizmos()

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fireball : MonoBehaviour
+public class Meteor : MonoBehaviour
 {
     Transform shadow;
     SpriteRenderer shadowRenderer;
@@ -64,8 +64,8 @@ public class Fireball : MonoBehaviour
             endTimer += Time.deltaTime;
             if (endTimer > explosion.GetCurrentAnimatorStateInfo(0).length)
             {
-                EnemyBulletManager.Inst.ReturnPooledObject(
-                    EnemyBulletManager.Inst.PooledObjects[this.gameObject.name.Remove(gameObject.name.Length - 7)], this.gameObject);
+                EnemyBulletManager.Inst.ReturnPooledEnemy(
+                    EnemyBulletManager.PooledObjects[EnemyBulletManager.Inst.MeteorID], this.gameObject);
                 endTimer = 0f;
             }
         }

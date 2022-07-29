@@ -7,21 +7,32 @@ public class MonsterManager : MonoBehaviour
     private static MonsterManager instance = null;
     public static MonsterManager Inst { get => instance; }
 
-    public GameObject[] poolingMonsters;
-    [SerializeField] private int goblinNum = 15;
-    [SerializeField] private int treantNum = 15;
-    [SerializeField] private int bossNum = 2;
-    Transform goblinParent;
-    Transform treantParent;
-    Transform bossParent;
+    [SerializeField] private ObjectPoolingData[] poolingMonsters;
+        // [0] : Goblin
+        // [1] : Treant
+        // [2] : Boss
 
-    private Dictionary<string, Queue<GameObject>> pooledMonster = new();
+    private static Dictionary<int, Queue<GameObject>> pooledMonster = new();
+    public static Dictionary<int, Queue<GameObject>> PooledMonster => pooledMonster;
 
+
+    // -------- Goblin Data ----------------
     private Queue<GameObject> goblins;
-    private Queue<GameObject> treants;
-    private Queue<GameObject> bosses;
+    Transform goblinParent;
+    private int goblinID;
+    public int GoblinID => goblinID;
 
-    public Dictionary<string, Queue<GameObject>> PooledMonster => pooledMonster;
+    // -------- Treant Data ----------------
+    private Queue<GameObject> treants;
+    Transform treantParent;
+    private int treantID;
+    public int TreantID => treantID;
+
+    // -------- Boss Data ----------------
+    private Queue<GameObject> bosses;
+    Transform bossParent;
+    private int bossID;
+    public int BossID => bossID;
 
     private void Awake()
     {
@@ -43,40 +54,45 @@ public class MonsterManager : MonoBehaviour
     private void Initialize()
     {
         goblinParent = transform.GetChild(0);
+        goblinID = poolingMonsters[0].objectID;
+
         treantParent = transform.GetChild(1);
+        treantID = poolingMonsters[1].objectID;
+
         bossParent = transform.GetChild(2);
+        bossID = poolingMonsters[2].objectID;
 
         // --------------------- Goblin --------------------------------
         goblins = new();
-        pooledMonster.Add(poolingMonsters[0].name, goblins);
+        pooledMonster.Add(goblinID, goblins);
 
-        for (int i = 0; i < goblinNum; i++)
+        for (int i = 0; i < poolingMonsters[0].poolSize; i++)
         {
-            GameObject gob = Instantiate(poolingMonsters[0], goblinParent);
-            pooledMonster[poolingMonsters[0].name].Enqueue(gob);
-            gob.SetActive(false);   
+            GameObject gob = Instantiate(poolingMonsters[0].prefab, goblinParent);
+            pooledMonster[goblinID].Enqueue(gob);
+            gob.SetActive(false);
         }
 
 
         // --------------------- Treant --------------------------------
         treants = new();
-        pooledMonster.Add(poolingMonsters[1].name, treants);
+        pooledMonster.Add(treantID, treants);
 
-        for (int i = 0; i < treantNum; i++)
+        for (int i = 0; i < poolingMonsters[1].poolSize; i++)
         {
-            GameObject trea = Instantiate(poolingMonsters[1], treantParent);
-            pooledMonster[poolingMonsters[1].name].Enqueue(trea);
+            GameObject trea = Instantiate(poolingMonsters[1].prefab, treantParent);
+            pooledMonster[treantID].Enqueue(trea);
             trea.SetActive(false);
         }
 
         // --------------------- Boss -----------------------------------
         bosses = new();
-        pooledMonster.Add(poolingMonsters[2].name, bosses);
+        pooledMonster.Add(bossID, bosses);
 
-        for (int i = 0; i < bossNum; i++)
+        for (int i = 0; i < poolingMonsters[2].poolSize; i++)
         {
-            GameObject boss = Instantiate(poolingMonsters[2], bossParent);
-            pooledMonster[poolingMonsters[2].name].Enqueue(boss);
+            GameObject boss = Instantiate(poolingMonsters[2].prefab, bossParent);
+            pooledMonster[bossID].Enqueue(boss);
             boss.SetActive(false);
         }
     }

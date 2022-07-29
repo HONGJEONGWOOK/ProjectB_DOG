@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using Monster.Enums;
 
 public class Monster_Bow_V3 : MonoBehaviour
 {/*

@@ -108,8 +108,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96d0cbb782c45634bb9f20684a187f1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolingPrefabs:
-  - {fileID: 7406789432306371160, guid: 6c72fde9d19c67844a11c151e0ecea33, type: 3}
-  - {fileID: 2056469766304591461, guid: 052f0aee20715d843b1edb7054501246, type: 3}
-  ArrowNum: 30
-  meteorNum: 15
+  poolingObjects:
+  - objectName: Arrow
+    objectID: 0
+    prefab: {fileID: 7406789432306371160, guid: 6c72fde9d19c67844a11c151e0ecea33, type: 3}
+    poolSize: 30
+  - objectName: Meteor
+    objectID: 1
+    prefab: {fileID: 2056469766304591461, guid: 052f0aee20715d843b1edb7054501246, type: 3}
+    poolSize: 15
