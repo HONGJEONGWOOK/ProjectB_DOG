@@ -10,8 +10,8 @@ public class HP_Bar : MonoBehaviour
 
     float ratio = 0.0f;
     float lerpRate = 2.0f;
-    float Timer = 0.0f;
-    float HPShowTime = 3.0f;
+    //float Timer = 0.0f;
+    //float HPShowTime = 3.0f;
 
     private void Awake()
     {
