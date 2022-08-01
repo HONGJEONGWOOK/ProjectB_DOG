@@ -23,6 +23,10 @@ public class MakeRandomMap : MonoBehaviour
     private HashSet<Vector2Int> floor;
     private HashSet<Vector2Int> wall;
 
+    public GameObject monster;
+
+    
+
     /// <summary>
     ///  시작 시 랜덤맵 생성 시작
     /// </summary>
@@ -33,7 +37,7 @@ public class MakeRandomMap : MonoBehaviour
 
     public void StartRandomMap()
     {
-        spreadTilemap.ClearAllTiles();      // 시작 시 ㅏㄲㄹ려있는 모든 타일 제거
+        spreadTilemap.ClearAllTiles();      // 시작 시 깔려있는 모든 타일 제거
         divideSpace.totalSpace = new RectangleSpace(new Vector2Int(0, 0), divideSpace.totalWidth, divideSpace.totalHeight);
         divideSpace.spaceList = new List<RectangleSpace>();
         floor = new HashSet<Vector2Int>();
@@ -51,6 +55,7 @@ public class MakeRandomMap : MonoBehaviour
 
         player.transform.position = (Vector2)divideSpace.spaceList[0].Center();
         entrance.transform.position = (Vector2)divideSpace.spaceList[divideSpace.spaceList.Count - 1].Center();
+        monster.transform.position = (Vector2)divideSpace.spaceList[Random.Range(1,20)].Center();
     }
 
 
@@ -59,13 +64,19 @@ public class MakeRandomMap : MonoBehaviour
     /// </summary>
     private void MakeRandomRooms()
     {
-        foreach(var space in divideSpace.spaceList)
+        foreach(var space in divideSpace.spaceList) 
         {
             HashSet<Vector2Int> position = MakeARandomRectangleRoom(space);
             floor.UnionWith(position);
         }
     }
 
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="space"></param>
+    /// <returns></returns>
     private HashSet<Vector2Int> MakeARandomRectangleRoom(RectangleSpace space)
     {
         HashSet<Vector2Int> position = new HashSet<Vector2Int>();
@@ -83,7 +94,7 @@ public class MakeRandomMap : MonoBehaviour
 
 
     /// <summary>
-    /// 방의 중심이 정해 졌다면 첫번째 방엣서 가장 가까운 방의 중심을 연결시키고 처음방은 리스트에서 제거
+    /// 방의 중심이 정해 졌다면 첫번째 방에서 가장 가까운 방의 중심을 연결시키고 처음방은 리스트에서 제거
     /// 이런식으로 마지막 방까지 중심을 이어 통로를 생성
     /// </summary>
     private void MakeCorridors()
@@ -99,13 +110,12 @@ public class MakeRandomMap : MonoBehaviour
         tempCenters.Remove(currentCenter);
         while( tempCenters.Count != 0)
         {
-            nextCenter = ChooseShortestNextCorrodor(tempCenters, currentCenter);
+            nextCenter = ChooseShortestNextCorridor(tempCenters, currentCenter);
             MakeOneCorridor(currentCenter, nextCenter);
             currentCenter = nextCenter;
             tempCenters.Remove(currentCenter);
         }
     }
-
 
     /// <summary>
     /// 가장 가까운 중심을 찾아주는 함수
@@ -113,7 +123,7 @@ public class MakeRandomMap : MonoBehaviour
     /// <param name="tempCenters"></param>
     /// <param name="previousCenter"></param>
     /// <returns></returns>
-    private Vector2Int ChooseShortestNextCorrodor(List<Vector2Int> tempCenters, Vector2Int previousCenter)
+    private Vector2Int ChooseShortestNextCorridor(List<Vector2Int> tempCenters, Vector2Int previousCenter)
     {
         int n = 0;
         float minLength = float.MaxValue;

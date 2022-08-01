@@ -44,10 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c46c423e6e8c42419d447791f7cf227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 2
-  minRoomWidth: 10
-  minRoomHeight: 10
+  distance: 3
+  minRoomWidth: 7
+  minRoomHeight: 7
   divideSpace: {fileID: 0}
   spreadTilemap: {fileID: 0}
   player: {fileID: 0}
   entrance: {fileID: 0}
+  monster: {fileID: 0}
