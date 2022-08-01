@@ -10,3 +10,10 @@ public enum MonsterCurrentState
     ATTACK,
     DEAD
 }
+
+public enum MonsterID 
+{
+    GOBLIN = 0,
+    TREANT,
+    BOSS
+}
