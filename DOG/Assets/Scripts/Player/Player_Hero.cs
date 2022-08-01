@@ -1,12 +1,54 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 
-public class Player_Hero : MonoBehaviour
+
+public class Player_Hero : MonoBehaviour, IHealth,IBattle
 {
+
+    //IHealth
+    float hp = 100.0f;
+    float maxHP = 100.0f;
+
+
+    public float HP
+    {
+        get => hp;
+        set 
+        {
+            if(hp != value)
+            {
+                hp = value;
+                onHealthChange?.Invoke();
+            }
+        }
+    }
+
+    public float MaxHP
+    {
+        get => maxHP;
+    }
+
+    public System.Action onHealthChange { get; set; }
+
+    //IBattle
+    public float attackPower = 30.0f;
+    public float defencePower = 10.0f;
+    public float criticalRate = 0.3f;
+
+
+
+    public float AttackPower { get => attackPower; }
+
+    public float Defence { get => defencePower; }
+
+
+
+
     public GameManager manager;
     GameObject scanObject;
     GameObject Sword;
@@ -41,22 +83,76 @@ public class Player_Hero : MonoBehaviour
         actions.Player.Move.performed += OnMove;
         actions.Player.Move.canceled += OnMove;
         actions.Player.Attack.performed += OnAttack;
+        actions.UI.Enable();
+        actions.UI.Escape.performed += OnEscape;
     }
 
     
 
     private void OnDisable()
     {
+        actions.UI.Escape.performed -= OnEscape;
+        actions.UI.Disable();
         actions.Player.Attack.performed -= OnAttack;
         actions.Player.Move.canceled -= OnMove;
         actions.Player.Move.performed -= OnMove;
         actions.Player.Disable();
     }
 
+    public void Attack(IBattle target)
+    {
+        if (target != null)
+        {
+            float damage = AttackPower;
+            if (Random.Range(0.0f, 1.0f) < criticalRate)
+            {
+                damage *= 2.0f;
+            }
+
+            target.TakeDamage(damage);
+        }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        float finalDamage = damage - defencePower;
+        if (finalDamage < 1.0f)
+        {
+            finalDamage = 1.0f;
+        }
+        HP -= finalDamage;
+
+        if (HP > 0.0f)
+        {
+            //살아있다.
+            anim.SetTrigger("Hit");
+
+        }
+        else
+        {
+            //죽었다.
+            //Die();
+        }
+    }
+
+
     private void FixedUpdate()
     {
         Move();
         SearchNpc();
+    }
+
+    // 체력 만들고
+    // 맞을때 어떻게 할지 생각해야하고
+    // 맞을때 캐릭 잠깐동안 깜빡이고 무적상태
+    // 뒤로 밀려남 
+
+    // esc눌렀을때 일시정지 및 옵션 생성
+    // 
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        
     }
 
     private void Move()
@@ -114,6 +210,10 @@ public class Player_Hero : MonoBehaviour
 
     }
 
+    private void OnEscape(InputAction.CallbackContext obj)
+    {
+
+    }
 
 
 }

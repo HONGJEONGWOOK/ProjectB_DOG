@@ -56,6 +56,7 @@ public class Player : MonoBehaviour
         actions.Player.Move.canceled += OnMoveInput;
         actions.Player.Attack.performed += OnAttack;
         actions.Player.Talk.performed += OnTalk;
+        
     }
 
     private void OnDisable()
