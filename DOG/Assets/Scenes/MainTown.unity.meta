@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:DOG/Assets/Scenes/Test.unity.meta
+guid: 1b95e3ea05bb880409d2a22f4bd7782f
+=======
 guid: cfd36732b9cccb6478c6f35d7b7a2e36
+>>>>>>> main:DOG/Assets/Scenes/MainTown.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

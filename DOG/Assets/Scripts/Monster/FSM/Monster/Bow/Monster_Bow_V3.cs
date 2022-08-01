@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using Monster.Enums;
 
-public class Monster_Bow_V3 : MonoBehaviour, IHealth
-{
+public class Monster_Bow_V3 : MonoBehaviour
+{/*
     Arrow arrow;
 
     private Rigidbody2D rigid = null;
@@ -133,7 +132,7 @@ public class Monster_Bow_V3 : MonoBehaviour, IHealth
 
     void ShootArrow()
     {
-        GameObject arrow = ArrowManager.Arrow_Instance.GetPooledArrow();
+        GameObject arrow = EnemyBulletManager.Inst.GetPooledArrow();
         arrow.transform.position = transform.position;
     }
 
@@ -247,5 +246,6 @@ public class Monster_Bow_V3 : MonoBehaviour, IHealth
         Handles.DrawWireDisc(transform.position, transform.forward, detectRange);
         Handles.color = Color.white;
         Handles.DrawWireDisc(transform.position, transform.forward, attackRange);
-    }
+    }*/
 }
+    

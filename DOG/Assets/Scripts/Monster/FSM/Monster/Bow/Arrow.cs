@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Arrow : MonoBehaviour
-{
+{/*
     private Rigidbody2D rigid = null;
     private SpriteRenderer arrowSprite = null;
 
@@ -33,7 +33,7 @@ public class Arrow : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            ArrowManager.Arrow_Instance.ReturnPooledArrow(this.gameObject);
+            EnemyBulletManager.Inst.ReturnPooledArrow(this.gameObject);
         }
-    }
+    }*/
 }

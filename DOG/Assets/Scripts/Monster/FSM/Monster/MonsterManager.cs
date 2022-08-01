@@ -7,16 +7,32 @@ public class MonsterManager : MonoBehaviour
     private static MonsterManager instance = null;
     public static MonsterManager Inst { get => instance; }
 
-    Goblin monster_Goblin = null;
-    Monster_Bow monster_Bow = null;
-    Monster_Bow_V2 monster_Bow_V2 = null;
-    Monster_Bow_V3 monster_Bow_V3 = null;
+    [SerializeField] private ObjectPoolingData[] poolingMonsters;
+        // [0] : Goblin
+        // [1] : Treant
+        // [2] : Boss
+
+    private static Dictionary<int, Queue<GameObject>> pooledMonster = new();
+    public static Dictionary<int, Queue<GameObject>> PooledMonster => pooledMonster;
 
 
-    public Goblin Monster_Goblin { get => monster_Goblin; }
-    public Monster_Bow Monster_Bow { get => monster_Bow; }
-    public Monster_Bow_V2 Monster_Bow_V2 => monster_Bow_V2;
-    public Monster_Bow_V3 Monster_Bow_V3 => monster_Bow_V3;
+    // -------- Goblin Data ----------------
+    private Queue<GameObject> goblins;
+    Transform goblinParent;
+    private int goblinID;
+    public int GoblinID => goblinID;
+
+    // -------- Treant Data ----------------
+    private Queue<GameObject> treants;
+    Transform treantParent;
+    private int treantID;
+    public int TreantID => treantID;
+
+    // -------- Boss Data ----------------
+    private Queue<GameObject> bosses;
+    Transform bossParent;
+    private int bossID;
+    public int BossID => bossID;
 
     private void Awake()
     {
@@ -37,9 +53,70 @@ public class MonsterManager : MonoBehaviour
 
     private void Initialize()
     {
-        //monster_Goblin = FindObjectOfType<Goblin>().GetComponent<Goblin>();
-        monster_Bow = FindObjectOfType<Monster_Bow>().GetComponent<Monster_Bow>();
-        monster_Bow_V2 = FindObjectOfType<Monster_Bow_V2>().GetComponent<Monster_Bow_V2>();
-        monster_Bow_V3 = FindObjectOfType<Monster_Bow_V3>().GetComponent<Monster_Bow_V3>();
+        goblinParent = transform.GetChild(0);
+        goblinID = poolingMonsters[0].objectID;
+
+        treantParent = transform.GetChild(1);
+        treantID = poolingMonsters[1].objectID;
+
+        bossParent = transform.GetChild(2);
+        bossID = poolingMonsters[2].objectID;
+
+        // --------------------- Goblin --------------------------------
+        goblins = new();
+        pooledMonster.Add(goblinID, goblins);
+
+        for (int i = 0; i < poolingMonsters[0].poolSize; i++)
+        {
+            GameObject gob = Instantiate(poolingMonsters[0].prefab, goblinParent);
+            pooledMonster[goblinID].Enqueue(gob);
+            gob.SetActive(false);
+        }
+
+
+        // --------------------- Treant --------------------------------
+        treants = new();
+        pooledMonster.Add(treantID, treants);
+
+        for (int i = 0; i < poolingMonsters[1].poolSize; i++)
+        {
+            GameObject trea = Instantiate(poolingMonsters[1].prefab, treantParent);
+            pooledMonster[treantID].Enqueue(trea);
+            trea.SetActive(false);
+        }
+
+        // --------------------- Boss -----------------------------------
+        bosses = new();
+        pooledMonster.Add(bossID, bosses);
+
+        for (int i = 0; i < poolingMonsters[2].poolSize; i++)
+        {
+            GameObject boss = Instantiate(poolingMonsters[2].prefab, bossParent);
+            pooledMonster[bossID].Enqueue(boss);
+            boss.SetActive(false);
+        }
+    }
+
+    // ######################### Methods ##########################################
+    public GameObject GetPooledMonster(Queue<GameObject> poolingQueue)
+    {
+        if (poolingQueue.Count > 0)
+        {
+            GameObject monster = poolingQueue.Dequeue();
+            monster.SetActive(true);
+            return monster;
+        }
+        else
+        {
+
+        }
+        return null;
+    }
+
+    public void ReturnPooledMonster(Queue<GameObject> returningQueue, GameObject uselessMonster)
+    {
+        returningQueue.Enqueue(uselessMonster);
+        uselessMonster.SetActive(false);
+        uselessMonster.transform.position = Vector2.zero;
     }
 }
