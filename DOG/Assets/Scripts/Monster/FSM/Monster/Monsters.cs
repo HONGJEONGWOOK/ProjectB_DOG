@@ -193,8 +193,9 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
     {
         return rigid.position.y - target.position.y < 0.05f;
     }
-    private void SpriteFlip()
+    protected void SpriteFlip()
     {
+        trackDirection = target.position - this.transform.position;
         var cross = Vector3.Cross(trackDirection, this.transform.up);
         if (Vector3.Dot(cross, transform.forward) < 0)
         {   // 왼쪽
@@ -210,6 +211,7 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
     protected virtual void Attack()
     {
         attackTimer += Time.deltaTime;
+        SpriteFlip();
 
         if (attackTimer > attackCoolTime)
         {

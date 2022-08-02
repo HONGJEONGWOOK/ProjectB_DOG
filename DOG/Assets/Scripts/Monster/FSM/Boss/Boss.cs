@@ -36,9 +36,11 @@ public class Boss : Monsters
     protected override void Attack()
     {
         attackTimer += Time.deltaTime;
-
+        
         if (attackTimer > attackCoolTime)
         {
+            SpriteFlip();
+
             attackRand = Random.value;
             Debug.Log(attackRand);
             if (attackRand > (1 - longRangeAttack_Prob))
