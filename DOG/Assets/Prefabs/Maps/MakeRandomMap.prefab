@@ -48,8 +48,8 @@ MonoBehaviour:
   divideSpace: {fileID: 0}
   spreadTilemap: {fileID: 0}
   distance: 3
-  minRoomWidth: 7
-  minRoomHeight: 7
+  minRoomWidth: 15
+  minRoomHeight: 15
   player: {fileID: 0}
   entrance: {fileID: 0}
 --- !u!114 &1032845629
