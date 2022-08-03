@@ -12,6 +12,7 @@ public class MonsterManager : MonoBehaviour
         // [1] : Treant
         // [2] : Boss
 
+
     private static Dictionary<int, Queue<GameObject>> pooledMonster = new();
     public static Dictionary<int, Queue<GameObject>> PooledMonster => pooledMonster;
 
@@ -54,21 +55,21 @@ public class MonsterManager : MonoBehaviour
     private void Initialize()
     {
         goblinParent = transform.GetChild(0);
-        goblinID = poolingMonsters[0].objectID;
+        goblinID = poolingMonsters[(int)MonsterID.GOBLIN].objectID;
 
         treantParent = transform.GetChild(1);
-        treantID = poolingMonsters[1].objectID;
+        treantID = poolingMonsters[(int)MonsterID.TREANT].objectID;
 
         bossParent = transform.GetChild(2);
-        bossID = poolingMonsters[2].objectID;
+        bossID = poolingMonsters[(int)MonsterID.BOSS].objectID;
 
         // --------------------- Goblin --------------------------------
         goblins = new();
         pooledMonster.Add(goblinID, goblins);
 
-        for (int i = 0; i < poolingMonsters[0].poolSize; i++)
+        for (int i = 0; i < poolingMonsters[goblinID].poolSize; i++)
         {
-            GameObject gob = Instantiate(poolingMonsters[0].prefab, goblinParent);
+            GameObject gob = Instantiate(poolingMonsters[goblinID].prefab, goblinParent);
             pooledMonster[goblinID].Enqueue(gob);
             gob.SetActive(false);
         }
@@ -78,9 +79,9 @@ public class MonsterManager : MonoBehaviour
         treants = new();
         pooledMonster.Add(treantID, treants);
 
-        for (int i = 0; i < poolingMonsters[1].poolSize; i++)
+        for (int i = 0; i < poolingMonsters[TreantID].poolSize; i++)
         {
-            GameObject trea = Instantiate(poolingMonsters[1].prefab, treantParent);
+            GameObject trea = Instantiate(poolingMonsters[TreantID].prefab, treantParent);
             pooledMonster[treantID].Enqueue(trea);
             trea.SetActive(false);
         }
@@ -89,9 +90,9 @@ public class MonsterManager : MonoBehaviour
         bosses = new();
         pooledMonster.Add(bossID, bosses);
 
-        for (int i = 0; i < poolingMonsters[2].poolSize; i++)
+        for (int i = 0; i < poolingMonsters[bossID].poolSize; i++)
         {
-            GameObject boss = Instantiate(poolingMonsters[2].prefab, bossParent);
+            GameObject boss = Instantiate(poolingMonsters[bossID].prefab, bossParent);
             pooledMonster[bossID].Enqueue(boss);
             boss.SetActive(false);
         }
@@ -118,5 +119,6 @@ public class MonsterManager : MonoBehaviour
         returningQueue.Enqueue(uselessMonster);
         uselessMonster.SetActive(false);
         uselessMonster.transform.position = Vector2.zero;
+        uselessMonster.transform.localScale = new Vector2(1f, 1f);
     }
 }

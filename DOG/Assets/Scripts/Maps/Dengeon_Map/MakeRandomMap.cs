@@ -6,15 +6,18 @@ using UnityEngine;
 public class MakeRandomMap : MonoBehaviour
 {
     [SerializeField]
+    private DivideSpace divideSpace;        // 나누어진 공간들의 리스트인 SpaceList 가져오기 위한 변수
+    [SerializeField]
+    private SpreadTilemap spreadTilemap;    // 방 복도에 바닥 타일을 깔고 벽에 벽 타일을 깔기위한 변수
+    private MonsterRandomSpawner monsterSpawner;
+
+
+    [SerializeField]
     private int distance;                   
     [SerializeField]
     private int minRoomWidth;
     [SerializeField]
     private int minRoomHeight;
-    [SerializeField]
-    private DivideSpace divideSpace;        // 나누어진 공간들의 리스트인 SpaceList 가져오기 위한 변수
-    [SerializeField]
-    private SpreadTilemap spreadTilemap;    // 방 복도에 바닥 타일을 깔고 벽에 벽 타일을 깔기위한 변수
     [SerializeField]
     private GameObject player;
     [SerializeField]
@@ -23,9 +26,13 @@ public class MakeRandomMap : MonoBehaviour
     private HashSet<Vector2Int> floor;
     private HashSet<Vector2Int> wall;
 
-    public GameObject monster;
+    // ################################################## Property ############################################
+    public DivideSpace Divide => divideSpace;
 
-    
+    private void Awake()
+    {
+        monsterSpawner = GetComponent<MonsterRandomSpawner>();
+    }
 
     /// <summary>
     ///  시작 시 랜덤맵 생성 시작
@@ -33,6 +40,7 @@ public class MakeRandomMap : MonoBehaviour
     private void Start()
     {
         StartRandomMap();
+        monsterSpawner.SpawnMonster();
     }
 
     public void StartRandomMap()
@@ -55,9 +63,7 @@ public class MakeRandomMap : MonoBehaviour
 
         player.transform.position = (Vector2)divideSpace.spaceList[0].Center();
         entrance.transform.position = (Vector2)divideSpace.spaceList[divideSpace.spaceList.Count - 1].Center();
-        monster.transform.position = (Vector2)divideSpace.spaceList[Random.Range(1,20)].Center();
     }
-
 
     /// <summary>
     /// 방을 만드는 함수
@@ -70,7 +76,6 @@ public class MakeRandomMap : MonoBehaviour
             floor.UnionWith(position);
         }
     }
-
 
     /// <summary>
     /// 
@@ -91,7 +96,6 @@ public class MakeRandomMap : MonoBehaviour
         }
         return position;
     }
-
 
     /// <summary>
     /// 방의 중심이 정해 졌다면 첫번째 방에서 가장 가까운 방의 중심을 연결시키고 처음방은 리스트에서 제거
@@ -137,7 +141,6 @@ public class MakeRandomMap : MonoBehaviour
         }
         return tempCenters[n];
     }
-
 
     /// <summary>
     /// 복도 화된 좌표들을 지정하는 함수

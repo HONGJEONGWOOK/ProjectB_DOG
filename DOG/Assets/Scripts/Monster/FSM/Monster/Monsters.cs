@@ -8,8 +8,8 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
     protected Animator anim;
     SpriteRenderer sprite;
 
+    // #################################### VARIABLES #####################################
     private int monsterID = -1;
-
     private bool isDead = false;
 
     [Header("Monster AI")]
@@ -23,8 +23,6 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
     [SerializeField] protected int strength = 5;
     [SerializeField] protected float moveSpeed = 3.0f;
     
-
-    // #################################### VARIABLES #####################################
     // ------------------------------------ TRACK ------------------------------------------
     protected float currentSpeed = 3.0f;
 
@@ -195,8 +193,9 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
     {
         return rigid.position.y - target.position.y < 0.05f;
     }
-    private void SpriteFlip()
+    protected void SpriteFlip()
     {
+        trackDirection = target.position - this.transform.position;
         var cross = Vector3.Cross(trackDirection, this.transform.up);
         if (Vector3.Dot(cross, transform.forward) < 0)
         {   // 왼쪽
@@ -211,7 +210,8 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
     // -------------------------------  ATTACK  ----------------------------------------
     protected virtual void Attack()
     {
-        attackTimer += Time.fixedDeltaTime;
+        attackTimer += Time.deltaTime;
+        SpriteFlip();
 
         if (attackTimer > attackCoolTime)
         {
@@ -220,7 +220,7 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
         }
         else if (!InAttackRange() && attackTimer < attackCoolTime)
         {
-            detectTimer += Time.fixedDeltaTime;
+            detectTimer += Time.deltaTime;
             if (detectTimer > detectCoolTime)
             {
                 ChangeStatus(MonsterCurrentState.TRACK);

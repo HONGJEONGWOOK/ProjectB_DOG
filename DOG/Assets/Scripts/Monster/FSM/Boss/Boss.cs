@@ -5,6 +5,8 @@ using UnityEditor;
 
 public class Boss : Monsters
 {
+    Canvas canvas;
+
     private float attackRand = 0.0f;
 
     [Header("Meteor Stats")]
@@ -15,12 +17,30 @@ public class Boss : Monsters
     [Range(1f, 7f)]
     [SerializeField] private float meteorSpreadRange;
 
+    protected override void Awake()
+    {
+        base.Awake();
+        canvas = GetComponentInChildren<Canvas>();
+    }
+
+    private void OnEnable()
+    {
+        canvas.enabled = false;
+    }
+
+    private void OnDisable()
+    {
+        canvas.enabled = false;
+    }
+
     protected override void Attack()
     {
-        attackTimer += Time.fixedDeltaTime;
-
+        attackTimer += Time.deltaTime;
+        
         if (attackTimer > attackCoolTime)
         {
+            SpriteFlip();
+
             attackRand = Random.value;
             Debug.Log(attackRand);
             if (attackRand > (1 - longRangeAttack_Prob))
@@ -33,7 +53,7 @@ public class Boss : Monsters
         }
         else if ((attackTimer < attackCoolTime) && !InLongRange())
         {
-            detectTimer += Time.fixedDeltaTime;
+            detectTimer += Time.deltaTime;
             if (detectTimer > detectCoolTime)
             {
                 ChangeStatus(MonsterCurrentState.TRACK);
@@ -47,7 +67,8 @@ public class Boss : Monsters
     {
         for (int i = 0; i < fireballNum; i++)
         {
-            GameObject ball = EnemyBulletManager.Inst.GetPooledObject(EnemyBulletManager.PooledObjects[EnemyBulletManager.Inst.MeteorID]);
+            GameObject ball = 
+                EnemyBulletManager.Inst.GetPooledObject(EnemyBulletManager.PooledObjects[EnemyBulletManager.Inst.MeteorID]);
             Vector2 randPos = Random.insideUnitCircle * meteorSpreadRange;
             ball.transform.position = (Vector2)transform.position + randPos;
         }
@@ -59,7 +80,8 @@ public class Boss : Monsters
         yield return new WaitForSeconds(anim.GetCurrentAnimatorClipInfo(0).Length + 2.0f);
 
         // 죽은 뒤 폭발 애니메이션 재생
-        GameObject explosion = FXManager.Inst.GetPooledFX(FXManager.PooledFX[FXManager.Inst.ExplosionID]);
+        GameObject explosion = 
+            FXManager.Inst.GetPooledFX(FXManager.PooledFX[FXManager.Inst.ExplosionID]);
         explosion.transform.position = this.transform.position;
         yield return new WaitForSeconds(2.0f);
         FXManager.Inst.ReturnFX(FXManager.PooledFX[FXManager.Inst.ExplosionID], explosion);

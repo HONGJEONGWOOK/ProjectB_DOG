@@ -21,7 +21,6 @@ public class ArrowV2 : MonoBehaviour
 
     private void OnDisable()
     {
-        //Monster_Bow.arrowDirection = 1;
         rigid.velocity = Vector2.zero;
     }
 

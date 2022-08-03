@@ -6,8 +6,6 @@ using UnityEditor;
 
 public class Treant : MonoBehaviour, IHealth
 {
-    Arrow arrow;
-
     private Rigidbody2D rigid = null;
     private SpriteRenderer sprite = null;
     private SpriteRenderer weaponSprite = null;
@@ -136,12 +134,12 @@ public class Treant : MonoBehaviour, IHealth
 
         rigid.position = Vector2.MoveTowards
             (rigid.position, target.transform.position, moveSpeed * Time.fixedDeltaTime);
-        
     }
 
     void ShootArrow()
     {
-        GameObject arrow = EnemyBulletManager.Inst.GetPooledObject(EnemyBulletManager.PooledObjects[EnemyBulletManager.Inst.ArrowID]);
+        GameObject arrow = 
+            EnemyBulletManager.Inst.GetPooledObject(EnemyBulletManager.PooledObjects[EnemyBulletManager.Inst.ArrowID]);
         arrow.transform.position = shootPosition.position;
         arrow.transform.rotation = weapon.transform.rotation;
     }
@@ -150,7 +148,7 @@ public class Treant : MonoBehaviour, IHealth
     {
         if (InAttackRange())
         {
-            attackTimer += Time.fixedDeltaTime;
+            attackTimer += Time.deltaTime;
             RotateWeapon();
 
             if (attackTimer > attackCoolTime)
@@ -162,7 +160,7 @@ public class Treant : MonoBehaviour, IHealth
         }
         else
         {
-            detectTimer += Time.fixedDeltaTime;
+            detectTimer += Time.deltaTime;
             if (detectTimer > detectCoolTime)
             {
                 ChangeStatus(MonsterCurrentState.TRACK);
@@ -258,8 +256,6 @@ public class Treant : MonoBehaviour, IHealth
         status = newState;
         anim.SetInteger("CurrentStatus", (int)newState);
     }
-
-
 
     private void OnDrawGizmos()
     {
