@@ -5969,7 +5969,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decorative_233
+      name: 1
       rect:
         serializedVersion: 2
         x: 128
@@ -5990,7 +5990,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decorative_234
+      name: 16
       rect:
         serializedVersion: 2
         x: 144
@@ -6011,7 +6011,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decorative_235
+      name: 15
       rect:
         serializedVersion: 2
         x: 160
@@ -6032,7 +6032,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decorative_236
+      name: 14
       rect:
         serializedVersion: 2
         x: 176
@@ -6389,7 +6389,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decorative_253
+      name: 2
       rect:
         serializedVersion: 2
         x: 128
@@ -6452,7 +6452,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decorative_256
+      name: 13
       rect:
         serializedVersion: 2
         x: 176
@@ -6809,7 +6809,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decorative_273
+      name: 3
       rect:
         serializedVersion: 2
         x: 128
@@ -6872,7 +6872,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decorative_276
+      name: 12
       rect:
         serializedVersion: 2
         x: 176
@@ -7229,7 +7229,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decorative_293
+      name: 4
       rect:
         serializedVersion: 2
         x: 128
@@ -7292,7 +7292,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decorative_296
+      name: 11
       rect:
         serializedVersion: 2
         x: 176
@@ -7544,7 +7544,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decorative_308
+      name: 5
       rect:
         serializedVersion: 2
         x: 128
@@ -7607,7 +7607,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decorative_311
+      name: 10
       rect:
         serializedVersion: 2
         x: 176
@@ -7712,7 +7712,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decorative_316
+      name: 6
       rect:
         serializedVersion: 2
         x: 128
@@ -7733,7 +7733,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decorative_317
+      name: 7
       rect:
         serializedVersion: 2
         x: 144
@@ -7754,7 +7754,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decorative_318
+      name: 8
       rect:
         serializedVersion: 2
         x: 160
@@ -7775,7 +7775,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decorative_319
+      name: 9
       rect:
         serializedVersion: 2
         x: 176
@@ -7899,6 +7899,7 @@ TextureImporter:
       decorative_46: 21300092
       decorative_101: 21300202
       decorative_112: 21300224
+      6: 21300632
       decorative_162: 21300324
       decorative_284: 21300568
       decorative_228: 21300456
@@ -7930,9 +7931,7 @@ TextureImporter:
       decorative_240: 21300480
       decorative_27: 21300054
       decorative_56: 21300112
-      decorative_311: 21300622
       decorative_231: 21300462
-      decorative_253: 21300506
       decorative_133: 21300266
       decorative_186: 21300372
       decorative_76: 21300152
@@ -7943,9 +7942,12 @@ TextureImporter:
       decorative_136: 21300272
       decorative_152: 21300304
       decorative_163: 21300326
+      4: 21300586
       decorative_120: 21300240
+      16: 21300468
       decorative_274: 21300548
       decorative_224: 21300448
+      14: 21300472
       decorative_28: 21300056
       decorative_106: 21300212
       decorative_131: 21300262
@@ -7955,6 +7957,7 @@ TextureImporter:
       decorative_239: 21300478
       decorative_305: 21300610
       decorative_262: 21300524
+      9: 21300638
       decorative_210: 21300420
       decorative_170: 21300340
       decorative_301: 21300602
@@ -7964,8 +7967,8 @@ TextureImporter:
       decorative_140: 21300280
       decorative_261: 21300522
       decorative_200: 21300400
-      decorative_39: 21300078
       decorative_260: 21300520
+      decorative_39: 21300078
       decorative_279: 21300558
       decorative_77: 21300154
       decorative_159: 21300318
@@ -7985,10 +7988,9 @@ TextureImporter:
       decorative_208: 21300416
       decorative_60: 21300120
       decorative_5: 21300010
-      decorative_233: 21300466
-      decorative_273: 21300546
       decorative_288: 21300576
       decorative_237: 21300474
+      15: 21300470
       decorative_26: 21300052
       decorative_3: 21300006
       decorative_12: 21300024
@@ -7996,12 +7998,11 @@ TextureImporter:
       decorative_88: 21300176
       decorative_124: 21300248
       decorative_196: 21300392
-      decorative_234: 21300468
+      decorative_298: 21300596
       decorative_172: 21300344
       decorative_96: 21300192
       decorative_9: 21300018
       decorative_205: 21300410
-      decorative_298: 21300596
       decorative_193: 21300386
       decorative_258: 21300516
       decorative_291: 21300582
@@ -8014,7 +8015,7 @@ TextureImporter:
       decorative_181: 21300362
       decorative_275: 21300550
       decorative_97: 21300194
-      decorative_319: 21300638
+      8: 21300636
       decorative_13: 21300026
       decorative_251: 21300502
       decorative_104: 21300208
@@ -8025,13 +8026,10 @@ TextureImporter:
       decorative_155: 21300310
       decorative_8: 21300016
       decorative_250: 21300500
-      decorative_236: 21300472
-      decorative_18: 21300036
-      decorative_308: 21300616
-      decorative_146: 21300292
       decorative_287: 21300574
-      decorative_317: 21300634
-      decorative_293: 21300586
+      decorative_18: 21300036
+      2: 21300506
+      decorative_146: 21300292
       decorative_245: 21300490
       decorative_82: 21300164
       decorative_202: 21300404
@@ -8044,6 +8042,7 @@ TextureImporter:
       decorative_114: 21300228
       decorative_204: 21300408
       decorative_55: 21300110
+      1: 21300466
       decorative_184: 21300368
       decorative_135: 21300270
       decorative_115: 21300230
@@ -8053,6 +8052,7 @@ TextureImporter:
       decorative_180: 21300360
       floor: 21300538
       decorative_255: 21300510
+      10: 21300622
       decorative_156: 21300312
       decorative_168: 21300336
       decorative_139: 21300278
@@ -8067,10 +8067,12 @@ TextureImporter:
       decorative_111: 21300222
       decorative_187: 21300374
       decorative_272: 21300544
+      12: 21300552
       decorative_91: 21300182
       decorative_37: 21300074
       decorative_70: 21300140
       decorative_213: 21300426
+      5: 21300616
       decorative_241: 21300482
       decorative_165: 21300330
       decorative_98: 21300196
@@ -8089,7 +8091,6 @@ TextureImporter:
       decorative_175: 21300350
       decorative_310: 21300620
       decorative_194: 21300388
-      decorative_316: 21300632
       decorative_254: 21300508
       decorative_203: 21300406
       decorative_34: 21300068
@@ -8100,7 +8101,6 @@ TextureImporter:
       decorative_248: 21300496
       decorative_223: 21300446
       decorative_129: 21300258
-      decorative_318: 21300636
       decorative_315: 21300630
       decorative_246: 21300492
       decorative_215: 21300430
@@ -8136,6 +8136,7 @@ TextureImporter:
       decorative_33: 21300066
       decorative_166: 21300332
       decorative_85: 21300170
+      3: 21300546
       decorative_41: 21300082
       decorative_64: 21300128
       decorative_84: 21300168
@@ -8153,7 +8154,6 @@ TextureImporter:
       decorative_323: 21300646
       decorative_123: 21300246
       decorative_304: 21300608
-      decorative_296: 21300592
       decorative_173: 21300346
       decorative_303: 21300606
       decorative_54: 21300108
@@ -8162,18 +8162,16 @@ TextureImporter:
       decorative_295: 21300590
       decorative_199: 21300398
       decorative_80: 21300160
-      decorative_235: 21300470
-      decorative_130: 21300260
       decorative_299: 21300598
+      decorative_130: 21300260
+      decorative_302: 21300604
       decorative_312: 21300624
       decorative_10: 21300020
       decorative_190: 21300380
       decorative_322: 21300644
       decorative_167: 21300334
       decorative_277: 21300554
-      decorative_302: 21300604
       decorative_122: 21300244
-      decorative_256: 21300512
       decorative_15: 21300030
       decorative_314: 21300628
       decorative_321: 21300642
@@ -8191,6 +8189,7 @@ TextureImporter:
       decorative_30: 21300060
       decorative_297: 21300594
       decorative_292: 21300584
+      11: 21300592
       decorative_67: 21300134
       decorative_171: 21300342
       decorative_4: 21300008
@@ -8203,13 +8202,14 @@ TextureImporter:
       decorative_73: 21300146
       decorative_150: 21300300
       decorative_151: 21300302
-      decorative_276: 21300552
       decorative_81: 21300162
       decorative_197: 21300394
+      13: 21300512
       decorative_188: 21300376
       decorative_2: 21300004
       decorative_320: 21300640
       decorative_192: 21300384
+      7: 21300634
       decorative_14: 21300028
       decorative_147: 21300294
       decorative_201: 21300402
