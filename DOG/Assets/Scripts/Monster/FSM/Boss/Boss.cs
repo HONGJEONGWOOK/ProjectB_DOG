@@ -5,7 +5,10 @@ using UnityEditor;
 
 public class Boss : Monsters
 {
-    Canvas canvas;
+    HP_Bar_Boss hpBar;
+    BossTextController textController;
+    BossRoomController roomController;
+    [SerializeField] GameObject portalKey;
 
     private float attackRand = 0.0f;
 
@@ -20,17 +23,46 @@ public class Boss : Monsters
     protected override void Awake()
     {
         base.Awake();
-        canvas = GetComponentInChildren<Canvas>();
+        hpBar = FindObjectOfType<HP_Bar_Boss>();
+        textController = FindObjectOfType<BossTextController>();
+        roomController = FindObjectOfType<BossRoomController>();
     }
 
     private void OnEnable()
     {
-        canvas.enabled = false;
+        roomController.onBossEntry += ShowUIs;
+        roomController.onReadyToFight += StartFighting;
+
+        currentSpeed = 0;
+        hpBar.enabled = false;
+        textController.enabled = false;
+        status = MonsterCurrentState.IDLE;
     }
 
     private void OnDisable()
     {
-        canvas.enabled = false;
+        hpBar.gameObject.SetActive(false);
+        textController.gameObject.SetActive(false);
+    }
+
+    void ShowUIs()
+    {
+        hpBar.gameObject.SetActive(true);
+        textController.gameObject.SetActive(true);
+    }
+
+    void StartFighting()
+    {
+        status = MonsterCurrentState.TRACK;
+        currentSpeed = moveSpeed;
+    }
+
+    protected override void Idle()  {} // Do Nothing
+
+    protected override void Track()
+    {
+        SearchPlayer();
+        Move_Monster(currentSpeed);
     }
 
     protected override void Attack()
@@ -71,6 +103,7 @@ public class Boss : Monsters
                 EnemyBulletManager.Inst.GetPooledObject(EnemyBulletManager.PooledObjects[EnemyBulletManager.Inst.MeteorID]);
             Vector2 randPos = Random.insideUnitCircle * meteorSpreadRange;
             ball.transform.position = (Vector2)transform.position + randPos;
+            ball.SetActive(true);
         }
     }
 
@@ -86,10 +119,19 @@ public class Boss : Monsters
         yield return new WaitForSeconds(2.0f);
         FXManager.Inst.ReturnFX(FXManager.PooledFX[FXManager.Inst.ExplosionID], explosion);
 
+        DropPortalKey();
+
         // 보스 object pool return
         MonsterManager.Inst.ReturnPooledMonster(MonsterManager.PooledMonster[MonsterManager.Inst.BossID], 
                                                 this.gameObject);
     }
+
+    void DropPortalKey()
+    {
+        GameObject key = Instantiate(portalKey);
+        key.transform.position = this.transform.position;
+    }
+
 
     private bool InLongRange() => (transform.position - target.position).sqrMagnitude < longAttack_Range * longAttack_Range;
 
