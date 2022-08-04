@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-
 public class Treant : MonoBehaviour, IHealth
 {
     private Rigidbody2D rigid = null;
@@ -130,7 +129,6 @@ public class Treant : MonoBehaviour, IHealth
         trackDirection =  target.transform.position - transform.position;
         anim.SetFloat("Direction_X", trackDirection.x);
         anim.SetFloat("Direction_Y", trackDirection.y);
-        
 
         rigid.position = Vector2.MoveTowards
             (rigid.position, target.transform.position, moveSpeed * Time.fixedDeltaTime);

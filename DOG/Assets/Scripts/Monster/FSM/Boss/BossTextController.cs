@@ -7,7 +7,7 @@ public class BossTextController : MonoBehaviour
 {
     TextMeshProUGUI textPro;
     [SerializeField] private string text;
-    [SerializeField] private float typeInterval = 0.5f;
+    [SerializeField] private float typeInterval = 0.2f;
 
     private void Awake()
     {
@@ -15,16 +15,11 @@ public class BossTextController : MonoBehaviour
         textPro.text = text;
     }
 
-    private void OnEnable()
-    {
-        StartCoroutine(TextEffect());
-    }
-
     IEnumerator TextEffect()
     {
         int letterLength = textPro.text.Length;
         int index = 0;
-
+        Debug.Log(textPro.maxVisibleCharacters);
         while (textPro.maxVisibleCharacters < letterLength)
         {
             int letterCount = index % (letterLength);
@@ -32,7 +27,7 @@ public class BossTextController : MonoBehaviour
             textPro.maxVisibleCharacters = letterCount;
             Debug.Log(textPro.maxVisibleCharacters);
             index++;
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(typeInterval);
         }
     }
 }

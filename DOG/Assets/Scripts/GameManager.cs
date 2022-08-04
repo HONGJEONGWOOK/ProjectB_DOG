@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public TalkManager talkManager;
+    //public TalkManager talkManager;
     public Text talkText;
     public GameObject scanObject;
 
@@ -17,18 +17,15 @@ public class GameManager : MonoBehaviour
         get { return talkPanel; }
     }
 
-    
+    // 플레이어 ----------------------------------------------------------
+    Player_Hero player = null;
+    public Player_Hero MainPlayer { get => player; }
 
-    // 맵 매니저-----------------------------------------------------------\
+    // 맵 매니저----------------------------------------------------------
     int oldSceneIndex = 0;
 
     public static GameManager Inst { get => instance;}
     static GameManager instance = null;
-
-    private void Start()
-    {
-        //Debug.Log(questManager.CheckQuest());
-    }
 
     public void Awake()
     {
@@ -50,9 +47,12 @@ public class GameManager : MonoBehaviour
 
     void Initialize()
     {
-        
-        talkPanel = GameObject.Find("talkPanel");
-        talkPanel.SetActive(false);
+        // --------------- 플레이어 
+        player = FindObjectOfType<Player_Hero>();
+
+        // --------------- NPC
+        //talkPanel = GameObject.Find("talkPanel");
+        //talkPanel.SetActive(false);
         SceneManager.sceneLoaded += OnStageStart;   // 씬의 로딩이 끝났을 때 실행될 델리게이트에 OnStageStart 등록
     }
 
