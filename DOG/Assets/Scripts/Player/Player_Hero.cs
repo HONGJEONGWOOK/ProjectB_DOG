@@ -11,7 +11,7 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
 {
 
     //IHealth--------------------------------------------------------------------------------
-    float hp = 100.0f;
+    public float hp = 100.0f;
     float maxHP = 100.0f;
 
 
@@ -22,7 +22,7 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
         {
             if(hp != value)
             {
-                hp = value;
+                hp = Mathf.Clamp(value, 0, maxHP);
                 onHealthChange?.Invoke();
             }
         }
@@ -56,7 +56,7 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     PlayerInputActions actions;
     Animator anim;
     Rigidbody2D rigid = null;
-    BoxCollider2D Collider;
+    CapsuleCollider2D Collider;
 
 
     public GameObject shootPrefab = null;
@@ -72,7 +72,7 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
         actions = new();
         anim = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody2D>();
-        Collider = GetComponent<BoxCollider2D>();
+        Collider = GetComponent<CapsuleCollider2D>();
     }
    
 

@@ -30,10 +30,9 @@ public class BossRoomController : MonoBehaviour
     private void Awake()
     {
         player = FindObjectOfType<Player_Hero>();
-        boss = FindObjectOfType<Boss>();
-
         playerCam = player.transform.Find("Main Camera").GetComponent<Camera>();
         playerCamZ = playerCam.transform.position.z;
+        boss = FindObjectOfType<Boss>();
     }
 
     private void OnEnable()
