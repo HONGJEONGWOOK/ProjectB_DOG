@@ -5,7 +5,8 @@ using UnityEditor;
 
 public class Boss : Monsters
 {
-    Canvas canvas;
+    HP_Bar_Boss hpBar;
+    BossTextController textController;
     BossRoomController roomController;
     [SerializeField] GameObject portalKey;
 
@@ -22,7 +23,8 @@ public class Boss : Monsters
     protected override void Awake()
     {
         base.Awake();
-        canvas = GetComponentInChildren<Canvas>();
+        hpBar = FindObjectOfType<HP_Bar_Boss>();
+        textController = FindObjectOfType<BossTextController>();
         roomController = FindObjectOfType<BossRoomController>();
     }
 
@@ -32,18 +34,21 @@ public class Boss : Monsters
         roomController.onReadyToFight += StartFighting;
 
         currentSpeed = 0;
-        canvas.enabled = false;
+        hpBar.enabled = false;
+        textController.enabled = false;
         status = MonsterCurrentState.IDLE;
     }
 
     private void OnDisable()
     {
-        canvas.enabled = false;
+        hpBar.gameObject.SetActive(false);
+        textController.gameObject.SetActive(false);
     }
 
     void ShowUIs()
     {
-        canvas.enabled = true;
+        hpBar.gameObject.SetActive(true);
+        textController.gameObject.SetActive(true);
     }
 
     void StartFighting()
@@ -98,6 +103,7 @@ public class Boss : Monsters
                 EnemyBulletManager.Inst.GetPooledObject(EnemyBulletManager.PooledObjects[EnemyBulletManager.Inst.MeteorID]);
             Vector2 randPos = Random.insideUnitCircle * meteorSpreadRange;
             ball.transform.position = (Vector2)transform.position + randPos;
+            ball.SetActive(true);
         }
     }
 

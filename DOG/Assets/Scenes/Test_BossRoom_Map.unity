@@ -14446,11 +14446,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 966620168474310077, guid: db68f15e95d8f0a4ea2fad415f87ea33, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.65
+      value: -4.87
       objectReference: {fileID: 0}
     - target: {fileID: 966620168474310077, guid: db68f15e95d8f0a4ea2fad415f87ea33, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.62
+      value: 2.77
       objectReference: {fileID: 0}
     - target: {fileID: 966620168474310077, guid: db68f15e95d8f0a4ea2fad415f87ea33, type: 3}
       propertyPath: m_LocalPosition.z
@@ -14497,6 +14497,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 301586822219551123, guid: 8b9d4cf7371a57741bf68a33dcabb1f4, type: 3}
+      propertyPath: cameraSpeed
+      value: 0.0068
+      objectReference: {fileID: 0}
     - target: {fileID: 1407438248898795596, guid: 8b9d4cf7371a57741bf68a33dcabb1f4, type: 3}
       propertyPath: m_RootOrder
       value: 5

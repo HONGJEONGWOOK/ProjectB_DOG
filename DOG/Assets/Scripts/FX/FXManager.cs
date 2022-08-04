@@ -65,7 +65,7 @@ public class FXManager : MonoBehaviour
         if (pooledQueue.Count > 0)
         {
             GameObject fx = pooledQueue.Dequeue();
-            fx.SetActive(true);
+            //fx.SetActive(true);
             return fx;
         }
         else
