@@ -21,7 +21,7 @@ public class MakeRandomMap : MonoBehaviour
     [SerializeField]
     private GameObject player;
     [SerializeField]
-    private GameObject entrance;
+    private GameObject bossRoomChange;
 
     private HashSet<Vector2Int> floor;
     private HashSet<Vector2Int> wall;
@@ -62,7 +62,7 @@ public class MakeRandomMap : MonoBehaviour
         spreadTilemap.SpreadWallTilemap(wall);
 
         player.transform.position = (Vector2)divideSpace.spaceList[0].Center();
-        entrance.transform.position = (Vector2)divideSpace.spaceList[divideSpace.spaceList.Count - 1].Center();
+        bossRoomChange.transform.position = (Vector2)divideSpace.spaceList[divideSpace.spaceList.Count - 1].Center();
     }
 
     /// <summary>
