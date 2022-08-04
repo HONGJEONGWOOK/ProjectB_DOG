@@ -12,9 +12,9 @@ public class PlayerHP_Bar : MonoBehaviour
     private void Start()
     {
         slider = GetComponent<Slider>();
-        target = PlayerManager.Inst.MainPlayer.GetComponent<IHealth>();
+        target = GameManager.Inst.MainPlayer.GetComponent<IHealth>();
         target.onHealthChange += SetHP_Value;
-
+        slider.value = target.HP / target.MaxHP;
 
     }
 
