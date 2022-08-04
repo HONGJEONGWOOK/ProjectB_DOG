@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    static PlayerManager instance; 
+    static PlayerManager instance = null; 
 
-    Player player;
+    Player_Hero player;
     
-    public Player MainPlayer
+    public Player_Hero MainPlayer
     {
         get => player;
     }
@@ -39,6 +39,6 @@ public class PlayerManager : MonoBehaviour
 
     private void Initialize()
     {
-        player = FindObjectOfType<Player>();
+        player = FindObjectOfType<Player_Hero>();
     }
 }

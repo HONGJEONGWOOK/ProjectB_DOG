@@ -10,7 +10,7 @@ using UnityEngine.UI;
 public class Player_Hero : MonoBehaviour, IHealth,IBattle
 {
 
-    //IHealth
+    //IHealth--------------------------------------------------------------------------------
     float hp = 100.0f;
     float maxHP = 100.0f;
 
@@ -35,7 +35,7 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
 
     public System.Action onHealthChange { get; set; }
 
-    //IBattle
+    //IBattle--------------------------------------------------------------------------------
     public float attackPower = 30.0f;
     public float defencePower = 10.0f;
     public float criticalRate = 0.3f;
@@ -47,11 +47,11 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     public float Defence { get => defencePower; }
 
 
-
+    //--------------------------------------------------------------------------------
 
     public GameManager manager;
     GameObject scanObject;
-    GameObject Sword;
+    GameObject sword;
 
     PlayerInputActions actions;
     Animator anim;
@@ -73,7 +73,6 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
         anim = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody2D>();
         Collider = GetComponent<BoxCollider2D>();
-       
     }
    
 
@@ -108,7 +107,6 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
             {
                 damage *= 2.0f;
             }
-
             target.TakeDamage(damage);
         }
     }
@@ -120,19 +118,21 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
         {
             finalDamage = 1.0f;
         }
+
         HP -= finalDamage;
+
 
         if (HP > 0.0f)
         {
+            Debug.Log($"{hp}");
             //살아있다.
             anim.SetTrigger("Hit");
-
         }
         else
         {
-            //죽었다.
-            //Die();
+            Debug.Log("죽음");
         }
+
     }
 
 
@@ -203,12 +203,10 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
         
 
         anim.SetTrigger("Attack");
-    }
-
-    void WeaponOnOff()
-    {
 
     }
+
+
 
     private void OnEscape(InputAction.CallbackContext obj)
     {
