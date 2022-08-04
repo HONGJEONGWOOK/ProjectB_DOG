@@ -107,7 +107,7 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
 
     // ################################### METHODS ##############################################
     // -------------------------------  IDLE  ------------------------------------------
-    void Idle()
+    protected virtual void Idle()
     {
         if (SearchPlayer())
         {
@@ -117,7 +117,7 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
     }
 
     // -----------------------------  SEARCH  ------------------------------------------
-    private bool SearchPlayer()
+    protected bool SearchPlayer()
     {
         bool result = false;
 
@@ -132,7 +132,7 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
     }
 
     // -------------------------------  MOVE  ------------------------------------------
-    private void Track()
+    protected virtual void Track()
     {
         if (!SearchPlayer())
         {
@@ -164,7 +164,7 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
         //}
     }
 
-    private void Move_Monster(float speed)
+    protected void Move_Monster(float speed)
     {
         trackDirection = target.position - this.transform.position;
         rigid.position = Vector2.MoveTowards(rigid.position,

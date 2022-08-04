@@ -104,7 +104,7 @@ public class MonsterManager : MonoBehaviour
         if (poolingQueue.Count > 0)
         {
             GameObject monster = poolingQueue.Dequeue();
-            monster.SetActive(true);
+            //monster.SetActive(true);
             return monster;
         }
         else

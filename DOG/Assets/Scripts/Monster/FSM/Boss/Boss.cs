@@ -6,6 +6,8 @@ using UnityEditor;
 public class Boss : Monsters
 {
     Canvas canvas;
+    BossRoomController roomController;
+    [SerializeField] GameObject portalKey;
 
     private float attackRand = 0.0f;
 
@@ -21,16 +23,41 @@ public class Boss : Monsters
     {
         base.Awake();
         canvas = GetComponentInChildren<Canvas>();
+        roomController = FindObjectOfType<BossRoomController>();
     }
 
     private void OnEnable()
     {
+        roomController.onBossEntry += ShowUIs;
+        roomController.onReadyToFight += StartFighting;
+
+        currentSpeed = 0;
         canvas.enabled = false;
+        status = MonsterCurrentState.IDLE;
     }
 
     private void OnDisable()
     {
         canvas.enabled = false;
+    }
+
+    void ShowUIs()
+    {
+        canvas.enabled = true;
+    }
+
+    void StartFighting()
+    {
+        status = MonsterCurrentState.TRACK;
+        currentSpeed = moveSpeed;
+    }
+
+    protected override void Idle()  {} // Do Nothing
+
+    protected override void Track()
+    {
+        SearchPlayer();
+        Move_Monster(currentSpeed);
     }
 
     protected override void Attack()
@@ -86,10 +113,19 @@ public class Boss : Monsters
         yield return new WaitForSeconds(2.0f);
         FXManager.Inst.ReturnFX(FXManager.PooledFX[FXManager.Inst.ExplosionID], explosion);
 
+        DropPortalKey();
+
         // 보스 object pool return
         MonsterManager.Inst.ReturnPooledMonster(MonsterManager.PooledMonster[MonsterManager.Inst.BossID], 
                                                 this.gameObject);
     }
+
+    void DropPortalKey()
+    {
+        GameObject key = Instantiate(portalKey);
+        key.transform.position = this.transform.position;
+    }
+
 
     private bool InLongRange() => (transform.position - target.position).sqrMagnitude < longAttack_Range * longAttack_Range;
 
