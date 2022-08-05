@@ -15,7 +15,7 @@ public class MonsterManager : MonoBehaviour
     private static Dictionary<int, Queue<GameObject>> pooledMonster = new();
     public static Dictionary<int, Queue<GameObject>> PooledMonster => pooledMonster;
 
-
+    public ObjectPoolingData[] PoolingMonsters => poolingMonsters;
     // -------- Goblin Data ----------------
     private Queue<GameObject> goblins;
     Transform goblinParent;

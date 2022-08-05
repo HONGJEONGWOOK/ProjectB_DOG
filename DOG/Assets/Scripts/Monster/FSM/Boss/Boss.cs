@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.SceneManagement;
 
 public class Boss : Monsters
 {
     HP_Bar_Boss hpBar;
     BossTextController textController;
     BossRoomController roomController;
+    Transform bossHitBox_1;
+    Transform bossHitBox_2;
+
     [SerializeField] GameObject portalKey;
 
     private float attackRand = 0.0f;
@@ -28,6 +32,9 @@ public class Boss : Monsters
         hpBar = FindObjectOfType<HP_Bar_Boss>();
         textController = FindObjectOfType<BossTextController>();
         roomController = FindObjectOfType<BossRoomController>();
+
+        bossHitBox_1 = transform.GetChild(1);
+        bossHitBox_2 = transform.GetChild(2);
     }
 
     private void OnEnable()
@@ -114,6 +121,24 @@ public class Boss : Monsters
             Vector2 randPos = Random.insideUnitCircle * meteorSpreadRange;
             ball.transform.position = (Vector2)transform.position + randPos;
             ball.SetActive(true);
+        }
+    }
+
+    protected override void SpriteFlip()
+    {
+        trackDirection = target.position - this.transform.position;
+        var cross = Vector3.Cross(trackDirection, this.transform.up);
+        if (Vector3.Dot(cross, transform.forward) < 0)
+        {   // 왼쪽
+            sprite.flipX = true;
+            bossHitBox_1.localPosition = new Vector3(-1.35f, -0.29f);
+            bossHitBox_2.localPosition = new Vector3(-0.84f, 0.25f);
+        }
+        else
+        {   // 오른쪽
+            sprite.flipX = false;
+            bossHitBox_1.localPosition = new Vector3(1.35f, -0.29f);
+            bossHitBox_2.localPosition = new Vector3(0.84f, 0.25f);
         }
     }
 

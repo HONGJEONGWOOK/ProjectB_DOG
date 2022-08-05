@@ -83,7 +83,7 @@ public class EnemyBulletManager : MonoBehaviour
         if (poolingObject.Count > 0)
         {
             GameObject obj = poolingObject.Dequeue();
-            obj.SetActive(true);
+            //obj.SetActive(true);
             return obj;
         }
         else

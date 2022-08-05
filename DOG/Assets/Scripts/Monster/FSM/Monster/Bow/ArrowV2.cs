@@ -8,10 +8,12 @@ public class ArrowV2 : MonoBehaviour
     private Rigidbody2D rigid = null;
 
     public float shootSpeed = 3.0f;
+    private float damage;
 
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
+        damage = MonsterManager.Inst.PoolingMonsters[(int)MonsterID.TREANT].prefab.GetComponent<Treant>().AttackPower;
     }
 
     private void Start()
@@ -28,6 +30,8 @@ public class ArrowV2 : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            IBattle target = collision.GetComponent<IBattle>();
+            target.TakeDamage(damage);
             EnemyBulletManager.Inst.ReturnPooledEnemy(EnemyBulletManager.PooledObjects[EnemyBulletManager.Inst.ArrowID],
                                                   this.gameObject);
         }
