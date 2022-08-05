@@ -210,7 +210,7 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
 
     private void OnEscape(InputAction.CallbackContext obj)
     {
-
+        Debug.Log("메뉴");
     }
 
 

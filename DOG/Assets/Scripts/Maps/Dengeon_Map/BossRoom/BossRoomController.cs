@@ -24,7 +24,8 @@ public class BossRoomController : MonoBehaviour
     [Range(0.001f, 0.1f)]
     [SerializeField] private float cameraSpeed = 0.02f;
 
-    public System.Action onBossEntry;
+    public delegate void Show_UI_Delegate();
+    public Show_UI_Delegate onBossEntry;
     public System.Action onReadyToFight;
 
     private void Awake()
@@ -32,7 +33,6 @@ public class BossRoomController : MonoBehaviour
         player = FindObjectOfType<Player_Hero>();
         playerCam = player.transform.Find("Main Camera").GetComponent<Camera>();
         playerCamZ = playerCam.transform.position.z;
-        boss = FindObjectOfType<Boss>();
     }
 
     private void OnEnable()
@@ -65,8 +65,10 @@ public class BossRoomController : MonoBehaviour
             yield return null;
         }
         // Boss UI 활성화
-        onBossEntry?.Invoke();
-        //yield return new WaitForSeconds(2.0f);
+        onBossEntry.Invoke();      //UI 활성화
+        boss = FindObjectOfType<Boss>();
+        Debug.Log(boss.gameObject.name);
+        yield return new WaitForSeconds(boss.GetComponentInChildren<BossTextController>().TypingTime);
         StartCoroutine(CamBacktoPlayer());
     }
 

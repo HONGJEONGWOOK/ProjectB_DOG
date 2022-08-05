@@ -12,7 +12,6 @@ public class MonsterManager : MonoBehaviour
         // [1] : Treant
         // [2] : Boss
 
-
     private static Dictionary<int, Queue<GameObject>> pooledMonster = new();
     public static Dictionary<int, Queue<GameObject>> PooledMonster => pooledMonster;
 
