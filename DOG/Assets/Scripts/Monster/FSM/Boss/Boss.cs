@@ -49,6 +49,15 @@ public class Boss : Monsters
     {
         hpBar.gameObject.SetActive(true);
         textController.gameObject.SetActive(true);
+        if (gameObject.activeSelf)
+        {
+            //Debug.Log(this.gameObject.name);
+            StartCoroutine(textController.TextTypingEffect());
+            anim.SetFloat("AttackSelector", 0.5f);
+            anim.SetInteger("CurrentStatus", 3);
+            anim.SetTrigger("onAttack");
+            anim.SetTrigger("onAttack");
+        }
     }
 
     void StartFighting()
