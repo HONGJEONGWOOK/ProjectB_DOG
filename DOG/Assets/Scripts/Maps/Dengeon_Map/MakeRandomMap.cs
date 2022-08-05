@@ -63,6 +63,7 @@ public class MakeRandomMap : MonoBehaviour
 
         player.transform.position = (Vector2)divideSpace.spaceList[0].Center();
         bossRoomChange.transform.position = (Vector2)divideSpace.spaceList[divideSpace.spaceList.Count - 1].Center();
+        
     }
 
     /// <summary>
