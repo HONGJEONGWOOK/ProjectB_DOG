@@ -177,10 +177,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2664844999559408712, guid: 3256e8fcac60d6e408eb41a00587530d, type: 3}
-      propertyPath: poolingMonsters.Array.data[2].poolSize
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 3366900090350439107, guid: 3256e8fcac60d6e408eb41a00587530d, type: 3}
       propertyPath: m_RootOrder
       value: 2

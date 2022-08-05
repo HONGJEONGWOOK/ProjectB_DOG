@@ -20,6 +20,8 @@ public class Boss : Monsters
     [Range(1f, 7f)]
     [SerializeField] private float meteorSpreadRange;
 
+    public BossTextController TextController => textController;
+
     protected override void Awake()
     {
         base.Awake();
@@ -30,8 +32,8 @@ public class Boss : Monsters
 
     private void OnEnable()
     {
-        roomController.onBossEntry += ShowUIs;
-        roomController.onReadyToFight += StartFighting;
+        roomController.onBossEntry = ShowUIs;
+        roomController.onReadyToFight = StartFighting;
 
         currentSpeed = 0;
         hpBar.enabled = false;
@@ -49,13 +51,12 @@ public class Boss : Monsters
     {
         hpBar.gameObject.SetActive(true);
         textController.gameObject.SetActive(true);
+        Debug.Log(this.gameObject.name);
         if (gameObject.activeSelf)
         {
-            //Debug.Log(this.gameObject.name);
             StartCoroutine(textController.TextTypingEffect());
             anim.SetFloat("AttackSelector", 0.5f);
             anim.SetInteger("CurrentStatus", 3);
-            anim.SetTrigger("onAttack");
             anim.SetTrigger("onAttack");
         }
     }
@@ -141,9 +142,7 @@ public class Boss : Monsters
         key.transform.position = this.transform.position;
     }
 
-
     private bool InLongRange() => (transform.position - target.position).sqrMagnitude < longAttack_Range * longAttack_Range;
-
 
     protected override void OnDrawGizmos()
     {

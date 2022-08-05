@@ -90,7 +90,7 @@ MonoBehaviour:
   - objectName: Boss
     objectID: 2
     prefab: {fileID: 2627110285992441365, guid: 9faa8dbce86657d4b97ee63658d28f9c, type: 3}
-    poolSize: 5
+    poolSize: 2
 --- !u!1 &5332841332101458397
 GameObject:
   m_ObjectHideFlags: 0
