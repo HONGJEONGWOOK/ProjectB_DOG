@@ -6,7 +6,7 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
 {
     Rigidbody2D rigid;
     protected Animator anim;
-    SpriteRenderer sprite;
+    protected SpriteRenderer sprite;
 
     // #################################### VARIABLES #####################################
     private int monsterID = -1;
@@ -73,20 +73,20 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
         anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
 
-        // 오브젝트 풀링된 몬스터를 불러와서 배치하면 문제 없지만, 따로 배치하는 경우를 대비
-        // 오브젝트 풀링된 몬스터는 이름 뒤에 (clone)이 붙는다.
-        if (this.gameObject.name.Contains("Goblin"))
-        {
-            monsterID = MonsterManager.Inst.GoblinID;
-        }
-        else if (this.gameObject.name.Contains("Treant"))
-        {
-            monsterID = MonsterManager.Inst.TreantID;
-        }
-        else
-        {
-            monsterID = MonsterManager.Inst.BossID;
-        }
+        //// 오브젝트 풀링된 몬스터를 불러와서 배치하면 문제 없지만, 따로 배치하는 경우를 대비
+        //// 오브젝트 풀링된 몬스터는 이름 뒤에 (clone)이 붙는다.
+        //if (this.gameObject.name.Contains("Goblin"))
+        //{
+        //    monsterID = MonsterManager.Inst.GoblinID;
+        //}
+        //else if (this.gameObject.name.Contains("Treant"))
+        //{
+        //    monsterID = MonsterManager.Inst.TreantID;
+        //}
+        //else
+        //{
+        //    monsterID = MonsterManager.Inst.BossID;
+        //}
     }
 
     private void FixedUpdate()
@@ -193,7 +193,7 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
     {
         return rigid.position.y - target.position.y < 0.05f;
     }
-    protected void SpriteFlip()
+    protected virtual void SpriteFlip()
     {
         trackDirection = target.position - this.transform.position;
         var cross = Vector3.Cross(trackDirection, this.transform.up);

@@ -14,11 +14,14 @@ public class Meteor : MonoBehaviour
     Animator explosion;
 
     [SerializeField] private float speed = 3.0f;
+    [SerializeField] private float power = 10.0f;
     [Range(0f,1f)]
     [SerializeField] private float shadowTweaker = 0.5f;
     [SerializeField] private Vector2 initialPosition = new Vector2(-3, 7);
     float alpha = 0f;
     float endTimer = 0.0f;
+
+    public float Power => power;
 
     private void Awake()
     {
@@ -30,6 +33,7 @@ public class Meteor : MonoBehaviour
         ballSprite = ball.GetComponent<SpriteRenderer>();
 
         explosion = transform.GetChild(2).GetComponent<Animator>();
+        explosion.gameObject.SetActive(false);
     }
 
     private void OnEnable()
@@ -44,6 +48,7 @@ public class Meteor : MonoBehaviour
 
         if (IsCollided())
         {
+            explosion.gameObject.SetActive(true);
             ballParticle.Stop();
             explosion.SetTrigger("isCollided");
             ballSprite.color = Color.clear;

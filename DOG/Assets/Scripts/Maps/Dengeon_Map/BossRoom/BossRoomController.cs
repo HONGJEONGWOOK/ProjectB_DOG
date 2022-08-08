@@ -14,7 +14,7 @@ public class BossRoomController : MonoBehaviour
     // 5. 필드로 이동.
 
     Camera playerCam;
-    Boss boss;
+    BossTextController textController;
     Player_Hero player;
 
     [SerializeField] private Transform bossPosition;
@@ -47,6 +47,7 @@ public class BossRoomController : MonoBehaviour
         obj.SetActive(true);
 
         player.transform.position = playerPosition.position;
+        player.Actions.Disable();
     }
 
     private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
@@ -66,9 +67,9 @@ public class BossRoomController : MonoBehaviour
         }
         // Boss UI 활성화
         onBossEntry.Invoke();      //UI 활성화
-        boss = FindObjectOfType<Boss>();
-        Debug.Log(boss.gameObject.name);
-        yield return new WaitForSeconds(boss.GetComponentInChildren<BossTextController>().TypingTime);
+        textController = FindObjectOfType<Boss>().TextController;
+        yield return new WaitForSeconds(textController.TypingTime + 2.0f);
+        textController.gameObject.SetActive(false);
         StartCoroutine(CamBacktoPlayer());
     }
 
@@ -80,7 +81,8 @@ public class BossRoomController : MonoBehaviour
                 Mathf.Lerp(playerCam.transform.position.y, playerPosition.position.y, cameraSpeed), playerCamZ);
             yield return null;
         }
-        // player / boss 움직임 활성화
+        // player + boss 움직임 활성화
         onReadyToFight?.Invoke();
+        player.Actions.Enable();
     }
 }

@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-public class Treant : MonoBehaviour, IHealth
+public class Treant : MonoBehaviour, IHealth, IBattle
 {
     private Rigidbody2D rigid = null;
-    private SpriteRenderer sprite = null;
     private SpriteRenderer weaponSprite = null;
     public Transform shootPosition = null;
     private Animator anim = null;
@@ -57,12 +56,15 @@ public class Treant : MonoBehaviour, IHealth
 
     public System.Action onHealthChange { get; set; }
 
+    public float AttackPower => attackPower;
+
+    public float Defence => defence;
+
     private void Awake()
     {
         anim = GetComponent<Animator>();
         BowAnim = transform.GetChild(0).GetComponentInChildren<Animator>();
         rigid = GetComponent<Rigidbody2D>();
-        sprite = GetComponent<SpriteRenderer>();
         weapon = transform.GetChild(0);
         weaponSprite = weapon.GetComponentInChildren<SpriteRenderer>();   
     }
@@ -140,6 +142,7 @@ public class Treant : MonoBehaviour, IHealth
             EnemyBulletManager.Inst.GetPooledObject(EnemyBulletManager.PooledObjects[EnemyBulletManager.Inst.ArrowID]);
         arrow.transform.position = shootPosition.position;
         arrow.transform.rotation = weapon.transform.rotation;
+        arrow.SetActive(true);
     }
 
     void Attack()
@@ -168,7 +171,28 @@ public class Treant : MonoBehaviour, IHealth
             return;
         }
     }
+    public void Attack(IBattle target) { }// intentionally Blank
 
+    public void TakeDamage(float damage)
+    {
+        float finalDamage = damage - defence;
+
+        if (finalDamage < 1)
+        {
+            finalDamage = 1;
+        }
+        HP -= finalDamage;
+
+        if (HP > 0)
+        {
+            anim.SetTrigger("onHit");
+            //currentSpeed = 0;
+        }
+        else
+        {
+            ChangeStatus(MonsterCurrentState.DEAD);
+        }
+    }
     private void RotateWeapon()
     {
         weapon.transform.right = trackDirection;
@@ -247,6 +271,7 @@ public class Treant : MonoBehaviour, IHealth
                 break;
             case MonsterCurrentState.DEAD:
                 moveSpeed = 0;
+                anim.SetTrigger("onDie");
                 break;
             default:
                 break;
@@ -267,4 +292,6 @@ public class Treant : MonoBehaviour, IHealth
         Handles.color = Color.white;
         Handles.DrawWireDisc(transform.position, transform.forward, attackRange);
     }
+
+
 }

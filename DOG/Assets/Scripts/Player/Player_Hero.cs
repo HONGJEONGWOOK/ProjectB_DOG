@@ -64,7 +64,7 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
 
     private Vector3 direction = Vector3.zero;
 
-
+    public PlayerInputActions Actions => actions;
 
 
     private void Awake()
