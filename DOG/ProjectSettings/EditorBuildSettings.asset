@@ -4,14 +4,5 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/Test_Field_Map.unity
-    guid: 9d98efab7f770f0408093635e33ad2b7
-  - enabled: 1
-    path: Assets/Scenes/Test_Dungeon_Map.unity
-    guid: 1d65adac19ad42e42a0576c3497f790b
-  - enabled: 1
-    path: Assets/Scenes/Test_BossRoom_Map.unity
-    guid: cb57ed6efd4099746b6a1b1a399622e3
+  m_Scenes: []
   m_configObjects: {}
