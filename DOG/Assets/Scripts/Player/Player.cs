@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     public GameManager manager;
-
+    
 
     PlayerInputActions actions = null;
     GameObject scanObject;
@@ -162,7 +162,7 @@ public class Player : MonoBehaviour
         if (scanObject != null)
         {
             AskAction(scanObject);
-
+            
         }
         else
         {
@@ -197,7 +197,7 @@ public class Player : MonoBehaviour
     //scanObject에 GetComponent해서 기능을 ObjectData타입의 objData에 넣고
     //ObjectData타입은 public int id; public bool isNpc; 를 가지고 있음
     //
-    public void AskAction(GameObject scanObj)
+    void AskAction(GameObject scanObj)
     {
         scanObject = scanObj;
         ObjectData objData = scanObject.GetComponent<ObjectData>();
@@ -216,6 +216,7 @@ public class Player : MonoBehaviour
 
         //questId를 
         string talkData =  GameManager.Inst.talkManager.GetTalk(id + questTalkIndex, QuestManager.Instance.TalkIndex);
+        
 
         if (isNpc)
         {
@@ -232,6 +233,7 @@ public class Player : MonoBehaviour
             isAction = false;
             QuestManager.Instance.TalkIndex = 0;
             Debug.Log(QuestManager.Instance.CheckQuest(id));
+
             return;
         }
 

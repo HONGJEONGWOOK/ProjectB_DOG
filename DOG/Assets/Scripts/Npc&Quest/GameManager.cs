@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public TalkManager talkManager;
     public Text talkText;
     public GameObject scanObject;
+    public Text questText;
 
     //퀘스트매니저
     private GameObject talkPanel;
@@ -17,18 +18,11 @@ public class GameManager : MonoBehaviour
         get { return talkPanel; }
     }
 
-    
-
     // 맵 매니저-----------------------------------------------------------\
     int oldSceneIndex = 0;
 
     public static GameManager Inst { get => instance;}
     static GameManager instance = null;
-
-    private void Start()
-    {
-        //Debug.Log(questManager.CheckQuest());
-    }
 
     public void Awake()
     {
@@ -58,7 +52,6 @@ public class GameManager : MonoBehaviour
 
     private void OnStageStart(Scene arg0, LoadSceneMode arg1)
     {
-
         if (oldSceneIndex != arg0.buildIndex)
         {
             oldSceneIndex = arg0.buildIndex;

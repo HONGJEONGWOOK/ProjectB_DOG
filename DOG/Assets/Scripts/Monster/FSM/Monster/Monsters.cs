@@ -220,7 +220,7 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
         }
     }
 
-    private void Die()
+    protected virtual void Die()
     {
         anim.SetTrigger("onDie");
         status = MonsterCurrentState.DEAD;
