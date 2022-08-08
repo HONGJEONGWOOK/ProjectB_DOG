@@ -25,7 +25,7 @@ public enum WeaponSelectSword       // 검 enum
     DaggerE
 }public enum WeaponSelectBow        // 활 enum
 {
-    Bow=0,
+    BowA=0,
     BowB,
     BowC,
     BowD,

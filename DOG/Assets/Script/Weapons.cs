@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 //using UnityEngine.SceneManagement;
 
-// 종합 무기s
+// 무기 종합
 
 public class Weapons : MonoBehaviour
 {
@@ -18,6 +18,8 @@ public class Weapons : MonoBehaviour
 
     public GameObject weaponSlots;
 
+    bool equip;
+
     // 무기별 스킬 개수는 3개
 
 
@@ -28,11 +30,6 @@ public class Weapons : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-
-    private void Update()
-    {
-        
-    }
 
 
     private void OnEnable()
@@ -51,7 +48,7 @@ public class Weapons : MonoBehaviour
     {
         if(equipWindow==true)       // 장비창 오픈했을 때(평상시에 장비창 입력 추가)
         {
-            
+            //WeaponSlots.weaponEquipIcon();
         }
     }
 
@@ -91,12 +88,18 @@ public class Weapons : MonoBehaviour
         }
         
         // WeaponSlots에서 SlotExtansion 찾아와 실행하기. 고칠 방법 찾는중
-        weaponSlots.GetComponent<WeaponSlots>().SlotExtansion();    
+        weaponSlots.GetComponent<WeaponSlots>().SlotExtansion(weaponType);    
 
 
     }
 
-    
+    public void EquipWeapon()
+    {
+        if(equip==false)
+        {
+
+        }
+    }
 
     
 
