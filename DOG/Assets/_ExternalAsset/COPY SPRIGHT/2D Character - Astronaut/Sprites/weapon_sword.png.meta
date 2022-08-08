@@ -371,7 +371,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 7
   spritePivot: {x: 0.5, y: 0}
-  spritePixelsToUnits: 130
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
@@ -426,6 +426,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
@@ -692,10 +704,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sword_12
+      name: Sword
       rect:
         serializedVersion: 2
-        x: 1344
+        x: 1340
         y: 864
         width: 448
         height: 432
@@ -713,7 +725,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sword_13
+      name: Sword1
       rect:
         serializedVersion: 2
         x: 1792
@@ -734,7 +746,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sword_14
+      name: Sword2
       rect:
         serializedVersion: 2
         x: 2240
@@ -755,7 +767,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sword_15
+      name: Sword3
       rect:
         serializedVersion: 2
         x: 2688
@@ -776,7 +788,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sword_16
+      name: Sword4
       rect:
         serializedVersion: 2
         x: 3136
@@ -797,7 +809,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sword_17
+      name: Sword5
       rect:
         serializedVersion: 2
         x: 3584
@@ -842,7 +854,7 @@ TextureImporter:
       name: sword_19
       rect:
         serializedVersion: 2
-        x: 448
+        x: 452
         y: 432
         width: 448
         height: 432
@@ -1208,28 +1220,28 @@ TextureImporter:
     nameFileIdTable:
       sword_8: -1614411906201746745
       sword_24: -5596403434367763912
+      Sword2: -8551796387700029265
       sword_35: -1779436703557748743
+      Sword5: -106492298241405289
       sword_18: 5368310613557176870
       sword_2: -7502302234203853145
       sword_19: 4133054002345373002
       sword_3: -7573694343354198120
-      sword_14: -8551796387700029265
       sword_34: -7483180673390476490
       sword_26: 3071205789112617865
-      sword_17: -106492298241405289
+      Sword4: -6469916797677484604
       sword_0: -3753825769889500098
       sword_31: 7827905936403376988
       sword_33: 8151861652172512272
-      sword_16: -6469916797677484604
+      Sword: -4519076053455810618
       sword_1: 776136188158623729
-      sword_13: 563748580988458004
-      sword_15: -6580160932500289361
+      Sword3: -6580160932500289361
+      Sword1: 563748580988458004
       sword_22: -2408560815710786100
       sword_7: 5330840028906773656
       sword_5: 3650304123865126532
       sword_6: -1525763588066094277
       sword_11: 2996700135033197648
-      sword_12: -4519076053455810618
       sword_21: -5238232506152905777
       sword_27: -3670109957379440039
       sword_20: 486422696980654493

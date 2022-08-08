@@ -2,14 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Monster.Enums
+public enum MonsterCurrentState
 {
-    public enum MonsterCurrentState
-    {
-        IDLE = 0,
-        PATROL,
-        TRACK,
-        ATTACK,
-        DEAD
-    }
+    IDLE = 0,
+    PATROL,
+    TRACK,
+    ATTACK,
+    DEAD
+}
+
+public enum MonsterID 
+{
+    GOBLIN = 0,
+    TREANT,
+    BOSS
 }

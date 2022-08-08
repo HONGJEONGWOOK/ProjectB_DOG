@@ -19,6 +19,9 @@ public class DivideSpace : MonoBehaviour
     public List<RectangleSpace> spaceList;  // 나누어진 공간들을 저장하는 리스트
 
 
+    // ################################ Property ###########################################
+    public int MinWidth => minWidth;
+
     /// <summary>
     /// 공간의 너비 또는 높이가 최소치 * 2 이상이면 공간을 나눈다
     /// </summary>
