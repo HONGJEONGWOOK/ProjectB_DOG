@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 
-// ÀÎº¥Åä¸® ÀÔ·Â Ã³¸®
+// ì¸ë²¤í† ë¦¬ ì…ë ¥ ì²˜ë¦¬
 
 public class InventoryUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
@@ -27,14 +27,14 @@ public class InventoryUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        // Å¬¸¯½Ã ÀåÂø
+        // í´ë¦­ì‹œ ì¥ì°©
 
         weapons.EquipWeapon();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        // ¸¶¿ì½º ¿Ã¸±½Ã ¼¼ºÎÁ¤º¸
+        // ë§ˆìš°ìŠ¤ ì˜¬ë¦´ì‹œ ì„¸ë¶€ì •ë³´
         //WeaponData data;
         //info.WInfoOpen();
     }

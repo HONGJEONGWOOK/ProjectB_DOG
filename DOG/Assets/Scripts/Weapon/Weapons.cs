@@ -18,7 +18,9 @@ public class Weapons : MonoBehaviour
 
     public GameObject weaponSlots;
 
+    public GameObject equipIcon;
     bool equip;
+    
 
     // 무기별 스킬 개수는 3개
 
@@ -28,6 +30,13 @@ public class Weapons : MonoBehaviour
     {
         weaponChange = new();   // 무기전환용 인풋
         anim = GetComponent<Animator>();
+        
+    }
+
+    private void Start()
+    {
+        equipIcon = GameObject.Find("EquipIcon");
+        equipIcon.SetActive(false);
     }
 
 
@@ -95,13 +104,18 @@ public class Weapons : MonoBehaviour
 
     public void EquipWeapon()
     {
+        
+
         if(equip==false)
         {
 
         }
+        else
+        {
+            
+        }
     }
 
-    
 
-    
+
 }
