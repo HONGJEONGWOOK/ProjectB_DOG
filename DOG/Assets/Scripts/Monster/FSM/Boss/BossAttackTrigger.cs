@@ -2,22 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(CircleCollider2D))]
-public class ExitPortalKey : MonoBehaviour
+public class BossAttackTrigger : MonoBehaviour
 {
-    ExitPortal portal;
+    float power;
 
     private void Awake()
     {
-        portal = FindObjectOfType<ExitPortal>();
+        power = transform.parent.GetComponent<Boss>().AttackPower;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            portal.ShowPortal();
-            Destroy(this.gameObject);
+            IBattle target = collision.GetComponent<IBattle>();
+            target.TakeDamage(power);
         }
     }
 }

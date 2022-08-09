@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(CircleCollider2D))]
 public class ExitPortal : MonoBehaviour
 {
-    [SerializeField] ExitPortalKey key;
-
     ParticleSystem particle;
     CircleCollider2D collider;
 
@@ -18,17 +16,14 @@ public class ExitPortal : MonoBehaviour
 
     private void Awake()
     {
-        //key = FindObjectOfType<ExitPortalKey>();
         particle = GetComponent<ParticleSystem>();
         collider = GetComponent<CircleCollider2D>();
 
         particle.Stop();
         collider.enabled = false;
-
-        key.onKeyLoot += ShowPortal;
     }
 
-    void ShowPortal()
+    public void ShowPortal()
     {
         particle.Play();
         collider.enabled = true;

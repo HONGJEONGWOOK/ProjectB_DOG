@@ -39,12 +39,15 @@ public class Boss : Monsters
 
     private void OnEnable()
     {
-        roomController.onBossEntry = ShowUIs;
-        roomController.onReadyToFight = StartFighting;
+        if (roomController != null)
+        {
+            roomController.onBossEntry = ShowUIs;
+            roomController.onReadyToFight = StartFighting;
+        }
 
         currentSpeed = 0;
-        hpBar.enabled = false;
-        textController.enabled = false;
+        hpBar.enabled = true;
+        textController.enabled = true ;
         status = MonsterCurrentState.IDLE;
     }
 
@@ -150,12 +153,14 @@ public class Boss : Monsters
         // 죽은 뒤 폭발 애니메이션 재생
         GameObject explosion = 
             FXManager.Inst.GetPooledFX(FXManager.PooledFX[FXManager.Inst.ExplosionID]);
-        explosion.transform.position = this.transform.position;
-        yield return new WaitForSeconds(2.0f);
+        explosion.transform.position = this.transform.position * Random.insideUnitCircle * 1.5f;
+        explosion.gameObject.SetActive(true);
+        yield return new WaitForSeconds(explosion.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0).Length);
         FXManager.Inst.ReturnFX(FXManager.PooledFX[FXManager.Inst.ExplosionID], explosion);
 
         DropPortalKey();
 
+        hpBar.gameObject.SetActive(false);
         // 보스 object pool return
         MonsterManager.Inst.ReturnPooledMonster(MonsterManager.PooledMonster[MonsterManager.Inst.BossID], 
                                                 this.gameObject);
