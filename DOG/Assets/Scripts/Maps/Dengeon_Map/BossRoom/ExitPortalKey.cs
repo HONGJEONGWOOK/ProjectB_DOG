@@ -5,18 +5,18 @@ using UnityEngine;
 [RequireComponent(typeof(CircleCollider2D))]
 public class ExitPortalKey : MonoBehaviour
 {
-    public System.Action onKeyLoot;
+    ExitPortal portal;
 
-    private void Start()
+    private void Awake()
     {
-        gameObject.SetActive(false);
+        portal = FindObjectOfType<ExitPortal>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            onKeyLoot.Invoke();
+            portal.ShowPortal();
             Destroy(this.gameObject);
         }
     }

@@ -45,15 +45,6 @@ public class Meteor : MonoBehaviour
     {
         ballRigid.position = Vector2.MoveTowards(ballRigid.position, shadow.position,
             speed * Time.fixedDeltaTime);
-
-        if (IsCollided())
-        {
-            explosion.gameObject.SetActive(true);
-            ballParticle.Stop();
-            explosion.SetTrigger("isCollided");
-            ballSprite.color = Color.clear;
-            shadowRenderer.color = Color.clear;
-        }
     }
 
     private void Update()
@@ -66,6 +57,13 @@ public class Meteor : MonoBehaviour
 
         if (IsCollided())
         {
+            ballParticle.Stop();
+            ballSprite.color = Color.clear;
+            shadowRenderer.color = Color.clear;
+
+            explosion.gameObject.SetActive(true);
+            explosion.SetTrigger("isCollided");
+
             endTimer += Time.deltaTime;
             if (endTimer > explosion.GetCurrentAnimatorStateInfo(0).length)
             {
@@ -83,5 +81,6 @@ public class Meteor : MonoBehaviour
         ballParticle.Play();
         ballSprite.color = Color.white;
         ball.transform.localPosition = initialPosition;
+        shadowRenderer.color = Color.white;
     }
 }

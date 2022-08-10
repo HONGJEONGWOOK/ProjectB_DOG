@@ -5,8 +5,12 @@ using UnityEngine.InputSystem;
 
 public class Test_TakeDamage : MonoBehaviour
 {
-    public Boss monster = null;
+    Boss monster = null;
 
+    private void Start()
+    {
+        monster = FindObjectOfType<Boss>();
+    }
     private void Update()
     {
         if (Keyboard.current.digit1Key.wasPressedThisFrame)

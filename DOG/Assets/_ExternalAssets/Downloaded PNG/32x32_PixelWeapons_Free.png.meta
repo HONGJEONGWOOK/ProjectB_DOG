@@ -1,0 +1,2234 @@
+fileFormatVersion: 2
+guid: 13adabb9c89beee4f8e7ef355d148ba1
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 30
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 420
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69a0db4d5748ad24688cecbeec8a1ff6
+      internalID: 1144947611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_1
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 419
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c16dedba5961e6469bbf9b30e7517f0
+      internalID: 2123443348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_2
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 418
+        width: 25
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff635ddc01f5e8545a54cc4963a5950d
+      internalID: 1048323212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_3
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 422
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4060f924584d57145ade590e3430504f
+      internalID: -1539423557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_4
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 419
+        width: 21
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f40a31a5f4a90343a10cca63c7e9219
+      internalID: -1774846209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_5
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 419
+        width: 27
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3be688152bd134a4b9d4e835dc1cfc51
+      internalID: 1944106111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_6
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 390
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83df7589f8a2ac246983882e3ea91aeb
+      internalID: 1118481978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_7
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 387
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90468471ecd3113448744e715b335340
+      internalID: 2003842698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_8
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 387
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88b2c51739c792d4a864c80ecde5e13c
+      internalID: 1732424173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_9
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 387
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8af694cb5872e1044857b31f3218f82e
+      internalID: -147982230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_10
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 388
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84377f9d41ab02e4eb4230f537d1dfca
+      internalID: 19169785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_11
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 387
+        width: 21
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93d802aaa54ddc64bb98ce97d6e4f52a
+      internalID: -986659579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_12
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 387
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54d796b104b45014588ac3521c343b49
+      internalID: 897839465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_13
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 356
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c590a8d29ccb9804ab51e4f5dcca3831
+      internalID: -278718702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_14
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 355
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b7e6a78f44058541a46043b4a967b9f
+      internalID: -1047285501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_15
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 355
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a5f1038c4ea67748a8046e84ac7db06
+      internalID: -265884172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_16
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 355
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce5b05d9cd5d55c47933d015ea339cbe
+      internalID: -530620443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_17
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 355
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98b96430d5912d84f906b335bbc02126
+      internalID: -479205744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_18
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 357
+        width: 14
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c8be1177dfe1f441bc3d2a20fe33204
+      internalID: -1183393987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_19
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 355
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e987c01bde012741853f9477e0d5954
+      internalID: 985929625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_20
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 359
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80c238800dad5c24cb133c0328fd3153
+      internalID: 1214136342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_21
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 360
+        width: 21
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4713e40abbd8b964abec24a3e5ad6ece
+      internalID: 724252939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_22
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 358
+        width: 20
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c3a8260220fa0148b0db33a8189d65c
+      internalID: -41305622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_23
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 358
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9ecf6821f3c97a469766df528e50435
+      internalID: 1802811809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_24
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 358
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68fd8d74fae237e4991c93f3d29ffacc
+      internalID: -926341047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_25
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 324
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b76c8fff440c8848822b24cc138542e
+      internalID: 672997382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_26
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 323
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f0e797b9bf02a64d8ed44fe5d84e44e
+      internalID: 1504782663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_27
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 323
+        width: 25
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b94858cc41b6a9c4e9b3fccff692d72b
+      internalID: -92010126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_28
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 341
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f963e9f8390739a47b45131f694d6bbf
+      internalID: 1509748573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_29
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 323
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e811dd786feb060499f5898a6f93699f
+      internalID: 243011827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_30
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 323
+        width: 22
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 531f77c3ef6da3846a2efafeb265ed5f
+      internalID: 1811252682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_31
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 322
+        width: 24
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 832478fbef617cc438a0ebaf1ba0dba9
+      internalID: -2079987272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_32
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 322
+        width: 24
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 582265afb4bee96449c46a22276064ff
+      internalID: 203436652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_33
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 291
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e89642b2fbeb13c47b700990b7ce2f34
+      internalID: -31125343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_34
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 290
+        width: 26
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bd524b15be3c42468e71a397c854dc7
+      internalID: 224545586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_35
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 291
+        width: 26
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0323ea4d87bac2948b866f79465886c7
+      internalID: -1430198028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_36
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 292
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9b7de41a26d81c4596ba9b9e19ff0e0
+      internalID: 1599215371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_37
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 292
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f5329b0403f3514287e943cf9806394
+      internalID: -932049116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_38
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 292
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd030d95a5c90f74aba2745403b0c732
+      internalID: 1983789647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_39
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 290
+        width: 26
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3d04df0a7366ed4a9b0ddd895cff6fb
+      internalID: 1297440698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_40
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 260
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 865ed9538767dfa48815b126aebe6759
+      internalID: 1371592818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_41
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 258
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fd24e3b271203142bcbd1737e9ad7cf
+      internalID: 874688080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_42
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 259
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f464940e0376624ca873af34026fe2e
+      internalID: 1941733795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_43
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 259
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38d93711b5369724496f56312157ea69
+      internalID: -2032712982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_44
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 259
+        width: 18
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d02ae9bba385ab941bc040dba1f06420
+      internalID: -1292799724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_45
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 259
+        width: 23
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4f4f721a7f909647ab9e871ec6e68b9
+      internalID: -1686157986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_46
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 258
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: baee1c07f2784f64db12e283eb546c93
+      internalID: 724840359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_47
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 228
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 742acfa9d52aafb45932f320125df626
+      internalID: -821639170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_48
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 227
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7a2d5d35f0f86e4c87faf78c614fe09
+      internalID: 506396086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_49
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 227
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a7e379f0eb6fca44b0c65c3e7a1b57a
+      internalID: 1768748590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_50
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 227
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d6dda34dfb3c5047ab367e409500c38
+      internalID: 598253894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_51
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 229
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc9565d351939be40af44eadf3c06b30
+      internalID: -1522534098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_52
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 228
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5eb53c5b1f3f5d4bb9eb6c57f6bc5f6
+      internalID: 396468807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_53
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 227
+        width: 27
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e29a345c5c4eb142ba5b305e651f92d
+      internalID: -990700600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DaggerSample2
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 195
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 553e75cfd1646cb4ba7733bbe8c75ef2
+      internalID: 857759365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_55
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 195
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a5a035e5d34f774e8fbf994041c13d2
+      internalID: 412452792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_56
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 195
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51262aba51dd4024bb2aa44e7961ea4d
+      internalID: 479760084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_57
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 217
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89a81e1febbf1a647ae0e6fc68260572
+      internalID: 1733991635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_58
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 194
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1fa17631bd290a4d96fedac454ef81f
+      internalID: -736738688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_59
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 196
+        width: 22
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7395b86a095debf43b1f35bfc66fda44
+      internalID: 947292496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_60
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 194
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b45868f7e470be4f9a2e6da34feaf08
+      internalID: -134100722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_61
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 164
+        width: 21
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6fb007d0bdf3ef45a151ee715a6c8ab
+      internalID: -2040309132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_62
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 163
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d11ea2dea40df0342b9ead170a70ea1f
+      internalID: 2037286849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_63
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 163
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 266fea93c3ba6774f8f522c9228534a6
+      internalID: -713765329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_64
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 163
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fedeae69f177a214a9cd6f03b132b46a
+      internalID: -891352571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_65
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 163
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01879159a17e0764bb50c3e13b5e4911
+      internalID: -53425514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_66
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 165
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c71656619e7e9ff418f39d4843507a1b
+      internalID: 657391572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_67
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 165
+        width: 19
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42168bce3e0807a4e821634f9310ce08
+      internalID: 69775800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_68
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 132
+        width: 21
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5341350b48a0678418881b904582f40f
+      internalID: 1135808036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_69
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 131
+        width: 27
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a015f60fa7ce1f746ab36b3ac12305a5
+      internalID: -654267078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_70
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 131
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 157e8b47ba2284c44b5ba9b5a5657b5a
+      internalID: -950203944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_71
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 153
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a39a2e6c540c78744ad65899972e72a8
+      internalID: 1179220570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_72
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 130
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 208908898f2ff274ea88d21fb2be804d
+      internalID: -17642257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_73
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 132
+        width: 20
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb9524a9351431e48991dcc86d711893
+      internalID: -1681424125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_74
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 131
+        width: 26
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a274cb83e6f26904bad30ddd248008c0
+      internalID: -1310949943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_75
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 98
+        width: 21
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbcaf2f28b2c42147b455cee1d1191ed
+      internalID: 118442605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_76
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 98
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f66c64ee5080944e9b0d3595f43568a
+      internalID: 271556016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_77
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 98
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27bf09a0dbcceab498bc5813c1d59400
+      internalID: -1471546874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_78
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 97
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ba6ace0a83cf0c4b8a5183bcd7d57b5
+      internalID: -829090319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_79
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 99
+        width: 22
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb0a632f269aceb47884ac4273850f88
+      internalID: 721938410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_80
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 102
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 892da8ccf5f9261429e6fc43a7add843
+      internalID: 144969327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_81
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 66
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f24f620246367f4fbc1a82a60e3b644
+      internalID: 362804944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_82
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 66
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec97c808757c7e34c906214d67fedc65
+      internalID: 379947787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_83
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 66
+        width: 25
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc0d4871d712235498ec6188df2d2876
+      internalID: 735910569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_84
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 84
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c521b745ad2c3f4a94fffdc64aab9ae
+      internalID: 1836887709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_85
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 66
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9bf402c10b4532438e221b8d96531d0
+      internalID: 1003378975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_86
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 71
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d1a8ce935d61994aa8f4a1ab6d8a581
+      internalID: 2111961031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_87
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 65
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0612c87f9210e4f48b336c4d8131bb68
+      internalID: 1473649457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_88
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 37
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aab4929e418c8934db0ae0e08c3ceea1
+      internalID: -1263302417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_89
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 34
+        width: 27
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31e4c3a79c57dde4788638c3d359e64a
+      internalID: 1670359568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_90
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 34
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ca60936a3eb59043b2e4604479a0b91
+      internalID: -1037715796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_91
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 35
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6a39e4af5eef6846b9fcba27d07dae2
+      internalID: 507607860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_92
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 37
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 974b747e42c136146b1bb6b112df789b
+      internalID: 947313374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_93
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 37
+        width: 16
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 393cb87cf4e06e24793c19efd16eae4a
+      internalID: -717386466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_94
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 34
+        width: 23
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad0606d329f13484d950112653a48c7d
+      internalID: -825465652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 32x32_PixelWeapons_Free_95
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 5
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac820ffd1b511f94b9cd2c0ba1c5b61f
+      internalID: -1567684154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      32x32_PixelWeapons_Free_43: -2032712982
+      32x32_PixelWeapons_Free_64: -891352571
+      32x32_PixelWeapons_Free_93: -717386466
+      32x32_PixelWeapons_Free_32: 203436652
+      32x32_PixelWeapons_Free_60: -134100722
+      32x32_PixelWeapons_Free_33: -31125343
+      32x32_PixelWeapons_Free_53: -990700600
+      32x32_PixelWeapons_Free_3: -1539423557
+      32x32_PixelWeapons_Free_45: -1686157986
+      32x32_PixelWeapons_Free_24: -926341047
+      32x32_PixelWeapons_Free_58: -736738688
+      32x32_PixelWeapons_Free_91: 507607860
+      32x32_PixelWeapons_Free_21: 724252939
+      32x32_PixelWeapons_Free_38: 1983789647
+      32x32_PixelWeapons_Free_61: -2040309132
+      32x32_PixelWeapons_Free_13: -278718702
+      32x32_PixelWeapons_Free_26: 1504782663
+      32x32_PixelWeapons_Free_51: -1522534098
+      32x32_PixelWeapons_Free_42: 1941733795
+      32x32_PixelWeapons_Free_56: 479760084
+      32x32_PixelWeapons_Free_7: 2003842698
+      32x32_PixelWeapons_Free_20: 1214136342
+      32x32_PixelWeapons_Free_68: 1135808036
+      32x32_PixelWeapons_Free_73: -1681424125
+      32x32_PixelWeapons_Free_36: 1599215371
+      32x32_PixelWeapons_Free_74: -1310949943
+      32x32_PixelWeapons_Free_78: -829090319
+      32x32_PixelWeapons_Free_84: 1836887709
+      32x32_PixelWeapons_Free_82: 379947787
+      32x32_PixelWeapons_Free_81: 362804944
+      32x32_PixelWeapons_Free_12: 897839465
+      32x32_PixelWeapons_Free_41: 874688080
+      32x32_PixelWeapons_Free_57: 1733991635
+      32x32_PixelWeapons_Free_89: 1670359568
+      32x32_PixelWeapons_Free_31: -2079987272
+      32x32_PixelWeapons_Free_75: 118442605
+      32x32_PixelWeapons_Free_65: -53425514
+      32x32_PixelWeapons_Free_71: 1179220570
+      32x32_PixelWeapons_Free_66: 657391572
+      32x32_PixelWeapons_Free_2: 1048323212
+      32x32_PixelWeapons_Free_23: 1802811809
+      32x32_PixelWeapons_Free_80: 144969327
+      32x32_PixelWeapons_Free_9: -147982230
+      32x32_PixelWeapons_Free_15: -265884172
+      32x32_PixelWeapons_Free_63: -713765329
+      32x32_PixelWeapons_Free_8: 1732424173
+      32x32_PixelWeapons_Free_77: -1471546874
+      32x32_PixelWeapons_Free_70: -950203944
+      32x32_PixelWeapons_Free_79: 721938410
+      32x32_PixelWeapons_Free_22: -41305622
+      32x32_PixelWeapons_Free_44: -1292799724
+      32x32_PixelWeapons_Free_50: 598253894
+      32x32_PixelWeapons_Free_86: 2111961031
+      32x32_PixelWeapons_Free_69: -654267078
+      32x32_PixelWeapons_Free_90: -1037715796
+      32x32_PixelWeapons_Free_4: -1774846209
+      32x32_PixelWeapons_Free_92: 947313374
+      DaggerSample2: 857759365
+      32x32_PixelWeapons_Free_25: 672997382
+      32x32_PixelWeapons_Free_14: -1047285501
+      32x32_PixelWeapons_Free_37: -932049116
+      32x32_PixelWeapons_Free_62: 2037286849
+      32x32_PixelWeapons_Free_39: 1297440698
+      32x32_PixelWeapons_Free_59: 947292496
+      32x32_PixelWeapons_Free_11: -986659579
+      32x32_PixelWeapons_Free_88: -1263302417
+      32x32_PixelWeapons_Free_83: 735910569
+      32x32_PixelWeapons_Free_29: 243011827
+      32x32_PixelWeapons_Free_48: 506396086
+      32x32_PixelWeapons_Free_1: 2123443348
+      32x32_PixelWeapons_Free_18: -1183393987
+      32x32_PixelWeapons_Free_16: -530620443
+      32x32_PixelWeapons_Free_17: -479205744
+      32x32_PixelWeapons_Free_95: -1567684154
+      32x32_PixelWeapons_Free_10: 19169785
+      32x32_PixelWeapons_Free_28: 1509748573
+      32x32_PixelWeapons_Free_5: 1944106111
+      32x32_PixelWeapons_Free_6: 1118481978
+      32x32_PixelWeapons_Free_76: 271556016
+      32x32_PixelWeapons_Free_19: 985929625
+      32x32_PixelWeapons_Free_72: -17642257
+      32x32_PixelWeapons_Free_35: -1430198028
+      32x32_PixelWeapons_Free_52: 396468807
+      32x32_PixelWeapons_Free_94: -825465652
+      32x32_PixelWeapons_Free_49: 1768748590
+      32x32_PixelWeapons_Free_55: 412452792
+      32x32_PixelWeapons_Free_40: 1371592818
+      32x32_PixelWeapons_Free_67: 69775800
+      32x32_PixelWeapons_Free_30: 1811252682
+      32x32_PixelWeapons_Free_0: 1144947611
+      32x32_PixelWeapons_Free_46: 724840359
+      32x32_PixelWeapons_Free_27: -92010126
+      32x32_PixelWeapons_Free_85: 1003378975
+      32x32_PixelWeapons_Free_87: 1473649457
+      32x32_PixelWeapons_Free_34: 224545586
+      32x32_PixelWeapons_Free_47: -821639170
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

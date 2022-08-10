@@ -20,8 +20,8 @@ public class MonsterRandomSpawner : MonoBehaviour
         {
             // ---- Random Number Generator
             int randMonster = Random.Range(0, MonsterManager.PooledMonster.Count - 1);   // 마지막은 보스이므로 제외
-            int randRoom = Random.Range(1, rooms.spaceList.Count - 3);                   // 보스방 전까지 스폰
-            Vector2 randOffset = Random.insideUnitCircle * rooms.MinWidth * 0.2f;
+            int randRoom = Random.Range(1, rooms.spaceList.Count - 2);                   // 보스방 전까지 스폰
+            Vector2 randOffset = Random.insideUnitCircle * rooms.MinWidth * 0.5f * 0.4f;
 
             // ---- Monster Object pool
             GameObject monster = MonsterManager.Inst.GetPooledMonster(MonsterManager.PooledMonster[randMonster]);
@@ -32,7 +32,6 @@ public class MonsterRandomSpawner : MonoBehaviour
 
         //SpawnBoss();
     }
-
 
     public void SpawnBoss()
     {

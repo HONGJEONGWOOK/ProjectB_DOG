@@ -57,7 +57,7 @@ public class BossRoomController : MonoBehaviour
 
     IEnumerator FirstCamMove()
     {
-        //yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(2.0f);
         while ((playerCam.transform.position - bossPosition.position).sqrMagnitude > playerCamZ * playerCamZ + 0.1f)
         {
             playerCam.transform.position = new Vector3(0,
