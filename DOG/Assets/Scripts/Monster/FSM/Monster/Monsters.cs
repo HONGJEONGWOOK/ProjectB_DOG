@@ -37,7 +37,8 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
     protected float attackTimer = 1.0f;
     protected float detectTimer = 0.0f;
     [SerializeField] protected float detectCoolTime = 1.0f;
-    [SerializeField] private float knockbackForce = 1.5f;
+    [Header("Hit")]
+    [SerializeField] private float knockbackForce = 0.5f;
 
     public System.Action onHealthChange { get; set; }
 
@@ -73,21 +74,6 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
         rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
-
-        //// 오브젝트 풀링된 몬스터를 불러와서 배치하면 문제 없지만, 따로 배치하는 경우를 대비
-        //// 오브젝트 풀링된 몬스터는 이름 뒤에 (clone)이 붙는다.
-        //if (this.gameObject.name.Contains("Goblin"))
-        //{
-        //    monsterID = MonsterManager.Inst.GoblinID;
-        //}
-        //else if (this.gameObject.name.Contains("Treant"))
-        //{
-        //    monsterID = MonsterManager.Inst.TreantID;
-        //}
-        //else
-        //{
-        //    monsterID = MonsterManager.Inst.BossID;
-        //}
     }
 
     private void FixedUpdate()
@@ -266,6 +252,7 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
     private void Die()
     {
         anim.SetTrigger("onDie");
+        currentSpeed = 0;
         StartCoroutine(DisableMonster());
     }
     
@@ -280,10 +267,10 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
     {
         float timer = 0f;
         float knockBackTimer = anim.GetCurrentAnimatorClipInfo(0).Length;
-        Vector2 knockBackDir = -trackDirection;
+        Vector2 knockBackDir = -trackDirection.normalized;
         while (timer < knockBackTimer)
         {
-            rigid.position = Vector3.Slerp(rigid.position, knockBackDir, knockbackForce * Time.deltaTime);
+            rigid.position = Vector3.Lerp(rigid.position, knockBackDir, knockbackForce * Time.deltaTime);
             timer += Time.deltaTime;
             yield return null;
         }
@@ -305,7 +292,7 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
                     break;
 
                 case MonsterCurrentState.TRACK:
-                    //Track();
+                    Track();
                     break;
 
                 case MonsterCurrentState.ATTACK:
@@ -357,7 +344,6 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
                 break;
             case MonsterCurrentState.DEAD:
                 Die();
-                currentSpeed = 0;
                 break;
             default:
                 break;

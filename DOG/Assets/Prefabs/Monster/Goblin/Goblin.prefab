@@ -176,7 +176,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 2137132271
+  m_SortingLayerID: 103106699
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 4723107735738678597, guid: c1cdd26cc09ad224884556bc4d8296ae, type: 3}
@@ -234,7 +234,7 @@ MonoBehaviour:
   attackPower: 5
   defence: 1
   detectCoolTime: 3
-  knockbackForce: 1.5
+  knockbackForce: 0.5
 --- !u!95 &1588527199
 Animator:
   serializedVersion: 4
