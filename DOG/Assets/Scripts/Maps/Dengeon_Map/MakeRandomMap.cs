@@ -23,6 +23,7 @@ public class MakeRandomMap : MonoBehaviour
     [SerializeField]
     private GameObject bossRoomChange;
 
+
     private HashSet<Vector2Int> floor;
     private HashSet<Vector2Int> wall;
 
@@ -42,6 +43,7 @@ public class MakeRandomMap : MonoBehaviour
         StartRandomMap();
         monsterSpawner.SpawnMonster();
     }
+
 
     public void StartRandomMap()
     {
@@ -63,7 +65,7 @@ public class MakeRandomMap : MonoBehaviour
 
         player.transform.position = (Vector2)divideSpace.spaceList[0].Center();
         bossRoomChange.transform.position = (Vector2)divideSpace.spaceList[divideSpace.spaceList.Count - 1].Center();
-        
+
     }
 
     /// <summary>

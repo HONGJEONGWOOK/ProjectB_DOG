@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 174966247}
   - component: {fileID: 174966246}
   - component: {fileID: 174966245}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5678916788029827255}
   - component: {fileID: 5989888898445940908}
-  m_Layer: 0
+  - component: {fileID: 3967854054924093701}
+  m_Layer: 7
   m_Name: BoosHitBox2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,6 +151,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2.3
+--- !u!114 &3967854054924093701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314277420846995282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97cd903f8b8ebf547adf94db184ecdfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2627110285992441365
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,9 +176,9 @@ GameObject:
   - component: {fileID: 8519038665304031293}
   - component: {fileID: 719502430}
   - component: {fileID: 719502435}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Boss
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -226,8 +239,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1460065127
-  m_SortingLayer: 3
+  m_SortingLayerID: -605048239
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -4795363162621231457, guid: 6d7cd4f7505dc674c891ca8946cfd98b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -252,6 +265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ee1a36130e1b1c43a05d0e55a4def98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  status: 0
   detectRange: 30
   healthPoint: 1000
   maxHealthPoint: 1000
@@ -262,9 +276,10 @@ MonoBehaviour:
   attackPower: 5
   defence: 1
   detectCoolTime: 1
+  knockbackForce: 1.5
   portalKey: {fileID: 6196022564622524987, guid: db68f15e95d8f0a4ea2fad415f87ea33, type: 3}
   longAttack_Range: 4
-  longRangeAttack_Prob: 0.3
+  longRangeAttack_Prob: 0.2
   fireballNum: 5
   meteorSpreadRange: 5
 --- !u!50 &719502430
@@ -318,7 +333,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6209586760975808473}
   - component: {fileID: 1395084989237983356}
-  m_Layer: 0
+  - component: {fileID: 7828516741987697602}
+  m_Layer: 7
   m_Name: BoosHitBox1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -356,6 +372,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1
+--- !u!114 &7828516741987697602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3828285753425861166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97cd903f8b8ebf547adf94db184ecdfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5394086182909011780
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,7 +396,7 @@ GameObject:
   - component: {fileID: 3719018062565069385}
   - component: {fileID: 2621349772223774222}
   - component: {fileID: 4294937560053363093}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Appear_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -504,8 +532,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40a1dc843b0fd4e42afe6e91d1c8326b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: Hello Boss
-  typingInterval: 0.5
+  text: "\uBCF4\uC2A4 \uB4F1\uC7A5 \uD14D\uC2A4\uD2B8\uB97C \uC785\uB825\uD558\uC138\uC694"
+  typingInterval: 0.2
 --- !u!1001 &1619956241
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -513,6 +541,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 174966244}
     m_Modifications:
+    - target: {fileID: 90885138, guid: bb7a954fe8d5a8c41860484a12d2f2d8, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 451900463736652206, guid: bb7a954fe8d5a8c41860484a12d2f2d8, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2379976210923981625, guid: bb7a954fe8d5a8c41860484a12d2f2d8, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -597,9 +633,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2653278251186413872, guid: bb7a954fe8d5a8c41860484a12d2f2d8, type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2743042670403119294, guid: bb7a954fe8d5a8c41860484a12d2f2d8, type: 3}
       propertyPath: m_Name
       value: HPBar_Boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 2743042670403119294, guid: bb7a954fe8d5a8c41860484a12d2f2d8, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7730267731659858990, guid: bb7a954fe8d5a8c41860484a12d2f2d8, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8473003229585950626, guid: bb7a954fe8d5a8c41860484a12d2f2d8, type: 3}
       propertyPath: m_AnchorMax.x
@@ -608,6 +656,14 @@ PrefabInstance:
     - target: {fileID: 8473003229585950626, guid: bb7a954fe8d5a8c41860484a12d2f2d8, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8750432364719773729, guid: bb7a954fe8d5a8c41860484a12d2f2d8, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8971858142865516636, guid: bb7a954fe8d5a8c41860484a12d2f2d8, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb7a954fe8d5a8c41860484a12d2f2d8, type: 3}

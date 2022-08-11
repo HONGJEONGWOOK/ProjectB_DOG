@@ -5,19 +5,39 @@ using UnityEngine;
 [RequireComponent(typeof(CircleCollider2D))]
 public class ExitPortalKey : MonoBehaviour
 {
-    public System.Action onKeyLoot;
+    ExitPortal portal;
 
-    private void Start()
+    [SerializeField] float camSpeed = 3.0f;
+
+    private void Awake()
     {
-        gameObject.SetActive(false);
+        portal = FindObjectOfType<ExitPortal>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            onKeyLoot.Invoke();
+            portal.ShowPortal();
+            //StartCoroutine(CamMove_Portal());
             Destroy(this.gameObject);
         }
     }
+
+    //IEnumerator CamMove_Portal()
+    //{
+    //    while ((portal.transform.position - Camera.main.transform.position).sqrMagnitude > 0.1f)
+    //    {
+    //        Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, portal.transform.position, camSpeed);
+
+    //        yield return null;
+    //    }
+    //    yield return new WaitForSeconds(1.0f);
+    //    while ((portal.transform.position - Camera.main.transform.position).sqrMagnitude > 0.1f)
+    //    {
+    //        Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, portal.transform.position, camSpeed);
+
+    //        yield return null;
+    //    }
+    //}
 }

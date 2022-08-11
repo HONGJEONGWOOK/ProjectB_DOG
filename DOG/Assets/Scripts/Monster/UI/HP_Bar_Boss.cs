@@ -26,7 +26,6 @@ public class HP_Bar_Boss : MonoBehaviour
 
         monster = transform.parent.parent.gameObject;
         target = monster.GetComponent<IHealth>();
-
     }
 
     private void LateUpdate()
@@ -63,19 +62,5 @@ public class HP_Bar_Boss : MonoBehaviour
             fillImg.color = Color.red;
         }
             slider.value = Mathf.Lerp(slider.value, ratio, lerpRate);
-    }
-
-    private void ShowHP()
-    {
-        this.gameObject.SetActive(true);
-    }
-    private void HideHP()
-    {
-        this.gameObject.SetActive(false);
-    }
-
-    void CheckStatus()
-    {
-
     }
 }
