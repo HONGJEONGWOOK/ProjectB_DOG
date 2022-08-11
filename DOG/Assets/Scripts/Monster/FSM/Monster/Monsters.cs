@@ -13,7 +13,7 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
     private bool isDead = false;
 
     [Header("Monster AI")]
-    protected MonsterCurrentState status = MonsterCurrentState.IDLE;
+    [SerializeField] protected MonsterCurrentState status = MonsterCurrentState.IDLE;
     protected Vector2 trackDirection = Vector2.zero;
     [SerializeField] protected float detectRange = 5.0f;
 
@@ -37,6 +37,7 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
     protected float attackTimer = 1.0f;
     protected float detectTimer = 0.0f;
     [SerializeField] protected float detectCoolTime = 1.0f;
+    [SerializeField] private float knockbackForce = 1.5f;
 
     public System.Action onHealthChange { get; set; }
 
@@ -253,6 +254,7 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
         if (HP > 0)
         {
             anim.SetTrigger("onHit");
+            StartCoroutine(KnockBack());
             currentSpeed = 0;
         }
         else
@@ -272,6 +274,20 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
         yield return new WaitForSeconds(anim.GetCurrentAnimatorClipInfo(0).Length + 2.0f);
         MonsterManager.Inst.ReturnPooledMonster(
             MonsterManager.PooledMonster[MonsterManager.Inst.GoblinID], this.gameObject);
+    }
+
+    protected virtual IEnumerator KnockBack()
+    {
+        float timer = 0f;
+        float knockBackTimer = anim.GetCurrentAnimatorClipInfo(0).Length;
+        Vector2 knockBackDir = -trackDirection;
+        while (timer < knockBackTimer)
+        {
+            rigid.MovePosition(rigid.position + knockbackForce * Time.deltaTime * knockBackDir);
+            timer += Time.deltaTime;
+            yield return null;
+        }
+        Debug.Log("coroutine end");
     }
 
     //########################## Monster Status Check ##################################
@@ -333,6 +349,7 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
             case MonsterCurrentState.PATROL:
                 break;
             case MonsterCurrentState.TRACK:
+                rigid.velocity = Vector2.zero;  //넉백 영향 초기화
                 currentSpeed = moveSpeed;
                 break;
             case MonsterCurrentState.ATTACK:

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1935523781236129376}
   - component: {fileID: 1013454837885420824}
   - component: {fileID: 6022732403860598593}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Treant
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -75,8 +75,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1460065127
-  m_SortingLayer: 3
+  m_SortingLayerID: -605048239
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 06a287cc97cb64df8a11af10f2352365, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -334,7 +334,7 @@ GameObject:
   - component: {fileID: 6023536156973152488}
   - component: {fileID: 2954035300825920222}
   - component: {fileID: 1980453771141864393}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -430,6 +430,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7644960068614785173}
     m_Modifications:
+    - target: {fileID: 416052992, guid: cead42f1c907ac84ca9c5d790efbbb42, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 451900463736652206, guid: cead42f1c907ac84ca9c5d790efbbb42, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2379976210923981625, guid: cead42f1c907ac84ca9c5d790efbbb42, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -518,6 +526,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HPBar
       objectReference: {fileID: 0}
+    - target: {fileID: 2743042670403119294, guid: cead42f1c907ac84ca9c5d790efbbb42, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8473003229585950626, guid: cead42f1c907ac84ca9c5d790efbbb42, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -525,6 +537,14 @@ PrefabInstance:
     - target: {fileID: 8473003229585950626, guid: cead42f1c907ac84ca9c5d790efbbb42, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8750432364719773729, guid: cead42f1c907ac84ca9c5d790efbbb42, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8971858142865516636, guid: cead42f1c907ac84ca9c5d790efbbb42, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cead42f1c907ac84ca9c5d790efbbb42, type: 3}
