@@ -14,8 +14,8 @@ public class GoblinTrigger : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            IBattle battle = collision.GetComponent<IBattle>();
-            battle.TakeDamage(AttackPower - battle.Defence) ;
+            IBattle target = collision.GetComponent<IBattle>();
+            target.TakeDamage(AttackPower) ;
         }
     }
 }

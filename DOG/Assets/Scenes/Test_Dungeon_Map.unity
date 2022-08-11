@@ -130,26 +130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1031658584, guid: 39d997744fefeb94c9671ec286eb40e6, type: 3}
-      propertyPath: orthographic size
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1651510060, guid: 39d997744fefeb94c9671ec286eb40e6, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1495316837161236788, guid: 39d997744fefeb94c9671ec286eb40e6, type: 3}
-      propertyPath: m_Simulated
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1495316837161236788, guid: 39d997744fefeb94c9671ec286eb40e6, type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1495316837161236789, guid: 39d997744fefeb94c9671ec286eb40e6, type: 3}
-      propertyPath: moveSpeed
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 1495316837161236791, guid: 39d997744fefeb94c9671ec286eb40e6, type: 3}
       propertyPath: m_RootOrder
       value: 5

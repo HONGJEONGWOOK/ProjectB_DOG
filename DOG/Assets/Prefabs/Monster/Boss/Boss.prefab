@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 174966247}
   - component: {fileID: 174966246}
   - component: {fileID: 174966245}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 5678916788029827255}
   - component: {fileID: 5989888898445940908}
   - component: {fileID: 3967854054924093701}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BoosHitBox2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 8519038665304031293}
   - component: {fileID: 719502430}
   - component: {fileID: 719502435}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -239,8 +239,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1460065127
-  m_SortingLayer: 3
+  m_SortingLayerID: -605048239
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -4795363162621231457, guid: 6d7cd4f7505dc674c891ca8946cfd98b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -265,6 +265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ee1a36130e1b1c43a05d0e55a4def98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  status: 0
   detectRange: 30
   healthPoint: 1000
   maxHealthPoint: 1000
@@ -275,6 +276,7 @@ MonoBehaviour:
   attackPower: 5
   defence: 1
   detectCoolTime: 1
+  knockbackForce: 1.5
   portalKey: {fileID: 6196022564622524987, guid: db68f15e95d8f0a4ea2fad415f87ea33, type: 3}
   longAttack_Range: 4
   longRangeAttack_Prob: 0.2
@@ -332,7 +334,7 @@ GameObject:
   - component: {fileID: 6209586760975808473}
   - component: {fileID: 1395084989237983356}
   - component: {fileID: 7828516741987697602}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BoosHitBox1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -394,7 +396,7 @@ GameObject:
   - component: {fileID: 3719018062565069385}
   - component: {fileID: 2621349772223774222}
   - component: {fileID: 4294937560053363093}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Appear_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -539,6 +541,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 174966244}
     m_Modifications:
+    - target: {fileID: 90885138, guid: bb7a954fe8d5a8c41860484a12d2f2d8, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 451900463736652206, guid: bb7a954fe8d5a8c41860484a12d2f2d8, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2379976210923981625, guid: bb7a954fe8d5a8c41860484a12d2f2d8, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -631,6 +641,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: HPBar_Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 2743042670403119294, guid: bb7a954fe8d5a8c41860484a12d2f2d8, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7730267731659858990, guid: bb7a954fe8d5a8c41860484a12d2f2d8, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8473003229585950626, guid: bb7a954fe8d5a8c41860484a12d2f2d8, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -638,6 +656,14 @@ PrefabInstance:
     - target: {fileID: 8473003229585950626, guid: bb7a954fe8d5a8c41860484a12d2f2d8, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8750432364719773729, guid: bb7a954fe8d5a8c41860484a12d2f2d8, type: 3}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8971858142865516636, guid: bb7a954fe8d5a8c41860484a12d2f2d8, type: 3}
+      propertyPath: m_Layer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb7a954fe8d5a8c41860484a12d2f2d8, type: 3}
