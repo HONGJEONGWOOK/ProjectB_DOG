@@ -283,11 +283,10 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
         Vector2 knockBackDir = -trackDirection;
         while (timer < knockBackTimer)
         {
-            rigid.MovePosition(rigid.position + knockbackForce * Time.deltaTime * knockBackDir);
+            rigid.position = Vector3.Slerp(rigid.position, knockBackDir, knockbackForce * Time.deltaTime);
             timer += Time.deltaTime;
             yield return null;
         }
-        Debug.Log("coroutine end");
     }
 
     //########################## Monster Status Check ##################################
