@@ -22,7 +22,7 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
     [SerializeField] private float maxHealthPoint = 100.0f;
     [SerializeField] protected int strength = 5;
     [SerializeField] protected float moveSpeed = 3.0f;
-    
+
     // ------------------------------------ TRACK ------------------------------------------
     protected float currentSpeed = 3.0f;
 
@@ -37,7 +37,8 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
     protected float attackTimer = 1.0f;
     protected float detectTimer = 0.0f;
     [SerializeField] protected float detectCoolTime = 1.0f;
-    [SerializeField] private float knockbackForce = 1.5f;
+    [Header("Hit")]
+    [SerializeField] private float knockbackForce = 0.5f;
 
     public System.Action onHealthChange { get; set; }
 
@@ -52,11 +53,11 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
     public float HP
     {
         get => healthPoint;
-        set 
-        { 
+        set
+        {
             healthPoint = Mathf.Clamp(value, 0f, maxHealthPoint);
             onHealthChange?.Invoke();
-        } 
+        }
     }
 
     public float MaxHP { get => maxHealthPoint; }
@@ -73,21 +74,6 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
         rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
-
-        //// 오브젝트 풀링된 몬스터를 불러와서 배치하면 문제 없지만, 따로 배치하는 경우를 대비
-        //// 오브젝트 풀링된 몬스터는 이름 뒤에 (clone)이 붙는다.
-        //if (this.gameObject.name.Contains("Goblin"))
-        //{
-        //    monsterID = MonsterManager.Inst.GoblinID;
-        //}
-        //else if (this.gameObject.name.Contains("Treant"))
-        //{
-        //    monsterID = MonsterManager.Inst.TreantID;
-        //}
-        //else
-        //{
-        //    monsterID = MonsterManager.Inst.BossID;
-        //}
     }
 
     private void FixedUpdate()
@@ -167,11 +153,9 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
 
     protected void Move_Monster(float speed)
     {
-        trackDirection = target.position - this.transform.position;
-        rigid.position = Vector2.MoveTowards(rigid.position,
-                        new Vector2(rigid.position.x, target.position.y),
-                        speed * Time.fixedDeltaTime
-                        );
+        trackDirection = (target.position - this.transform.position).normalized;
+        rigid.position = Vector2.MoveTowards(
+            rigid.position, new Vector2(rigid.position.x, target.position.y), speed * Time.fixedDeltaTime);
 
         if (IsAtSameHeight())
         {
@@ -263,12 +247,13 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
         }
     }
 
-    private void Die()
+    protected virtual void Die()
     {
         anim.SetTrigger("onDie");
+        currentSpeed = 0;
         StartCoroutine(DisableMonster());
     }
-    
+
     protected virtual IEnumerator DisableMonster()
     {
         yield return new WaitForSeconds(anim.GetCurrentAnimatorClipInfo(0).Length + 2.0f);
@@ -277,13 +262,13 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
     }
 
     protected virtual IEnumerator KnockBack()
-    {
+    { // 따라오는 방향의 반대방향으로 넉백
         float timer = 0f;
         float knockBackTimer = anim.GetCurrentAnimatorClipInfo(0).Length;
-        Vector2 knockBackDir = -trackDirection;
+        Vector2 knockBackDir = -trackDirection.normalized;
         while (timer < knockBackTimer)
         {
-            rigid.position = Vector3.Slerp(rigid.position, knockBackDir, knockbackForce * Time.deltaTime);
+            rigid.position = Vector3.Lerp(rigid.position, knockBackDir, knockbackForce * Time.deltaTime);
             timer += Time.deltaTime;
             yield return null;
         }
@@ -305,7 +290,7 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
                     break;
 
                 case MonsterCurrentState.TRACK:
-                    //Track();
+                    Track();
                     break;
 
                 case MonsterCurrentState.ATTACK:
@@ -313,7 +298,7 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
                     break;
 
                 case MonsterCurrentState.DEAD:
-                    
+
                     break;
             }
         }
@@ -357,7 +342,6 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
                 break;
             case MonsterCurrentState.DEAD:
                 Die();
-                currentSpeed = 0;
                 break;
             default:
                 break;

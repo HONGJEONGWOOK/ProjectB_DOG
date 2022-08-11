@@ -14618,10 +14618,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 301586822219551123, guid: 8b9d4cf7371a57741bf68a33dcabb1f4, type: 3}
-      propertyPath: cameraSpeed
-      value: 0.0522
-      objectReference: {fileID: 0}
     - target: {fileID: 1407438248898795596, guid: 8b9d4cf7371a57741bf68a33dcabb1f4, type: 3}
       propertyPath: m_RootOrder
       value: 4
