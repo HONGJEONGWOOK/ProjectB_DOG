@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     //public TalkManager talkManager;
     public Text talkText;
     public GameObject scanObject;
+    public Text questText;
 
     //퀘스트매니저
     private GameObject talkPanel;
@@ -16,6 +17,8 @@ public class GameManager : MonoBehaviour
     {
         get { return talkPanel; }
     }
+
+    // 맵 매니저-----------------------------------------------------------\
 
     // 플레이어 ----------------------------------------------------------
     Player_Hero player = null;
@@ -58,7 +61,6 @@ public class GameManager : MonoBehaviour
 
     private void OnStageStart(Scene arg0, LoadSceneMode arg1)
     {
-
         if (oldSceneIndex != arg0.buildIndex)
         {
             oldSceneIndex = arg0.buildIndex;
