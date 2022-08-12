@@ -152,7 +152,6 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
     }
 
     private void Move()

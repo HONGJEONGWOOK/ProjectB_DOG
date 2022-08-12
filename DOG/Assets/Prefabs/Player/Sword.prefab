@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3681346031322367830}
   - component: {fileID: 3681346031322367831}
   - component: {fileID: 469636477070840926}
+  - component: {fileID: 3758009709157906667}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
@@ -101,3 +102,15 @@ CapsuleCollider2D:
   m_Offset: {x: -0.26970163, y: 0.72213775}
   m_Size: {x: 0.26732397, y: 0.6558047}
   m_Direction: 0
+--- !u!114 &3758009709157906667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3681346031322367829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 281dfc224ee1387439345d99912986d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
