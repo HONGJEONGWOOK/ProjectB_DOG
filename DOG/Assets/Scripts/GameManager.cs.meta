@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: e9177eb913a9fe942b4465c172a743be
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - talkManager: {instanceID: 0}
+  - questManager: {instanceID: 0}
+  - talkPanel: {fileID: 1824681151275083690, guid: 696e737208a0fb947ba0b5df100366ce, type: 3}
+  - talkText: {fileID: 1689840585477268260, guid: ac08d1ed9b555974fac9ee40fa57274e, type: 3}
+  - scanObject: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
