@@ -5,14 +5,12 @@ using UnityEngine.InputSystem;
 
 public class Test_TakeDamage : MonoBehaviour
 {
-    [SerializeField] Boss monster = null;
-    IBattle target;
-
+    //Goblin monster = null;
+    Boss monster;
 
     private void Start()
     {
         monster = FindObjectOfType<Boss>();
-            //monster.GetComponent<IBattle>();
     }
     private void Update()
     {
