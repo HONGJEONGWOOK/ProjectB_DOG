@@ -57,7 +57,7 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     Animator anim;
     Rigidbody2D rigid = null;
     CapsuleCollider2D Collider;
-
+    bool isAction = false;
 
     public GameObject shootPrefab = null;
     public float moveSpeed = 5.0f;
@@ -82,6 +82,7 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
         actions.Player.Move.performed += OnMove;
         actions.Player.Move.canceled += OnMove;
         actions.Player.Attack.performed += OnAttack;
+        actions.Player.Talk.performed += OnTalk;
         actions.UI.Enable();
         actions.UI.Escape.performed += OnEscape;
     }
@@ -92,11 +93,13 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     {
         actions.UI.Escape.performed -= OnEscape;
         actions.UI.Disable();
+        actions.Player.Talk.performed -= OnTalk;
         actions.Player.Attack.performed -= OnAttack;
         actions.Player.Move.canceled -= OnMove;
         actions.Player.Move.performed -= OnMove;
         actions.Player.Disable();
     }
+
 
     public void Attack(IBattle target)
     {
@@ -139,7 +142,6 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     private void FixedUpdate()
     {
         Move();
-        SearchNpc();
     }
 
     // 체력 만들고
@@ -180,29 +182,23 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
 
     void SearchNpc()
     {
-        Vector3 dir = direction;
+        Collider2D[] col = Physics2D.OverlapCircleAll(transform.position, 1.5f, LayerMask.GetMask("Npc"));
 
-        Debug.DrawRay(rigid.position, dir * 1.5f, Color.red);
-        RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, dir, 1.5f, LayerMask.GetMask("Npc"));
-
-        if (rayHit.collider != null)
+        if (col.Length > 0)
         {
-            scanObject = rayHit.collider.gameObject;
+            scanObject = col[0].gameObject;
         }
         else
         {
-            scanObject = null;
+            Debug.Log("대상이 없습니다.");
         }
     }
 
     // 자기가 보고있는 방향으로 공격하기
     private void OnAttack(InputAction.CallbackContext context)
     {
-        Debug.Log("공격 및 말걸기");
-        
-
+        Debug.Log("공격");
         anim.SetTrigger("Attack");
-
     }
 
 
@@ -212,5 +208,68 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
         Debug.Log("메뉴");
     }
 
+    private void OnTalk(InputAction.CallbackContext obj)
+    {
+        SearchNpc();
 
+        if (scanObject != null)
+        {
+            AskAction(scanObject);
+
+        }
+        else
+        {
+            Debug.Log("대상이 없습니다.");
+        }
+    }
+
+    void AskAction(GameObject scanObj)
+    {
+        scanObject = scanObj;
+        ObjectData objData = scanObject.GetComponent<ObjectData>();
+        Talk(objData.id, objData.isNpc);
+
+        //대화창 온
+        GameManager.Inst.TalkPanel.SetActive(isAction);
+    }
+
+    void Talk(int id, bool isNpc)
+    {
+        isAction = false;
+
+        //QuestManager의 GetQuestTalkIndex의 파라미터에 전달할 questTalkIndex
+        //GetQuestTalkIndex는 questId 값을 리턴
+        int questTalkIndex = QuestManager.Instance.GetQuestTalkIndex(id);
+        
+        //questId를 
+        string talkData = GameManager.Inst.talkManager.GetTalk(id + questTalkIndex, QuestManager.Instance.TalkIndex);
+
+        //말할 때 못 움직이게
+        float sspeed = 5.0f;
+        float speed = 0;
+
+        if (isNpc)
+        {
+            GameManager.Inst.talkText.text = talkData;
+        }
+        else
+        {
+            GameManager.Inst.talkText.text = talkData;
+        }
+
+        //대화끝
+        if (talkData == null)
+        {
+            isAction = false;
+            QuestManager.Instance.TalkIndex = 0;
+            Debug.Log(QuestManager.Instance.CheckQuest(id));
+            moveSpeed = sspeed;
+
+            return;
+        }
+
+        isAction = true;
+        QuestManager.Instance.TalkIndex++;
+        moveSpeed = speed;
+    }
 }

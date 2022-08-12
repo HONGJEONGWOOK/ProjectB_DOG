@@ -20,7 +20,7 @@ public class Treant : MonoBehaviour, IHealth, IBattle
     private float detectTimer = 0.0f;
     private float detectCoolTime = 1.0f;
 
-    public bool isDead = false;
+    private bool isDead = false;
 
     [Header("몬스터 기본스탯")]
     [SerializeField] private float healthPoint = 100.0f;
@@ -34,6 +34,11 @@ public class Treant : MonoBehaviour, IHealth, IBattle
     private float attackTimer = 1.0f;
     [SerializeField] protected float attackPower = 5.0f;
     [SerializeField] protected float defence = 1.0f;
+
+    [Header("Hit")]
+    [SerializeField] private float knockbackForce = 0.5f;
+
+    private bool isMoving = false;
 
     // ------------------------------------ TARGET ------------------------------------------
     private GameObject target;
@@ -66,13 +71,22 @@ public class Treant : MonoBehaviour, IHealth, IBattle
         BowAnim = transform.GetChild(0).GetComponentInChildren<Animator>();
         rigid = GetComponent<Rigidbody2D>();
         weapon = transform.GetChild(0);
-        weaponSprite = weapon.GetComponentInChildren<SpriteRenderer>();   
+        weaponSprite = weapon.GetComponentInChildren<SpriteRenderer>();
     }
 
     private void FixedUpdate()
     {
+        if (isMoving)
+        {
+            Move_Monster();
+        }
+    }
+
+    private void Update()
+    {
         CheckStatus();
     }
+
 
     //################################## Method ########################################
     // -------------------------------  IDLE  ------------------------------------------
@@ -93,17 +107,13 @@ public class Treant : MonoBehaviour, IHealth, IBattle
             ChangeStatus(MonsterCurrentState.IDLE);
             return;
         }
-        else 
-        {
-            Move_Monster();
-            RotateWeapon();
 
-            if (InAttackRange())
-            {
-                Debug.Log("In attack range");
-                ChangeStatus(MonsterCurrentState.ATTACK);
-                return;
-            }
+        isMoving = true;
+        RotateWeapon();
+
+        if (InAttackRange())
+        {
+            ChangeStatus(MonsterCurrentState.ATTACK);
         }
     }
 
@@ -128,7 +138,7 @@ public class Treant : MonoBehaviour, IHealth, IBattle
 
     private void Move_Monster()
     {
-        trackDirection =  target.transform.position - transform.position;
+        trackDirection = target.transform.position - transform.position;
         anim.SetFloat("Direction_X", trackDirection.x);
         anim.SetFloat("Direction_Y", trackDirection.y);
 
@@ -138,7 +148,7 @@ public class Treant : MonoBehaviour, IHealth, IBattle
 
     void ShootArrow()
     {
-        GameObject arrow = 
+        GameObject arrow =
             EnemyBulletManager.Inst.GetPooledObject(EnemyBulletManager.PooledObjects[EnemyBulletManager.Inst.ArrowID]);
         arrow.transform.position = shootPosition.position;
         arrow.transform.rotation = weapon.transform.rotation;
@@ -186,7 +196,7 @@ public class Treant : MonoBehaviour, IHealth, IBattle
         if (HP > 0)
         {
             anim.SetTrigger("onHit");
-            //currentSpeed = 0;
+            StartCoroutine(KnockBack());
         }
         else
         {
@@ -195,7 +205,11 @@ public class Treant : MonoBehaviour, IHealth, IBattle
     }
     private void RotateWeapon()
     {
+        trackDirection = target.transform.position - transform.position;
         weapon.transform.right = trackDirection;
+
+        anim.SetFloat("Direction_X", trackDirection.x);
+        anim.SetFloat("Direction_Y", trackDirection.y);
 
         if (trackDirection.x < 0)
         {
@@ -207,8 +221,22 @@ public class Treant : MonoBehaviour, IHealth, IBattle
         }
     }
 
+    private IEnumerator KnockBack()
+    { // 따라오는 방향의 반대방향으로 넉백
+        float timer = 0f;
+        float knockBackTimer = anim.GetCurrentAnimatorClipInfo(0).Length;
+        Vector2 knockBackDir = -trackDirection.normalized;
+        while (timer < knockBackTimer)
+        {
+            rigid.position = Vector3.Lerp(rigid.position, knockBackDir, knockbackForce * Time.deltaTime);
+            timer += Time.deltaTime;
+            yield return null;
+        }
+        yield return null;
+    }
+
     //########################## Monster Status Check ##################################
-    void CheckStatus()
+    private void CheckStatus()
     { // Status Check in Update
         if (!isDead)
         {
@@ -235,7 +263,7 @@ public class Treant : MonoBehaviour, IHealth, IBattle
         }
     }
 
-     void ChangeStatus(MonsterCurrentState newState)
+    void ChangeStatus(MonsterCurrentState newState)
     {
         // On Status Exit
         switch (status)
@@ -245,6 +273,7 @@ public class Treant : MonoBehaviour, IHealth, IBattle
             case MonsterCurrentState.PATROL:
                 break;
             case MonsterCurrentState.TRACK:
+                isMoving = false;
                 break;
             case MonsterCurrentState.ATTACK:
                 break;
@@ -259,6 +288,7 @@ public class Treant : MonoBehaviour, IHealth, IBattle
         {
             case MonsterCurrentState.IDLE:
                 trackDirection = Vector2.zero;
+                anim.SetFloat("Speed", 0f);
                 break;
             case MonsterCurrentState.PATROL:
                 break;
@@ -292,6 +322,4 @@ public class Treant : MonoBehaviour, IHealth, IBattle
         Handles.color = Color.white;
         Handles.DrawWireDisc(transform.position, transform.forward, attackRange);
     }
-
-
 }
