@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    //public TalkManager talkManager;
+    public TalkManager talkManager;
     public Text talkText;
     public GameObject scanObject;
     public Text questText;
@@ -54,8 +54,8 @@ public class GameManager : MonoBehaviour
         player = FindObjectOfType<Player_Hero>();
 
         // --------------- NPC
-        //talkPanel = GameObject.Find("talkPanel");
-        //talkPanel.SetActive(false);
+        talkPanel = GameObject.Find("talkPanel");
+        talkPanel.SetActive(false);
         SceneManager.sceneLoaded += OnStageStart;   // 씬의 로딩이 끝났을 때 실행될 델리게이트에 OnStageStart 등록
     }
 
