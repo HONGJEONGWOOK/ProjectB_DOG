@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class Test_Inven : MonoBehaviour
 {
-    // Start is called before the first frame update
+    ItemInventory_UI invenUI;
+
+    private void Awake()
+    {
+        invenUI = FindObjectOfType<ItemInventory_UI>();
+    }
+
     void Start()
     {
         Inventory inven = new Inventory();
+        invenUI.InitializeInven(inven);
 
         inven.AddItem(ItemID.HPPotion);
         inven.AddItem(ItemID.ManaPotion);
@@ -17,8 +24,6 @@ public class Test_Inven : MonoBehaviour
         inven.AddItem(ItemID.HPPotion);
         inven.RemoveItem(0);
 
-
         inven.TestInventory();
-        inven.InitializeInven();
     }
 }

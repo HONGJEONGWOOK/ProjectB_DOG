@@ -8,7 +8,20 @@ public class ItemSlot
 
     // ############### Property
     public ItemData SlotData => data;
-    
+
+    // ############### Delegate
+    public System.Action OnItemUpdate;
+
+    public uint Count
+    {
+        get => data.count;
+        set
+        {
+            data.count = value;
+            OnItemUpdate?.Invoke();
+        }
+    }
+
     public void AssignItem(ItemData itemData, uint num = 1)
     {
         data = itemData;

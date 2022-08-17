@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 1_ManaPotion
   m_EditorClassIdentifier: 
   id: 1
-  itemName: "\uC0C8\uB85C\uC6B4 \uC544\uC774\uD15C"
+  itemName: "\uB9C8\uB098 \uD3EC\uC158"
   count: 0
   maxCount: 5
-  prefab: {fileID: 0}
-  icon: {fileID: 0}
+  prefab: {fileID: 4830926391000403604, guid: 2d91096f872715e4f86c6f6308558751, type: 3}
+  icon: {fileID: 1715692095, guid: ba00d2cc9cfe3aa4dbabe584112b29a8, type: 3}

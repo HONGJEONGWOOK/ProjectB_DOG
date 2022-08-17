@@ -10,6 +10,6 @@ public class ItemData : ScriptableObject
     [SerializeField] public uint count = 0;
     [SerializeField] public uint maxCount = 5;
 
-    [SerializeField] GameObject prefab;
-    [SerializeField] Sprite icon;
+    [SerializeField] public GameObject prefab;
+    [SerializeField] public Sprite icon;
 }

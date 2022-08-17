@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 0_HPPotion
   m_EditorClassIdentifier: 
   id: 0
-  itemName: "\uC0C8\uB85C\uC6B4 \uC544\uC774\uD15C"
+  itemName: "HP \uD3EC\uC158"
   count: 0
   maxCount: 5
-  prefab: {fileID: 0}
-  icon: {fileID: 0}
+  prefab: {fileID: 6011492927048003865, guid: e2960dc3ba15cf24d998b5cd0cef7048, type: 3}
+  icon: {fileID: -673633843, guid: ba00d2cc9cfe3aa4dbabe584112b29a8, type: 3}

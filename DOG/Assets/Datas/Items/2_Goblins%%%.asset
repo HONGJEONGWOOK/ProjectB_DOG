@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 2_Goblins%%%
   m_EditorClassIdentifier: 
   id: 2
-  itemName: "\uC0C8\uB85C\uC6B4 \uC544\uC774\uD15C"
+  itemName: "\uACE0\uBE14\uB9B0\uC758 \uACE0\uAE30"
   count: 0
   maxCount: 5
-  prefab: {fileID: 0}
-  icon: {fileID: 0}
+  prefab: {fileID: 5181254154649625278, guid: 59153959ed6e6944ba5bdaf51e8fe19d, type: 3}
+  icon: {fileID: 726074617, guid: ba00d2cc9cfe3aa4dbabe584112b29a8, type: 3}

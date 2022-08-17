@@ -9,6 +9,7 @@ public class Inventory
     public ItemSlot this[int index] { get => slots[index]; }
 
     public const uint DEFAULT_SIZE = 6;
+    public int SlotCount => slots.Length;
 
     // Inventory 생성자 
     public Inventory(uint size = DEFAULT_SIZE)
@@ -20,16 +21,6 @@ public class Inventory
         }
     }
 
-    public void InitializeInven()
-    {
-        foreach (ItemSlot slot in slots)
-        {
-            if (slot.SlotData != null)
-                slot.SlotData.count = 0;
-        }
-    }
-
-
     // ########## Inventory 함수
     public void AddItem(ItemData data)
     {
@@ -38,7 +29,7 @@ public class Inventory
         slot = FindSameSlot(data);
         if (slot != null)
         {// 같은 아이템이 있음.
-            if( slot.SlotData.count < slot.SlotData.maxCount)
+            if( slot.Count < slot.SlotData.maxCount)
             slot.IncreaseItem();
             return;
         }
@@ -63,7 +54,7 @@ public class Inventory
     public void RemoveItem(uint slotIndex, uint num = 1)
     {
         if (slotIndex < slots.Length)
-            slots[slotIndex].SlotData.count -= num;
+            slots[slotIndex].Count -= num;
     }
 
 
@@ -88,7 +79,7 @@ public class Inventory
 
         foreach (ItemSlot slot in slots)
         {
-            if (slot.SlotData == data && slot.SlotData.count < slot.SlotData.maxCount)
+            if (slot.SlotData == data && slot.Count < slot.SlotData.maxCount)
             {// 중복되는 아이템이 있다.
                 sameSlot = slot;
                 break;
@@ -102,7 +93,13 @@ public class Inventory
         for (int i = 0; i < slots.Length; i++)
         {
             if (slots[i].SlotData != null)
-                Debug.Log($"{(i)}번 슬롯 : {slots[i].SlotData.count} 개");
+                Debug.Log($"{(i)}번 슬롯 : {slots[i].Count} 개");
+        }
+
+        foreach (ItemSlot slot in slots)
+        {
+            if (slot.SlotData != null)
+                slot.Count = 0;
         }
     }
 }
