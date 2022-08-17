@@ -4,14 +4,28 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Weapon Data", menuName = "Scriptable Object/Item Data", order = 1)]
 
-// ¹«±âÀÇ Á¤º¸
+// ë¬´ê¸°ì˜ ì •ë³´
 public class WeaponData : ScriptableObject
 {
-    public uint id = 0;
-    public WeaponType type;
-    public Sprite itemIcon;
+    public string weaponName;
+    //public uint id = 0;
+    public WeaponType type; // 0ì´ sword 1ì´ dagger 2ê°€ bow
+    //public uint weaponType = 0;  
+    public Sprite weaponSprite;
     public GameObject prefab;
-    public int strength;
-    public int dexterity;
-    public int accuracy;
+    //public int strength;
+    //public int dexterity;
+    //public int accuracy;
+    public float attackPower = 0.0f;
+    public float defencePower = 0.0f;
+    public float criticalRate = 0.0f;
 }
+
+
+public enum WeaponType            // ë¬´ê¸° ì¢…ë¥˜ enum
+{
+    Sword = 0,
+    Dagger = 1,
+    Bow = 2
+}
+
