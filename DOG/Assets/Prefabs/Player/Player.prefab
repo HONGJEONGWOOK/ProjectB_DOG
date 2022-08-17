@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1031658582}
   - component: {fileID: 1031658584}
   - component: {fileID: 1031658583}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Main Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 1495316837161236789}
   - component: {fileID: 1495316837161236788}
   - component: {fileID: 1651510060}
+  - component: {fileID: 234903855}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -160,8 +161,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -966611919
-  m_SortingLayer: 0
+  m_SortingLayerID: -1893012387
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0f39a9205e4394ee1b6ba8269428d176, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -250,6 +251,22 @@ CapsuleCollider2D:
   m_Offset: {x: -0.0059886575, y: -0.16768122}
   m_Size: {x: 0.67775476, y: 1.0011396}
   m_Direction: 0
+--- !u!58 &234903855
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495316837161236809}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.8
 --- !u!1001 &7713318261094868532
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -303,7 +320,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1122585138099156497, guid: e3051fe05d8012844a6081c14dc55317, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1122585138099156497, guid: e3051fe05d8012844a6081c14dc55317, type: 3}
       propertyPath: m_TagString
@@ -323,7 +340,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2667077963971904544, guid: e3051fe05d8012844a6081c14dc55317, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2667077963971904544, guid: e3051fe05d8012844a6081c14dc55317, type: 3}
       propertyPath: m_IsActive

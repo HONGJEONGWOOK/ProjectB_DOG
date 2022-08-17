@@ -32,15 +32,16 @@ public class Weapons : MonoBehaviour
     }
     // 무기별 스킬 개수는 3개
 
-
-
     private void Awake()
     {
         weaponChange = new();   // 무기전환용 인풋
         anim = GetComponent<Animator>();
-        weaponParent = GameManager.Inst.MainPlayer.transform.GetChild(1);
     }
 
+    private void Start()
+    {
+        weaponParent = GameManager.Inst.MainPlayer.transform.GetChild(1);
+    }
 
     private void OnEnable()
     {

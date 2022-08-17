@@ -9,7 +9,6 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
     protected SpriteRenderer sprite;
 
     // #################################### VARIABLES #####################################
-    private int monsterID = -1;
     private bool isDead = false;
 
     [Header("Monster AI")]
@@ -290,7 +289,7 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
                     break;
 
                 case MonsterCurrentState.TRACK:
-                    Track();
+                    // Fixed Update로 이동
                     break;
 
                 case MonsterCurrentState.ATTACK:
@@ -298,7 +297,6 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
                     break;
 
                 case MonsterCurrentState.DEAD:
-
                     break;
             }
         }
