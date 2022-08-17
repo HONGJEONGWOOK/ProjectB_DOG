@@ -46,4 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossPosition: {fileID: 9153068026475056718, guid: 4271485f3dc449846ace5c76cdba22d1, type: 3}
   playerPosition: {fileID: 463776540630646840, guid: 4b38ed7f07c0bfe4a953b0e436896f29, type: 3}
-  cameraSpeed: 0.0184
+  cameraSpeed: 0.0068

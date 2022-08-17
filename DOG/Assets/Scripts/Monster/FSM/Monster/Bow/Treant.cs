@@ -138,7 +138,7 @@ public class Treant : MonoBehaviour, IHealth, IBattle
 
     private void Move_Monster()
     {
-        trackDirection = target.transform.position - transform.position;
+        trackDirection =  target.transform.position - transform.position;
         anim.SetFloat("Direction_X", trackDirection.x);
         anim.SetFloat("Direction_Y", trackDirection.y);
 
@@ -148,7 +148,7 @@ public class Treant : MonoBehaviour, IHealth, IBattle
 
     void ShootArrow()
     {
-        GameObject arrow =
+        GameObject arrow = 
             EnemyBulletManager.Inst.GetPooledObject(EnemyBulletManager.PooledObjects[EnemyBulletManager.Inst.ArrowID]);
         arrow.transform.position = shootPosition.position;
         arrow.transform.rotation = weapon.transform.rotation;
@@ -222,7 +222,7 @@ public class Treant : MonoBehaviour, IHealth, IBattle
     }
 
     private IEnumerator KnockBack()
-    { // 따라오는 방향의 반대방향으로 넉백
+    {
         float timer = 0f;
         float knockBackTimer = anim.GetCurrentAnimatorClipInfo(0).Length;
         Vector2 knockBackDir = -trackDirection.normalized;
@@ -263,7 +263,7 @@ public class Treant : MonoBehaviour, IHealth, IBattle
         }
     }
 
-    void ChangeStatus(MonsterCurrentState newState)
+     void ChangeStatus(MonsterCurrentState newState)
     {
         // On Status Exit
         switch (status)

@@ -22,7 +22,7 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
     [SerializeField] private float maxHealthPoint = 100.0f;
     [SerializeField] protected int strength = 5;
     [SerializeField] protected float moveSpeed = 3.0f;
-
+    
     // ------------------------------------ TRACK ------------------------------------------
     protected float currentSpeed = 3.0f;
 
@@ -53,11 +53,11 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
     public float HP
     {
         get => healthPoint;
-        set
-        {
+        set 
+        { 
             healthPoint = Mathf.Clamp(value, 0f, maxHealthPoint);
             onHealthChange?.Invoke();
-        }
+        } 
     }
 
     public float MaxHP { get => maxHealthPoint; }
@@ -153,9 +153,11 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
 
     protected void Move_Monster(float speed)
     {
-        trackDirection = (target.position - this.transform.position).normalized;
-        rigid.position = Vector2.MoveTowards(
-            rigid.position, new Vector2(rigid.position.x, target.position.y), speed * Time.fixedDeltaTime);
+        trackDirection = target.position - this.transform.position;
+        rigid.position = Vector2.MoveTowards(rigid.position,
+                        new Vector2(rigid.position.x, target.position.y),
+                        speed * Time.fixedDeltaTime
+                        );
 
         if (IsAtSameHeight())
         {
@@ -253,7 +255,7 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
         currentSpeed = 0;
         StartCoroutine(DisableMonster());
     }
-
+    
     protected virtual IEnumerator DisableMonster()
     {
         yield return new WaitForSeconds(anim.GetCurrentAnimatorClipInfo(0).Length + 2.0f);
@@ -262,7 +264,7 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
     }
 
     protected virtual IEnumerator KnockBack()
-    { // 따라오는 방향의 반대방향으로 넉백
+    {
         float timer = 0f;
         float knockBackTimer = anim.GetCurrentAnimatorClipInfo(0).Length;
         Vector2 knockBackDir = -trackDirection.normalized;
@@ -298,7 +300,7 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
                     break;
 
                 case MonsterCurrentState.DEAD:
-
+                    
                     break;
             }
         }

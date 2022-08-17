@@ -145,14 +145,15 @@ MonoBehaviour:
   shootPosition: {fileID: 9181820295667796300}
   status: 0
   detectRange: 6
+  isDead: 0
   healthPoint: 100
   strength: 5
   moveSpeed: 3
-  attackRange: 4
+  attackRange: 5
   attackCoolTime: 3
   attackPower: 5
   defence: 1
-  knockbackForce: 0.5
+  knockbackForce: 0.2
 --- !u!1 &2172451679000632993
 GameObject:
   m_ObjectHideFlags: 0
