@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1694578312244257442}
   - component: {fileID: 6008151906552332100}
+  - component: {fileID: 1876037011}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -47,3 +48,19 @@ MonoBehaviour:
   talkManager: {fileID: 0}
   talkText: {fileID: 1689840585477268260, guid: ac08d1ed9b555974fac9ee40fa57274e, type: 3}
   scanObject: {fileID: 0}
+--- !u!114 &1876037011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3250170638605783155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 189284125e2d8ae468eefcd278425ad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponDatas:
+  - {fileID: 11400000, guid: 669d7213af662824fb20b33d94c32c71, type: 2}
+  - {fileID: 11400000, guid: 699696ab0fb839d419938067e46d0957, type: 2}
+  - {fileID: 11400000, guid: 7460c081871d0774ab8ee57b59d13120, type: 2}
