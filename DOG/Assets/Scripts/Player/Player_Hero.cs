@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEditor;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
-
+using UnityEngine.EventSystems;
 
 
 public class Player_Hero : MonoBehaviour, IHealth,IBattle

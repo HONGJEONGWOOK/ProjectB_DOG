@@ -15,15 +15,11 @@ public class QuestPanel : MonoBehaviour
         qeustDetail = transform.Find("QuestDetail").GetComponent<TextMeshProUGUI>();
     }
 
-    void Close()
+    private void Start()
     {
         gameObject.SetActive(false);
     }
 
-    void Open()
-    {
-        gameObject.SetActive(true);
-    }
     void Update()
     {
         Panel();

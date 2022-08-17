@@ -164,7 +164,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Panel Black
+      name: QuestPanel
       rect:
         serializedVersion: 2
         x: 33
@@ -346,8 +346,8 @@ TextureImporter:
       Talk Cursor: -4296635770777405670
       Panel White: -4827201375843143100
       Button Left: 6342293345636278915
+      QuestPanel: 4229574389047005653
       Button Down: -1582703761720647702
-      Panel Black: 4229574389047005653
       Button Back: 3420474935965269878
       Button Up: 8117750489508839553
       Button Right: -8667803144176668281
