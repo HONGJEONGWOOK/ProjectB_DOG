@@ -4,9 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Monster
-  - Undefined
-  - WeaponSlot
+  - Rock
+  - Box
   layers:
   - Default
   - TransparentFX
@@ -14,10 +13,10 @@ TagManager:
   - 
   - Water
   - UI
+  - Background
   - Player
-  - Monster
-  - EnemyProjectile
-  - Npc
+  - 
+  - 
   - 
   - 
   - 
@@ -41,15 +40,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 2045955233
+    locked: 0
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: BackGround
-    uniqueID: 3534896115
-    locked: 0
-  - name: Monster
-    uniqueID: 103106699
-    locked: 0
-  - name: Player
-    uniqueID: 2401954909
     locked: 0
