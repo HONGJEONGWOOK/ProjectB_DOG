@@ -29,7 +29,7 @@ public class InventoryUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         // 클릭시 장착
 
-        weapons.EquipWeapon();
+        //weapons.EquipWeapon();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
