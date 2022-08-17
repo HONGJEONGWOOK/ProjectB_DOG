@@ -52,7 +52,7 @@ public partial class @WCActions : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""positive"",
                     ""id"": ""7ca6b4ca-439e-4e6f-b99e-23971d3c3d06"",
-                    ""path"": ""<Keyboard>/s"",
+                    ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
@@ -63,7 +63,7 @@ public partial class @WCActions : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""negative"",
                     ""id"": ""836fcc81-3896-4f73-a17a-9abf2bd9c782"",
-                    ""path"": ""<Keyboard>/w"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",

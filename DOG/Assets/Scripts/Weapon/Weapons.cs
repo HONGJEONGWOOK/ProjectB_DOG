@@ -16,13 +16,7 @@ public class Weapons : MonoBehaviour
     int weaponOrder = 0;
     int rotate = 0;     // 무기칸 회전 값
 
-    
-
-
-    //public GameObject weaponSlots;
-    //public GameObject equipIcon;
-    //bool equip;   // 장비 완전 해제 가능하면 필요. 현재로썬 필요없음
-
+    Transform weaponParent;
     WeaponData playerWeaponData;
 
     public WeaponData PlayerWeaponData          // 플레이어 무기데이터를 받아와서 설정
@@ -36,11 +30,6 @@ public class Weapons : MonoBehaviour
             }
         }
     }
-
-
-    Player_Hero player;
-
-
     // 무기별 스킬 개수는 3개
 
 
@@ -49,16 +38,8 @@ public class Weapons : MonoBehaviour
     {
         weaponChange = new();   // 무기전환용 인풋
         anim = GetComponent<Animator>();
-
-        
+        weaponParent = GameManager.Inst.MainPlayer.transform.GetChild(1);
     }
-
-    private void Start()
-    {
-        //equipIcon = GameObject.Find("EquipIcon");
-        //equipIcon.SetActive(false);
-    }
-
 
 
     private void OnEnable()
@@ -93,7 +74,6 @@ public class Weapons : MonoBehaviour
             anim.SetTrigger("Clockwise");
             //Debug.Log($"{weaponType}");
             //Debug.Log("clockroate");
-
         }
 
         if(rotate==-1)  // 반시계 방향 회전
@@ -113,43 +93,37 @@ public class Weapons : MonoBehaviour
             //Debug.Log("counterclockroate");
         }
 
-
         // WeaponSlots에서 SlotExtansion 찾아와 실행하기.
         //weaponSlots.GetComponent<WeaponSlots>().SlotExtansion(weaponType);    소지 무기 전부 펼치기. 현재 구현 중지
 
         //ActiveWeapon(weaponType);
         //Debug.Log($"{weaponOrder}");
-        IntToWeaponData((uint)weaponOrder);
 
+        // 해제
+        GameObject currentWeapon = weaponParent.GetChild(0).gameObject;
+        Destroy(currentWeapon);
+
+        // 장착
+        AssignWeapon((uint)weaponOrder);
     }
+
     public void AssignWeapon(WeaponData weaponData)
     {
         PlayerWeaponData = weaponData;
     }
 
-
-    public void IntToWeaponData(uint weaponOrder)        // 변경되어 인풋에서 나온 무기순서 (WeaponType클래스)
+    public void AssignWeapon(uint id)
     {
-        WeaponType type = (WeaponType)weaponOrder;
-            //    GameObject weapon =transform.GetChild(1).gameObject;
-    //    GameObject obj = Instantiate(weapons.PlayerWeaponData.prefab, weapon.transform);
-        //GetComponent<Sword>
-
-
-
-        GameObject obj = new();
+        AssignWeapon(GameManager.Inst.WeaponData[id]);
+        GameObject obj = Instantiate(PlayerWeaponData.prefab, weaponParent);
         Weapon_Item weapon = obj.AddComponent<Weapon_Item>();
-        weapon.data = GameManager.Inst.WeaponData[(WeaponType)type];
-        AssignWeapon(weapon.data);
-
-
-
-        GameObject weaponObject = GameObject.Find("Player"). transform.GetChild(1).gameObject;
-        Instantiate(PlayerWeaponData.prefab, weaponObject.transform);
-
-
+        weapon.data = GameManager.Inst.WeaponData[(WeaponType)id];
     }
 
+    //public void IntToWeaponData(uint weaponOrder)        // 변경되어 인풋에서 나온 무기순서 (WeaponType클래스)
+    //{
+    //    AssignWeapon(weapon.data);
+    //}
 }
 
 
