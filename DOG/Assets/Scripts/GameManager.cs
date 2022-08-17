@@ -27,6 +27,10 @@ public class GameManager : MonoBehaviour
     // 맵 매니저----------------------------------------------------------
     int oldSceneIndex = 0;
 
+    // 웨폰 매니저--------------------------------------------------
+    WeaponDataManager weaponData;
+    public WeaponDataManager WeaponData { get => weaponData; }
+
     public static GameManager Inst { get => instance;}
     static GameManager instance = null;
 
@@ -56,6 +60,10 @@ public class GameManager : MonoBehaviour
         // --------------- NPC
         talkPanel = GameObject.Find("talkPanel");
         talkPanel.SetActive(false);
+
+        //---------------- 무기
+        weaponData = GetComponent<WeaponDataManager>();
+
         SceneManager.sceneLoaded += OnStageStart;   // 씬의 로딩이 끝났을 때 실행될 델리게이트에 OnStageStart 등록
     }
 
