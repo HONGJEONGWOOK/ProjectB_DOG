@@ -118,7 +118,7 @@ public class QuestManager : MonoBehaviour
         switch(questId)
         {
             case 40:
-                if(questActionIndex == 1)
+                if(questActionIndex == 0)
                 {
                     questObject[0].SetActive(false);
                 }

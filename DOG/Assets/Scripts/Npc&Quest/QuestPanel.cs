@@ -47,13 +47,13 @@ public class QuestPanel : MonoBehaviour
         }
         else if (id == 20 && index == 1)
         {
-            qeustName.text = "고블린이 원인?";
-            qeustDetail.text = "재앙의 원인은 최근 늘어난 몬스터들일까? 주민의 의견도 물어보자.";
+            qeustName.text = "누가 진실을 말하는 것일까";
+            qeustDetail.text = "생존 주민이 말한데로 장로는 나에게 정체모를 액체를 주었다. 주민에게 다시 가보자";
 
         }
         else if (id == 30 && index == 0)
         {
-            qeustName.text = "고블린 5마리 처치!";
+            qeustName.text = "장로가 말해준 장소를 순찰하며 고블린을 처치하자";
             qeustDetail.text = $"고블린 킬수 : {QuestManager.Instance.GoblinQuestCount}";
             if (QuestManager.Instance.GoblinQuestCount >= 5)
             {
@@ -64,8 +64,8 @@ public class QuestPanel : MonoBehaviour
         }
         else if (id == 40 && index == 0)
         {
-            qeustName.text = "고블린 5마리 처치 완료";
-            qeustDetail.text = "고블린 5마리를 처치했다. 장로에게 말하러 가자.";
+            qeustName.text = "순찰 완료";
+            qeustDetail.text = "고블린도 적당히 처치하며 순찰했으나 별다른 원인이 안 보인다. 다시 장로에게 돌아가보자";
         }
 
     }
