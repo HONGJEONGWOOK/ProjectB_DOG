@@ -6,26 +6,35 @@ public class ItemSlot
 {
     ItemData data;
 
-    // ############### Property
-    public ItemData SlotData => data;
-
+    uint count = 0;
     // ############### Delegate
     public System.Action OnItemUpdate;
 
-    public uint Count
+    // ############### Property
+    public ItemData SlotData
     {
-        get => data.count;
+        get => data;
         set
         {
-            data.count = value;
+            data = value;
+            OnItemUpdate?.Invoke();
+        }
+    }
+
+    public uint Count
+    {
+        get => count;
+        set
+        {
+            count = value;
             OnItemUpdate?.Invoke();
         }
     }
 
     public void AssignItem(ItemData itemData, uint num = 1)
     {
-        data = itemData;
-        data.count += num;
+        SlotData = itemData;
+        Count += num;
         Debug.Log($"아이템 추가 : {data.name}");
     }
 
@@ -37,6 +46,6 @@ public class ItemSlot
 
     public void IncreaseItem(uint num = 1)
     {
-        data.count += num;
+        Count += num;
     }
 }

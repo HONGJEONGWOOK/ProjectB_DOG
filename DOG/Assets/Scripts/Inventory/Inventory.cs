@@ -5,11 +5,18 @@ using UnityEngine;
 public class Inventory
 {
     ItemSlot[] slots;
+    ItemSlot movingSlot;
+    ItemSlot oldSlot;
+
     // Slot 인덱서
     public ItemSlot this[int index] { get => slots[index]; }
+    public ItemSlot MovingSlot => movingSlot;
+    public ItemSlot OldSlot => oldSlot;
 
     public const uint DEFAULT_SIZE = 6;
     public int SlotCount => slots.Length;
+
+    public const uint MOVINGSLOT_ID = 100;
 
     // Inventory 생성자 
     public Inventory(uint size = DEFAULT_SIZE)
@@ -19,9 +26,11 @@ public class Inventory
         {
             slots[i] = new ItemSlot();
         }
+        movingSlot = new ItemSlot();
+        oldSlot = new();
     }
 
-    // ########## Inventory 함수
+    // ####################### Inventory 함수 ############################
     public void AddItem(ItemData data)
     {
         ItemSlot slot;
@@ -50,11 +59,107 @@ public class Inventory
         AddItem(GameManager.Inst.ItemData[id]);
     }
 
+    public void AddItem(uint index)
+    {
+        ItemSlot slot = slots[index];
+
+        slot.AssignItem(slot.SlotData);
+    }
+
+    public void AddItem(ItemID id, uint index)
+    {
+        ItemSlot slot = slots[index];
+
+        slot.AssignItem(GameManager.Inst.ItemData[id]);
+    }
+
 
     public void RemoveItem(uint slotIndex, uint num = 1)
     {
         if (slotIndex < slots.Length)
             slots[slotIndex].Count -= num;
+    }
+
+    public void MoveItem(uint current, uint destination)
+    {
+        ItemSlot currentSlot;
+        ItemSlot destinationSlot;
+
+        if (current == MOVINGSLOT_ID)
+        {
+            currentSlot = movingSlot;
+        }
+        else
+        {
+            currentSlot = slots[current];
+        }
+
+        if (destination == MOVINGSLOT_ID)
+        {
+            destinationSlot = movingSlot;
+        }
+        else
+        {
+            destinationSlot = slots[destination];
+        }
+
+        if (currentSlot.SlotData == destinationSlot.SlotData)
+        {// 같은 아이템
+            if (currentSlot.Count + destinationSlot.Count < destinationSlot.SlotData.maxCount + 1)
+            {// 넘치지 않을 때 (Merge)
+                destinationSlot.Count += currentSlot.Count;
+                currentSlot.SlotData = null;
+
+                Debug.Log($"{current}를 {destination}으로 옮깁니다.");
+            }
+            else
+            {// 넘칠 때
+                uint remainder = currentSlot.Count + destinationSlot.Count - destinationSlot.SlotData.maxCount;
+                destinationSlot.Count = destinationSlot.SlotData.maxCount;
+                movingSlot.Count = remainder;
+                Debug.Log($"{remainder}개가 넘쳤습니다.");
+            }
+        }
+        else
+        {// 다른 아이템
+            ItemSlot tempSlot;
+            tempSlot = destinationSlot;
+
+            destinationSlot.SlotData = currentSlot.SlotData;
+            destinationSlot.Count = currentSlot.Count;
+
+            currentSlot.SlotData = tempSlot.SlotData;
+            currentSlot.Count = tempSlot.Count;
+
+            tempSlot = null;
+            Debug.Log($"{current}를 {destination}으로 옮깁니다.");
+        }
+    }
+
+    //public void MoveToMovingSlot(uint current)
+    //{
+    //    movingSlot.SlotData = slots[current].SlotData;
+    //    movingSlot.Count = slots[current].Count;
+    //    slots[current].SlotData = null;
+    //}
+
+    //public void MovingSlotToSlot(uint destination)
+    //{
+    //    slots[destination].SlotData = MovingSlot.SlotData;
+    //    slots[destination].Count = movingSlot.Count;
+    //    MovingSlot.SlotData = null;
+    //}
+    public void MoveToOldSlot(uint current)
+    {
+        oldSlot.AssignItem(slots[current].SlotData, slots[current].Count);
+    }
+
+    public void ReturnOldSlot(uint returningSlot)
+    {
+        slots[returningSlot].Count = 0;
+        slots[returningSlot].AssignItem(oldSlot.SlotData, oldSlot.Count);
+        oldSlot.SlotData = null;
+        oldSlot.Count = 0;
     }
 
 
@@ -96,10 +201,10 @@ public class Inventory
                 Debug.Log($"{(i)}번 슬롯 : {slots[i].Count} 개");
         }
 
-        foreach (ItemSlot slot in slots)
-        {
-            if (slot.SlotData != null)
-                slot.Count = 0;
-        }
+        //foreach (ItemSlot slot in slots)
+        //{
+        //    if (slot.SlotData != null)
+        //        slot.Count = 0;
+        //}
     }
 }

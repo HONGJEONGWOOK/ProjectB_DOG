@@ -17,12 +17,18 @@ public class Test_Inven : MonoBehaviour
         invenUI.InitializeInven(inven);
 
         inven.AddItem(ItemID.HPPotion);
+        inven.AddItem(ItemID.HPPotion);
+        inven.AddItem(ItemID.HPPotion);
         inven.AddItem(ItemID.ManaPotion);
-        inven.AddItem(ItemID.GoblinsPPP);
-        inven.AddItem(ItemID.Arrows);
+        //inven.AddItem(ItemID.GoblinsPPP);
+        //inven.AddItem(ItemID.Arrows);
 
         inven.AddItem(ItemID.HPPotion);
-        inven.RemoveItem(0);
+
+        inven.AddItem(ItemID.HPPotion, 3);
+        inven.AddItem(ItemID.HPPotion, 3);
+        inven.AddItem(ItemID.HPPotion, 3);
+        //inven.MoveItem(0, 2);
 
         inven.TestInventory();
     }
