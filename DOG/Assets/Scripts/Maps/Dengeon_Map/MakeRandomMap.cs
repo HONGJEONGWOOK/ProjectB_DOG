@@ -47,7 +47,7 @@ public class MakeRandomMap : MonoBehaviour
 
     public void StartRandomMap()
     {
-        spreadTilemap.ClearAllTiles();      // 시작 시 깔려있는 모든 타일 제거
+        //spreadTilemap.ClearAllTiles();      // 시작 시 깔려있는 모든 타일 제거
         divideSpace.totalSpace = new RectangleSpace(new Vector2Int(0, 0), divideSpace.totalWidth, divideSpace.totalHeight);
         divideSpace.spaceList = new List<RectangleSpace>();
         floor = new HashSet<Vector2Int>();

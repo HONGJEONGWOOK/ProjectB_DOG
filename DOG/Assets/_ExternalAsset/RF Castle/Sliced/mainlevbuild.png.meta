@@ -13937,7 +13937,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mainlevbuild_522
+      name: BackGround1
       rect:
         serializedVersion: 2
         x: 368
@@ -23379,7 +23379,6 @@ TextureImporter:
       mainlevbuild_252: 21300504
       mainlevbuild_750: 21301500
       mainlevbuild_227: 21300454
-      mainlevbuild_522: 21301044
       mainlevbuild_321: 21300642
       mainlevbuild_329: 21300658
       mainlevbuild_295: 21300590
@@ -23707,6 +23706,7 @@ TextureImporter:
       mainlevbuild_12: 21300024
       mainlevbuild_540: 21301080
       mainlevbuild_705: 21301410
+      BackGround1: 21301044
       mainlevbuild_546: 21301092
       mainlevbuild_82: 21300164
       mainlevbuild_286: 21300572

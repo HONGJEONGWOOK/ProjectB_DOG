@@ -12,15 +12,34 @@ public class Weapons : MonoBehaviour
     WCActions weaponChange; // 무기변경 인풋 가져오기
     Animator anim;         // 애니메이터 가져오기
 
-    WeaponType weaponType = 0;  // 초기 무기는 검
-
+    // WeaponInput 변수
+    int weaponOrder = 0;
     int rotate = 0;     // 무기칸 회전 값
 
-    public GameObject weaponSlots;
-
-    public GameObject equipIcon;
-    bool equip;
     
+
+
+    //public GameObject weaponSlots;
+    //public GameObject equipIcon;
+    //bool equip;   // 장비 완전 해제 가능하면 필요. 현재로썬 필요없음
+
+    WeaponData playerWeaponData;
+
+    public WeaponData PlayerWeaponData          // 플레이어 무기데이터를 받아와서 설정
+    {
+        get => playerWeaponData;
+        private set
+        {
+            if(playerWeaponData != value)
+            {
+                playerWeaponData = value;
+            }
+        }
+    }
+
+
+    Player_Hero player;
+
 
     // 무기별 스킬 개수는 3개
 
@@ -30,13 +49,14 @@ public class Weapons : MonoBehaviour
     {
         weaponChange = new();   // 무기전환용 인풋
         anim = GetComponent<Animator>();
+
         
     }
 
     private void Start()
     {
-        equipIcon = GameObject.Find("EquipIcon");
-        equipIcon.SetActive(false);
+        //equipIcon = GameObject.Find("EquipIcon");
+        //equipIcon.SetActive(false);
     }
 
 
@@ -65,57 +85,72 @@ public class Weapons : MonoBehaviour
     private void OnWeaponInput(InputAction.CallbackContext context)
     {
         rotate = (int)context.ReadValue<float>();  
-        
         if(rotate==1)   // 시계 방향 회전
         {
-            if((int)weaponType<=1)  
-            {
-                weaponType++;       // enum 증가
-            }
-            else
-            {
-                weaponType = WeaponType.Sword;  // bow이후엔 sword로
-            }
+            weaponOrder++;
+            weaponOrder %= 3;
+
             anim.SetTrigger("Clockwise");
-            Debug.Log($"{weaponType}");
-            Debug.Log("clockroate");
+            //Debug.Log($"{weaponType}");
+            //Debug.Log("clockroate");
+
         }
 
         if(rotate==-1)  // 반시계 방향 회전
         {
-            if ((int)weaponType >=1)
+            if (weaponOrder != 0)
             {
-                weaponType--;       // enum 감소
+                weaponOrder--;
+                weaponOrder &= 3;
             }
             else
             {
-                weaponType = WeaponType.Bow;    // sword이후엔 bow로
+                weaponOrder = 2;
             }
+
             anim.SetTrigger("CounterClockwise");
-            Debug.Log($"{weaponType}");
-            Debug.Log("counterclockroate");
+            //Debug.Log($"{weaponType}");
+            //Debug.Log("counterclockroate");
         }
-        
-        // WeaponSlots에서 SlotExtansion 찾아와 실행하기. 고칠 방법 찾는중
-        weaponSlots.GetComponent<WeaponSlots>().SlotExtansion(weaponType);    
 
+
+        // WeaponSlots에서 SlotExtansion 찾아와 실행하기.
+        //weaponSlots.GetComponent<WeaponSlots>().SlotExtansion(weaponType);    소지 무기 전부 펼치기. 현재 구현 중지
+
+        //ActiveWeapon(weaponType);
+        //Debug.Log($"{weaponOrder}");
+        IntToWeaponData((uint)weaponOrder);
 
     }
-
-    public void EquipWeapon()
+    public void AssignWeapon(WeaponData weaponData)
     {
-        
-
-        if(equip==false)
-        {
-
-        }
-        else
-        {
-            
-        }
+        PlayerWeaponData = weaponData;
     }
 
 
+    public void IntToWeaponData(uint weaponOrder)        // 변경되어 인풋에서 나온 무기순서 (WeaponType클래스)
+    {
+        WeaponType type = (WeaponType)weaponOrder;
+            //    GameObject weapon =transform.GetChild(1).gameObject;
+    //    GameObject obj = Instantiate(weapons.PlayerWeaponData.prefab, weapon.transform);
+        //GetComponent<Sword>
+
+
+
+        GameObject obj = new();
+        Weapon_Item weapon = obj.AddComponent<Weapon_Item>();
+        weapon.data = GameManager.Inst.WeaponData[(WeaponType)type];
+        AssignWeapon(weapon.data);
+
+
+
+        GameObject weaponObject = GameObject.Find("Player"). transform.GetChild(1).gameObject;
+        Instantiate(PlayerWeaponData.prefab, weaponObject.transform);
+
+
+    }
 
 }
+
+
+
