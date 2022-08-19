@@ -20,9 +20,9 @@ public class WeaponInfo : MonoBehaviour
     {
         weaponName = transform.Find("Name").GetComponent<TextMeshProUGUI>();
         //weaponType = transform.Find("Name").GetComponent<TextMeshProUGUI>();
-        strength = transform.Find("Strength").GetComponent<TextMeshProUGUI>();
-        dexterity = transform.Find("Dexterity").GetComponent<TextMeshProUGUI>();
-        accuracy = transform.Find("Accuracy").GetComponent<TextMeshProUGUI>();
+        //strength = transform.Find("Strength").GetComponent<TextMeshProUGUI>();
+        //dexterity = transform.Find("Dexterity").GetComponent<TextMeshProUGUI>();
+        //accuracy = transform.Find("Accuracy").GetComponent<TextMeshProUGUI>();
     }
 
     public void WInfoOpen(WeaponData data)
@@ -42,10 +42,10 @@ public class WeaponInfo : MonoBehaviour
     {
         if(weaponData != null)
         {
-            weaponName.text = weaponData.name;
-            strength.text = weaponData.strength.ToString();
-            dexterity.text = weaponData.dexterity.ToString();
-            accuracy.text = weaponData.accuracy.ToString();
+            //weaponName.text = weaponData.name;
+            //strength.text = weaponData.strength.ToString();
+            //dexterity.text = weaponData.dexterity.ToString();
+            //accuracy.text = weaponData.accuracy.ToString();
         }
     }
 

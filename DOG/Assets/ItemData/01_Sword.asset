@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa8d764310433cf41bd0e7a83c422c4d, type: 3}
-  m_Name: 05_SwordE
+  m_Name: 01_Sword
   m_EditorClassIdentifier: 
-  id: 5
+  id: 1
   type: 0
-  itemIcon: {fileID: -949672804, guid: e5b143e25d303ab4da7c50e62a3e2b14, type: 3}
-  prefab: {fileID: 0}
-  strength: 0
-  dexterity: 0
-  accuracy: 0
+  weaponSprite: {fileID: -4519076053455810618, guid: a1925e7d73214f63a8ddcce6bea40954, type: 3}
+  prefab: {fileID: 3681346031322367829, guid: 5bed4c6d354427841826d6059491734f, type: 3}
+  attackPower: 0
+  defencePower: 0
+  criticalRate: 0
