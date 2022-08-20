@@ -125,6 +125,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "InvenClick",
+                    "type": "Button",
+                    "id": "52f97dc6-0d1f-4116-8cc3-e956c4822a27",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -136,6 +145,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Escape",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "125edc0a-bd51-41b6-8368-ac0638e74ff7",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "InvenClick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

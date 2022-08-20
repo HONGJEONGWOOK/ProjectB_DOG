@@ -25,8 +25,8 @@ public class ItemInventory_UI : MonoBehaviour, IPointerClickHandler
     {
         inven = newInven;
 
-        slotUI = transform.GetChild(1).GetComponentsInChildren<ItemSlot_UI>();
-        movingSlotUI = transform.GetChild(2).GetComponent<MovingSlot_UI>();
+        slotUI = transform.GetChild(2).GetComponentsInChildren<ItemSlot_UI>();
+        movingSlotUI = transform.GetChild(3).GetComponent<MovingSlot_UI>();
 
         for (int i = 0; i < slotUI.Length; i++)
         {
@@ -43,10 +43,11 @@ public class ItemInventory_UI : MonoBehaviour, IPointerClickHandler
     {
         if (eventData.button == PointerEventData.InputButton.Left)
         {
-            GameObject clickedObject = eventData.pointerCurrentRaycast.gameObject.transform.parent.gameObject;
+            GameObject clickedObject = eventData.pointerCurrentRaycast.gameObject;
+            Debug.Log(clickedObject.name);
             if (clickedObject != null)
             {
-                ItemSlot_UI clickedSlot = clickedObject.GetComponent<ItemSlot_UI>();
+                ItemSlot_UI clickedSlot = clickedObject.transform.parent.GetComponent<ItemSlot_UI>();
                 if (clickedSlot != null)
                 {
                     //if (clickedSlot.Slot.SlotData != null && movingSlotUI.Slot.SlotData == null)
@@ -79,6 +80,8 @@ public class ItemInventory_UI : MonoBehaviour, IPointerClickHandler
                     if (movingSlotUI.Slot.SlotData == null)
                     {// 옮기는 물건이 없으면
                         // 스왑용 oldSlot에 저장
+                        if (clickedSlot.Slot.SlotData == null)
+                            return;
                         oldSlotID = clickedSlot.SlotID;
 
                         inven.MoveItem(clickedSlot.SlotID, Inventory.MOVINGSLOT_ID);
@@ -103,23 +106,35 @@ public class ItemInventory_UI : MonoBehaviour, IPointerClickHandler
                             movingSlotUI.Slot.SlotData = null;
                             
                         }
-                        else if(clickedSlot.Slot.SlotData != movingSlotUI.Slot.SlotData)
+                        else if(clickedSlot.Slot.SlotData == movingSlotUI.Slot.SlotData)
                         {// 같은 아이템일 때 (클릭한 슬롯에 채우고, 나머지를 무빙슬롯에 저장)
                             inven.MoveItem(Inventory.MOVINGSLOT_ID, clickedSlot.SlotID);
                         }
-                        else if (clickedSlot == null)
-                        { // 인벤토리 밖에 버릴 때
-
-                        }
                         else
                         {// 잘못된 선택. 원래 자리로 돌아가기
-
+                            inven.MoveItem(Inventory.MOVINGSLOT_ID, oldSlotID);
                         }
 
                         if (movingSlotUI.Slot.SlotData == null)
                         {
                             movingSlotUI.ShowMovingSlotUI(false);
                         }
+                    }
+                }
+                else
+                {// 인벤토리 밖에 버릴 때 클릭한게 슬롯이 아닐 때
+                    if (movingSlotUI.Slot.SlotData != null)
+                    {
+                        Debug.Log("아이템 버림");
+                        for (int i = 0; i < movingSlotUI.Slot.Count; i++)
+                        {
+                            uint droppingItemID = movingSlotUI.Slot.SlotData.id;
+                            GameObject obj = ItemManager.GetPooledItem(ItemManager.Inst.PooledItems[droppingItemID]);
+                            obj.transform.position = eventData.pointerCurrentRaycast.worldPosition + (Vector3)UnityEngine.Random.insideUnitCircle;
+                            obj.SetActive(true);
+                        }
+                        movingSlotUI.Slot.SlotData = null;
+                        movingSlotUI.ShowMovingSlotUI(false);
                     }
                 }
             }

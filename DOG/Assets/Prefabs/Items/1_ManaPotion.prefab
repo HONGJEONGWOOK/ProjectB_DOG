@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3445708912376265823}
   - component: {fileID: 9053583071586037723}
   - component: {fileID: 5619763964504068905}
+  - component: {fileID: -5895358657052814088}
   m_Layer: 10
   m_Name: 1_ManaPotion
   m_TagString: Untagged
@@ -101,3 +102,15 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.3
+--- !u!114 &-5895358657052814088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4830926391000403604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc21908bff8ad8942bb6a56c0414820c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
