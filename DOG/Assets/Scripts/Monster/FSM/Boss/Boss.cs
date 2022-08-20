@@ -162,7 +162,7 @@ public class Boss : Monsters
 
         hpBar.gameObject.SetActive(false);
         // 보스 object pool return
-        MonsterManager.Inst.ReturnPooledMonster(MonsterManager.PooledMonster[MonsterManager.Inst.BossID], 
+        MonsterManager.ReturnPooledMonster(MonsterManager.PooledMonster[MonsterManager.Inst.BossID], 
                                                 this.gameObject);
     }
 

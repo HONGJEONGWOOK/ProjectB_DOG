@@ -98,7 +98,7 @@ public class MonsterManager : MonoBehaviour
     }
 
     // ######################### Methods ##########################################
-    public GameObject GetPooledMonster(Queue<GameObject> poolingQueue)
+    public static GameObject GetPooledMonster(Queue<GameObject> poolingQueue)
     {
         if (poolingQueue.Count > 0)
         {
@@ -113,7 +113,7 @@ public class MonsterManager : MonoBehaviour
         return null;
     }
 
-    public void ReturnPooledMonster(Queue<GameObject> returningQueue, GameObject uselessMonster)
+    public static void ReturnPooledMonster(Queue<GameObject> returningQueue, GameObject uselessMonster)
     {
         returningQueue.Enqueue(uselessMonster);
         uselessMonster.SetActive(false);

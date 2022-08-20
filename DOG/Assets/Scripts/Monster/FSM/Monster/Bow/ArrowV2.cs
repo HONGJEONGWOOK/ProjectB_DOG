@@ -32,8 +32,8 @@ public class ArrowV2 : MonoBehaviour
         {
             IBattle target = collision.GetComponent<IBattle>();
             target.TakeDamage(damage);
-            EnemyBulletManager.Inst.ReturnPooledEnemy(EnemyBulletManager.PooledObjects[EnemyBulletManager.Inst.ArrowID],
-                                                  this.gameObject);
         }
+        EnemyBulletManager.Inst.ReturnPooledEnemy(EnemyBulletManager.PooledObjects[EnemyBulletManager.Inst.ArrowID],
+                                                  this.gameObject);
     }
 }

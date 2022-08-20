@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   status: 0
-  detectRange: 5
+  detectRange: 7
   healthPoint: 100
   maxHealthPoint: 100
   strength: 5

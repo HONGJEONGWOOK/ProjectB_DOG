@@ -24,7 +24,7 @@ public class MonsterRandomSpawner : MonoBehaviour
             Vector2 randOffset = Random.insideUnitCircle * rooms.MinWidth * 0.5f * 0.4f;
 
             // ---- Monster Object pool
-            GameObject monster = MonsterManager.Inst.GetPooledMonster(MonsterManager.PooledMonster[randMonster]);
+            GameObject monster = MonsterManager.GetPooledMonster(MonsterManager.PooledMonster[randMonster]);
             monster.transform.position = (Vector2)rooms.spaceList[randRoom].Center() + randOffset;
             monster.transform.localScale = new Vector2(0.5f, 0.5f);     // 던전 국한 크기 축소
             monster.SetActive(true);
@@ -35,7 +35,7 @@ public class MonsterRandomSpawner : MonoBehaviour
 
     public void SpawnBoss()
     {
-        GameObject boss = MonsterManager.Inst.GetPooledMonster(MonsterManager.PooledMonster[(int)MonsterID.BOSS]);
+        GameObject boss = MonsterManager.GetPooledMonster(MonsterManager.PooledMonster[(int)MonsterID.BOSS]);
         boss.transform.position = (Vector2)rooms.spaceList[rooms.spaceList.Count - 2].Center();      //마지막 방 전에 보스 배치
         boss.GetComponentInChildren<Canvas>().enabled = true;
     }
