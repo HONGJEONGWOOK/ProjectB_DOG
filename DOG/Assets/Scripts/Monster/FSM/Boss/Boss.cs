@@ -37,7 +37,7 @@ public class Boss : Monsters
         bossHitBox_2 = transform.GetChild(2);
     }
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
         if (roomController != null)
         {
@@ -56,6 +56,7 @@ public class Boss : Monsters
         hpBar.gameObject.SetActive(false);
         textController.gameObject.SetActive(false);
     }
+
 
     void ShowUIs()
     {
@@ -78,6 +79,8 @@ public class Boss : Monsters
     }
 
     protected override void Idle()  {} // Do Nothing
+
+    protected override void Patrol(){} // Do Nothing
 
     protected override void Track()
     {

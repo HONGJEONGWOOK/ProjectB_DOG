@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEditor;
+using System.Linq;
 
 public class Monsters : MonoBehaviour, IHealth, IBattle
 {
@@ -9,7 +10,6 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
     protected SpriteRenderer sprite;
 
     // #################################### VARIABLES #####################################
-    private int monsterID = -1;
     private bool isDead = false;
 
     [Header("Monster AI")]
@@ -43,10 +43,12 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
     public System.Action onHealthChange { get; set; }
 
     // ------------------------------------ PATROL ------------------------------------------
-    //float waitCounter = 0.0f;
-    //float waitTime = 2.0f;
-    //int waypointIndex = 0;
-    //public Transform[] waypoint = null;
+    [Header("Patrol")]
+    [SerializeField] float patrolRange = 2.0f;
+    float waitCounter = 0.0f;
+    [SerializeField] float waitTime = 2.0f;
+    int waypointIndex = 0;
+    public Transform[] waypoint = null;
 
 
     //################################## PROPERTIES ########################################
@@ -76,6 +78,22 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
         sprite = GetComponent<SpriteRenderer>();
     }
 
+    protected virtual void OnEnable()
+    {
+        foreach (Transform t in waypoint)
+        {
+            t.localPosition = Random.insideUnitCircle * patrolRange;
+        }
+    }
+
+    private void OnDisable()
+    {
+        foreach (Transform t in waypoint)
+        {
+            t.localPosition = Vector2.zero ;
+        }
+    }
+
     private void FixedUpdate()
     {
         if (!isDead)
@@ -83,6 +101,10 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
             if (status == MonsterCurrentState.TRACK)
             {
                 Track();
+            }
+            else if (status == MonsterCurrentState.PATROL)
+            {
+                Patrol();
             }
         }
     }
@@ -100,6 +122,15 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
         {
             ChangeStatus(MonsterCurrentState.TRACK);
             return;
+        }
+        else
+        {
+            waitCounter += Time.deltaTime;
+            if (waitCounter > waitTime)
+            {
+                waitCounter = 0;
+                ChangeStatus(MonsterCurrentState.PATROL);
+            }
         }
     }
 
@@ -132,23 +163,27 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
         }
     }
 
-    void Patrol()
+    protected virtual void Patrol()
     {
-        //if (Search())
-        //{
-        //    ChangeStatus(MonsterCurrentState.TRACK);
-        //    return;
-        //}
+        if (SearchPlayer())
+        {
+            ChangeStatus(MonsterCurrentState.TRACK);
+            return;
+        }
 
-        //if (Vector2.SqrMagnitude(transform.position - waypoint[waypointIndex].position) < 0.01f)
-        //{
-        //    ChangeStatus(MonsterCurrentState.IDLE);
-        //}
-        //else
-        //{
-        //    transform.position = Vector2.MoveTowards(transform.position, waypoint[waypointIndex].position,
-        //          Time.fixedDeltaTime * moveSpeed);
-        //}
+        if (( waypoint[waypointIndex].position - transform.position).sqrMagnitude < 0.01f)
+        {
+            waypointIndex = (waypointIndex + 1) % waypoint.Length;
+            ChangeStatus(MonsterCurrentState.IDLE);
+        }
+        else
+        {
+            transform.position = Vector2.MoveTowards(transform.position, waypoint[waypointIndex].position,
+                  Time.fixedDeltaTime * moveSpeed);
+
+            target = waypoint[waypointIndex];
+            SpriteFlip();
+        }
     }
 
     protected void Move_Monster(float speed)
