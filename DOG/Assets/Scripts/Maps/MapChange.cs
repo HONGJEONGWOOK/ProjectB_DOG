@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MapChange : MonoBehaviour
 {
-    public int sceneID = 0;
+    public int sceneID = 1;
     CanvasFadeInOut fadeInOut;
 
 
@@ -23,6 +23,6 @@ public class MapChange : MonoBehaviour
 
     void SceneLoad()
     {
-        SceneManager.LoadScene(sceneID);
+        LoadingSceneManager.LoadScene(sceneID);
     }
 }

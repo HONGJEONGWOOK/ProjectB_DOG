@@ -40,7 +40,6 @@ public class MonsterManager : MonoBehaviour
         {
             instance = this;
             instance.Initialize();
-            DontDestroyOnLoad(this.gameObject);
         }
         else
         {
