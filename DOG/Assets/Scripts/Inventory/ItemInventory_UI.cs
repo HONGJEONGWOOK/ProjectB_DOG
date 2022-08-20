@@ -21,6 +21,11 @@ public class ItemInventory_UI : MonoBehaviour, IPointerClickHandler
         Actions = new();
     }
 
+    private void Start()
+    {
+        this.gameObject.SetActive(false);
+    }
+
     public void InitializeInven(Inventory newInven)
     {
         inven = newInven;

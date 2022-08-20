@@ -9,10 +9,13 @@ public class StatusWindow : MonoBehaviour
     TextMeshProUGUI AttackPoint;
     TextMeshProUGUI DefensePoint;
 
+
+
     void Start()
-    {
+    {   
         AttackPoint = GameObject.Find("Attackpower").GetComponent<TextMeshProUGUI>();
         DefensePoint = GameObject.Find("Defensepower").GetComponent<TextMeshProUGUI>();
+        this.gameObject.SetActive(false);
     }
 
     
