@@ -318,7 +318,6 @@ public class Treant : MonoBehaviour, IHealth, IBattle
                     break;
 
                 case MonsterCurrentState.TRACK:
-                    Track();
                     break;
 
                 case MonsterCurrentState.ATTACK:
