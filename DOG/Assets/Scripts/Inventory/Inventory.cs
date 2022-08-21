@@ -136,19 +136,6 @@ public class Inventory
         }
     }
 
-    //public void MoveToMovingSlot(uint current)
-    //{
-    //    movingSlot.SlotData = slots[current].SlotData;
-    //    movingSlot.Count = slots[current].Count;
-    //    slots[current].SlotData = null;
-    //}
-
-    //public void MovingSlotToSlot(uint destination)
-    //{
-    //    slots[destination].SlotData = MovingSlot.SlotData;
-    //    slots[destination].Count = movingSlot.Count;
-    //    MovingSlot.SlotData = null;
-    //}
     public void MoveToOldSlot(uint current)
     {
         oldSlot.AssignItem(slots[current].SlotData, slots[current].Count);
@@ -161,7 +148,6 @@ public class Inventory
         oldSlot.SlotData = null;
         oldSlot.Count = 0;
     }
-
 
     ItemSlot FindSlot()
     {
@@ -200,11 +186,5 @@ public class Inventory
             if (slots[i].SlotData != null)
                 Debug.Log($"{(i)}번 슬롯 : {slots[i].Count} 개");
         }
-
-        //foreach (ItemSlot slot in slots)
-        //{
-        //    if (slot.SlotData != null)
-        //        slot.Count = 0;
-        //}
     }
 }

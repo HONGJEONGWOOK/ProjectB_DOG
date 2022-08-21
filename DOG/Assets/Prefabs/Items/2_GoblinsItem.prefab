@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2685102676886663117}
   - component: {fileID: 8269272803773917881}
   - component: {fileID: 5617805407603622900}
+  - component: {fileID: -6691715968128824425}
   m_Layer: 10
   m_Name: 2_GoblinsItem
   m_TagString: Untagged
@@ -101,3 +102,15 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.3
+--- !u!114 &-6691715968128824425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5181254154649625278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc21908bff8ad8942bb6a56c0414820c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

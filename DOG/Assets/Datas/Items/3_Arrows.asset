@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   itemName: "\uB098\uBB34\uC758 \uD654\uC0B4"
-  count: 0
   maxCount: 5
   prefab: {fileID: 5342791561936772664, guid: 96616e312a10feb40bdfbdbacaf47c75, type: 3}
   icon: {fileID: -1181195662, guid: ba00d2cc9cfe3aa4dbabe584112b29a8, type: 3}
+  poolingSize: 20

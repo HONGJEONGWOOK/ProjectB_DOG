@@ -7,6 +7,7 @@ TagManager:
   - Monster
   - Undefined
   - WeaponSlot
+  - ItemInven
   layers:
   - Default
   - TransparentFX

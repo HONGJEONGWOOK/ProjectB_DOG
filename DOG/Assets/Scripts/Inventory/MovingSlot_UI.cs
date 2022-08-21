@@ -3,9 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.EventSystems;
 
-public class MovingSlot_UI : ItemSlot_UI, IPointerClickHandler
+public class MovingSlot_UI : ItemSlot_UI
 {
     PlayerInputActions actions;
     CanvasGroup group;
@@ -29,17 +28,6 @@ public class MovingSlot_UI : ItemSlot_UI, IPointerClickHandler
         else
         {
             group.alpha = 0f;
-        }
-    }
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        if (eventData.button == PointerEventData.InputButton.Left)
-        {
-            if (!eventData.pointerCurrentRaycast.gameObject.CompareTag("ItemInven"))
-            {
-
-            }
         }
     }
 }

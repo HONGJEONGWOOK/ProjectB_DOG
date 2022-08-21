@@ -11,4 +11,5 @@ public class ItemData : ScriptableObject
 
     [SerializeField] public GameObject prefab;
     [SerializeField] public Sprite icon;
+    [SerializeField] public int poolingSize = 1;
 }
