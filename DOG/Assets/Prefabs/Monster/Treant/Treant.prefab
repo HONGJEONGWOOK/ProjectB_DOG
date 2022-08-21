@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1935523781236129376}
   - component: {fileID: 1013454837885420824}
   - component: {fileID: 6022732403860598593}
+  - component: {fileID: 4155371243116274839}
   m_Layer: 7
   m_Name: Treant
   m_TagString: Monster
@@ -109,7 +110,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!95 &1013454837885420824
 Animator:
   serializedVersion: 4
@@ -160,6 +161,22 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+--- !u!70 &4155371243116274839
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935523781236129370}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.1}
+  m_Size: {x: 0.9, y: 1.3}
+  m_Direction: 0
 --- !u!1 &2172451679000632993
 GameObject:
   m_ObjectHideFlags: 0

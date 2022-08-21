@@ -8,7 +8,6 @@ public class MapChange : MonoBehaviour
     public int sceneID = 1;
     CanvasFadeInOut fadeInOut;
 
-
     private void Start()
     {
         fadeInOut = FindObjectOfType<CanvasFadeInOut>();

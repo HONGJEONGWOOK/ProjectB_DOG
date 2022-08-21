@@ -88,6 +88,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2295076862600535204, guid: 7af492448809d284d84a29407f8cf39b, type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5664878758290324022, guid: 7af492448809d284d84a29407f8cf39b, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -112,6 +116,10 @@ PrefabInstance:
       propertyPath: waypoint.Array.data[3]
       value: 
       objectReference: {fileID: 2274141163985843491}
+    - target: {fileID: 6023536156973152488, guid: 7af492448809d284d84a29407f8cf39b, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 103106699
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7af492448809d284d84a29407f8cf39b, type: 3}
 --- !u!4 &230760456233960475 stripped
@@ -136,11 +144,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4528276816920292875, guid: db5f8a7207f74884588cdde733b04942, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.518708
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4528276816920292875, guid: db5f8a7207f74884588cdde733b04942, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.062162
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4528276816920292875, guid: db5f8a7207f74884588cdde733b04942, type: 3}
       propertyPath: m_LocalPosition.z

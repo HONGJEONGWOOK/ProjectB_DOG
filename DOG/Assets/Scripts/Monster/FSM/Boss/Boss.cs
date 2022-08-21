@@ -31,7 +31,7 @@ public class Boss : Monsters
         base.Awake();
         hpBar = FindObjectOfType<HP_Bar_Boss>();
         textController = FindObjectOfType<BossTextController>();
-        roomController = FindObjectOfType<BossRoomController>();
+        
 
         bossHitBox_1 = transform.GetChild(1);
         bossHitBox_2 = transform.GetChild(2);
@@ -39,6 +39,7 @@ public class Boss : Monsters
 
     protected override void OnEnable()
     {
+        roomController = FindObjectOfType<BossRoomController>();
         if (roomController != null)
         {
             roomController.onBossEntry = ShowUIs;

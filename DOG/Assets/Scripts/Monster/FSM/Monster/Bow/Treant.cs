@@ -220,6 +220,10 @@ public class Treant : MonoBehaviour, IHealth, IBattle
             EnemyBulletManager.Inst.GetPooledObject(EnemyBulletManager.PooledObjects[EnemyBulletManager.Inst.ArrowID]);
         arrow.transform.position = shootPosition.position;
         arrow.transform.rotation = weapon.transform.rotation;
+        if (transform.localScale.x < 1f)
+        {
+            arrow.transform.localScale = new Vector2(0.5f, 0.5f);
+        }
         arrow.SetActive(true);
     }
 

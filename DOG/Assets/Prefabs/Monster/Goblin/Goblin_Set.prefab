@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: waypoint.Array.data[3]
       value: 
       objectReference: {fileID: 4306315552613421400}
+    - target: {fileID: 1304962030, guid: b2a7685a32bca8e4abd168b071fb3b0b, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 103106699
+      objectReference: {fileID: 0}
     - target: {fileID: 578401991311117336, guid: b2a7685a32bca8e4abd168b071fb3b0b, type: 3}
       propertyPath: m_RootOrder
       value: 0

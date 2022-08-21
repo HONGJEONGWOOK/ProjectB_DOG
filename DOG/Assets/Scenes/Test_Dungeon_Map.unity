@@ -105972,6 +105972,14 @@ PrefabInstance:
       propertyPath: sceneID
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2915999841183728651, guid: 60fd44b646279584584ad559018f0fc6, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2915999841183728651, guid: 60fd44b646279584584ad559018f0fc6, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -760071181
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60fd44b646279584584ad559018f0fc6, type: 3}
 --- !u!1 &1194305179 stripped
@@ -106168,22 +106176,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2230447171645232496, guid: 45c1c4457f44ba541b45b56d589755f3, type: 3}
-      propertyPath: minWidth
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 2230447171645232496, guid: 45c1c4457f44ba541b45b56d589755f3, type: 3}
-      propertyPath: minHeight
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 2230447171645232496, guid: 45c1c4457f44ba541b45b56d589755f3, type: 3}
-      propertyPath: totalWidth
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 2230447171645232496, guid: 45c1c4457f44ba541b45b56d589755f3, type: 3}
-      propertyPath: totalHeight
-      value: 60
-      objectReference: {fileID: 0}
     - target: {fileID: 2230447171645232497, guid: 45c1c4457f44ba541b45b56d589755f3, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -106379,29 +106371,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 648967464}
     - target: {fileID: 8345609858962479719, guid: 9c2c1714b914fc447a34988c2c21c9c4, type: 3}
-      propertyPath: monster
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8345609858962479719, guid: 9c2c1714b914fc447a34988c2c21c9c4, type: 3}
-      propertyPath: distance
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8345609858962479719, guid: 9c2c1714b914fc447a34988c2c21c9c4, type: 3}
-      propertyPath: entrance
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8345609858962479719, guid: 9c2c1714b914fc447a34988c2c21c9c4, type: 3}
       propertyPath: divideSpace
       value: 
       objectReference: {fileID: 820138796}
-    - target: {fileID: 8345609858962479719, guid: 9c2c1714b914fc447a34988c2c21c9c4, type: 3}
-      propertyPath: minRoomWidth
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8345609858962479719, guid: 9c2c1714b914fc447a34988c2c21c9c4, type: 3}
-      propertyPath: minRoomHeight
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 8345609858962479719, guid: 9c2c1714b914fc447a34988c2c21c9c4, type: 3}
       propertyPath: spreadTilemap
       value: 

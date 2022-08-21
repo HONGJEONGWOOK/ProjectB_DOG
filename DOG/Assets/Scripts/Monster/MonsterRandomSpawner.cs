@@ -7,7 +7,7 @@ public class MonsterRandomSpawner : MonoBehaviour
     private DivideSpace rooms;
 
     [SerializeField] private int population = 10;
-
+    [SerializeField] private float size = 0.5f;
     private void Awake()
     {
         rooms = GetComponent<MakeRandomMap>().Divide;
@@ -19,14 +19,14 @@ public class MonsterRandomSpawner : MonoBehaviour
         for (int i = 0; i < population; i++)
         {
             // ---- Random Number Generator
-            int randMonster = Random.Range(0, MonsterManager.PooledMonster.Count - 1);   // 마지막은 보스이므로 제외
-            int randRoom = Random.Range(1, rooms.spaceList.Count - 2);                   // 보스방 전까지 스폰
-            Vector2 randOffset = Random.insideUnitCircle * rooms.MinWidth * 0.5f * 0.2f;
+            int randMonster = Random.Range(0, MonsterManager.PooledMonster.Count - 1);   // 마지막방은 포탈
+            int randRoom = Random.Range(1, rooms.spaceList.Count - 1);                   // 포탈 방 전까지 스폰
+            Vector2 randOffset = rooms.MinWidth * 0.5f * 0.2f * Random.insideUnitCircle;
 
             // ---- Monster Object pool
             GameObject monster = MonsterManager.GetPooledMonster(MonsterManager.PooledMonster[randMonster]);
             monster.transform.position = (Vector2)rooms.spaceList[randRoom].Center() + randOffset;
-            monster.transform.localScale = new Vector2(0.5f, 0.5f);     // 던전 국한 크기 축소
+            monster.transform.localScale = new Vector2(size, size);     // 던전 국한 크기 축소
             monster.SetActive(true);
         }
 

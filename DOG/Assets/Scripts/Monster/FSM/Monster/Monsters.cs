@@ -82,6 +82,10 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
     {
         foreach (Transform t in waypoint)
         {
+            if (transform.localScale.x < 1)
+            {
+                patrolRange *= 0.8f;
+            }
             t.localPosition = Random.insideUnitCircle * patrolRange;
         }
     }
