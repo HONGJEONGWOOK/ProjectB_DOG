@@ -11,6 +11,13 @@ public class LoadingSceneManager : MonoBehaviour
 
     [SerializeField] float loadSpeed = 3.0f;
 
+    MonsterManager monManager;
+
+    private void Awake()
+    {
+        monManager = FindObjectOfType<MonsterManager>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {// 로딩씬 재생
@@ -23,6 +30,8 @@ public class LoadingSceneManager : MonoBehaviour
     /// <param name="nextSceneIndex">로딩씬 다음으로 로드할 씬</param>
     public static void LoadScene(int nextSceneIndex)
     {
+        MonsterManager.ReturnAllMonsters();
+
         nextScene = nextSceneIndex;
         SceneManager.LoadScene("LoadingScene");
     }

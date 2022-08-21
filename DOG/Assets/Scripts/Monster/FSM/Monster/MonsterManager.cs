@@ -40,6 +40,7 @@ public class MonsterManager : MonoBehaviour
         {
             instance = this;
             instance.Initialize();
+            DontDestroyOnLoad(this.gameObject);
         }
         else
         {
@@ -118,5 +119,20 @@ public class MonsterManager : MonoBehaviour
         uselessMonster.SetActive(false);
         uselessMonster.transform.position = Vector2.zero;
         uselessMonster.transform.localScale = new Vector2(1f, 1f);
+    }
+
+    public static void ReturnAllMonsters()
+    {
+        Goblin[] gob = FindObjectsOfType<Goblin>();
+        Treant[] trea = FindObjectsOfType<Treant>();
+
+        for (int i = 0; i < gob.Length; i++)
+        {
+            ReturnPooledMonster(pooledMonster[(int)MonsterID.GOBLIN], gob[i].transform.parent.gameObject);
+        }
+        for (int i = 0; i < trea.Length; i++)
+        {
+            ReturnPooledMonster(pooledMonster[(int)MonsterID.TREANT], trea[i].transform.parent.gameObject);
+        }
     }
 }
