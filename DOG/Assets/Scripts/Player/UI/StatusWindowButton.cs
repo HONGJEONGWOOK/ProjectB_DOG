@@ -9,9 +9,14 @@ public class StatusWindowButton : MonoBehaviour
 
     GameObject StatusWindow;
 
-    void Start()
+    private void Awake()
     {
         StatusWindow = GameObject.Find("StatusWindow");
+    }
+
+    void Start()
+    {
+        
     }
     
     void Update()

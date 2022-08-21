@@ -9,9 +9,14 @@ public class ItemInventoryButton : MonoBehaviour
 
     GameObject ItemInventory;
 
-    void Start()
+    private void Awake()
     {
         ItemInventory = GameObject.Find("ItemInventory");
+    }
+
+    void Start()
+    {
+        
     }
 
     void Update()
