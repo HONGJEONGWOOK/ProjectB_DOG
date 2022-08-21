@@ -127,7 +127,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "InvenClick",
+                    "name": "InventoryButton",
                     "type": "Button",
                     "id": "52f97dc6-0d1f-4116-8cc3-e956c4822a27",
                     "expectedControlType": "Button",
@@ -151,11 +151,11 @@
                 {
                     "name": "",
                     "id": "125edc0a-bd51-41b6-8368-ac0638e74ff7",
-                    "path": "<Mouse>/leftButton",
+                    "path": "<Keyboard>/i",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "InvenClick",
+                    "groups": "Player",
+                    "action": "InventoryButton",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

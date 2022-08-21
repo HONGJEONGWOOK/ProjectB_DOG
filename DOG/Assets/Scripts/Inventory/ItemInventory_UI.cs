@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class ItemInventory_UI : MonoBehaviour, IPointerClickHandler
 {
     PlayerInputActions Actions;
+    Animator anim;
 
     Inventory inven; // 찾음
 
@@ -16,14 +18,42 @@ public class ItemInventory_UI : MonoBehaviour, IPointerClickHandler
 
     uint oldSlotID = 50;
 
+    Button closeButton;
+    Button invenMenuButton;
+    CanvasGroup canvasGroup;
+    bool isOpen = false;
+
+    public bool IsOpen
+    {
+        get
+        {
+            if(isOpen) isOpen = false; else isOpen = true;
+            return isOpen;
+        }
+    }
+
     private void Awake()
     {
         Actions = new();
+        canvasGroup = GetComponent<CanvasGroup>();
+        closeButton = transform.GetChild(4).GetComponent<Button>();
+        invenMenuButton = transform.parent.GetChild(0).GetChild(1).GetChild(0).GetComponent<Button>();
+        //Debug.Log(invenMenuButton.name);
+        anim = GetComponent<Animator>();
+
+        closeButton.onClick.AddListener(()=> ShowInventory(IsOpen));
+        invenMenuButton.onClick.AddListener(() => ShowInventory(IsOpen));
+    }
+
+    private void OnEnable()
+    {
+        Actions.UI.Enable();
+        Actions.UI.InventoryButton.performed += OnInvenButtonInput;
     }
 
     private void Start()
     {
-        this.gameObject.SetActive(false);
+        ShowInventory(isOpen);
     }
 
     public void InitializeInven(Inventory newInven)
@@ -40,6 +70,17 @@ public class ItemInventory_UI : MonoBehaviour, IPointerClickHandler
         movingSlotUI.InitializeSlotUI(Inventory.MOVINGSLOT_ID, inven.MovingSlot);
 
         movingSlotUI.ShowMovingSlotUI(false);
+    }
+
+    private void ShowInventory(bool isShow)
+    {
+        canvasGroup.alpha = isShow ? 1.0f: 0.0f;
+        canvasGroup.blocksRaycasts = isShow;
+    }
+
+    private void OnInvenButtonInput(InputAction.CallbackContext _)
+    {
+        ShowInventory(IsOpen);
     }
 
     // moving slot에 아무것도 없을 떄 클릭하면 moving slot으로 옮겨지고,
