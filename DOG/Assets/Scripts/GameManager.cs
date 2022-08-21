@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public TalkManager talkManager;
     public Text talkText;
     public GameObject scanObject;
+    ItemInventory_UI inventoryUI;
 
     //퀘스트매니저
     private GameObject talkPanel;
@@ -30,6 +31,8 @@ public class GameManager : MonoBehaviour
 
     ItemDataManager itemData;
     public ItemDataManager ItemData => itemData;
+
+    public ItemInventory_UI InvenUI => inventoryUI;
 
     public static GameManager Inst { get => instance;}
     static GameManager instance = null;
@@ -66,6 +69,8 @@ public class GameManager : MonoBehaviour
         itemData = GetComponent<ItemDataManager>();
 
         SceneManager.sceneLoaded += OnStageStart;   // 씬의 로딩이 끝났을 때 실행될 델리게이트에 OnStageStart 등록
+
+        inventoryUI = FindObjectOfType<ItemInventory_UI>();
     }
 
     private void OnStageStart(Scene arg0, LoadSceneMode arg1)

@@ -7,6 +7,9 @@ using UnityEngine.InputSystem;
 
 public class ItemInventory_UI : MonoBehaviour, IPointerClickHandler
 {
+    DetailInfoUI detail;
+    public DetailInfoUI Detail => detail;
+
     PlayerInputActions Actions;
 
     Inventory inven; // 찾음
@@ -19,6 +22,7 @@ public class ItemInventory_UI : MonoBehaviour, IPointerClickHandler
     private void Awake()
     {
         Actions = new();
+        detail = GetComponentInChildren<DetailInfoUI>();
     }
 
     public void InitializeInven(Inventory newInven)
@@ -35,6 +39,8 @@ public class ItemInventory_UI : MonoBehaviour, IPointerClickHandler
         movingSlotUI.InitializeSlotUI(Inventory.MOVINGSLOT_ID, inven.MovingSlot);
 
         movingSlotUI.ShowMovingSlotUI(false);
+
+        
     }
 
     // moving slot에 아무것도 없을 떄 클릭하면 moving slot으로 옮겨지고,

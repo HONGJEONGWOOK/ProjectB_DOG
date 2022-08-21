@@ -7,6 +7,9 @@ using TMPro;
 
 public class ItemSlot_UI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+    ItemInventory_UI invenUI;    // 인벤토리 UI
+    DetailInfoUI detailUI;  // 상세 정보창
+
     protected ItemSlot slot;
 
     uint slotID;
@@ -34,6 +37,9 @@ public class ItemSlot_UI : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         originalSize = iconRect.sizeDelta;
 
         slot.OnItemUpdate += Refresh;
+
+        invenUI = GameManager.Inst.InvenUI; // 미리 찾아놓기
+        detailUI = invenUI.Detail;
     }
 
     public void Refresh()
@@ -56,10 +62,16 @@ public class ItemSlot_UI : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public void OnPointerEnter(PointerEventData eventData)
     {
         iconRect.sizeDelta *= 1.2f;
+        if (slot.SlotData != null)
+        {
+            detailUI.Open(slot.SlotData);
+        }
+        
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         iconRect.sizeDelta = originalSize;
+        detailUI.Close();
     }
 }
