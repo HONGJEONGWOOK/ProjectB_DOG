@@ -237,7 +237,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 108298812}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1441729459}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: GameExit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &108298812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,7 +341,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -651,6 +663,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 440648557635997296, guid: 30d22af5cd2b3e74e8647f78c89e1c65, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 440648557780459148, guid: 30d22af5cd2b3e74e8647f78c89e1c65, type: 3}
       propertyPath: m_Name
       value: Player_HpBar2
@@ -758,6 +774,10 @@ PrefabInstance:
     - target: {fileID: 440648557918504016, guid: 30d22af5cd2b3e74e8647f78c89e1c65, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 1.8200073
+      objectReference: {fileID: 0}
+    - target: {fileID: 440648557918504017, guid: 30d22af5cd2b3e74e8647f78c89e1c65, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30d22af5cd2b3e74e8647f78c89e1c65, type: 3}
@@ -1320,7 +1340,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0.47058824}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1935,6 +1955,10 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1495316837161236789, guid: 39d997744fefeb94c9671ec286eb40e6, type: 3}
+      propertyPath: menuset
+      value: 
+      objectReference: {fileID: 1367931676}
     - target: {fileID: 1495316837161236789, guid: 39d997744fefeb94c9671ec286eb40e6, type: 3}
       propertyPath: weaponCount
       value: 1

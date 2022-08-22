@@ -52,6 +52,8 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     public GameManager manager;
     GameObject scanObject;
     GameObject sword;
+    public MenuSet menuset;
+    bool menu = false;
 
     PlayerInputActions actions;
     Animator anim;
@@ -62,6 +64,7 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     public int weaponCount = 0; // 무기의 종류 검 = 0, 활 = 1, 대거 = 2;
     public GameObject shootPrefab = null;
     public float moveSpeed = 5.0f;
+    public float itemPickupRange = 2.0f;
 
     private Vector3 direction = Vector3.zero;
 
@@ -84,6 +87,7 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
         actions.Player.Move.canceled += OnMove;
         actions.Player.Attack.performed += OnAttack;
         actions.Player.Talk.performed += OnTalk;
+        actions.Player.PickUp.performed += OnPickUp;
         actions.UI.Enable();
         actions.UI.Escape.performed += OnEscape;
     }
@@ -94,6 +98,7 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     {
         actions.UI.Escape.performed -= OnEscape;
         actions.UI.Disable();
+        actions.Player.PickUp.performed -= OnPickUp;
         actions.Player.Talk.performed -= OnTalk;
         actions.Player.Attack.performed -= OnAttack;
         actions.Player.Move.canceled -= OnMove;
@@ -227,7 +232,20 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
 
     private void OnEscape(InputAction.CallbackContext obj)
     {
-        Debug.Log("메뉴");
+        Debug.Log($"{menu}");
+        if(!menu)
+        {
+            menuset.gameObject.SetActive(true);
+            menu = true;
+            Time.timeScale = 0;
+        }
+        else
+        {
+            menuset.gameObject.SetActive(false);
+            menu = false;
+            Time.timeScale = 1;
+        }
+        
     }
 
     private void OnTalk(InputAction.CallbackContext obj)
@@ -293,5 +311,11 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
         isAction = true;
         QuestManager.Instance.TalkIndex++;
         moveSpeed = speed;
+    }
+
+
+    private void OnPickUp(InputAction.CallbackContext obj)
+    {
+        Collider[] cols = Physics.OverlapSphere(transform.position, itemPickupRange, LayerMask.GetMask("Item"));
     }
 }

@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public Text talkText;
     public GameObject scanObject;
 
+
     //퀘스트매니저
     private GameObject talkPanel;
     public GameObject TalkPanel
@@ -27,6 +28,8 @@ public class GameManager : MonoBehaviour
     // 웨폰 매니저--------------------------------------------------
     WeaponDataManager weaponData;
     public WeaponDataManager WeaponData { get => weaponData; }
+
+    public MenuSet set;
 
     public static GameManager Inst { get => instance;}
     static GameManager instance = null;
@@ -47,6 +50,7 @@ public class GameManager : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
+
     }
 
     void Initialize()
@@ -71,6 +75,26 @@ public class GameManager : MonoBehaviour
         {
             oldSceneIndex = arg0.buildIndex;
         }
+
+    }
+
+    void GameContinue()
+    {
+        set.gameObject.SetActive(true);
+    }
+
+    public void GameExit()
+    {
+        Application.Quit();
+    }
+
+    void GameSave()
+    {
+
+    }
+
+    void GameLoad()
+    {
 
     }
 }
