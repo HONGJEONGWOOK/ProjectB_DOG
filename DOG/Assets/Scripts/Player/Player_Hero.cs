@@ -59,6 +59,7 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     CapsuleCollider2D Collider;
     bool isAction = false;
 
+    public int weaponCount = 0; // 무기의 종류 검 = 0, 활 = 1, 대거 = 2;
     public GameObject shootPrefab = null;
     public float moveSpeed = 5.0f;
 
@@ -154,6 +155,7 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
     }
 
     private void Move()
@@ -198,7 +200,27 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     private void OnAttack(InputAction.CallbackContext context)
     {
         Debug.Log("공격");
-        anim.SetTrigger("Attack");
+        
+
+        if(weaponCount == 0)
+        {
+            anim.SetInteger("WeaponCount", 0);
+            anim.SetTrigger("Attack");
+            Debug.Log("검 공격");
+        }
+        else if (weaponCount == 1)
+        {
+            anim.SetInteger("WeaponCount", 1);
+            anim.SetTrigger("Attack");
+            Debug.Log("활 공격");
+        }
+        else if(weaponCount == 2)
+        {
+            anim.SetInteger("WeaponCount", 2);
+            anim.SetTrigger("Attack");
+            Debug.Log("단검 공격");
+        }
+
     }
 
 
