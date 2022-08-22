@@ -24,7 +24,7 @@ public class Weapons : MonoBehaviour
         get => playerWeaponData;
         private set
         {
-            if(playerWeaponData != value)
+            if (playerWeaponData != value)
             {
                 playerWeaponData = value;
             }
@@ -38,7 +38,15 @@ public class Weapons : MonoBehaviour
     {
         weaponChange = new();   // 무기전환용 인풋
         anim = GetComponent<Animator>();
+
+    }
+
+    private void Start()
+    {
         weaponParent = GameManager.Inst.MainPlayer.transform.GetChild(1);
+        EquipWeapon(0);        
+
+
     }
 
 
@@ -54,9 +62,9 @@ public class Weapons : MonoBehaviour
     }
 
 
-    public void openWindow(bool equipWindow = false )
+    public void openWindow(bool equipWindow = false)
     {
-        if(equipWindow==true)       // 장비창 오픈했을 때(평상시에 장비창 입력 추가)
+        if (equipWindow == true)       // 장비창 오픈했을 때(평상시에 장비창 입력 추가)
         {
             //WeaponSlots.weaponEquipIcon();
         }
@@ -65,8 +73,8 @@ public class Weapons : MonoBehaviour
 
     private void OnWeaponInput(InputAction.CallbackContext context)
     {
-        rotate = (int)context.ReadValue<float>();  
-        if(rotate==1)   // 시계 방향 회전
+        rotate = (int)context.ReadValue<float>();
+        if (rotate == 1)   // 시계 방향 회전
         {
             weaponOrder++;
             weaponOrder %= 3;
@@ -76,7 +84,7 @@ public class Weapons : MonoBehaviour
             //Debug.Log("clockroate");
         }
 
-        if(rotate==-1)  // 반시계 방향 회전
+        if (rotate == -1)  // 반시계 방향 회전
         {
             if (weaponOrder != 0)
             {
@@ -96,15 +104,13 @@ public class Weapons : MonoBehaviour
         // WeaponSlots에서 SlotExtansion 찾아와 실행하기.
         //weaponSlots.GetComponent<WeaponSlots>().SlotExtansion(weaponType);    소지 무기 전부 펼치기. 현재 구현 중지
 
-        //ActiveWeapon(weaponType);
-        //Debug.Log($"{weaponOrder}");
-
         // 해제
-        GameObject currentWeapon = weaponParent.GetChild(0).gameObject;
-        Destroy(currentWeapon);
+        GameObject currentWeapon = weaponParent.GetChild(0).gameObject;         
+        Destroy(currentWeapon);                                            
+
 
         // 장착
-        AssignWeapon((uint)weaponOrder);
+        EquipWeapon((uint)weaponOrder);
     }
 
     public void AssignWeapon(WeaponData weaponData)
@@ -112,18 +118,26 @@ public class Weapons : MonoBehaviour
         PlayerWeaponData = weaponData;
     }
 
-    public void AssignWeapon(uint id)
+
+
+    // 다른 스크립트로 옮겨야함
+    Vector3 weaponPosition = new Vector3(-0.5f,-0.6f,0f);   // 무기의 위치
+    public void EquipWeapon(uint id)        // Weapon 오브젝트에 이미 무기가 들어있을 경우, 무기가 두 개씩 표시되는 문제가 있음
     {
+        
         AssignWeapon(GameManager.Inst.WeaponData[id]);
-        GameObject obj = Instantiate(PlayerWeaponData.prefab, weaponParent);
+        GameObject obj = Instantiate(PlayerWeaponData.prefab, weaponParent );
+        obj.transform.localPosition = weaponParent.transform.localPosition + weaponPosition;
+        // Sword 프리팹의 위치가 이상해서 리셋함
+
+
         Weapon_Item weapon = obj.AddComponent<Weapon_Item>();
         weapon.data = GameManager.Inst.WeaponData[(WeaponType)id];
+        GameManager.Inst.MainPlayer.StatusUpdate(weapon);
+
     }
 
-    //public void IntToWeaponData(uint weaponOrder)        // 변경되어 인풋에서 나온 무기순서 (WeaponType클래스)
-    //{
-    //    AssignWeapon(weapon.data);
-    //}
+
 }
 
 

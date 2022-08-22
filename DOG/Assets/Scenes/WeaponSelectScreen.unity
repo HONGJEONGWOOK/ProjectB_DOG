@@ -1127,6 +1127,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7250530603297116197, guid: 39d997744fefeb94c9671ec286eb40e6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39d997744fefeb94c9671ec286eb40e6, type: 3}
 --- !u!1 &519420028
@@ -2410,27 +2414,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!1 &1876037010 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3250170638605783155, guid: 20c43cd941f867d40ad27f0daa723519, type: 3}
-  m_PrefabInstance: {fileID: 819105594}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1876037011
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1876037010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 189284125e2d8ae468eefcd278425ad3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponDatas:
-  - {fileID: 11400000, guid: 669d7213af662824fb20b33d94c32c71, type: 2}
-  - {fileID: 11400000, guid: 699696ab0fb839d419938067e46d0957, type: 2}
-  - {fileID: 11400000, guid: 7460c081871d0774ab8ee57b59d13120, type: 2}
 --- !u!1 &1940476923
 GameObject:
   m_ObjectHideFlags: 0
@@ -2653,6 +2636,14 @@ PrefabInstance:
       propertyPath: weaponSlots
       value: 
       objectReference: {fileID: 1860818252}
+    - target: {fileID: 3236408372865763184, guid: f1af018780b877142bbba158880030a1, type: 3}
+      propertyPath: weaponPosition.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3236408372865763184, guid: f1af018780b877142bbba158880030a1, type: 3}
+      propertyPath: weaponPosition.y
+      value: -0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 3236408372865763186, guid: f1af018780b877142bbba158880030a1, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
