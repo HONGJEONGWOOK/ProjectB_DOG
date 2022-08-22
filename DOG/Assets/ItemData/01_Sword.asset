@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa8d764310433cf41bd0e7a83c422c4d, type: 3}
   m_Name: 01_Sword
   m_EditorClassIdentifier: 
-  id: 1
+  weaponName: 
   type: 0
   weaponSprite: {fileID: -4519076053455810618, guid: a1925e7d73214f63a8ddcce6bea40954, type: 3}
   prefab: {fileID: 3681346031322367829, guid: 5bed4c6d354427841826d6059491734f, type: 3}
-  attackPower: 0
-  defencePower: 0
+  attackPower: 20
+  defencePower: 20
   criticalRate: 0

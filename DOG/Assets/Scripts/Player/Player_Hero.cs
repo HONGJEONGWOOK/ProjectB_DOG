@@ -42,9 +42,11 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
 
 
 
-    public float AttackPower { get => attackPower; }
+    public float AttackPower{ get => attackPower; }
 
-    public float Defence { get => defencePower; }
+    public float Defence { get => defencePower;}
+
+    public float CriticalRate { get => criticalRate; }
 
 
     //--------------------------------------------------------------------------------
@@ -52,8 +54,6 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     public GameManager manager;
     GameObject scanObject;
     GameObject sword;
-    public MenuSet menuset;
-    bool menu = false;
 
     PlayerInputActions actions;
     Animator anim;
@@ -61,10 +61,8 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     CapsuleCollider2D Collider;
     bool isAction = false;
 
-    public int weaponCount = 0; // 무기의 종류 검 = 0, 활 = 1, 대거 = 2;
     public GameObject shootPrefab = null;
     public float moveSpeed = 5.0f;
-    public float itemPickupRange = 2.0f;
 
     private Vector3 direction = Vector3.zero;
 
@@ -78,7 +76,10 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
         rigid = GetComponent<Rigidbody2D>();
         Collider = GetComponent<CapsuleCollider2D>();
     }
-   
+
+
+    
+
 
     private void OnEnable()
     {
@@ -87,7 +88,6 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
         actions.Player.Move.canceled += OnMove;
         actions.Player.Attack.performed += OnAttack;
         actions.Player.Talk.performed += OnTalk;
-        actions.Player.PickUp.performed += OnPickUp;
         actions.UI.Enable();
         actions.UI.Escape.performed += OnEscape;
     }
@@ -98,7 +98,6 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     {
         actions.UI.Escape.performed -= OnEscape;
         actions.UI.Disable();
-        actions.Player.PickUp.performed -= OnPickUp;
         actions.Player.Talk.performed -= OnTalk;
         actions.Player.Attack.performed -= OnAttack;
         actions.Player.Move.canceled -= OnMove;
@@ -160,7 +159,7 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
+        
     }
 
     private void Move()
@@ -197,7 +196,7 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
         }
         else
         {
-            Debug.Log("대상이 없습니다.");
+            //Debug.Log("대상이 없습니다.");
         }
     }
 
@@ -205,47 +204,14 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     private void OnAttack(InputAction.CallbackContext context)
     {
         Debug.Log("공격");
-        
-
-        if(weaponCount == 0)
-        {
-            anim.SetInteger("WeaponCount", 0);
-            anim.SetTrigger("Attack");
-            Debug.Log("검 공격");
-        }
-        else if (weaponCount == 1)
-        {
-            anim.SetInteger("WeaponCount", 1);
-            anim.SetTrigger("Attack");
-            Debug.Log("활 공격");
-        }
-        else if(weaponCount == 2)
-        {
-            anim.SetInteger("WeaponCount", 2);
-            anim.SetTrigger("Attack");
-            Debug.Log("단검 공격");
-        }
-
+        anim.SetTrigger("Attack");
     }
 
 
 
     private void OnEscape(InputAction.CallbackContext obj)
     {
-        Debug.Log($"{menu}");
-        if(!menu)
-        {
-            menuset.gameObject.SetActive(true);
-            menu = true;
-            Time.timeScale = 0;
-        }
-        else
-        {
-            menuset.gameObject.SetActive(false);
-            menu = false;
-            Time.timeScale = 1;
-        }
-        
+        Debug.Log("메뉴");
     }
 
     private void OnTalk(InputAction.CallbackContext obj)
@@ -314,8 +280,24 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     }
 
 
-    private void OnPickUp(InputAction.CallbackContext obj)
+    public void StatusUpdate(Weapon_Item weapon)
     {
-        Collider[] cols = Physics.OverlapSphere(transform.position, itemPickupRange, LayerMask.GetMask("Item"));
+        float defaultAttack = 30;
+        float defaultDefence = 10;
+        float defaultCritical = 0.3f;
+
+        GameManager.Inst.MainPlayer.attackPower = defaultAttack;
+        GameManager.Inst.MainPlayer.defencePower = defaultDefence;
+        GameManager.Inst.MainPlayer.criticalRate = defaultCritical;
+
+        GameManager.Inst.MainPlayer.attackPower += weapon.data.attackPower;
+        GameManager.Inst.MainPlayer.defencePower += weapon.data.defencePower;
+        GameManager.Inst.MainPlayer.criticalRate += weapon.data.criticalRate;
+
+        Debug.Log($"공격력 : {GameManager.Inst.MainPlayer.attackPower}");
+        Debug.Log($"방어력 : {GameManager.Inst.MainPlayer.defencePower}");
+        Debug.Log($"크리율 : {GameManager.Inst.MainPlayer.criticalRate}");
     }
+
+
 }
