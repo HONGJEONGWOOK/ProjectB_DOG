@@ -43,13 +43,6 @@ public class Weapons : MonoBehaviour
     {
         weaponParent = GameManager.Inst.MainPlayer.transform.GetChild(1);
         EquipWeapon(0);        
-
-
-    }
-
-    private void Start()
-    {
-        weaponParent = GameManager.Inst.MainPlayer.transform.GetChild(1);
     }
 
     private void OnEnable()
@@ -127,7 +120,7 @@ public class Weapons : MonoBehaviour
     public void EquipWeapon(uint id)        // Weapon 오브젝트에 이미 무기가 들어있을 경우, 무기가 두 개씩 표시되는 문제가 있음
     {
         
-        AssignWeapon(GameManager.Inst.WeaponData[id]);
+        AssignWeapon(GameManager.Inst.WeaponData[(WeaponType)id]);
         GameObject obj = Instantiate(PlayerWeaponData.prefab, weaponParent );
         obj.transform.localPosition = weaponParent.transform.localPosition + weaponPosition;
         // Sword 프리팹의 위치가 이상해서 리셋함
