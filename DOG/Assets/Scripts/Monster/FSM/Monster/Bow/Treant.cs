@@ -38,10 +38,16 @@ public class Treant : MonoBehaviour, IHealth, IBattle
     [Header("Hit")]
     [SerializeField] private float knockbackForce = 0.5f;
 
-    private bool isMoving = false;
-
     // ------------------------------------ TARGET ------------------------------------------
-    private GameObject target;
+    private Transform target;
+
+    // ------------------------------------ PATROL ------------------------------------------
+    [Header("Patrol")]
+    [SerializeField] float patrolRange = 5.0f;
+    float waitCounter = 0.0f;
+    [SerializeField] float waitTime = 2.0f;
+    int waypointIndex = 0;
+    public Transform[] waypoint = null;
 
 
     // #################################### Properties #####################################
@@ -74,11 +80,34 @@ public class Treant : MonoBehaviour, IHealth, IBattle
         weaponSprite = weapon.GetComponentInChildren<SpriteRenderer>();
     }
 
+    protected virtual void OnEnable()
+    {
+        foreach (Transform t in waypoint)
+        {
+            t.localPosition = Random.insideUnitCircle * patrolRange;
+        }
+    }
+
+    private void OnDisable()
+    {
+        foreach (Transform t in waypoint)
+        {
+            t.localPosition = Vector2.zero;
+        }
+    }
+
     private void FixedUpdate()
     {
-        if (isMoving)
+        if (!isDead)
         {
-            Move_Monster();
+            if (status == MonsterCurrentState.TRACK)
+            {
+                Track();
+            }
+            else if (status == MonsterCurrentState.PATROL)
+            {
+                Patrol();
+            }
         }
     }
 
@@ -92,39 +121,63 @@ public class Treant : MonoBehaviour, IHealth, IBattle
     // -------------------------------  IDLE  ------------------------------------------
     void Idle()
     {
-        if (Search())
+        if (SearchPlayer())
         {
             ChangeStatus(MonsterCurrentState.TRACK);
             return;
+        }
+        else
+        {
+            waitCounter += Time.deltaTime;
+            if (waitCounter > waitTime)
+            {
+                waitCounter = 0;
+                ChangeStatus(MonsterCurrentState.PATROL);
+            }
         }
     }
 
     // -------------------------------  MOVE  ------------------------------------------
     private void Track()
     {
-        if (!Search())
+        if (!SearchPlayer())
         {
             ChangeStatus(MonsterCurrentState.IDLE);
             return;
         }
 
-        isMoving = true;
         RotateWeapon();
+        Move_Monster();
+    }
 
-        if (InAttackRange())
+    private void Patrol()
+    {
+        if (SearchPlayer())
         {
-            ChangeStatus(MonsterCurrentState.ATTACK);
+            ChangeStatus(MonsterCurrentState.TRACK);
+            return;
+        }
+
+        if (Vector2.SqrMagnitude(transform.position - waypoint[waypointIndex].position) < 0.01f)
+        {
+            waypointIndex = (waypointIndex + 1) % waypoint.Length;
+            ChangeStatus(MonsterCurrentState.IDLE);
+        }
+        else
+        {
+            transform.position = Vector2.MoveTowards(transform.position, waypoint[waypointIndex].position,
+                  Time.fixedDeltaTime * moveSpeed);
         }
     }
 
-    private bool Search()
+    private bool SearchPlayer()
     {
         bool result = false;
         Collider2D collider = Physics2D.OverlapCircle(this.transform.position, detectRange, LayerMask.GetMask("Player"));
 
         if (collider != null)
         {
-            target = collider.gameObject;
+            target = collider.transform;
             result = true;
         }
 
@@ -138,12 +191,27 @@ public class Treant : MonoBehaviour, IHealth, IBattle
 
     private void Move_Monster()
     {
-        trackDirection = target.transform.position - transform.position;
+        trackDirection = (target.position - this.transform.position).normalized;
         anim.SetFloat("Direction_X", trackDirection.x);
         anim.SetFloat("Direction_Y", trackDirection.y);
 
-        rigid.position = Vector2.MoveTowards
-            (rigid.position, target.transform.position, moveSpeed * Time.fixedDeltaTime);
+        rigid.position = Vector2.MoveTowards(
+            rigid.position, new Vector2(rigid.position.x, target.position.y), moveSpeed * Time.fixedDeltaTime);
+
+        if (IsAtSameHeight())
+        {
+            rigid.position = Vector2.MoveTowards(rigid.position, target.position, moveSpeed * Time.fixedDeltaTime);
+            if (InAttackRange())
+            {
+                ChangeStatus(MonsterCurrentState.ATTACK);
+                return;
+            }
+        }
+    }
+
+    private bool IsAtSameHeight()
+    {
+        return rigid.position.y - target.position.y < 0.05f;
     }
 
     void ShootArrow()
@@ -152,6 +220,10 @@ public class Treant : MonoBehaviour, IHealth, IBattle
             EnemyBulletManager.Inst.GetPooledObject(EnemyBulletManager.PooledObjects[EnemyBulletManager.Inst.ArrowID]);
         arrow.transform.position = shootPosition.position;
         arrow.transform.rotation = weapon.transform.rotation;
+        if (transform.localScale.x < 1f)
+        {
+            arrow.transform.localScale = new Vector2(0.5f, 0.5f);
+        }
         arrow.SetActive(true);
     }
 
@@ -250,7 +322,6 @@ public class Treant : MonoBehaviour, IHealth, IBattle
                     break;
 
                 case MonsterCurrentState.TRACK:
-                    Track();
                     break;
 
                 case MonsterCurrentState.ATTACK:
@@ -273,7 +344,6 @@ public class Treant : MonoBehaviour, IHealth, IBattle
             case MonsterCurrentState.PATROL:
                 break;
             case MonsterCurrentState.TRACK:
-                isMoving = false;
                 break;
             case MonsterCurrentState.ATTACK:
                 break;
@@ -288,15 +358,12 @@ public class Treant : MonoBehaviour, IHealth, IBattle
         {
             case MonsterCurrentState.IDLE:
                 trackDirection = Vector2.zero;
-                anim.SetFloat("Speed", 0f);
                 break;
             case MonsterCurrentState.PATROL:
                 break;
             case MonsterCurrentState.TRACK:
-                anim.SetFloat("Speed", moveSpeed);
                 break;
             case MonsterCurrentState.ATTACK:
-                anim.SetFloat("Speed", 0f);
                 attackTimer = 0.5f;
                 break;
             case MonsterCurrentState.DEAD:

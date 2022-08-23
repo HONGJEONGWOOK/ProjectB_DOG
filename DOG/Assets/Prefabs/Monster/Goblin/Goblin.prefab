@@ -114,6 +114,7 @@ GameObject:
   - component: {fileID: 578401991311117337}
   - component: {fileID: -6339059742485343401}
   - component: {fileID: 1588527199}
+  - component: {fileID: 1763705707337358341}
   m_Layer: 7
   m_Name: Goblin
   m_TagString: Monster
@@ -129,7 +130,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 578401991311117347}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.97, y: -1.4, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -210,7 +211,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &-6339059742485343401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,7 +225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   status: 0
-  detectRange: 5
+  detectRange: 7
   healthPoint: 100
   maxHealthPoint: 100
   strength: 5
@@ -235,6 +236,13 @@ MonoBehaviour:
   defence: 1
   detectCoolTime: 3
   knockbackForce: 1.5
+  patrolRange: 4
+  waitTime: 4
+  waypoint:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!95 &1588527199
 Animator:
   serializedVersion: 4
@@ -255,6 +263,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!70 &1763705707337358341
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578401991311117347}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1.2, y: 1.7}
+  m_Direction: 0
 --- !u!1 &4987052763540340208
 GameObject:
   m_ObjectHideFlags: 0
