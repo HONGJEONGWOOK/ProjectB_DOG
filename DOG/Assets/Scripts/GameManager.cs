@@ -6,18 +6,19 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public TalkManager talkManager;
-    public Text talkText;
-    public GameObject scanObject;
-    ItemInventory_UI inventoryUI;
-
     //퀘스트매니저
+    public TalkManager talkManager;
+    public QuestManager questManager;
+
     private GameObject talkPanel;
     public GameObject TalkPanel
     {
         get { return talkPanel; }
     }
 
+    public Text talkText;
+    public GameObject scanObject;
+    
     // 플레이어 ----------------------------------------------------------
     Player_Hero player = null;
     public Player_Hero MainPlayer { get => player; }
@@ -32,6 +33,7 @@ public class GameManager : MonoBehaviour
     ItemDataManager itemData;
     public ItemDataManager ItemData => itemData;
 
+    ItemInventory_UI inventoryUI;
     public ItemInventory_UI InvenUI => inventoryUI;
 
     public static GameManager Inst { get => instance;}

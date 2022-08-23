@@ -32,4 +32,12 @@ public class Goblin : Monsters, IHealth, IBattle
             hitBox.localPosition = new Vector3(1.79f, 0f);
         }
     }
+
+    protected override void Die()
+    {
+        anim.SetTrigger("onDie");
+        currentSpeed = 0;
+        StartCoroutine(DisableMonster());
+        QuestManager.Instance.GoblinQuestCount++;
+    }
 }

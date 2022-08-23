@@ -13,6 +13,12 @@ public class QuestPanel : MonoBehaviour
     {
         qeustName = transform.Find("QuestName").GetComponent<TextMeshProUGUI>();
         qeustDetail = transform.Find("QuestDetail").GetComponent<TextMeshProUGUI>();
+        
+    }
+
+    private void Start()
+    {
+        Close();
     }
 
     void Close()
@@ -51,14 +57,14 @@ public class QuestPanel : MonoBehaviour
         }
         else if (id == 20 && index == 1)
         {
-            qeustName.text = "고블린이 원인?";
-            qeustDetail.text = "재앙의 원인은 최근 늘어난 몬스터들일까? 주민의 의견도 물어보자.";
+            qeustName.text = "생존자에게 다시 돌아가보자";
+            qeustDetail.text = "주민의 말처럼 장로에게 약물을 받았다. 우선 주민에게 상황을 말해주자.";
 
         }
         else if (id == 30 && index == 0)
         {
-            qeustName.text = "고블린 5마리 처치!";
-            qeustDetail.text = $"고블린 킬수 : {QuestManager.Instance.GoblinQuestCount}";
+            qeustName.text = "마을 순찰 및 고블린 처치!";
+            qeustDetail.text = $"빈 마을을 노리는 고블린을 처치하고 순찰하자!\n고블린 킬수 : {QuestManager.Instance.GoblinQuestCount}";
             if (QuestManager.Instance.GoblinQuestCount >= 5)
             {
                 QuestManager.Instance.NextQuest();
@@ -68,8 +74,8 @@ public class QuestPanel : MonoBehaviour
         }
         else if (id == 40 && index == 0)
         {
-            qeustName.text = "고블린 5마리 처치 완료";
-            qeustDetail.text = "고블린 5마리를 처치했다. 장로에게 말하러 가자.";
+            qeustName.text = "마을 순찰 및 고블린 처치 완료";
+            qeustDetail.text = "고블린 5마리를 처치하며 순찰을 완료했다. 장로에게 돌아가보자";
         }
 
     }

@@ -28,6 +28,7 @@ public class QuestManager : MonoBehaviour
     public int GoblinQuestCount
     {
         get {return goblinQuestCount;}
+        set {goblinQuestCount = value;}
     }
 
     private void Awake()
