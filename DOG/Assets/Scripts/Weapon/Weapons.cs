@@ -43,13 +43,6 @@ public class Weapons : MonoBehaviour
     {
         weaponParent = GameManager.Inst.MainPlayer.transform.GetChild(1);
         EquipWeapon(0);        
-
-
-    }
-
-    private void Start()
-    {
-        weaponParent = GameManager.Inst.MainPlayer.transform.GetChild(1);
     }
 
     private void OnEnable()
