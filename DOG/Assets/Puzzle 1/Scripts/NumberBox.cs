@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,12 +19,12 @@ public class NumberBox : MonoBehaviour
         this.swapFunc = swapFunc;
     }
     public void UpdatePos(int i, int j)
-        {
-            x = i;
-            y = j;
+    {
+        x = i;
+        y = j;
         StartCoroutine(Move());
-        }
-    IEnumerator Move()
+    }
+    IEnumerator Move()                  //타일 움직임
     {
         float elapsedTime = 0;
         float duration = 0.1f;
@@ -45,7 +45,7 @@ public class NumberBox : MonoBehaviour
         return index == 16; 
     }
 
-    void OnMouseDown()
+    void OnMouseDown()       
     {
         if (Input.GetMouseButtonDown(0) && swapFunc != null)
             swapFunc(x, y);

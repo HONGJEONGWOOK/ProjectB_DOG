@@ -9,12 +9,50 @@ public class Puzzle : MonoBehaviour
     public NumberBox[,] boxes = new NumberBox[4, 4];
 
     public Sprite[] sprites;
-
+    int[][] correct = new int[4][];
 
     bool check;
     void Start()
     {
        // Init();
+    }
+    private void Update()
+    {
+        if(check)
+            SuccessCheck();
+
+        if(Input.GetKeyDown(KeyCode.Home) && check)
+        {
+            for (int i = 0; i <= 3; i++)
+            {
+                for (int j = 0; j <= 3; j++)
+                {
+                    correct[i][j] = boxes[i, j].index;
+                }
+            }
+        }
+    }
+    void SuccessCheck()
+    {
+
+        int i, j = 0;
+        for(i = 0; i <= 3; i++)
+        {
+            for(j= 0; j <= 3; j++)
+            {
+                //Debug.Log("i : " + i + " j : " + j + " index : " + boxes[i, j].index) //í™•ì¸ìš©
+                if(correct[i][j] != boxes[i, j].index)
+                {
+                    break;
+                }
+            }
+            if (j < 4)
+                break;
+        }
+        if (i == 4 && j == 4)
+        {
+            Debug.Log("Success");   //ë¬¸
+        }
     }
 
     void ClickToSwap(int x, int y)
@@ -38,12 +76,25 @@ public class Puzzle : MonoBehaviour
             {
                 NumberBox box = Instantiate(boxPrefab, new Vector2(x, y), Quaternion.identity);
                 box.Init(x, y, n + 1, sprites[n], ClickToSwap);
+                box.transform.parent = transform;
                 boxes[x, y] = box;
                 n++;
             }
         for (int i = 0; i < 999; i++)
             Shuffle();
         check = true;
+
+        //ì •ë‹µë°°ì—´ ë§Œë“¤ê¸°
+        for(int i = 0; i < 4; i++)
+        {
+            int value = 13 + i;
+            correct[i] = new int[4];
+            for (int j = 0; j < 4; j++)
+            {
+                correct[i][j] = value;
+                value -= 4;
+            }
+        }
     }
     void Swap(int x, int y,int dx, int dy)
     {
@@ -51,21 +102,21 @@ public class Puzzle : MonoBehaviour
         var from = boxes[x, y];
         var target = boxes[x + dx, y + dy];
 
-        //µÎ »óÀÚ¸¦ ¹Ù²Ù´Â
+        //ë‘ ìƒìžë¥¼ ë°”ê¾¸ëŠ”
         boxes[x, y] = target;
         boxes[x + dx, y + dy] = from;
 
-        //2 ¹Ú½º À§Ä¡ ¾÷µ¥ÀÌÆ®
+        //2 ë°•ìŠ¤ ìœ„ì¹˜ ì—…ë°ì´íŠ¸
         from.UpdatePos(x + dx, y + dy);
         target.UpdatePos(x , y);
     }
     
     int getDx(int x, int y)
     {
-        //¿À¸¥ÂÊÀÌ ºñ¾îÀÖ´Â
+        //ì˜¤ë¥¸ìª½ì´ ë¹„ì–´ìžˆëŠ”
         if(x<3 && boxes[x + 1, y].IsEmpty())
             return 1;
-        //¿ÞÂÊÀÌ ºñ¾îÀÖ´Â
+        //ì™¼ìª½ì´ ë¹„ì–´ìžˆëŠ”
         if (x > 0 && boxes[x + -1, y].IsEmpty())
             return -1;
 
@@ -75,10 +126,10 @@ public class Puzzle : MonoBehaviour
 
     int getDy(int x, int y)
     {
-        //À§°¡ ºñ¾îÀÖ´Â
+        //ìœ„ê°€ ë¹„ì–´ìžˆëŠ”
         if (y < 3 && boxes[x, y + 1].IsEmpty())
             return 1;
-        //¾Æ·¡°¡ ºñ¾îÀÖ´Â
+        //ì•„ëž˜ê°€ ë¹„ì–´ìžˆëŠ”
         if (y > 0 && boxes[x , y - 1].IsEmpty())
             return -1;
 
