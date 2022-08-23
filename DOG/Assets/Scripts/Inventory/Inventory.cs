@@ -10,10 +10,11 @@ public class Inventory
 
     // Slot 인덱서
     public ItemSlot this[int index] { get => slots[index]; }
+
     public ItemSlot MovingSlot => movingSlot;
     public ItemSlot OldSlot => oldSlot;
 
-    public const uint DEFAULT_SIZE = 6;
+    public const uint DEFAULT_SIZE = 13;
     public int SlotCount => slots.Length;
 
     public const uint MOVINGSLOT_ID = 100;

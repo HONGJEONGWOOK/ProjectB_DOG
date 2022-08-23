@@ -42,9 +42,11 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
 
 
 
-    public float AttackPower { get => attackPower; }
+    public float AttackPower{ get => attackPower; }
 
-    public float Defence { get => defencePower; }
+    public float Defence { get => defencePower;}
+
+    public float CriticalRate { get => criticalRate; }
 
 
     //--------------------------------------------------------------------------------
@@ -74,7 +76,10 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
         rigid = GetComponent<Rigidbody2D>();
         Collider = GetComponent<CapsuleCollider2D>();
     }
-   
+
+
+    
+
 
     private void OnEnable()
     {
@@ -191,7 +196,7 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
         }
         else
         {
-            Debug.Log("대상이 없습니다.");
+            //Debug.Log("대상이 없습니다.");
         }
     }
 
@@ -273,4 +278,26 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
         QuestManager.Instance.TalkIndex++;
         moveSpeed = speed;
     }
+
+
+    public void StatusUpdate(Weapon_Item weapon)
+    {
+        float defaultAttack = 30;
+        float defaultDefence = 10;
+        float defaultCritical = 0.3f;
+
+        GameManager.Inst.MainPlayer.attackPower = defaultAttack;
+        GameManager.Inst.MainPlayer.defencePower = defaultDefence;
+        GameManager.Inst.MainPlayer.criticalRate = defaultCritical;
+
+        GameManager.Inst.MainPlayer.attackPower += weapon.data.attackPower;
+        GameManager.Inst.MainPlayer.defencePower += weapon.data.defencePower;
+        GameManager.Inst.MainPlayer.criticalRate += weapon.data.criticalRate;
+
+        Debug.Log($"공격력 : {GameManager.Inst.MainPlayer.attackPower}");
+        Debug.Log($"방어력 : {GameManager.Inst.MainPlayer.defencePower}");
+        Debug.Log($"크리율 : {GameManager.Inst.MainPlayer.criticalRate}");
+    }
+
+
 }
