@@ -8,10 +8,10 @@ public class WeaponDataManager : MonoBehaviour
 {
     public WeaponData[] weaponDatas;
 
-    //public WeaponData this[uint I]
-    //{
-    //    get => weaponDatas[I];
-    //}
+    public WeaponData this[uint i]
+    {
+        get => weaponDatas[i];
+    }
 
     public WeaponData this[WeaponType type]
     {

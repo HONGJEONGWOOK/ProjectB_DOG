@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e80658148adf74b4b8d84ec585227f03, type: 3}
+  m_Name: 3_Arrows
+  m_EditorClassIdentifier: 
+  id: 3
+  itemName: "\uB098\uBB34\uC758 \uD654\uC0B4"
+  maxCount: 5
+  prefab: {fileID: 5342791561936772664, guid: 96616e312a10feb40bdfbdbacaf47c75, type: 3}
+  icon: {fileID: -1181195662, guid: ba00d2cc9cfe3aa4dbabe584112b29a8, type: 3}
+  poolingSize: 20

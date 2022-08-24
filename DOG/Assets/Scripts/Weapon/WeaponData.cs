@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Weapon Data", menuName = "Scriptable Object/Item Data", order = 1)]
+[CreateAssetMenu(fileName = "New Weapon Data", menuName = "Scriptable Object/Weapon Data", order = 1)]
 
 // 무기의 정보
 public class WeaponData : ScriptableObject

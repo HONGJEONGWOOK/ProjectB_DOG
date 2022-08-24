@@ -18,3 +18,13 @@ public enum MonsterID
     TREANT,
     BOSS
 }
+
+public enum ItemID 
+{
+    HPPotion = 0,
+    ManaPotion,
+    GoblinsPPP,
+    Arrows
+}
+
+

@@ -1622,10 +1622,10 @@ TextureImporter:
       bomb_carry_39: 3916555645117337140
       bomb_carry_14: -1675275874971344914
       bomb_carry_27: -4646496869904889924
-      bomb_carry_0: 2837247941802057891
       bomb_carry_22: 3217347994292953808
-      bomb_carry_10: 2602264901856014461
       bomb_carry_50: -2903064536554436723
+      bomb_carry_10: 2602264901856014461
+      bomb_carry_0: 2837247941802057891
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

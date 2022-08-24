@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Weapon_Item : MonoBehaviour
 {
-    public WeaponData data;
+    [HideInInspector] public WeaponData data;
 }

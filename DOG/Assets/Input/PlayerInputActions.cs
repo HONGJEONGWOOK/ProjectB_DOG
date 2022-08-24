@@ -147,6 +147,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""InventoryButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""52f97dc6-0d1f-4116-8cc3-e956c4822a27"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -158,6 +167,17 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""125edc0a-bd51-41b6-8368-ac0638e74ff7"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Player"",
+                    ""action"": ""InventoryButton"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -191,6 +211,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Escape = m_UI.FindAction("Escape", throwIfNotFound: true);
+        m_UI_InventoryButton = m_UI.FindAction("InventoryButton", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -300,11 +321,13 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_UI;
     private IUIActions m_UIActionsCallbackInterface;
     private readonly InputAction m_UI_Escape;
+    private readonly InputAction m_UI_InventoryButton;
     public struct UIActions
     {
         private @PlayerInputActions m_Wrapper;
         public UIActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Escape => m_Wrapper.m_UI_Escape;
+        public InputAction @InventoryButton => m_Wrapper.m_UI_InventoryButton;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -317,6 +340,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Escape.started -= m_Wrapper.m_UIActionsCallbackInterface.OnEscape;
                 @Escape.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnEscape;
                 @Escape.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnEscape;
+                @InventoryButton.started -= m_Wrapper.m_UIActionsCallbackInterface.OnInventoryButton;
+                @InventoryButton.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnInventoryButton;
+                @InventoryButton.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnInventoryButton;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
@@ -324,6 +350,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Escape.started += instance.OnEscape;
                 @Escape.performed += instance.OnEscape;
                 @Escape.canceled += instance.OnEscape;
+                @InventoryButton.started += instance.OnInventoryButton;
+                @InventoryButton.performed += instance.OnInventoryButton;
+                @InventoryButton.canceled += instance.OnInventoryButton;
             }
         }
     }
@@ -346,5 +375,6 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     public interface IUIActions
     {
         void OnEscape(InputAction.CallbackContext context);
+        void OnInventoryButton(InputAction.CallbackContext context);
     }
 }

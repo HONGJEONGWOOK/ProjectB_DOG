@@ -316,6 +316,7 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
                     break;
 
                 case MonsterCurrentState.TRACK:
+                    // Fixed Update로 이동
                     break;
 
                 case MonsterCurrentState.ATTACK:
