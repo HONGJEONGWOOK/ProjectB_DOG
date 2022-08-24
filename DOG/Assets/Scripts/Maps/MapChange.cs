@@ -16,9 +16,12 @@ public class MapChange : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("들어옴");
-        fadeInOut.OnFadeOutEnd = SceneLoad;
-        fadeInOut.StartFadeOut();
+        if (collision.CompareTag("Player"))
+        {
+            Debug.Log("들어옴");
+            fadeInOut.OnFadeOutEnd = SceneLoad;
+            fadeInOut.StartFadeOut();
+        }
     }
 
     void SceneLoad()
