@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class ItemInventory_UI : MonoBehaviour, IPointerClickHandler
+public class ItemInventory_UI : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
     DetailInfoUI detail;
     public DetailInfoUI Detail => detail;
@@ -28,6 +28,8 @@ public class ItemInventory_UI : MonoBehaviour, IPointerClickHandler
     Button invenMenuButton;
     CanvasGroup canvasGroup;
     bool isOpen = false;
+
+    Vector2 dragOffset;
 
 
     public bool IsOpen
@@ -101,7 +103,6 @@ public class ItemInventory_UI : MonoBehaviour, IPointerClickHandler
         if (eventData.button == PointerEventData.InputButton.Left)
         {
             GameObject clickedObject = eventData.pointerCurrentRaycast.gameObject;
-            Debug.Log(clickedObject.name);
             if (clickedObject != null)
             {
                 ItemSlot_UI clickedSlot = clickedObject.transform.parent.GetComponent<ItemSlot_UI>();
@@ -169,5 +170,20 @@ public class ItemInventory_UI : MonoBehaviour, IPointerClickHandler
                 }
             }
         }
+    }
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        dragOffset = (Vector2)mainInven.GetChild(0).transform.position - eventData.position;
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        mainInven.GetChild(0).transform.position = eventData.position + dragOffset;
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        //if(Camera.main.WorldToScreenPoint(mainInven.GetChild(0).transform.position) > Screen.saf)
     }
 }
