@@ -34,9 +34,13 @@ public class Treant : MonoBehaviour, IHealth, IBattle
     private float attackTimer = 1.0f;
     [SerializeField] protected float attackPower = 5.0f;
     [SerializeField] protected float defence = 1.0f;
+    private bool isDying = false;
 
     [Header("Hit")]
     [SerializeField] private float knockbackForce = 0.5f;
+    private Vector2 knockBackDir = Vector2.zero;
+    private float knockbackTimer = 0f;
+    private float knockBackCoolTime = 0f;
 
     // ------------------------------------ TARGET ------------------------------------------
     private Transform target;
@@ -86,6 +90,7 @@ public class Treant : MonoBehaviour, IHealth, IBattle
         {
             t.localPosition = Random.insideUnitCircle * patrolRange;
         }
+        ChangeStatus(MonsterCurrentState.IDLE);
     }
 
     private void OnDisable()
@@ -115,7 +120,6 @@ public class Treant : MonoBehaviour, IHealth, IBattle
     {
         CheckStatus();
     }
-
 
     //################################## Method ########################################
     // -------------------------------  IDLE  ------------------------------------------
@@ -184,10 +188,7 @@ public class Treant : MonoBehaviour, IHealth, IBattle
         return result;
     }
 
-    private bool InAttackRange()
-    {
-        return (transform.position - target.transform.position).sqrMagnitude < attackRange * attackRange;
-    }
+    private bool InAttackRange() => (transform.position - target.transform.position).sqrMagnitude < attackRange * attackRange;
 
     private void Move_Monster()
     {
@@ -209,10 +210,7 @@ public class Treant : MonoBehaviour, IHealth, IBattle
         }
     }
 
-    private bool IsAtSameHeight()
-    {
-        return rigid.position.y - target.position.y < 0.05f;
-    }
+    private bool IsAtSameHeight() => rigid.position.y - target.position.y < 0.05f;
 
     void ShootArrow()
     {
@@ -265,12 +263,11 @@ public class Treant : MonoBehaviour, IHealth, IBattle
         }
         HP -= finalDamage;
 
-        if (HP > 0)
+        if (HP > 0 && status != MonsterCurrentState.KNOCKBACK && !isDying )
         {
-            anim.SetTrigger("onHit");
-            StartCoroutine(KnockBack());
+            ChangeStatus(MonsterCurrentState.KNOCKBACK);
         }
-        else
+        else if(HP <= 0)
         {
             ChangeStatus(MonsterCurrentState.DEAD);
         }
@@ -283,28 +280,33 @@ public class Treant : MonoBehaviour, IHealth, IBattle
         anim.SetFloat("Direction_X", trackDirection.x);
         anim.SetFloat("Direction_Y", trackDirection.y);
 
-        if (trackDirection.x < 0)
+        weaponSprite.flipY = trackDirection.x < 0 ? true : false;
+    }
+
+    private void KnockBack()
+    { // 따라오는 방향의 반대방향으로 넉백
+        knockbackTimer += Time.deltaTime;
+        //rigid.position = Vector3.Lerp(rigid.position, knockBackDir, knockbackForce * Time.deltaTime);
+        if (knockbackTimer > knockBackCoolTime)
         {
-            weaponSprite.flipY = true;
-        }
-        else
-        {
-            weaponSprite.flipY = false;
+            ChangeStatus(MonsterCurrentState.ATTACK);
         }
     }
 
-    private IEnumerator KnockBack()
-    { // 따라오는 방향의 반대방향으로 넉백
-        float timer = 0f;
-        float knockBackTimer = anim.GetCurrentAnimatorClipInfo(0).Length;
-        Vector2 knockBackDir = -trackDirection.normalized;
-        while (timer < knockBackTimer)
+    private void Die()
+    {
+        if (!isDying)
         {
-            rigid.position = Vector3.Lerp(rigid.position, knockBackDir, knockbackForce * Time.deltaTime);
-            timer += Time.deltaTime;
-            yield return null;
+            anim.SetTrigger("onDie");
+            StartCoroutine(DisableMonster());
         }
-        yield return null;
+    }
+
+    private IEnumerator DisableMonster()
+    {
+        yield return new WaitForSeconds(anim.GetCurrentAnimatorClipInfo(0).Length + 2.0f);
+        MonsterManager.ReturnPooledMonster(
+            MonsterManager.PooledMonster[(int)MonsterID.TREANT], this.gameObject);
     }
 
     //########################## Monster Status Check ##################################
@@ -327,6 +329,9 @@ public class Treant : MonoBehaviour, IHealth, IBattle
                 case MonsterCurrentState.ATTACK:
                     Attack();
                     break;
+                case MonsterCurrentState.KNOCKBACK:
+                    KnockBack();
+                    break;
 
                 case MonsterCurrentState.DEAD:
                     break;
@@ -347,7 +352,14 @@ public class Treant : MonoBehaviour, IHealth, IBattle
                 break;
             case MonsterCurrentState.ATTACK:
                 break;
+            case MonsterCurrentState.KNOCKBACK:
+                rigid.bodyType = RigidbodyType2D.Kinematic;
+                knockBackDir = Vector2.zero;
+                knockbackTimer = 0f;
+                rigid.velocity = Vector2.zero;
+                break;
             case MonsterCurrentState.DEAD:
+                isDying = false;
                 break;
             default:
                 break;
@@ -366,9 +378,18 @@ public class Treant : MonoBehaviour, IHealth, IBattle
             case MonsterCurrentState.ATTACK:
                 attackTimer = 0.5f;
                 break;
+            case MonsterCurrentState.KNOCKBACK:
+                anim.SetTrigger("onHit");
+                knockbackTimer = 0f;
+                knockBackCoolTime = anim.GetCurrentAnimatorClipInfo(0).Length;
+                knockBackDir =  transform.position - GameManager.Inst.MainPlayer.transform.position;
+                knockBackDir.Normalize();
+
+                rigid.bodyType = RigidbodyType2D.Dynamic;
+                rigid.AddForce(knockBackDir * knockbackForce, ForceMode2D.Impulse);
+                break;
             case MonsterCurrentState.DEAD:
-                moveSpeed = 0;
-                anim.SetTrigger("onDie");
+                Die();
                 break;
             default:
                 break;

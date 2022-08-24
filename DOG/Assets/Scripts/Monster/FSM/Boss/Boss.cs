@@ -49,7 +49,7 @@ public class Boss : Monsters
         currentSpeed = 0;
         hpBar.enabled = true;
         textController.enabled = true ;
-        status = MonsterCurrentState.IDLE;
+        ChangeStatus(MonsterCurrentState.IDLE);
     }
 
     private void OnDisable()

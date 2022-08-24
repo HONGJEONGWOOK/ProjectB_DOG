@@ -29,6 +29,11 @@ public class HP_Bar_Monster : MonoBehaviour
         target.onHealthChange += ShowHP;
     }
 
+    private void Start()
+    {
+        gameObject.SetActive(false);
+    }
+
     private void LateUpdate()
     {
         if (gameObject.activeSelf)

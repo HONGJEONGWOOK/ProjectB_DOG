@@ -39,6 +39,10 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
     [SerializeField] protected float detectCoolTime = 1.0f;
     [Header("Hit")]
     [SerializeField] private float knockbackForce = 0.5f;
+    private Vector2 knockBackDir = Vector2.zero;
+    float knockbackTimer = 0f;
+    private float knockBackCoolTime = 0f;
+    private bool isDying = false;
 
     public System.Action onHealthChange { get; set; }
 
@@ -68,8 +72,6 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
 
     public float Defence { get => defence; }
 
-    public bool IsDead => isDead;
-    public MonsterCurrentState Status => status;
 
     protected virtual void Awake()
     {
@@ -88,6 +90,7 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
             }
             t.localPosition = Random.insideUnitCircle * patrolRange;
         }
+        ChangeStatus(MonsterCurrentState.IDLE);
     }
 
     private void OnDisable()
@@ -159,7 +162,6 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
         if (!SearchPlayer())
         {
             ChangeStatus(MonsterCurrentState.IDLE);
-            return;
         }
         else
         {
@@ -208,27 +210,14 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
         SpriteFlip();
     }
 
-    protected virtual bool InAttackRange()
-    {
-        return (transform.position - target.position).sqrMagnitude < attackRange * attackRange;
-    }
+    protected virtual bool InAttackRange() => (transform.position - target.position).sqrMagnitude < attackRange * attackRange;
+    private bool IsAtSameHeight() => rigid.position.y - target.position.y < 0.05f;
 
-    private bool IsAtSameHeight()
-    {
-        return rigid.position.y - target.position.y < 0.05f;
-    }
     protected virtual void SpriteFlip()
     {
         trackDirection = target.position - this.transform.position;
         var cross = Vector3.Cross(trackDirection, this.transform.up);
-        if (Vector3.Dot(cross, transform.forward) < 0)
-        {   // 왼쪽
-            sprite.flipX = true;
-        }
-        else
-        {   // 오른쪽
-            sprite.flipX = false;
-        }
+        sprite.flipX = Vector3.Dot(cross, transform.forward) < 0? true : false;
     }
 
     // -------------------------------  ATTACK  ----------------------------------------
@@ -274,13 +263,11 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
         }
         HP -= finalDamage;
 
-        if (HP > 0)
+        if (HP > 0 && status != MonsterCurrentState.KNOCKBACK && !isDying)
         {
-            anim.SetTrigger("onHit");
-            StartCoroutine(KnockBack());
-            currentSpeed = 0;
+            ChangeStatus(MonsterCurrentState.KNOCKBACK);
         }
-        else
+        else if (HP <= 0)
         {
             ChangeStatus(MonsterCurrentState.DEAD);
         }
@@ -288,9 +275,12 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
 
     protected virtual void Die()
     {
-        anim.SetTrigger("onDie");
-        currentSpeed = 0;
-        StartCoroutine(DisableMonster());
+        if (!isDying)
+        {
+            anim.SetTrigger("onDie");
+            currentSpeed = 0;
+            StartCoroutine(DisableMonster());
+        }
     }
 
     protected virtual IEnumerator DisableMonster()
@@ -300,16 +290,13 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
             MonsterManager.PooledMonster[MonsterManager.Inst.GoblinID], this.gameObject);
     }
 
-    protected virtual IEnumerator KnockBack()
-    { // 따라오는 방향의 반대방향으로 넉백
-        float timer = 0f;
-        float knockBackTimer = anim.GetCurrentAnimatorClipInfo(0).Length;
-        Vector2 knockBackDir = -trackDirection.normalized;
-        while (timer < knockBackTimer)
+    protected void KnockBack()
+    {
+        //rigid.position = Vector3.Lerp(rigid.position, knockBackDir, knockbackForce * Time.deltaTime);
+        knockbackTimer += Time.deltaTime;
+        if (knockbackTimer > knockBackCoolTime)
         {
-            rigid.position = Vector3.Lerp(rigid.position, knockBackDir, knockbackForce * Time.deltaTime);
-            timer += Time.deltaTime;
-            yield return null;
+            ChangeStatus(MonsterCurrentState.ATTACK);
         }
     }
 
@@ -335,6 +322,10 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
                     Attack();
                     break;
 
+                case MonsterCurrentState.KNOCKBACK:
+                    KnockBack();
+                    break;
+
                 case MonsterCurrentState.DEAD:
                     break;
             }
@@ -355,7 +346,14 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
             case MonsterCurrentState.ATTACK:
                 currentSpeed = moveSpeed;
                 break;
+            case MonsterCurrentState.KNOCKBACK:
+                rigid.bodyType = RigidbodyType2D.Kinematic;
+                knockBackDir = Vector2.zero;
+                knockbackTimer = 0f;
+                rigid.velocity = Vector2.zero;  
+                break;
             case MonsterCurrentState.DEAD:
+                isDying = false;
                 break;
             default:
                 break;
@@ -376,6 +374,17 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
             case MonsterCurrentState.ATTACK:
                 currentSpeed = 0;
                 attackTimer = attackCoolTime; // 즉시공격
+                break;
+
+            case MonsterCurrentState.KNOCKBACK:
+                currentSpeed = 0;
+                knockbackTimer = 0f;
+                anim.SetTrigger("onHit");
+                knockBackCoolTime = anim.GetCurrentAnimatorClipInfo(0).Length;
+                knockBackDir = transform.position - GameManager.Inst.MainPlayer.transform.position;
+                knockBackDir.Normalize();
+                rigid.bodyType = RigidbodyType2D.Dynamic;
+                rigid.AddForce(knockbackForce * knockBackDir, ForceMode2D.Impulse);
                 break;
             case MonsterCurrentState.DEAD:
                 Die();

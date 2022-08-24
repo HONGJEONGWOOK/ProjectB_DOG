@@ -6,6 +6,8 @@ using System.Linq;
 public class FieldMonsterSpawner : MonoBehaviour
 {
     SpawnPoint[] spawnPoint;
+    MonsterID type;
+    GameObject spawnedMonster;
 
     private uint monsterPopulation = 0;
 
@@ -24,21 +26,35 @@ public class FieldMonsterSpawner : MonoBehaviour
     {
         foreach (SpawnPoint t in spawnPoint)
         {
-            SpawnMonster(t.transform);
+            SpawnMonster(t);
             monsterPopulation++;
             t.hasMonster = true;
+            t.monsterType = type;
+            t.monster = spawnedMonster;
         }
 
         StartCoroutine(Respawner());
     }
 
-    void SpawnMonster(Transform spawnPoint)
+    void SpawnMonster(SpawnPoint spawnPoint)
     {
         int randMonster = Random.Range(0, (int)System.Enum.GetValues(typeof(MonsterID)).Cast<MonsterID>().Last());
-        GameObject obj = MonsterManager.GetPooledMonster(MonsterManager.PooledMonster[randMonster]);
-        obj.transform.position = spawnPoint.position;
-        obj.SetActive(true);
+        switch(randMonster)
+        {
+            case 0:
+                type = MonsterID.GOBLIN;
+                break;
+            case 1:
+                type = MonsterID.TREANT;
+                break;
+        }
+        spawnedMonster = MonsterManager.GetPooledMonster(MonsterManager.PooledMonster[randMonster]);
+        spawnedMonster.transform.position = spawnPoint.transform.position;
+        spawnPoint.monster = spawnedMonster;
+
+        spawnedMonster.SetActive(true);
     }
+
 
     IEnumerator Respawner()
     {
@@ -48,9 +64,14 @@ public class FieldMonsterSpawner : MonoBehaviour
             {
                 foreach(SpawnPoint t in spawnPoint)
                 {
+                    if (!t.monster.transform.GetChild(0).gameObject.activeSelf)
+                    {
+                        t.hasMonster = false;
+                    }
+
                     if (t.hasMonster == false)
                     {
-                        SpawnMonster(t.transform);
+                        SpawnMonster(t);
                         t.hasMonster = true;
                     }
                 }
