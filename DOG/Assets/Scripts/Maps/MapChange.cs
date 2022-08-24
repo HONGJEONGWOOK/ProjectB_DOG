@@ -11,12 +11,13 @@ public class MapChange : MonoBehaviour
     private void Start()
     {
         fadeInOut = FindObjectOfType<CanvasFadeInOut>();
-        fadeInOut.OnFadeOutEnd = SceneLoad;
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("들어옴");
+        fadeInOut.OnFadeOutEnd = SceneLoad;
         fadeInOut.StartFadeOut();
     }
 
