@@ -86,6 +86,7 @@ public class Treant : MonoBehaviour, IHealth, IBattle
 
     protected virtual void OnEnable()
     {
+        healthPoint = maxHealthPoint;
         foreach (Transform t in waypoint)
         {
             t.localPosition = Random.insideUnitCircle * patrolRange;
@@ -95,6 +96,7 @@ public class Treant : MonoBehaviour, IHealth, IBattle
 
     private void OnDisable()
     {
+        rigid.velocity = Vector2.zero;
         foreach (Transform t in waypoint)
         {
             t.localPosition = Vector2.zero;

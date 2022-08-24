@@ -95,6 +95,8 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
 
     private void OnDisable()
     {
+        healthPoint = maxHealthPoint;
+        rigid.velocity = Vector2.zero;
         foreach (Transform t in waypoint)
         {
             t.localPosition = Vector2.zero ;
@@ -351,7 +353,7 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
                 rigid.bodyType = RigidbodyType2D.Kinematic;
                 knockBackDir = Vector2.zero;
                 knockbackTimer = 0f;
-                rigid.velocity = Vector2.zero;  
+                rigid.velocity = Vector2.zero;
                 break;
             case MonsterCurrentState.DEAD:
                 isDying = false;
