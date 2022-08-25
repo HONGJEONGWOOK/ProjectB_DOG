@@ -6047,7 +6047,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cliff11Tiles_001
+      name: Ground
       rect:
         serializedVersion: 2
         x: 64
@@ -6186,9 +6186,9 @@ TextureImporter:
       Dirt13Tiles_137: -6349967763104249912
       Hill11Tiles_459: 7238738429251388315
       Hill44Tiles_275: -8749472929602134184
-      LakeGrass8aTiles_86: 7307207491082985977
-      Cliff_54: -1742090798937858409
       Dirt7Tiles_73: 7663075464098576306
+      Cliff_54: -1742090798937858409
+      LakeGrass8aTiles_86: 7307207491082985977
       Cliff32_Minifantasy_ForgottenPlainsTiles_524: -7792671821749925123
       HillDiagonal4_Minifantasy_ForgottenPlainsTiles_16: -4043459509603987514
       Dirt3Tiles_22: -8988517981366986819
@@ -6309,7 +6309,6 @@ TextureImporter:
       Cliff_57: -8469148042810489581
       LakeDirt11b_Minifantasy_ForgottenPlainsTiles_357: 1410585998
       Cobblestone55_Minifantasy_ForgottenPlainsTiles_344: 911780284891408944
-      Cliff11Tiles_001: 807601458871330183
       LakeGrass1aTiles_32: -5168040815232592561
       Hill16Tiles_441: -6382560835142732947
       HillDiagonal16_Minifantasy_ForgottenPlainsTiles_96: 3544609373908863452
@@ -6459,6 +6458,7 @@ TextureImporter:
       Cliff_53: -6015679772019069520
       LakeGrass10aTiles_117: -2202592744467658255
       Cliff6_Minifantasy_ForgottenPlainsTiles_240: 7663075464098576306
+      Ground: 1410585998
       LakeGrass4aTiles_57: -3123210492697546674
       Hill9Tiles_362: 925141679683938519
       Hill10Tiles_439: -2136313522233825004
