@@ -58,8 +58,6 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     Rigidbody2D rigid = null;
     CapsuleCollider2D Collider;
 
-    public Puzzle pz;
-
     bool isAction = false;
 
     public GameObject shootPrefab = null;
@@ -76,10 +74,7 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
         {
             col.rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
-        if (col.gameObject.CompareTag("Box"))
-        {
-            pz.Init();
-        }
+
     }
     private void OnCollisionExit2D(Collision2D other)   //돌을 뒤의 돌과 충돌이 되게해서 멈추게
     {

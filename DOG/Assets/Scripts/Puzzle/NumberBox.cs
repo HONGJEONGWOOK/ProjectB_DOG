@@ -6,19 +6,19 @@ using UnityEngine;
 public class NumberBox : MonoBehaviour
 {
     public int index = 0;
-    int x = 0;
-    int y = 0;
+    float x = 0;
+    float y = 0;
 
     private Action<int, int> swapFunc = null;
 
-    public void Init(int i, int j, int index, Sprite sprite, Action<int, int> swapFunc)
+    public void Init(float i, float j, int index, Sprite sprite, Action<int, int> swapFunc)
     {
         this.index = index;
         this.GetComponent<SpriteRenderer>().sprite = sprite;
         UpdatePos(i, j);
         this.swapFunc = swapFunc;
     }
-    public void UpdatePos(int i, int j)
+    public void UpdatePos(float i, float j)
     {
         x = i;
         y = j;
@@ -44,10 +44,14 @@ public class NumberBox : MonoBehaviour
     {
         return index == 16; 
     }
+    public bool IsEmpty_mini()
+    {
+        return index == 9;
+    }
 
     void OnMouseDown()       
     {
         if (Input.GetMouseButtonDown(0) && swapFunc != null)
-            swapFunc(x, y);
+            swapFunc((int)x, (int)y);
     }
 }
