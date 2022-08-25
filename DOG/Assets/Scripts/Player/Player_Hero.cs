@@ -60,9 +60,11 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     Rigidbody2D rigid = null;
     CapsuleCollider2D Collider;
     bool isAction = false;
+    ItemInventory_UI inven;
 
     public GameObject shootPrefab = null;
     public float moveSpeed = 5.0f;
+    public float itemPickupRange = 1.0f;
 
     private Vector3 direction = Vector3.zero;
 
@@ -299,5 +301,22 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
         Debug.Log($"크리율 : {GameManager.Inst.MainPlayer.criticalRate}");
     }
 
+
+    public void OnPickup()
+    {
+        Collider[] cols = Physics.OverlapSphere(transform.position, itemPickupRange, LayerMask.GetMask("Items"));
+        
+        foreach (var col in cols)
+        {
+            Items item = col.gameObject.GetComponent<Items>();
+
+
+            inven.Inven.AddItem(item.data);
+            /*if ()
+            {
+                Destroy(col.gameObject);
+            }*/
+        }
+    }
 
 }

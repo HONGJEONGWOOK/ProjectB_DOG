@@ -66,7 +66,6 @@ public class ItemSlot_UI : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         {
             detailUI.Open(slot.SlotData);
         }
-        
     }
 
     public void OnPointerExit(PointerEventData eventData)

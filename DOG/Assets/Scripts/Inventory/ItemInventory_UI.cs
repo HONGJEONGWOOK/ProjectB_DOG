@@ -29,6 +29,8 @@ public class ItemInventory_UI : MonoBehaviour, IPointerClickHandler
     CanvasGroup canvasGroup;
     bool isOpen = false;
 
+    public Inventory Inven => inven;
+
 
     public bool IsOpen
     {
