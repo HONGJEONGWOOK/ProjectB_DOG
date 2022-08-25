@@ -288,6 +288,9 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
     protected virtual IEnumerator DisableMonster()
     {
         yield return new WaitForSeconds(anim.GetCurrentAnimatorClipInfo(0).Length + 2.0f);
+        GameObject obj = ItemManager.GetPooledItem(ItemManager.Inst.PooledItems[(int)ItemID.GoblinsPPP]);
+        obj.transform.position = transform.position;
+        obj.SetActive(true);
         MonsterManager.ReturnPooledMonster(
             MonsterManager.PooledMonster[MonsterManager.Inst.GoblinID], this.gameObject);
     }
