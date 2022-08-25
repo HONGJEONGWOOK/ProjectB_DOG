@@ -38,6 +38,6 @@ public class Goblin : Monsters, IHealth, IBattle
         anim.SetTrigger("onDie");
         currentSpeed = 0;
         StartCoroutine(DisableMonster());
-        QuestManager.Instance.GoblinQuestCount++;
+        QuestManager.goblinQuestCount();
     }
 }

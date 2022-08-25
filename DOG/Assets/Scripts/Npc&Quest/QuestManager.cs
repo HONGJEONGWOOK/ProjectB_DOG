@@ -24,12 +24,8 @@ public class QuestManager : MonoBehaviour
         set {talkIndex = value;}
     }
 
-    private int goblinQuestCount = 0;
-    public int GoblinQuestCount
-    {
-        get {return goblinQuestCount;}
-        set {goblinQuestCount = value;}
-    }
+    public int killcount = 0;
+    public static System.Action goblinQuestCount;
 
     private void Awake()
     {
@@ -60,6 +56,8 @@ public class QuestManager : MonoBehaviour
 
         //이 함수를 통해서 실행함
         GenerateData();
+
+        goblinQuestCount = () => { GoblinQuestCount(); };
     }
 
     //초기화된 questList를 사용하기 위한 함수
@@ -125,5 +123,10 @@ public class QuestManager : MonoBehaviour
                 }
                 break;
         }
+    }
+
+    void GoblinQuestCount()
+    {
+        killcount++;
     }
 }

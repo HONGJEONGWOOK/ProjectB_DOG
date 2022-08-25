@@ -18,7 +18,7 @@ public class QuestPanel : MonoBehaviour
 
     private void Start()
     {
-        Close();
+        //Close();
     }
 
     void Close()
@@ -64,8 +64,8 @@ public class QuestPanel : MonoBehaviour
         else if (id == 30 && index == 0)
         {
             qeustName.text = "마을 순찰 및 고블린 처치!";
-            qeustDetail.text = $"빈 마을을 노리는 고블린을 처치하고 순찰하자!\n고블린 킬수 : {QuestManager.Instance.GoblinQuestCount}";
-            if (QuestManager.Instance.GoblinQuestCount >= 5)
+            qeustDetail.text = $"빈 마을을 노리는 고블린을 처치하고 순찰하자!\n고블린 킬수 : {QuestManager.Instance.killcount}";
+            if (QuestManager.Instance.killcount >= 5)
             {
                 QuestManager.Instance.NextQuest();
 
