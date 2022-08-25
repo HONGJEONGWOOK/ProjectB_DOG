@@ -40,8 +40,6 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     public float defencePower = 10.0f;
     public float criticalRate = 0.3f;
 
-
-
     public float AttackPower{ get => attackPower; }
 
     public float Defence { get => defencePower;}
@@ -67,10 +65,10 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     private Vector3 direction = Vector3.zero;
 
 
-
-    public Vector3 Direction => direction;
     public PlayerInputActions Actions => actions;
 
+    // Inventory ---------------------------------------------
+    ItemInventory_UI invenUI;
 
     private void Awake()
     {
@@ -78,10 +76,8 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
         anim = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody2D>();
         Collider = GetComponent<CapsuleCollider2D>();
+        invenUI = FindObjectOfType<ItemInventory_UI>();
     }
-
-
-    
 
 
     private void OnEnable()
@@ -95,7 +91,20 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
         actions.UI.Escape.performed += OnEscape;
     }
 
-    
+    private void Start()
+    {
+        Inventory inven = new Inventory();
+        invenUI.InitializeInven(inven);
+
+        inven.AddItem(ItemID.HPPotion);
+        inven.AddItem(ItemID.HPPotion);
+        inven.AddItem(ItemID.HPPotion);
+        inven.AddItem(ItemID.ManaPotion);
+        inven.AddItem(ItemID.HPPotion);
+        inven.AddItem(ItemID.HPPotion, 3);
+        inven.AddItem(ItemID.HPPotion, 3);
+        inven.AddItem(ItemID.HPPotion, 3);
+    }
 
     private void OnDisable()
     {

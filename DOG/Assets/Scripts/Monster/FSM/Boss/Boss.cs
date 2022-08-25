@@ -98,7 +98,6 @@ public class Boss : Monsters
             SpriteFlip();
 
             attackRand = Random.value;
-            Debug.Log(attackRand);
             if (attackRand > (1 - longRangeAttack_Prob))
             { // 원거리 공격 메테오
                 SpawnMeteor();

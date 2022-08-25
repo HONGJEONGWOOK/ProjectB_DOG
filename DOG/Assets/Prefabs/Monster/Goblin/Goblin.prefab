@@ -347,18 +347,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1304962027}
     m_Modifications:
-    - target: {fileID: 416052992, guid: cead42f1c907ac84ca9c5d790efbbb42, type: 3}
-      propertyPath: m_Layer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 416052994, guid: cead42f1c907ac84ca9c5d790efbbb42, type: 3}
-      propertyPath: m_VerticalAlignment
-      value: 256
-      objectReference: {fileID: 0}
-    - target: {fileID: 451900463736652206, guid: cead42f1c907ac84ca9c5d790efbbb42, type: 3}
-      propertyPath: m_Layer
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 2379976210923981625, guid: cead42f1c907ac84ca9c5d790efbbb42, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -447,10 +435,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: HPBar
       objectReference: {fileID: 0}
-    - target: {fileID: 2743042670403119294, guid: cead42f1c907ac84ca9c5d790efbbb42, type: 3}
-      propertyPath: m_Layer
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 8473003229585950626, guid: cead42f1c907ac84ca9c5d790efbbb42, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -458,14 +442,6 @@ PrefabInstance:
     - target: {fileID: 8473003229585950626, guid: cead42f1c907ac84ca9c5d790efbbb42, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8750432364719773729, guid: cead42f1c907ac84ca9c5d790efbbb42, type: 3}
-      propertyPath: m_Layer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8971858142865516636, guid: cead42f1c907ac84ca9c5d790efbbb42, type: 3}
-      propertyPath: m_Layer
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cead42f1c907ac84ca9c5d790efbbb42, type: 3}
