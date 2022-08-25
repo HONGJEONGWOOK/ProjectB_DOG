@@ -744,7 +744,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Explode_7: 526530611
+      Explode_Sprite_35: -397106148
       Explode_28: -1847126400
       Explode_Sprite_31: -1852044912
       Explode_21: 2014530118
@@ -778,9 +778,9 @@ TextureImporter:
       Explode_19: -1909124633
       Explode_Sprite_32: 915522138
       Explode_6: 1071403342
-      Explode_Sprite_35: -397106148
       Explode_Sprite_37: -1490140368
       Explode_27: 2099197851
+      Explode_7: 526530611
       Explode_3: -1361137833
   spritePackingTag: 
   pSDRemoveMatte: 0

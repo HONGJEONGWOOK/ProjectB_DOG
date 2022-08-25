@@ -176,6 +176,8 @@ GameObject:
   - component: {fileID: 8519038665304031293}
   - component: {fileID: 719502430}
   - component: {fileID: 719502435}
+  - component: {fileID: 6795353957029247883}
+  - component: {fileID: 8179359761639915844}
   m_Layer: 7
   m_Name: Boss
   m_TagString: Monster
@@ -277,6 +279,9 @@ MonoBehaviour:
   defence: 1
   detectCoolTime: 1
   knockbackForce: 0.5
+  patrolRange: 2
+  waitTime: 2
+  waypoint: []
   portalKey: {fileID: 6196022564622524987, guid: db68f15e95d8f0a4ea2fad415f87ea33, type: 3}
   longAttack_Range: 4
   longRangeAttack_Prob: 0.2
@@ -297,7 +302,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -323,6 +328,38 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!58 &6795353957029247883
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2627110285992441365}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.2, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.8
+--- !u!58 &8179359761639915844
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2627110285992441365}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.4, y: 0}
+  serializedVersion: 2
+  m_Radius: 1
 --- !u!1 &3828285753425861166
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,7 +377,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6209586760975808473
 Transform:
   m_ObjectHideFlags: 0
@@ -420,7 +457,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000061035156, y: -0.000061035156}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 800, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3719018062565069385
@@ -541,14 +578,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 174966244}
     m_Modifications:
-    - target: {fileID: 90885138, guid: bb7a954fe8d5a8c41860484a12d2f2d8, type: 3}
-      propertyPath: m_Layer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 451900463736652206, guid: bb7a954fe8d5a8c41860484a12d2f2d8, type: 3}
-      propertyPath: m_Layer
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 2379976210923981625, guid: bb7a954fe8d5a8c41860484a12d2f2d8, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -633,21 +662,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2653278251186413872, guid: bb7a954fe8d5a8c41860484a12d2f2d8, type: 3}
-      propertyPath: m_Value
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2743042670403119294, guid: bb7a954fe8d5a8c41860484a12d2f2d8, type: 3}
       propertyPath: m_Name
       value: HPBar_Boss
-      objectReference: {fileID: 0}
-    - target: {fileID: 2743042670403119294, guid: bb7a954fe8d5a8c41860484a12d2f2d8, type: 3}
-      propertyPath: m_Layer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7730267731659858990, guid: bb7a954fe8d5a8c41860484a12d2f2d8, type: 3}
-      propertyPath: m_Layer
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8473003229585950626, guid: bb7a954fe8d5a8c41860484a12d2f2d8, type: 3}
       propertyPath: m_AnchorMax.x
@@ -656,14 +673,6 @@ PrefabInstance:
     - target: {fileID: 8473003229585950626, guid: bb7a954fe8d5a8c41860484a12d2f2d8, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8750432364719773729, guid: bb7a954fe8d5a8c41860484a12d2f2d8, type: 3}
-      propertyPath: m_Layer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8971858142865516636, guid: bb7a954fe8d5a8c41860484a12d2f2d8, type: 3}
-      propertyPath: m_Layer
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb7a954fe8d5a8c41860484a12d2f2d8, type: 3}

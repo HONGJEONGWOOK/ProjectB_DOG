@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5871040905239685127}
   - component: {fileID: 1865341562685495197}
   - component: {fileID: 3196038894813057197}
-  - component: {fileID: -2554997891522147139}
   - component: {fileID: 4840262324281560584}
   m_Layer: 0
   m_Name: Dagger
@@ -19,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5871040905239685127
 Transform:
   m_ObjectHideFlags: 0
@@ -103,27 +102,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1.0666667, y: 1.0666667}
   m_Direction: 0
---- !u!50 &-2554997891522147139
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2907754584576809109}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!114 &4840262324281560584
 MonoBehaviour:
   m_ObjectHideFlags: 0
