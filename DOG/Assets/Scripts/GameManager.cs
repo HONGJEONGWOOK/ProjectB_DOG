@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
         player = FindObjectOfType<Player_Hero>();
 
         // --------------- NPC
-        talkPanel = GameObject.Find("talkPanel");
+        talkPanel = GameObject.Find("TalkPanel");
         talkPanel.SetActive(false);
 
         //---------------- Inventory

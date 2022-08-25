@@ -10,6 +10,8 @@ public class TalkManager : MonoBehaviour
 
     public int QuestNumber1 = 0;
 
+
+
     private void Awake()
     {
         talkData = new Dictionary<int, string[]>();

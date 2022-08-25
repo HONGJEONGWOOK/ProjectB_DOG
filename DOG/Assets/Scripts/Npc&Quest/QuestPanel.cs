@@ -18,7 +18,7 @@ public class QuestPanel : MonoBehaviour
 
     private void Start()
     {
-        //Close();
+        Close();
     }
 
     void Close()
@@ -69,7 +69,7 @@ public class QuestPanel : MonoBehaviour
             {
                 QuestManager.Instance.NextQuest();
 
-                // 30 and 1에서 40 and 1로 넘어가도록
+                // 30 and 1에서 40 and 0로 넘어가도록
             }
         }
         else if (id == 40 && index == 0)
