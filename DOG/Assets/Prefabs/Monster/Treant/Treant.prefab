@@ -105,8 +105,8 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_GravityScale: 0
+  m_Material: {fileID: 6200000, guid: 3e69bd3c3d445a4469a6f5d39ac8308d, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -153,7 +153,7 @@ MonoBehaviour:
   attackCoolTime: 3
   attackPower: 5
   defence: 1
-  knockbackForce: 0.5
+  knockbackForce: 2
   patrolRange: 4
   waitTime: 4
   waypoint:
