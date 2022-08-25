@@ -6,7 +6,6 @@ public class Items : MonoBehaviour
 {
 
     public ItemData data;
-    private float moveDistance = 1.0f;
     
 
     private float moveDistance = 0.2f;

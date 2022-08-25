@@ -77,6 +77,7 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
         anim = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody2D>();
         Collider = GetComponent<CapsuleCollider2D>();
+
     }
 
 
@@ -149,6 +150,11 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     private void FixedUpdate()
     {
         Move();
+
+        if(Keyboard.current.digit1Key.wasPressedThisFrame)
+        {
+            OnPickup();
+        }
     }
 
     // 체력 만들고
@@ -302,9 +308,12 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     }
 
 
+    /// <summary>
+    /// 키를 누르면 주위에 있는 아이템을 인벤토리에 추가한다.
+    /// </summary>
     public void OnPickup()
     {
-        Collider[] cols = Physics.OverlapSphere(transform.position, itemPickupRange, LayerMask.GetMask("Items"));
+        Collider2D[] cols = Physics2D.OverlapCircleAll(transform.position, itemPickupRange, LayerMask.GetMask("Items"));
         
         foreach (var col in cols)
         {
@@ -312,11 +321,12 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
 
 
             inven.Inven.AddItem(item.data);
-            /*if ()
-            {
-                Destroy(col.gameObject);
-            }*/
+            
+            //Destroy(col.gameObject);
+            
         }
     }
+
+
 
 }

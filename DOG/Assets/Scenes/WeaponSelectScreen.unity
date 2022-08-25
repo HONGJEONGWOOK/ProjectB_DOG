@@ -4561,6 +4561,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1319969329, guid: 20c43cd941f867d40ad27f0daa723519, type: 3}
+      propertyPath: itemDatas.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: ffb4f9628766eb842a8ae528c07ffa71, type: 2}
     - target: {fileID: 1694578312244257442, guid: 20c43cd941f867d40ad27f0daa723519, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -7062,6 +7066,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5978358471146093553, guid: bade0cf92b3b0a9478a8972dd3433d87, type: 3}
+      propertyPath: poolingObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: ffb4f9628766eb842a8ae528c07ffa71, type: 2}
     - target: {fileID: 7780009874526034252, guid: bade0cf92b3b0a9478a8972dd3433d87, type: 3}
       propertyPath: m_Name
       value: ItemManager
