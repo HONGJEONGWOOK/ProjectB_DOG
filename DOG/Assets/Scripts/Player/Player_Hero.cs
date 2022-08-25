@@ -64,11 +64,15 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
 
     private Vector3 direction = Vector3.zero;
 
-
+    public Vector3 Direction => direction;
     public PlayerInputActions Actions => actions;
 
     // Inventory ---------------------------------------------
     ItemInventory_UI invenUI;
+
+    // Minimap -----------------------------------------------
+    public Transform marker;
+    float markerRotation = 0f;
 
     private void Awake()
     {
@@ -192,6 +196,25 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
         }
         else
             anim.SetBool("Input", false);
+
+        
+        if (direction.x > 0)
+        {
+            markerRotation = 90f;
+        }
+        else if (direction.x < 0)
+        {
+            markerRotation = -90f;
+        }
+        if (direction.y > 0)
+        {
+            markerRotation = 180f;
+        }
+        else if (direction.y < 0)
+        {
+            markerRotation = 0f;
+        }
+        marker.rotation = Quaternion.Euler(0, 0, markerRotation);
     }
     // 움직일때 마지막에 봤던 방향으로 멈춰있기
 
@@ -309,6 +332,4 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
         Debug.Log($"방어력 : {GameManager.Inst.MainPlayer.defencePower}");
         Debug.Log($"크리율 : {GameManager.Inst.MainPlayer.criticalRate}");
     }
-
-
 }
