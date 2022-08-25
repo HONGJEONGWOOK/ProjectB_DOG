@@ -8,6 +8,7 @@ public enum MonsterCurrentState
     PATROL,
     TRACK,
     ATTACK,
+    KNOCKBACK,
     DEAD
 }
 

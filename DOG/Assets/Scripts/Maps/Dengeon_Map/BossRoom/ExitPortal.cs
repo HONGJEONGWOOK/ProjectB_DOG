@@ -33,7 +33,7 @@ public class ExitPortal : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            SceneManager.LoadScene(0);  // Field Map으로 이동. 숫자 변경해야함
+            LoadingSceneManager.LoadScene(0);  // Field Map으로 이동.
         }
     }
 }

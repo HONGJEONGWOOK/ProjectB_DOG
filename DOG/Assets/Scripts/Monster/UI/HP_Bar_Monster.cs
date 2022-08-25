@@ -14,7 +14,7 @@ public class HP_Bar_Monster : MonoBehaviour
     float ratio = 1f;
     float lerpRate = 2.0f;
 
-
+    WaitForSeconds waitSecond;
     //float Timer = 0.0f;
     //float HPShowTime = 3.0f;
 
@@ -25,8 +25,14 @@ public class HP_Bar_Monster : MonoBehaviour
 
         monster = transform.parent.parent.gameObject;
         target = monster.GetComponent<IHealth>();
+        waitSecond = new WaitForSeconds(3.0f);
 
         target.onHealthChange += ShowHP;
+    }
+
+    private void Start()
+    {
+        gameObject.SetActive(false);
     }
 
     private void LateUpdate()
@@ -56,14 +62,11 @@ public class HP_Bar_Monster : MonoBehaviour
     private void ShowHP()
     {
         this.gameObject.SetActive(true);
+        StartCoroutine(HideHP());
     }
-    private void HideHP()
+    private IEnumerator HideHP()
     {
+        yield return waitSecond;
         this.gameObject.SetActive(false);
-    }
-
-    void CheckStatus()
-    {
-
     }
 }

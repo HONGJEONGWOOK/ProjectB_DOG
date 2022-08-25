@@ -31,14 +31,15 @@ public class Boss : Monsters
         base.Awake();
         hpBar = FindObjectOfType<HP_Bar_Boss>();
         textController = FindObjectOfType<BossTextController>();
-        roomController = FindObjectOfType<BossRoomController>();
+        
 
         bossHitBox_1 = transform.GetChild(1);
         bossHitBox_2 = transform.GetChild(2);
     }
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
+        roomController = FindObjectOfType<BossRoomController>();
         if (roomController != null)
         {
             roomController.onBossEntry = ShowUIs;
@@ -48,7 +49,7 @@ public class Boss : Monsters
         currentSpeed = 0;
         hpBar.enabled = true;
         textController.enabled = true ;
-        status = MonsterCurrentState.IDLE;
+        ChangeStatus(MonsterCurrentState.IDLE);
     }
 
     private void OnDisable()
@@ -56,6 +57,7 @@ public class Boss : Monsters
         hpBar.gameObject.SetActive(false);
         textController.gameObject.SetActive(false);
     }
+
 
     void ShowUIs()
     {
@@ -79,6 +81,8 @@ public class Boss : Monsters
 
     protected override void Idle()  {} // Do Nothing
 
+    protected override void Patrol(){} // Do Nothing
+
     protected override void Track()
     {
         SearchPlayer();
@@ -94,7 +98,6 @@ public class Boss : Monsters
             SpriteFlip();
 
             attackRand = Random.value;
-            Debug.Log(attackRand);
             if (attackRand > (1 - longRangeAttack_Prob))
             { // 원거리 공격 메테오
                 SpawnMeteor();
@@ -162,7 +165,7 @@ public class Boss : Monsters
 
         hpBar.gameObject.SetActive(false);
         // 보스 object pool return
-        MonsterManager.Inst.ReturnPooledMonster(MonsterManager.PooledMonster[MonsterManager.Inst.BossID], 
+        MonsterManager.ReturnPooledMonster(MonsterManager.PooledMonster[MonsterManager.Inst.BossID], 
                                                 this.gameObject);
     }
 

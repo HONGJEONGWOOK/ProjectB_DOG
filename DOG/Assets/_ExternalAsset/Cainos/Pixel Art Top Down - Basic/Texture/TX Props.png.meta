@@ -296,7 +296,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 20
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -348,7 +348,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -374,7 +374,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TX Props_1
+      name: Close_ Treasure_Box
       rect:
         serializedVersion: 2
         x: 96
@@ -395,7 +395,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TX Props_2
+      name: Box
       rect:
         serializedVersion: 2
         x: 160
@@ -563,7 +563,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TX Props_10
+      name: Open_ Treasure_Box
       rect:
         serializedVersion: 2
         x: 96
@@ -584,7 +584,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TX Props_11
+      name: Box2
       rect:
         serializedVersion: 2
         x: 163
@@ -878,7 +878,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TX Props_25
+      name: Oak_barrel
       rect:
         serializedVersion: 2
         x: 162
@@ -1477,7 +1477,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       TX Props_50: -826524587
-      TX Props_10: -1696426913
+      Box2: -1852813090
       TX Props_0: 1066087409
       TX Props_5: 1952815375
       TX Props_4: -746401106
@@ -1499,7 +1499,7 @@ TextureImporter:
       TX Props_19: -22249546
       TX Props_30: -1907490830
       TX Props_26: 1444483601
-      TX Props_1: -1206871962
+      Box: -267927797
       TX Props_43: -1581639169
       TX Props_24: -583215887
       TX Props_41: 1507720586
@@ -1507,6 +1507,8 @@ TextureImporter:
       TX Props_20: -1257795591
       TX Props_39: -327510720
       TX Props_31: 996455905
+      Oak_barrel: 527170472
+      Open_ Treasure_Box: -1696426913
       TX Props_13: 255789574
       TX Props_9: 1996837426
       DGGate: -903554757
@@ -1519,13 +1521,11 @@ TextureImporter:
       TX Props_16: -2061788263
       TX Props_40: 1260808329
       Statue: 544778593
-      TX Props_2: -267927797
-      TX Props_11: -1852813090
-      TX Props_25: 527170472
       TX Props_23: -641569609
       TX Props_15: 430207914
-      TX Props_17: -1297801720
+      Close_ Treasure_Box: -1206871962
       TX Props_46: 305592452
+      TX Props_17: -1297801720
       TX Props_27: 1869156408
       TX Props_12: 1906311955
       TX Props_51: 1254031222

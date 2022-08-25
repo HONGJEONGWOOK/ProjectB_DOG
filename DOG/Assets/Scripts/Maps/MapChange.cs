@@ -5,24 +5,27 @@ using UnityEngine.SceneManagement;
 
 public class MapChange : MonoBehaviour
 {
-    public int sceneID = 0;
+    public int sceneID = 1;
     CanvasFadeInOut fadeInOut;
-
 
     private void Start()
     {
         fadeInOut = FindObjectOfType<CanvasFadeInOut>();
-        fadeInOut.OnFadeOutEnd += SceneLoad;
+        //fadeInOut.OnFadeOutEnd += SceneLoad;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("들어옴");
-        fadeInOut.StartFadeOut();
+        if (collision.CompareTag("Player"))
+        {
+            Debug.Log("들어옴");
+            fadeInOut.OnFadeOutEnd = SceneLoad;
+            fadeInOut.StartFadeOut();
+        }
     }
 
     void SceneLoad()
     {
-        SceneManager.LoadScene(sceneID);
+        LoadingSceneManager.LoadScene(sceneID);
     }
 }
