@@ -5,12 +5,13 @@ using UnityEngine;
 public class Goblin : Monsters, IHealth, IBattle
 {
     private Transform hitBox;
+    Collider2D me;
 
     protected override void Awake()
     {
         base.Awake();
-
-
+        me = this.gameObject.GetComponent<Collider2D>();
+        
         hitBox = transform.GetChild(1);
     }
 
@@ -36,5 +37,7 @@ public class Goblin : Monsters, IHealth, IBattle
         currentSpeed = 0;
         StartCoroutine(DisableMonster());
         QuestManager.goblinQuestCount();
+        me.enabled = true;
+        Destroy(gameObject, 2f);
     }
 }
