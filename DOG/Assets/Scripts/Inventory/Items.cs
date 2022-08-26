@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Items : MonoBehaviour
 {
+    [HideInInspector] public ItemData data;
+
     private float moveDistance = 0.2f;
     private float moveSpeed = 2.0f;
 

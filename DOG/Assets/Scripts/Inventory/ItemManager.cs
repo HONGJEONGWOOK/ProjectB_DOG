@@ -45,6 +45,7 @@ public class ItemManager : MonoBehaviour
             for (int j = 0; j < poolingObjects[i].poolingSize; j++)
             {
                 GameObject obj = Instantiate(PoolingObjects[i].prefab, this.transform);
+                obj.GetComponent<Items>().data = poolingObjects[i];
                 pooledItems[i].Push(obj);
                 obj.SetActive(false);
             }
