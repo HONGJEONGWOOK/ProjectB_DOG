@@ -8,23 +8,34 @@ public class MiniPuzzle : MonoBehaviour
 
     public NumberBox[,] boxes = new NumberBox[3, 3];
 
+    public GameObject mapAssets;
+    float defaultPlayerSpeed;
+    Player_Hero player;
+
     public Sprite[] sprites;
     public float pzpos_x, pzpos_y;
     int[][] correct = new int[3][];
 
     bool check;
+    public bool clear;
     void Start()
     {
         pzpos_x = transform.position.x;
         pzpos_y = transform.position.y;
+
+        player = GameObject.FindWithTag("Player").GetComponent<Player_Hero>();  // 플레이어 참조
+        defaultPlayerSpeed = player.moveSpeed;  // 플레이어 기본 이동속도 저장
         // Init();
     }
     private void Update()
     {
-        if(check)
+        if (check && !clear)
+        {
+            QuizModeActive(true);
             SuccessCheck();
+        }
 
-        if(Input.GetKeyDown(KeyCode.Home) && check)
+        if (Input.GetKeyDown(KeyCode.Home) && check)             //치트키
         {
             for (int i = 0; i <= 2; i++)
             {
@@ -35,9 +46,24 @@ public class MiniPuzzle : MonoBehaviour
             }
         }
     }
+
+    void QuizModeActive(bool active)
+    {   // 온전히 퀴즈만 풀게 하는 상태로 돌입하는 함수
+
+        if (active)
+        {
+            player.moveSpeed = 0;   // 플레이어 기본 이동속도 0으로
+            mapAssets.SetActive(false);   // 맵 요소들 비활성화
+        }
+        else
+        {
+            player.moveSpeed = defaultPlayerSpeed; // 플레이어 기본 이동속도 복구
+            mapAssets.SetActive(true);   // 맵 요소들 활성화
+        }
+    }
+
     void SuccessCheck()
     {
-
         int i, j = 0;
         for(i = 0; i <= 2; i++)
         {
@@ -54,8 +80,19 @@ public class MiniPuzzle : MonoBehaviour
         }
         if (i == 3 && j == 3)
         {
-            Debug.Log("Success");   //문
+            SuccessProcess();
         }
+    }
+
+    void SuccessProcess()
+    {
+        // 퍼즐 성공부분
+        Debug.Log("Mini Puzzle Success");
+        clear = true;
+        QuizModeActive(false);
+
+        //디스트로이 만들예정
+        gameObject.SetActive(false);
     }
 
     void ClickToSwap(int x, int y)
@@ -123,7 +160,7 @@ public class MiniPuzzle : MonoBehaviour
         if (x > 0 && boxes[x + -1, y].IsEmpty_mini())
             return -1;
 
-        return 0;
+       return 0;
 
         }
 

@@ -8,20 +8,30 @@ public class Puzzle : MonoBehaviour
 
     public NumberBox[,] boxes = new NumberBox[4, 4];
 
+    public GameObject mapAssets;
+    float defaultPlayerSpeed;
+    Player_Hero player;
+
     public Sprite[] sprites;
     int[][] correct = new int[4][];
 
     bool check;
+    public bool clear;
     void Start()
     {
-       // Init();
+        player = GameObject.FindWithTag("Player").GetComponent<Player_Hero>();  // 플레이어 참조
+        defaultPlayerSpeed = player.moveSpeed;  // 플레이어 기본 이동속도 저장
+        // Init();
     }
     private void Update()
     {
-        if(check)
+        if (check && !clear)
+        {
+            QuizModeActive(true);
             SuccessCheck();
+        }
 
-        if(Input.GetKeyDown(KeyCode.Home) && check)
+        if (Input.GetKeyDown(KeyCode.Home) && check)
         {
             for (int i = 0; i <= 3; i++)
             {
@@ -32,16 +42,32 @@ public class Puzzle : MonoBehaviour
             }
         }
     }
+
+    void QuizModeActive(bool active)
+    {   // 온전히 퀴즈만 풀게 하는 상태로 돌입하는 함수
+
+        if (active)
+        {
+            player.moveSpeed = 0;   // 플레이어 기본 이동속도 0으로
+            mapAssets.SetActive(false);   // 맵 요소들 비활성화
+        }
+        else
+        {
+            player.moveSpeed = defaultPlayerSpeed; // 플레이어 기본 이동속도 복구
+            mapAssets.SetActive(true);   // 맵 요소들 활성화
+        }
+    }
+
     void SuccessCheck()
     {
 
         int i, j = 0;
-        for(i = 0; i <= 3; i++)
+        for (i = 0; i <= 3; i++)
         {
-            for(j= 0; j <= 3; j++)
+            for (j = 0; j <= 3; j++)
             {
                 //Debug.Log("i : " + i + " j : " + j + " index : " + boxes[i, j].index) //확인용
-                if(correct[i][j] != boxes[i, j].index)
+                if (correct[i][j] != boxes[i, j].index)
                 {
                     break;
                 }
@@ -51,8 +77,19 @@ public class Puzzle : MonoBehaviour
         }
         if (i == 4 && j == 4)
         {
-            Debug.Log("Success");   //문
+            SuccessProcess();
         }
+    }
+
+    void SuccessProcess()
+    {
+        // 퍼즐 성공 부분
+        Debug.Log("Puzzle Success");   //문
+        clear = true;   // 클리어 체크
+        QuizModeActive(false);  // 퍼즐 모드 끄기
+
+
+        gameObject.SetActive(false);    // 퍼즐 없애기
     }
 
     void ClickToSwap(int x, int y)

@@ -1,8 +1,8 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerTest_pz : MonoBehaviour
 {
     SpriteRenderer spriteRenderer;
     public float moveSpeed;

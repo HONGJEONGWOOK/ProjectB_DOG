@@ -58,6 +58,9 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     Rigidbody2D rigid = null;
     CapsuleCollider2D Collider;
 
+    public Puzzle pz;
+    public MiniPuzzle mpz;
+
     bool isAction = false;
 
     public GameObject shootPrefab = null;
@@ -73,6 +76,10 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
         if (col.gameObject.CompareTag("Rock"))
         {
             col.rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
+        if(col.gameObject.CompareTag("Box"))
+        {
+           // mpz.Init();
         }
 
     }

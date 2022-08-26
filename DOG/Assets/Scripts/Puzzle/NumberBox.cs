@@ -54,4 +54,13 @@ public class NumberBox : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && swapFunc != null)
             swapFunc((int)x, (int)y);
     }
+
+    /*private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(!collision.CompareTag("Player"))
+        {
+            Debug.Log(collision.name + " Destoryed");
+            Destroy(collision.gameObject);
+        }
+    }*/
 }
