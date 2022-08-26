@@ -73,6 +73,9 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
 
     // Inventory ---------------------------------------------
     ItemInventory_UI invenUI;
+    // Minimap -----------------------------------------------
+    public Transform marker;
+    float markerRotation = 0f;
 
     private void OnCollisionEnter2D(Collision2D col)    // 돌 움직이게하는
     {
