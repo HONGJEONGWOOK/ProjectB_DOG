@@ -98,7 +98,7 @@ public class MonsterManager : MonoBehaviour
     }
 
     // ######################### Methods ##########################################
-    public GameObject GetPooledMonster(Queue<GameObject> poolingQueue)
+    public static GameObject GetPooledMonster(Queue<GameObject> poolingQueue)
     {
         if (poolingQueue.Count > 0)
         {
@@ -113,11 +113,26 @@ public class MonsterManager : MonoBehaviour
         return null;
     }
 
-    public void ReturnPooledMonster(Queue<GameObject> returningQueue, GameObject uselessMonster)
+    public static void ReturnPooledMonster(Queue<GameObject> returningQueue, GameObject uselessMonster)
     {
         returningQueue.Enqueue(uselessMonster);
         uselessMonster.SetActive(false);
         uselessMonster.transform.position = Vector2.zero;
         uselessMonster.transform.localScale = new Vector2(1f, 1f);
+    }
+
+    public static void ReturnAllMonsters()
+    {
+        Goblin[] gob = FindObjectsOfType<Goblin>();
+        Treant[] trea = FindObjectsOfType<Treant>();
+
+        for (int i = 0; i < gob.Length; i++)
+        {
+            ReturnPooledMonster(pooledMonster[(int)MonsterID.GOBLIN], gob[i].transform.parent.gameObject);
+        }
+        for (int i = 0; i < trea.Length; i++)
+        {
+            ReturnPooledMonster(pooledMonster[(int)MonsterID.TREANT], trea[i].transform.parent.gameObject);
+        }
     }
 }

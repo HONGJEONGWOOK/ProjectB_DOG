@@ -16,7 +16,10 @@ public class BossAttackTrigger : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             IBattle target = collision.GetComponent<IBattle>();
-            target.TakeDamage(power);
+            if (target != null)
+            {
+                target.TakeDamage(power);
+            }
         }
     }
 }

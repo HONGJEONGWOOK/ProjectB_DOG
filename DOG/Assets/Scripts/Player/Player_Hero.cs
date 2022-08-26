@@ -40,11 +40,11 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     public float defencePower = 10.0f;
     public float criticalRate = 0.3f;
 
+    public float AttackPower{ get => attackPower; }
 
+    public float Defence { get => defencePower;}
 
-    public float AttackPower { get => attackPower; }
-
-    public float Defence { get => defencePower; }
+    public float CriticalRate { get => criticalRate; }
 
 
     //--------------------------------------------------------------------------------
@@ -68,8 +68,11 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
 
     private Vector3 direction = Vector3.zero;
 
+    public Vector3 Direction => direction;
     public PlayerInputActions Actions => actions;
 
+    // Inventory ---------------------------------------------
+    ItemInventory_UI invenUI;
 
     private void OnCollisionEnter2D(Collision2D col)    // 돌 움직이게하는
     {
@@ -97,8 +100,9 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
         anim = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody2D>();
         Collider = GetComponent<CapsuleCollider2D>();
+        invenUI = FindObjectOfType<ItemInventory_UI>();
     }
-   
+
 
     private void OnEnable()
     {
@@ -111,7 +115,20 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
         actions.UI.Escape.performed += OnEscape;
     }
 
-    
+    private void Start()
+    {
+        Inventory inven = new Inventory();
+        invenUI.InitializeInven(inven);
+
+        inven.AddItem(ItemID.HPPotion);
+        inven.AddItem(ItemID.HPPotion);
+        inven.AddItem(ItemID.HPPotion);
+        inven.AddItem(ItemID.ManaPotion);
+        inven.AddItem(ItemID.HPPotion);
+        inven.AddItem(ItemID.HPPotion, 3);
+        inven.AddItem(ItemID.HPPotion, 3);
+        inven.AddItem(ItemID.HPPotion, 3);
+    }
 
     private void OnDisable()
     {
@@ -195,24 +212,27 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
         }
         else
             anim.SetBool("Input", false);
+
+        
+        if (direction.x > 0)
+        {
+            markerRotation = 90f;
+        }
+        else if (direction.x < 0)
+        {
+            markerRotation = -90f;
+        }
+        if (direction.y > 0)
+        {
+            markerRotation = 180f;
+        }
+        else if (direction.y < 0)
+        {
+            markerRotation = 0f;
+        }
+        marker.rotation = Quaternion.Euler(0, 0, markerRotation);
     }
     // 움직일때 마지막에 봤던 방향으로 멈춰있기
-
-    
-
-    void SearchNpc()
-    {
-        Collider2D[] col = Physics2D.OverlapCircleAll(transform.position, 1.5f, LayerMask.GetMask("Npc"));
-
-        if (col.Length > 0)
-        {
-            scanObject = col[0].gameObject;
-        }
-        else
-        {
-            Debug.Log("대상이 없습니다.");
-        }
-    }
 
     // 자기가 보고있는 방향으로 공격하기
     private void OnAttack(InputAction.CallbackContext context)
@@ -226,6 +246,16 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     private void OnEscape(InputAction.CallbackContext obj)
     {
         Debug.Log("메뉴");
+    }
+
+    void SearchNpc()
+    {
+        Collider2D[] col = Physics2D.OverlapCircleAll(transform.position, 1.5f, LayerMask.GetMask("Npc"));
+
+        if (col.Length > 0)
+        {
+            scanObject = col[0].gameObject;
+        }
     }
 
     private void OnTalk(InputAction.CallbackContext obj)
@@ -291,5 +321,25 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
         isAction = true;
         QuestManager.Instance.TalkIndex++;
         moveSpeed = speed;
+    }
+
+
+    public void StatusUpdate(Weapon_Item weapon)
+    {
+        float defaultAttack = 30;
+        float defaultDefence = 10;
+        float defaultCritical = 0.3f;
+
+        GameManager.Inst.MainPlayer.attackPower = defaultAttack;
+        GameManager.Inst.MainPlayer.defencePower = defaultDefence;
+        GameManager.Inst.MainPlayer.criticalRate = defaultCritical;
+
+        GameManager.Inst.MainPlayer.attackPower += weapon.data.attackPower;
+        GameManager.Inst.MainPlayer.defencePower += weapon.data.defencePower;
+        GameManager.Inst.MainPlayer.criticalRate += weapon.data.criticalRate;
+
+        Debug.Log($"공격력 : {GameManager.Inst.MainPlayer.attackPower}");
+        Debug.Log($"방어력 : {GameManager.Inst.MainPlayer.defencePower}");
+        Debug.Log($"크리율 : {GameManager.Inst.MainPlayer.criticalRate}");
     }
 }

@@ -13,13 +13,13 @@ GameObject:
   - component: {fileID: 5647009854722256665}
   - component: {fileID: 5647009854722256664}
   - component: {fileID: 5647009854722256671}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: VillageElder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5647009854722256666
 Transform:
   m_ObjectHideFlags: 0

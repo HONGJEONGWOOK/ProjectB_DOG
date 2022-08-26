@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e80658148adf74b4b8d84ec585227f03, type: 3}
+  m_Name: 1_ManaPotion
+  m_EditorClassIdentifier: 
+  id: 1
+  itemName: "\uB9C8\uB098 \uD3EC\uC158"
+  maxCount: 5
+  prefab: {fileID: 4830926391000403604, guid: 2d91096f872715e4f86c6f6308558751, type: 3}
+  icon: {fileID: 1715692095, guid: ba00d2cc9cfe3aa4dbabe584112b29a8, type: 3}
+  poolingSize: 10

@@ -6,17 +6,19 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public TalkManager talkManager;
-    public Text talkText;
-    public GameObject scanObject;
-
     //퀘스트매니저
+    public TalkManager talkManager;
+    public QuestManager questManager;
+
     private GameObject talkPanel;
     public GameObject TalkPanel
     {
         get { return talkPanel; }
     }
 
+    public Text talkText;
+    public GameObject scanObject;
+    
     // 플레이어 ----------------------------------------------------------
     Player_Hero player = null;
     public Player_Hero MainPlayer { get => player; }
@@ -27,6 +29,12 @@ public class GameManager : MonoBehaviour
     // 웨폰 매니저--------------------------------------------------
     WeaponDataManager weaponData;
     public WeaponDataManager WeaponData { get => weaponData; }
+
+    ItemDataManager itemData;
+    public ItemDataManager ItemData => itemData;
+
+    ItemInventory_UI inventoryUI;
+    public ItemInventory_UI InvenUI => inventoryUI;
 
     public static GameManager Inst { get => instance;}
     static GameManager instance = null;
@@ -55,13 +63,16 @@ public class GameManager : MonoBehaviour
         player = FindObjectOfType<Player_Hero>();
 
         // --------------- NPC
-        talkPanel = GameObject.Find("talkPanel");
+        talkPanel = GameObject.Find("TalkPanel");
         talkPanel.SetActive(false);
 
-        //---------------- 무기
+        //---------------- Inventory
         weaponData = GetComponent<WeaponDataManager>();
+        itemData = GetComponent<ItemDataManager>();
 
         SceneManager.sceneLoaded += OnStageStart;   // 씬의 로딩이 끝났을 때 실행될 델리게이트에 OnStageStart 등록
+
+        inventoryUI = FindObjectOfType<ItemInventory_UI>();
     }
 
     private void OnStageStart(Scene arg0, LoadSceneMode arg1)

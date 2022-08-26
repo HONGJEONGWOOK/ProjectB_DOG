@@ -13,7 +13,7 @@ public class ArrowV2 : MonoBehaviour
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
-        damage = MonsterManager.Inst.PoolingMonsters[(int)MonsterID.TREANT].prefab.GetComponent<Treant>().AttackPower;
+        damage = 5;//MonsterManager.Inst.PoolingMonsters[(int)MonsterID.TREANT].prefab.GetComponent<Treant>().AttackPower;
     }
 
     private void Start()
@@ -32,8 +32,8 @@ public class ArrowV2 : MonoBehaviour
         {
             IBattle target = collision.GetComponent<IBattle>();
             target.TakeDamage(damage);
-            EnemyBulletManager.Inst.ReturnPooledEnemy(EnemyBulletManager.PooledObjects[EnemyBulletManager.Inst.ArrowID],
-                                                  this.gameObject);
         }
+        EnemyBulletManager.Inst.ReturnPooledEnemy(EnemyBulletManager.PooledObjects[EnemyBulletManager.Inst.ArrowID],
+                                                  this.gameObject);
     }
 }
