@@ -64,11 +64,20 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
 
     private Vector3 direction = Vector3.zero;
 
-
+    public Vector3 Direction => direction;
     public PlayerInputActions Actions => actions;
 
     // Inventory ---------------------------------------------
     ItemInventory_UI invenUI;
+
+    // Minimap -----------------------------------------------
+    public Transform marker;
+    float markerRotation = 0f;
+
+    // Sound --------------------------------------------------
+    IEnumerator footstepCoroutine;
+    WaitForSeconds footstepWaitSeconds;
+    int footstepCounter = 0;
 
     private void Awake()
     {
@@ -77,6 +86,9 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
         rigid = GetComponent<Rigidbody2D>();
         Collider = GetComponent<CapsuleCollider2D>();
         invenUI = FindObjectOfType<ItemInventory_UI>();
+
+        footstepCoroutine = PlayFootStepSound();
+        footstepWaitSeconds = new WaitForSeconds(0.3f);
     }
 
 
@@ -181,7 +193,7 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     private void OnMove(InputAction.CallbackContext context)
     {
         direction = context.ReadValue<Vector2>();
-        
+
 
         if (direction.x != 0 || direction.y != 0)
         {
@@ -189,13 +201,55 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
 
             anim.SetFloat("X", direction.x);
             anim.SetFloat("Y", direction.y);
+
+            // 코루틴이 한 번만 실행되도록
+            if (footstepCounter < 1)
+            {
+                StartCoroutine(footstepCoroutine);
+                footstepCounter++;  
+            }
         }
         else
+        {
             anim.SetBool("Input", false);
+            StopCoroutine(footstepCoroutine);
+            footstepCounter = 0;
+        }
+        
+        if (direction.x > 0)
+        {
+            markerRotation = 90f;
+        }
+        else if (direction.x < 0)
+        {
+            markerRotation = -90f;
+        }
+        if (direction.y > 0)
+        {
+            markerRotation = 180f;
+        }
+        else if (direction.y < 0)
+        {
+            markerRotation = 0f;
+        }
+        marker.rotation = Quaternion.Euler(0, 0, markerRotation);
     }
     // 움직일때 마지막에 봤던 방향으로 멈춰있기
 
-    
+    // 자기가 보고있는 방향으로 공격하기
+    private void OnAttack(InputAction.CallbackContext context)
+    {
+        Debug.Log("공격");
+        anim.SetTrigger("Attack");
+        SoundManager.Inst.PlaySound(SoundID.swingWeapon, 1f, true);
+    }
+
+
+
+    private void OnEscape(InputAction.CallbackContext obj)
+    {
+        Debug.Log("메뉴");
+    }
 
     void SearchNpc()
     {
@@ -205,24 +259,6 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
         {
             scanObject = col[0].gameObject;
         }
-        else
-        {
-            //Debug.Log("대상이 없습니다.");
-        }
-    }
-
-    // 자기가 보고있는 방향으로 공격하기
-    private void OnAttack(InputAction.CallbackContext context)
-    {
-        Debug.Log("공격");
-        anim.SetTrigger("Attack");
-    }
-
-
-
-    private void OnEscape(InputAction.CallbackContext obj)
-    {
-        Debug.Log("메뉴");
     }
 
     private void OnTalk(InputAction.CallbackContext obj)
@@ -310,5 +346,12 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
         Debug.Log($"크리율 : {GameManager.Inst.MainPlayer.criticalRate}");
     }
 
-
+    IEnumerator PlayFootStepSound()
+    {
+        while (true)
+        {
+            SoundManager.Inst.PlaySound(SoundID.playerFootStep, 0.3f, true);
+            yield return footstepWaitSeconds;
+        }
+    }
 }

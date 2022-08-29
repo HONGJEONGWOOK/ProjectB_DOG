@@ -31,5 +31,6 @@ public class Test_Inven : MonoBehaviour
         //inven.MoveItem(0, 2);
 
         inven.TestInventory();
+
     }
 }

@@ -169,6 +169,8 @@ public class ItemInventory_UI : MonoBehaviour, IPointerClickHandler, IDragHandle
                     }
                 }
             }
+
+            SoundManager.Inst.PlaySound(SoundID.click, 0.8f ,true);
         }
     }
 

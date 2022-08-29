@@ -40,7 +40,7 @@ public class ItemSlot
 
     public void ClearSlot()
     {
-        data = null;
+        SlotData = null;
         Debug.Log("아이템 제거");
     }
 
