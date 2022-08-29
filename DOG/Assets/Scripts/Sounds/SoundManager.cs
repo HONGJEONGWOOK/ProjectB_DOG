@@ -16,6 +16,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip[] clips;
 
     Dictionary<byte, AudioClip> audios = new();
+    public Dictionary<byte, AudioClip> Audios => audios;
 
     private void Awake()
     {

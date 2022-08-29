@@ -17,10 +17,12 @@ public class QuestButton : MonoBehaviour
     public void QuestOn()
     {
         questPanel.SetActive(true);
+        SoundManager.Inst.PlaySound(SoundID.windowOpen, 1f, true);
     }
 
     public void QuestOff()
     {
         questPanel.SetActive(false);
+        SoundManager.Inst.PlaySound(SoundID.windowOpen, 1f, true);
     }
 }

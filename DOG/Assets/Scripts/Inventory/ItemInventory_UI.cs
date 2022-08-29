@@ -89,6 +89,7 @@ public class ItemInventory_UI : MonoBehaviour, IPointerClickHandler, IDragHandle
     {
         canvasGroup.alpha = isShow ? 1.0f: 0.0f;
         canvasGroup.blocksRaycasts = isShow;
+        SoundManager.Inst.PlaySound(SoundID.windowOpen, 1f, true);
     }
 
     private void OnInvenButtonInput(InputAction.CallbackContext _)

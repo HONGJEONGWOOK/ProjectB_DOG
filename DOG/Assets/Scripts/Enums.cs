@@ -43,6 +43,13 @@ public enum SoundID : byte
     pointerOnSlot,
     weaponChange,
     potionUse,
+    QuestComplete,
+
+    //Monster
+    GoblinHit,
+
+    //Weapons
+    ShootArrow,
 
     ClipNumbers
 }
