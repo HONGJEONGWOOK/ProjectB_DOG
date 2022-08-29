@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class Items : MonoBehaviour
 {
-
-    public ItemData data;
-    
+    [HideInInspector] public ItemData data;
 
     private float moveDistance = 0.2f;
     private float moveSpeed = 2.0f;
 
 
     float timer = 0;
-    
+
     private void Update()
     {
         timer += Time.deltaTime;

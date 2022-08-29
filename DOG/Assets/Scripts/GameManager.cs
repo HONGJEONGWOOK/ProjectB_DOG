@@ -14,11 +14,17 @@ public class GameManager : MonoBehaviour
     ItemInventory_UI inventoryUI;
 
     //퀘스트매니저
+    public TalkManager talkManager;
+    public QuestManager questManager;
+
     private GameObject talkPanel;
     public GameObject TalkPanel
     {
         get { return talkPanel; }
     }
+
+    public Text talkText;
+    public GameObject scanObject;
 
     // 플레이어 ----------------------------------------------------------
     Player_Hero player = null;
@@ -34,6 +40,7 @@ public class GameManager : MonoBehaviour
     ItemDataManager itemData;
     public ItemDataManager ItemData => itemData;
 
+    ItemInventory_UI inventoryUI;
     public ItemInventory_UI InvenUI => inventoryUI;
 
     public static GameManager Inst { get => instance;}
@@ -64,7 +71,7 @@ public class GameManager : MonoBehaviour
 
     void Initialize()
     {
-        // --------------- 플레이어 
+        // --------------- 플레이어
         player = FindObjectOfType<Player_Hero>();
 
         // --------------- NPC
@@ -102,8 +109,8 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetFloat("PlayerY", player.transform.position.y);
         PlayerPrefs.Save();
 
-        
-        
+
+
     }
 
     public void GameLoad()

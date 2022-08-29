@@ -18,7 +18,7 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     public float HP
     {
         get => hp;
-        set 
+        set
         {
             if(hp != value)
             {
@@ -57,8 +57,12 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     Animator anim;
     Rigidbody2D rigid = null;
     CapsuleCollider2D Collider;
+
+    public Puzzle pz;
+    public MiniPuzzle mpz;
+
     bool isAction = false;
-    
+
 
     public GameObject shootPrefab = null;
     public float moveSpeed = 5.0f;
@@ -66,11 +70,38 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
 
     private Vector3 direction = Vector3.zero;
 
-
+    public Vector3 Direction => direction;
     public PlayerInputActions Actions => actions;
 
     // Inventory ---------------------------------------------
     ItemInventory_UI invenUI;
+    // Minimap -----------------------------------------------
+    public Transform marker;
+    float markerRotation = 0f;
+
+    // Sound --------------------------------------------------
+    IEnumerator footstepCoroutine;
+    WaitForSeconds footstepWaitSeconds;
+    int footstepCounter = 0;
+    private void OnCollisionEnter2D(Collision2D col)    // 돌 움직이게하는
+    {
+        if (col.gameObject.CompareTag("Rock"))
+        {
+            col.rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
+        if(col.gameObject.CompareTag("Box"))
+        {
+           // mpz.Init();
+        }
+
+    }
+    private void OnCollisionExit2D(Collision2D other)   //돌을 뒤의 돌과 충돌이 되게해서 멈추게
+    {
+        if (other.gameObject.CompareTag("Rock"))
+        {
+            other.rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
+        }
+    }
 
     private void Awake()
     {
@@ -79,6 +110,10 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
         rigid = GetComponent<Rigidbody2D>();
         Collider = GetComponent<CapsuleCollider2D>();
         invenUI = FindObjectOfType<ItemInventory_UI>();
+
+        footstepCoroutine = PlayFootStepSound();
+        footstepWaitSeconds = new WaitForSeconds(0.3f);
+    }
 
     }
 
@@ -109,7 +144,7 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
         actions.UI.Escape.performed += OnEscape;
     }
 
-    
+
 
     private void OnDisable()
     {
@@ -173,14 +208,10 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     // 체력 만들고
     // 맞을때 어떻게 할지 생각해야하고
     // 맞을때 캐릭 잠깐동안 깜빡이고 무적상태
-    // 뒤로 밀려남 
+    // 뒤로 밀려남
 
     // esc눌렀을때 일시정지 및 옵션 생성
-    // 
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-    }
+    //
 
     private void Move()
     {
@@ -190,7 +221,7 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     private void OnMove(InputAction.CallbackContext context)
     {
         direction = context.ReadValue<Vector2>();
-        
+
 
         if (direction.x != 0 || direction.y != 0)
         {
@@ -198,13 +229,55 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
 
             anim.SetFloat("X", direction.x);
             anim.SetFloat("Y", direction.y);
+
+            // 코루틴이 한 번만 실행되도록
+            if (footstepCounter < 1)
+            {
+                StartCoroutine(footstepCoroutine);
+                footstepCounter++;
+            }
         }
         else
+        {
             anim.SetBool("Input", false);
+            StopCoroutine(footstepCoroutine);
+            footstepCounter = 0;
+        }
+
+        if (direction.x > 0)
+        {
+            markerRotation = 90f;
+        }
+        else if (direction.x < 0)
+        {
+            markerRotation = -90f;
+        }
+        if (direction.y > 0)
+        {
+            markerRotation = 180f;
+        }
+        else if (direction.y < 0)
+        {
+            markerRotation = 0f;
+        }
+        marker.rotation = Quaternion.Euler(0, 0, markerRotation);
     }
     // 움직일때 마지막에 봤던 방향으로 멈춰있기
 
-    
+    // 자기가 보고있는 방향으로 공격하기
+    private void OnAttack(InputAction.CallbackContext context)
+    {
+        Debug.Log("공격");
+        anim.SetTrigger("Attack");
+        SoundManager.Inst.PlaySound(SoundID.swingWeapon, 1f, true);
+    }
+
+
+
+    private void OnEscape(InputAction.CallbackContext obj)
+    {
+        Debug.Log("메뉴");
+    }
 
     void SearchNpc()
     {
@@ -284,8 +357,8 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
         //QuestManager의 GetQuestTalkIndex의 파라미터에 전달할 questTalkIndex
         //GetQuestTalkIndex는 questId 값을 리턴
         int questTalkIndex = QuestManager.Instance.GetQuestTalkIndex(id);
-        
-        //questId를 
+
+        //questId를
         string talkData = GameManager.Inst.talkManager.GetTalk(id + questTalkIndex, QuestManager.Instance.TalkIndex);
 
         //말할 때 못 움직이게
@@ -358,4 +431,12 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     }
 
 
+    IEnumerator PlayFootStepSound()
+    {
+        while (true)
+        {
+            SoundManager.Inst.PlaySound(SoundID.playerFootStep, 0.3f, true);
+            yield return footstepWaitSeconds;
+        }
+    }
 }
