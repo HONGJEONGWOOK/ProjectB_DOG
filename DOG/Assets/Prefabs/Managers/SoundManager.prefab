@@ -174,6 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f2b530a0f41bc54abb5a8af4e93cd9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sounds: 0
   clips:
   - {fileID: 0}
   - {fileID: 8300000, guid: 7d02140a255b8294ea671f79348c8d7f, type: 3}
@@ -183,8 +184,15 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 3a82c6d3aa99aac429d5929523963611, type: 3}
   - {fileID: 8300000, guid: b0242093f3b6779439ceb131aa14d2c9, type: 3}
   - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 7004ce0a59de44448888314fdf9a8ccc, type: 3}
+  - {fileID: 8300000, guid: ef87d5099442e4142aa03c4fa23628e5, type: 3}
   - {fileID: 8300000, guid: 443b2b56c1aafc1408ae2f6ee1a4910f, type: 3}
+  - {fileID: 0}
+  - {fileID: 8300000, guid: 7af6bfe7dfd6bfe4d862b99a869abc1b, type: 3}
+  - {fileID: 8300000, guid: 65c786d0fa06afa45a4ff2b8404a1213, type: 3}
+  - {fileID: 0}
+  - {fileID: 8300000, guid: a5bfd71577df0f940a98f3f401d77846, type: 3}
+  - {fileID: 8300000, guid: 2050edc111782304e8c62e2a30d09b92, type: 3}
   - {fileID: 8300000, guid: fda38ceab446bbe4599598373c772eeb, type: 3}
 --- !u!82 &7921215538911954123
 AudioSource:

@@ -166,6 +166,7 @@ public class ItemInventory_UI : MonoBehaviour, IPointerClickHandler, IDragHandle
                             obj.SetActive(true);
                         }
                         movingSlotUI.Slot.SlotData = null;
+                        movingSlotUI.Slot.Count = 0;
                         movingSlotUI.ShowMovingSlotUI(false);
                     }
                 }

@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1546102102618224696
 Transform:
   m_ObjectHideFlags: 0
@@ -101,7 +101,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 1.5917845e-10, y: 0.0013352857}
-  m_Size: {x: 0.87000036, y: 0.1354541}
+  m_Size: {x: 0.3, y: 0.1354541}
   m_Direction: 1
 --- !u!50 &-3856813052202980805
 Rigidbody2D:
@@ -111,7 +111,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7406789432306371160}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -136,4 +136,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e1c4beef0e57a04db14fc13607da9c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootSpeed: 3
+  shootSpeed: 5

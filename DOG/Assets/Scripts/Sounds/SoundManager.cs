@@ -10,10 +10,30 @@ public class SoundManager : MonoBehaviour
 
     AudioSource source;
 
-    SoundID sounds;
+    [SerializeField] SoundID sounds;
 
     // Environment
     public AudioClip[] clips;
+    //BGM = 0,
+    //playerFootStep 1,
+    //playerGetHit 2,
+    //swingWeapon 3,
+    //click 4,
+    //windowOpen 5,
+    //pointerOnSlot 6,
+    //weaponChange 7,
+    //potionUse 8,
+    //QuestComplete 9,
+    //GoblinHit 10,
+    //BossHit, 11
+    //BossBite, 12
+    //BossAttack1, 13
+    //BossDie, 14
+    //MeteorFly,15
+    //MeteorExplosion, 16
+    //ShootArrow 17
+
+    //ClipNumbers
 
     Dictionary<byte, AudioClip> audios = new();
     public Dictionary<byte, AudioClip> Audios => audios;

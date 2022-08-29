@@ -5,12 +5,12 @@ using UnityEngine.InputSystem;
 
 public class Test_TakeDamage : MonoBehaviour
 {
-    Goblin monster = null;
+    Boss monster = null;
     //Boss monster;
 
     private void Start()
     {
-        monster = FindObjectOfType<Goblin>();
+        monster = FindObjectOfType<Boss>();
     }
     private void Update()
     {

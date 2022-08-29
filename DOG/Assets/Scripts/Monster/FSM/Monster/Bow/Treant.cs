@@ -11,6 +11,7 @@ public class Treant : MonoBehaviour, IHealth, IBattle
     private Animator anim = null;
     private Animator BowAnim = null;
     private Transform weapon = null;
+    private AudioSource audioSource;
 
     //################################# Variables ################################
     [Header("몬스터 AI 관련")]
@@ -82,6 +83,7 @@ public class Treant : MonoBehaviour, IHealth, IBattle
         rigid = GetComponent<Rigidbody2D>();
         weapon = transform.GetChild(0);
         weaponSprite = weapon.GetComponentInChildren<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     protected virtual void OnEnable()
@@ -225,6 +227,8 @@ public class Treant : MonoBehaviour, IHealth, IBattle
             arrow.transform.localScale = new Vector2(0.5f, 0.5f);
         }
         arrow.SetActive(true);
+        //audioSource.clip = SoundManager.Inst.Audios[(byte)SoundID.ShootArrow];
+        audioSource.PlayOneShot(SoundManager.Inst.Audios[(byte)SoundID.ShootArrow], 0.5f);
     }
 
     void Attack()

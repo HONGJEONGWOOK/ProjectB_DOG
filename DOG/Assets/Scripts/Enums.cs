@@ -48,6 +48,15 @@ public enum SoundID : byte
     //Monster
     GoblinHit,
 
+    // -- Boss
+    BossHit,
+    BossBite,
+    BossAttack1,
+    BossDie,
+    MeteorFly,
+    MeteorExplosion,
+    BossMove,
+
     //Weapons
     ShootArrow,
 

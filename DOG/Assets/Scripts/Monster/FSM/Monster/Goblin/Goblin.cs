@@ -6,13 +6,14 @@ public class Goblin : Monsters, IHealth, IBattle
 {
     private Transform hitBox;
     Collider2D me;
+    AudioSource audioSource;
 
     protected override void Awake()
     {
         base.Awake();
-        me = this.gameObject.GetComponent<Collider2D>();
         
         hitBox = transform.GetChild(1);
+        audioSource = GetComponent<AudioSource>();
     }
 
     protected override void SpriteFlip()
@@ -31,13 +32,21 @@ public class Goblin : Monsters, IHealth, IBattle
         }
     }
 
+    public void PlayDieSound()
+    {
+        audioSource.PlayOneShot(SoundManager.Inst.Audios[(byte)SoundID.GoblinHit], 0.5f);
+    }
+
     protected override void Die()
     {
-        anim.SetTrigger("onDie");
-        currentSpeed = 0;
-        StartCoroutine(DisableMonster());
-        QuestManager.goblinQuestCount();
-        me.enabled = true;
-        Destroy(gameObject, 2f);
+        if (!isDying)
+        {
+            anim.SetTrigger("onDie");
+            currentSpeed = 0;
+            StartCoroutine(DisableMonster());
+            QuestManager.goblinQuestCount();
+            MonsterManager.ReturnPooledMonster(
+                MonsterManager.PooledMonster[MonsterManager.Inst.GoblinID], this.gameObject);
+        }
     }
 }
