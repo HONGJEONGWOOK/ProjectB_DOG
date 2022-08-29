@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 
 
-public class Player_Hero : MonoBehaviour, IHealth,IBattle
+public class Player_Hero : MonoBehaviour, IHealth, IBattle
 {
 
     //IHealth--------------------------------------------------------------------------------
@@ -115,7 +115,7 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
         footstepWaitSeconds = new WaitForSeconds(0.3f);
     }
 
-    }
+
 
     private void Start()
     {
@@ -277,6 +277,8 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     private void OnEscape(InputAction.CallbackContext obj)
     {
         Debug.Log("메뉴");
+        MenuOnOff();
+
     }
 
     void SearchNpc()
@@ -293,20 +295,7 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
         }
     }
 
-    // 자기가 보고있는 방향으로 공격하기
-    private void OnAttack(InputAction.CallbackContext context)
-    {
-        Debug.Log("공격");
-        anim.SetTrigger("Attack");
-    }
 
-
-
-    private void OnEscape(InputAction.CallbackContext obj)
-    {
-        Debug.Log("메뉴");
-        MenuOnOff();
-    }
 
 
     public void MenuOnOff()
