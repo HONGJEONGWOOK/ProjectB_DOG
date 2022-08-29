@@ -232,6 +232,24 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     private void OnEscape(InputAction.CallbackContext obj)
     {
         Debug.Log("메뉴");
+        MenuOnOff();
+    }
+
+
+    public void MenuOnOff()
+    {
+        if (manager.menuSet == false)
+        {
+            manager.menu.gameObject.SetActive(true);
+            manager.menuSet = true;
+            Time.timeScale = 0;
+        }
+        else
+        {
+            manager.menu.gameObject.SetActive(false);
+            manager.menuSet = false;
+            Time.timeScale = 1;
+        }
     }
 
     private void OnTalk(InputAction.CallbackContext obj)

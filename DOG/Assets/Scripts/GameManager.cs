@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public TalkManager talkManager;
     public Text talkText;
     public GameObject scanObject;
+    public MenuSet menu;
+    public bool menuSet = false;
     ItemInventory_UI inventoryUI;
 
     //퀘스트매니저
@@ -86,6 +88,11 @@ public class GameManager : MonoBehaviour
             oldSceneIndex = arg0.buildIndex;
         }
 
+    }
+
+    public void GameCountinu()
+    {
+        player.MenuOnOff();
     }
 
     public void GameSave()
