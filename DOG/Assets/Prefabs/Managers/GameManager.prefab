@@ -49,7 +49,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   talkManager: {fileID: 0}
-  talkText: {fileID: 1689840585477268260, guid: ac08d1ed9b555974fac9ee40fa57274e, type: 3}
+  questManager: {fileID: 0}
+  talkText: {fileID: 0}
   scanObject: {fileID: 0}
 --- !u!114 &1876037011
 MonoBehaviour:

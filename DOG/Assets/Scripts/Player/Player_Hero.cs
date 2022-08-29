@@ -236,22 +236,6 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     }
     // 움직일때 마지막에 봤던 방향으로 멈춰있기
 
-    
-
-    void SearchNpc()
-    {
-        Collider2D[] col = Physics2D.OverlapCircleAll(transform.position, 1.5f, LayerMask.GetMask("Npc"));
-
-        if (col.Length > 0)
-        {
-            scanObject = col[0].gameObject;
-        }
-        else
-        {
-            //Debug.Log("대상이 없습니다.");
-        }
-    }
-
     // 자기가 보고있는 방향으로 공격하기
     private void OnAttack(InputAction.CallbackContext context)
     {
@@ -265,6 +249,16 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     private void OnEscape(InputAction.CallbackContext obj)
     {
         Debug.Log("메뉴");
+    }
+
+    void SearchNpc()
+    {
+        Collider2D[] col = Physics2D.OverlapCircleAll(transform.position, 1.5f, LayerMask.GetMask("Npc"));
+
+        if (col.Length > 0)
+        {
+            scanObject = col[0].gameObject;
+        }
     }
 
     private void OnTalk(InputAction.CallbackContext obj)
