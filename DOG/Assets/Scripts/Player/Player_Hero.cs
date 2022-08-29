@@ -74,6 +74,11 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     public Transform marker;
     float markerRotation = 0f;
 
+    // Sound --------------------------------------------------
+    IEnumerator footstepCoroutine;
+    WaitForSeconds footstepWaitSeconds;
+    int footstepCounter = 0;
+
     private void Awake()
     {
         actions = new();
@@ -81,6 +86,9 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
         rigid = GetComponent<Rigidbody2D>();
         Collider = GetComponent<CapsuleCollider2D>();
         invenUI = FindObjectOfType<ItemInventory_UI>();
+
+        footstepCoroutine = PlayFootStepSound();
+        footstepWaitSeconds = new WaitForSeconds(0.3f);
     }
 
 
@@ -185,7 +193,7 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     private void OnMove(InputAction.CallbackContext context)
     {
         direction = context.ReadValue<Vector2>();
-        
+
 
         if (direction.x != 0 || direction.y != 0)
         {
@@ -193,10 +201,20 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
 
             anim.SetFloat("X", direction.x);
             anim.SetFloat("Y", direction.y);
+
+            // 코루틴이 한 번만 실행되도록
+            if (footstepCounter < 1)
+            {
+                StartCoroutine(footstepCoroutine);
+                footstepCounter++;  
+            }
         }
         else
+        {
             anim.SetBool("Input", false);
-
+            StopCoroutine(footstepCoroutine);
+            footstepCounter = 0;
+        }
         
         if (direction.x > 0)
         {
@@ -239,6 +257,7 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     {
         Debug.Log("공격");
         anim.SetTrigger("Attack");
+        SoundManager.Inst.PlaySound(SoundID.swingWeapon, 1f, true);
     }
 
 
@@ -331,5 +350,14 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
         Debug.Log($"공격력 : {GameManager.Inst.MainPlayer.attackPower}");
         Debug.Log($"방어력 : {GameManager.Inst.MainPlayer.defencePower}");
         Debug.Log($"크리율 : {GameManager.Inst.MainPlayer.criticalRate}");
+    }
+
+    IEnumerator PlayFootStepSound()
+    {
+        while (true)
+        {
+            SoundManager.Inst.PlaySound(SoundID.playerFootStep, 0.3f, true);
+            yield return footstepWaitSeconds;
+        }
     }
 }

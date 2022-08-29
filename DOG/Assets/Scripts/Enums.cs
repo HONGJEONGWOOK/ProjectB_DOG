@@ -28,3 +28,23 @@ public enum ItemID
 }
 
 
+public enum SoundID : byte
+{
+    BGM = 0,
+
+    //Player
+    playerFootStep,
+    playerGetHit,
+    swingWeapon,
+    
+    // UI
+    click,
+    windowOpen,
+    pointerOnSlot,
+    weaponChange,
+    potionUse,
+
+    ClipNumbers
+}
+
+
