@@ -57,6 +57,10 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     Animator anim;
     Rigidbody2D rigid = null;
     CapsuleCollider2D Collider;
+
+    public Puzzle pz;
+    public MiniPuzzle mpz;
+
     bool isAction = false;
 
     public GameObject shootPrefab = null;
@@ -69,7 +73,6 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
 
     // Inventory ---------------------------------------------
     ItemInventory_UI invenUI;
-
     // Minimap -----------------------------------------------
     public Transform marker;
     float markerRotation = 0f;
@@ -78,6 +81,25 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     IEnumerator footstepCoroutine;
     WaitForSeconds footstepWaitSeconds;
     int footstepCounter = 0;
+    private void OnCollisionEnter2D(Collision2D col)    // 돌 움직이게하는
+    {
+        if (col.gameObject.CompareTag("Rock"))
+        {
+            col.rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
+        if(col.gameObject.CompareTag("Box"))
+        {
+           // mpz.Init();
+        }
+
+    }
+    private void OnCollisionExit2D(Collision2D other)   //돌을 뒤의 돌과 충돌이 되게해서 멈추게
+    {
+        if (other.gameObject.CompareTag("Rock"))
+        {
+            other.rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
+        }
+    }
 
     private void Awake()
     {
@@ -180,10 +202,6 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
 
     // esc눌렀을때 일시정지 및 옵션 생성
     // 
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-    }
 
     private void Move()
     {
