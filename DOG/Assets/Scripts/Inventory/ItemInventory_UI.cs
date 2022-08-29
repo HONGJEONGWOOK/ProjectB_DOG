@@ -29,6 +29,8 @@ public class ItemInventory_UI : MonoBehaviour, IPointerClickHandler, IDragHandle
     CanvasGroup canvasGroup;
     bool isOpen = false;
 
+    public Inventory Inven => inven;
+
     Vector2 dragOffset;
 
 
@@ -173,6 +175,19 @@ public class ItemInventory_UI : MonoBehaviour, IPointerClickHandler, IDragHandle
             }
 
             SoundManager.Inst.PlaySound(SoundID.click, 0.8f ,true);
+        }
+        else if(eventData.button == PointerEventData.InputButton.Right)
+        {
+            GameObject clickedObject = eventData.pointerCurrentRaycast.gameObject;
+            if (clickedObject != null)
+            {
+                ItemSlot_UI clickedSlot = clickedObject.transform.parent.GetComponent<ItemSlot_UI>();
+                if (clickedSlot != null)
+                {
+
+                    clickedSlot.Slot.UseSlotItem(GameManager.Inst.MainPlayer.gameObject);
+                }
+            }
         }
     }
 

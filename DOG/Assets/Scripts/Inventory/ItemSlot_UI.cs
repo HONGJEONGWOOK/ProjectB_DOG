@@ -64,7 +64,9 @@ public class ItemSlot_UI : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         iconRect.sizeDelta *= 1.2f;
         if (slot.SlotData != null)
         {
+
             detailUI.Open(slot.SlotData);
+
         }
         SoundManager.Inst.PlaySound(SoundID.pointerOnSlot, 1f, true);
     }
@@ -74,4 +76,6 @@ public class ItemSlot_UI : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         iconRect.sizeDelta = originalSize;
         detailUI.Close();
     }
+
+
 }
