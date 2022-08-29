@@ -79,6 +79,7 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
         rigid = GetComponent<Rigidbody2D>();
         Collider = GetComponent<CapsuleCollider2D>();
         invenUI = FindObjectOfType<ItemInventory_UI>();
+
     }
 
     private void Start()
