@@ -172,6 +172,19 @@ public class ItemInventory_UI : MonoBehaviour, IPointerClickHandler, IDragHandle
                 }
             }
         }
+        else if(eventData.button == PointerEventData.InputButton.Right)
+        {
+            GameObject clickedObject = eventData.pointerCurrentRaycast.gameObject;
+            if (clickedObject != null)
+            {
+                ItemSlot_UI clickedSlot = clickedObject.transform.parent.GetComponent<ItemSlot_UI>();
+                if (clickedSlot != null)
+                {
+
+                    clickedSlot.Slot.UseSlotItem(GameManager.Inst.MainPlayer.gameObject);
+                }
+            }
+        }
     }
 
     public void OnBeginDrag(PointerEventData eventData)

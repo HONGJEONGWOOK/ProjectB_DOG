@@ -58,7 +58,7 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     Rigidbody2D rigid = null;
     CapsuleCollider2D Collider;
     bool isAction = false;
-    ItemInventory_UI inven;
+    
 
     public GameObject shootPrefab = null;
     public float moveSpeed = 5.0f;
@@ -81,18 +81,6 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
         invenUI = FindObjectOfType<ItemInventory_UI>();
     }
 
-
-    private void OnEnable()
-    {
-        actions.Player.Enable();
-        actions.Player.Move.performed += OnMove;
-        actions.Player.Move.canceled += OnMove;
-        actions.Player.Attack.performed += OnAttack;
-        actions.Player.Talk.performed += OnTalk;
-        actions.UI.Enable();
-        actions.UI.Escape.performed += OnEscape;
-    }
-
     private void Start()
     {
         Inventory inven = new Inventory();
@@ -108,16 +96,32 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
         inven.AddItem(ItemID.HPPotion, 3);
     }
 
+    private void OnEnable()
+    {
+        actions.Player.Enable();
+        actions.Player.Move.performed += OnMove;
+        actions.Player.Move.canceled += OnMove;
+        actions.Player.Attack.performed += OnAttack;
+        actions.Player.Talk.performed += OnTalk;
+        actions.Player.PickUp.performed += OnPickUp;
+        actions.UI.Enable();
+        actions.UI.Escape.performed += OnEscape;
+    }
+
+    
+
     private void OnDisable()
     {
         actions.UI.Escape.performed -= OnEscape;
         actions.UI.Disable();
+        actions.Player.PickUp.performed -= OnPickUp;
         actions.Player.Talk.performed -= OnTalk;
         actions.Player.Attack.performed -= OnAttack;
         actions.Player.Move.canceled -= OnMove;
         actions.Player.Move.performed -= OnMove;
         actions.Player.Disable();
     }
+
 
 
     public void Attack(IBattle target)
@@ -162,10 +166,7 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     {
         Move();
 
-        if(Keyboard.current.digit1Key.wasPressedThisFrame)
-        {
-            OnPickup();
-        }
+
     }
 
     // 체력 만들고
@@ -321,22 +322,21 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     /// <summary>
     /// 키를 누르면 주위에 있는 아이템을 인벤토리에 추가한다.
     /// </summary>
-    public void OnPickup()
+    private void OnPickUp(InputAction.CallbackContext obj)
     {
         Collider2D[] cols = Physics2D.OverlapCircleAll(transform.position, itemPickupRange, LayerMask.GetMask("Items"));
-        
+
         foreach (var col in cols)
         {
             Items item = col.gameObject.GetComponent<Items>();
 
 
-            inven.Inven.AddItem(item.data);
-            
-            //Destroy(col.gameObject);
-            
+            invenUI.Inven.AddItem(item.data);
+
+            Destroy(col.gameObject);
+
         }
     }
-
 
 
 }
