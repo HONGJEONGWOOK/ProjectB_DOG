@@ -305,6 +305,7 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
             manager.menu.gameObject.SetActive(true);
             manager.menuSet = true;
             Time.timeScale = 0;
+
         }
         else
         {
@@ -312,6 +313,7 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
             manager.menuSet = false;
             Time.timeScale = 1;
         }
+        SoundManager.Inst.PlaySound(SoundID.windowOpen);
     }
 
     private void OnTalk(InputAction.CallbackContext obj)
@@ -414,8 +416,7 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
 
             invenUI.Inven.AddItem(item.data);
 
-            Destroy(col.gameObject);
-
+            ItemManager.ReturnItem(ItemManager.Inst.PooledItems[item.data.id], col.gameObject);
         }
     }
 

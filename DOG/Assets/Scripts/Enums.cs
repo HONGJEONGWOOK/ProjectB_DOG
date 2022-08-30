@@ -30,7 +30,12 @@ public enum ItemID
 
 public enum SoundID : byte
 {
-    BGM = 0,
+    BGM_Village = 0,
+    BGM_Field,
+    BGM_House,
+    BGM_Dungeon,
+    BGM_Boss,
+    BGM_Minigame,
 
     //Player
     playerFootStep,

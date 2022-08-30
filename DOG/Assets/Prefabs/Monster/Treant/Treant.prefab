@@ -150,11 +150,11 @@ MonoBehaviour:
   healthPoint: 100
   strength: 5
   moveSpeed: 3
-  attackRange: 7
+  attackRange: 6
   attackCoolTime: 3
   attackPower: 5
   defence: 1
-  knockbackForce: 2
+  knockbackForce: 1
   patrolRange: 4
   waitTime: 4
   waypoint:
