@@ -91,7 +91,7 @@ public class ItemInventory_UI : MonoBehaviour, IPointerClickHandler, IDragHandle
     {
         canvasGroup.alpha = isShow ? 1.0f: 0.0f;
         canvasGroup.blocksRaycasts = isShow;
-        SoundManager.Inst.PlaySound(SoundID.windowOpen, 1f, true);
+        SoundManager.Inst.PlaySound(SoundID.windowOpen, true);
     }
 
     private void OnInvenButtonInput(InputAction.CallbackContext _)
@@ -174,7 +174,7 @@ public class ItemInventory_UI : MonoBehaviour, IPointerClickHandler, IDragHandle
                 }
             }
 
-            SoundManager.Inst.PlaySound(SoundID.click, 0.8f ,true);
+            SoundManager.Inst.PlaySound(SoundID.click ,true);
         }
         else if(eventData.button == PointerEventData.InputButton.Right)
         {
@@ -184,8 +184,8 @@ public class ItemInventory_UI : MonoBehaviour, IPointerClickHandler, IDragHandle
                 ItemSlot_UI clickedSlot = clickedObject.transform.parent.GetComponent<ItemSlot_UI>();
                 if (clickedSlot != null)
                 {
-
                     clickedSlot.Slot.UseSlotItem(GameManager.Inst.MainPlayer.gameObject);
+                    SoundManager.Inst.PlaySound(SoundID.potionUse, true);
                 }
             }
         }

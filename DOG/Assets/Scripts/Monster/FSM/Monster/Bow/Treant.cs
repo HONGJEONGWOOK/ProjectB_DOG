@@ -201,20 +201,14 @@ public class Treant : MonoBehaviour, IHealth, IBattle
         anim.SetFloat("Direction_Y", trackDirection.y);
 
         rigid.position = Vector2.MoveTowards(
-            rigid.position, new Vector2(rigid.position.x, target.position.y), moveSpeed * Time.fixedDeltaTime);
+            rigid.position, target.position, moveSpeed * Time.fixedDeltaTime);
 
-        if (IsAtSameHeight())
+        if (InAttackRange())
         {
-            rigid.position = Vector2.MoveTowards(rigid.position, target.position, moveSpeed * Time.fixedDeltaTime);
-            if (InAttackRange())
-            {
-                ChangeStatus(MonsterCurrentState.ATTACK);
-                return;
-            }
+            ChangeStatus(MonsterCurrentState.ATTACK);
+            return;
         }
     }
-
-    private bool IsAtSameHeight() => rigid.position.y - target.position.y < 0.05f;
 
     void ShootArrow()
     {
@@ -227,8 +221,8 @@ public class Treant : MonoBehaviour, IHealth, IBattle
             arrow.transform.localScale = new Vector2(0.5f, 0.5f);
         }
         arrow.SetActive(true);
-        //audioSource.clip = SoundManager.Inst.Audios[(byte)SoundID.ShootArrow];
-        audioSource.PlayOneShot(SoundManager.Inst.Audios[(byte)SoundID.ShootArrow], 0.5f);
+        audioSource.clip = SoundManager.Inst.clips[(byte)SoundID.ShootArrow].clip;
+        audioSource.PlayOneShot(SoundManager.Inst.clips[(byte)SoundID.ShootArrow].clip, 0.5f);
     }
 
     void Attack()
@@ -304,6 +298,7 @@ public class Treant : MonoBehaviour, IHealth, IBattle
         if (!isDying)
         {
             anim.SetTrigger("onDie");
+            audioSource.PlayOneShot(SoundManager.Inst.clips[(byte)SoundID.TreantDie].clip);
             StartCoroutine(DisableMonster());
         }
     }

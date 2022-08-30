@@ -35,7 +35,7 @@ public enum SoundID : byte
     //Player
     playerFootStep,
     playerGetHit,
-    swingWeapon,
+    SwordSwing,
     
     // UI
     click,
@@ -45,8 +45,10 @@ public enum SoundID : byte
     potionUse,
     QuestComplete,
 
-    //Monster
-    GoblinHit,
+    //Goblin
+    GoblinGetHit,
+    GoblinAttack,
+    GoblinDie,
 
     // -- Boss
     BossHit,
@@ -57,8 +59,10 @@ public enum SoundID : byte
     MeteorExplosion,
     BossMove,
 
-    //Weapons
+    // -- Treant
     ShootArrow,
+    TreantGetHit,
+    TreantDie,
 
     ClipNumbers
 }

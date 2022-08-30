@@ -26,12 +26,12 @@ public class StatusWindowButton : MonoBehaviour
     public void StatusWindowOn()
     {
         StatusWindow.SetActive(true);
-        SoundManager.Inst.PlaySound(SoundID.windowOpen, 1f, true);
+        SoundManager.Inst.PlaySound(SoundID.windowOpen, true);
     }
 
     public void StatusWindowOff()
     {
         StatusWindow.SetActive(false);
-        SoundManager.Inst.PlaySound(SoundID.windowOpen, 1f, true);
+        SoundManager.Inst.PlaySound(SoundID.windowOpen, true);
     }
 }

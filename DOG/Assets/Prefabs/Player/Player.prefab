@@ -214,8 +214,11 @@ MonoBehaviour:
   defencePower: 10
   criticalRate: 0.3
   manager: {fileID: 0}
+  pz: {fileID: 0}
+  mpz: {fileID: 0}
   shootPrefab: {fileID: 1481070992613875068, guid: 8795f09ede419c14d99f208576408297, type: 3}
   moveSpeed: 15
+  itemPickupRange: 1
   marker: {fileID: 5821883060847572566}
 --- !u!50 &1495316837161236788
 Rigidbody2D:
@@ -225,7 +228,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1495316837161236809}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0

@@ -137,8 +137,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7921215538911954125}
-  - component: {fileID: 7921215538911954124}
   - component: {fileID: 7921215538911954123}
+  - component: {fileID: 1841703641200225452}
   m_Layer: 0
   m_Name: SoundManager
   m_TagString: Untagged
@@ -162,38 +162,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7921215538911954124
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7921215538911954122}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f2b530a0f41bc54abb5a8af4e93cd9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sounds: 0
-  clips:
-  - {fileID: 0}
-  - {fileID: 8300000, guid: 7d02140a255b8294ea671f79348c8d7f, type: 3}
-  - {fileID: 0}
-  - {fileID: 8300000, guid: 1cc47fc197ab2ac4c9ed3c71eddfdcc3, type: 3}
-  - {fileID: 8300000, guid: 0c18a57364eba934a83048c15a258222, type: 3}
-  - {fileID: 8300000, guid: 3a82c6d3aa99aac429d5929523963611, type: 3}
-  - {fileID: 8300000, guid: b0242093f3b6779439ceb131aa14d2c9, type: 3}
-  - {fileID: 0}
-  - {fileID: 8300000, guid: 7004ce0a59de44448888314fdf9a8ccc, type: 3}
-  - {fileID: 8300000, guid: ef87d5099442e4142aa03c4fa23628e5, type: 3}
-  - {fileID: 8300000, guid: 443b2b56c1aafc1408ae2f6ee1a4910f, type: 3}
-  - {fileID: 0}
-  - {fileID: 8300000, guid: 7af6bfe7dfd6bfe4d862b99a869abc1b, type: 3}
-  - {fileID: 8300000, guid: 65c786d0fa06afa45a4ff2b8404a1213, type: 3}
-  - {fileID: 0}
-  - {fileID: 8300000, guid: a5bfd71577df0f940a98f3f401d77846, type: 3}
-  - {fileID: 8300000, guid: 2050edc111782304e8c62e2a30d09b92, type: 3}
-  - {fileID: 8300000, guid: fda38ceab446bbe4599598373c772eeb, type: 3}
 --- !u!82 &7921215538911954123
 AudioSource:
   m_ObjectHideFlags: 0
@@ -290,3 +258,79 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1841703641200225452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7921215538911954122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f2b530a0f41bc54abb5a8af4e93cd9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - clipName: BGM
+    clip: {fileID: 0}
+    volume: 0.5
+  - clipName: PlayerFootStep
+    clip: {fileID: 8300000, guid: 7d02140a255b8294ea671f79348c8d7f, type: 3}
+    volume: 0.5
+  - clipName: PlayerGetHit
+    clip: {fileID: 0}
+    volume: 0.5
+  - clipName: SwordSwing
+    clip: {fileID: 8300000, guid: 1cc47fc197ab2ac4c9ed3c71eddfdcc3, type: 3}
+    volume: 0.5
+  - clipName: Click
+    clip: {fileID: 8300000, guid: bbc0ff9433779414cac363c96a16d190, type: 3}
+    volume: 0.5
+  - clipName: WindowOpen
+    clip: {fileID: 8300000, guid: 3a82c6d3aa99aac429d5929523963611, type: 3}
+    volume: 0.5
+  - clipName: PointerOnSlot
+    clip: {fileID: 8300000, guid: b0242093f3b6779439ceb131aa14d2c9, type: 3}
+    volume: 0.5
+  - clipName: WeaponChange
+    clip: {fileID: 0}
+    volume: 0.5
+  - clipName: PotionUse
+    clip: {fileID: 8300000, guid: 7004ce0a59de44448888314fdf9a8ccc, type: 3}
+    volume: 0.5
+  - clipName: QuestComplete
+    clip: {fileID: 8300000, guid: ef87d5099442e4142aa03c4fa23628e5, type: 3}
+    volume: 0.5
+  - clipName: GoblinGetHit
+    clip: {fileID: 0}
+    volume: 0.5
+  - clipName: GoblinAttack
+    clip: {fileID: 8300000, guid: 3d428c010bde1f74ea7e1bc5e4bc8c9e, type: 3}
+    volume: 0.5
+  - clipName: GoblinDie
+    clip: {fileID: 8300000, guid: 2b8f86f80042b8440b59f967f2425fc2, type: 3}
+    volume: 0.5
+  - clipName: BossHit
+    clip: {fileID: 8300000, guid: a685ccf2ab441e74c88b7a3e3c06312c, type: 3}
+    volume: 0.5
+  - clipName: BossBite
+    clip: {fileID: 8300000, guid: 7af6bfe7dfd6bfe4d862b99a869abc1b, type: 3}
+    volume: 0.5
+  - clipName: BossAttack_Spin
+    clip: {fileID: 8300000, guid: 6d271cf05f00cd14da8c83bd530db321, type: 3}
+    volume: 0.5
+  - clipName: BossDie
+    clip: {fileID: 8300000, guid: 881607aec31338146aeec37dd52cd942, type: 3}
+    volume: 0.5
+  - clipName: MeteorFly
+    clip: {fileID: 8300000, guid: a5bfd71577df0f940a98f3f401d77846, type: 3}
+    volume: 0.5
+  - clipName: MeteorExplosion
+    clip: {fileID: 8300000, guid: 2050edc111782304e8c62e2a30d09b92, type: 3}
+    volume: 0.5
+  - clipName: BossMove
+    clip: {fileID: 8300000, guid: 51e89a718059fe7408c81531ddc5be3e, type: 3}
+    volume: 0.5
+  - clipName: ShootArrow
+    clip: {fileID: 8300000, guid: cd5f3f815e9f5cb49ab0675f07b28baa, type: 3}
+    volume: 0.5

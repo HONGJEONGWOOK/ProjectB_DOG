@@ -79,7 +79,7 @@ public class Boss : Monsters
     {
         status = MonsterCurrentState.TRACK;
         currentSpeed = moveSpeed;
-        audioSource.clip = SoundManager.Inst.Audios[(byte)SoundID.BossMove];
+        //audioSource.clip = SoundManager.Inst.Audios[(byte)SoundID.BossMove];
         audioSource.Play();
         audioSource.loop = true;
     }
@@ -119,7 +119,7 @@ public class Boss : Monsters
             {
                 ChangeStatus(MonsterCurrentState.TRACK);
                 detectTimer = 0f;
-                audioSource.clip = SoundManager.Inst.Audios[(byte)SoundID.BossMove];
+                //audioSource.clip = SoundManager.Inst.Audios[(byte)SoundID.BossMove];
                 audioSource.Play();
                 audioSource.volume = 0.3f;
                 audioSource.loop = true;
@@ -161,7 +161,7 @@ public class Boss : Monsters
     protected override IEnumerator DisableMonster()
     {
         // 죽는 사운드 재생
-        audioSource.PlayOneShot(SoundManager.Inst.Audios[(byte)SoundID.BossDie]);
+        audioSource.PlayOneShot(SoundManager.Inst.clips[(byte)SoundID.BossDie].clip);
 
         // 시체 남기는 시간
         yield return new WaitForSeconds(anim.GetCurrentAnimatorClipInfo(0).Length + 2.0f);
@@ -190,12 +190,12 @@ public class Boss : Monsters
 
     public void PlayBiteSound()
     {
-        audioSource.PlayOneShot(SoundManager.Inst.Audios[(byte)SoundID.BossBite], 0.5f);
+        audioSource.PlayOneShot(SoundManager.Inst.clips[(byte)SoundID.BossBite].clip, 0.5f);
     }
 
     public void PlayAttack1Sound()
     {
-        audioSource.PlayOneShot(SoundManager.Inst.Audios[(byte)SoundID.BossAttack1], 0.5f);
+        audioSource.PlayOneShot(SoundManager.Inst.clips[(byte)SoundID.BossAttack1].clip, 0.5f);
     }
 
     private bool InLongRange() => (transform.position - target.position).sqrMagnitude < longAttack_Range * longAttack_Range;

@@ -34,7 +34,17 @@ public class Goblin : Monsters, IHealth, IBattle
 
     public void PlayDieSound()
     {
-        audioSource.PlayOneShot(SoundManager.Inst.Audios[(byte)SoundID.GoblinHit], 0.5f);
+        audioSource.PlayOneShot(SoundManager.Inst.clips[(byte)SoundID.GoblinDie].clip, 0.5f);
+    }
+
+    public void PlayAttackSound()
+    {
+        audioSource.PlayOneShot(SoundManager.Inst.clips[(byte)SoundID.GoblinAttack].clip, 0.5f);
+    }
+
+    public void PlayGetHitSound()
+    {
+        audioSource.PlayOneShot(SoundManager.Inst.clips[(byte)SoundID.GoblinGetHit].clip, 0.5f);
     }
 
     protected override void Die()

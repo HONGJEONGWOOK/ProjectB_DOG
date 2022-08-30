@@ -17,12 +17,12 @@ public class MenuButton : MonoBehaviour
     public void MenuOn()
     {
         Menu.SetActive(true);
-        SoundManager.Inst.PlaySound(SoundID.click, 1f, true);
+        SoundManager.Inst.PlaySound(SoundID.click, true);
     }
 
     public void MenuOff()
     {
         Menu.SetActive(false);
-        SoundManager.Inst.PlaySound(SoundID.click, 1f, true);
+        SoundManager.Inst.PlaySound(SoundID.click, true);
     }
 }

@@ -269,7 +269,7 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
     {
         Debug.Log("공격");
         anim.SetTrigger("Attack");
-        SoundManager.Inst.PlaySound(SoundID.swingWeapon, 0.5f, true);
+        SoundManager.Inst.PlaySound(SoundID.SwordSwing, true);
     }
 
 
@@ -424,7 +424,7 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
     {
         while (true)
         {
-            SoundManager.Inst.PlaySound(SoundID.playerFootStep, 0.3f, true);
+            SoundManager.Inst.PlaySound(SoundID.playerFootStep, true);
             yield return footstepWaitSeconds;
         }
     }

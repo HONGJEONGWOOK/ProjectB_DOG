@@ -41,7 +41,7 @@ public class Meteor : MonoBehaviour
     private void OnEnable()
     {
         InitializeMeteor();
-        audioSource.PlayOneShot(SoundManager.Inst.Audios[(byte)SoundID.MeteorFly], 0.3f);
+        audioSource.PlayOneShot(SoundManager.Inst.clips[(byte)SoundID.MeteorFly].clip, 0.3f);
     }
 
     private void FixedUpdate()
@@ -66,7 +66,8 @@ public class Meteor : MonoBehaviour
 
             explosion.gameObject.SetActive(true);
             explosion.SetTrigger("isCollided");
-            audioSource.PlayOneShot(SoundManager.Inst.Audios[(byte)SoundID.MeteorExplosion], 0.1f);
+
+            audioSource.PlayOneShot(SoundManager.Inst.clips[(byte)SoundID.MeteorExplosion].clip, 0.1f);
 
             endTimer += Time.deltaTime;
             if (endTimer > explosion.GetCurrentAnimatorStateInfo(0).length)

@@ -100,7 +100,7 @@ public class QuestManager : MonoBehaviour
         if (questActionIndex == questList[questId].npcId.Length)
         {
             NextQuest();
-            audioSource.PlayOneShot(SoundManager.Inst.Audios[(byte)SoundID.QuestComplete], 0.5f);
+            //audioSource.PlayOneShot(SoundManager.Inst.Audios[(byte)SoundID.QuestComplete], 0.5f);
         }
 
         return questList[questId].questName;
