@@ -89,7 +89,6 @@ public class QuestPanel : MonoBehaviour
             qeustName.text = "마법이 담긴 함정 상자";
             qeustDetail.text = "상자를 열었더니 이상한 공간으로 빨려들어왔다. 탈출 방법을 찾아 탈출하자";
             LoadingSceneManager.LoadScene(5);
-            //EnterPuzzleRoom.enterPuzzleRoom();
         }
         else if (id == 60 && index == 0)
         {

@@ -116,19 +116,6 @@ public class QuestManager : MonoBehaviour
         questActionIndex = 0;
     }
 
-    //void ControlObject()
-    //{
-    //    switch(questId)
-    //    {
-    //        case 40:
-    //            if(questActionIndex == 1)
-    //            {
-    //                questObject[0].SetActive(false);
-    //            }
-    //            break;
-    //    }
-    //}
-
     void GoblinQuestCount()
     {
         killcount++;
