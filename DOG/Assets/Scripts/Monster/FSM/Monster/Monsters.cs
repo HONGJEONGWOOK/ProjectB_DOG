@@ -42,7 +42,7 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
     private Vector2 knockBackDir = Vector2.zero;
     float knockbackTimer = 0f;
     private float knockBackCoolTime = 0f;
-    private bool isDying = false;
+    protected bool isDying = false;
 
     public System.Action onHealthChange { get; set; }
 

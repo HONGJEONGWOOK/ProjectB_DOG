@@ -6,8 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    //퀘스트매니저
     public TalkManager talkManager;
+    public Text talkText;
+    public GameObject scanObject;
+    public MenuSet menu;
+    public bool menuSet = false;
+    ItemInventory_UI inventoryUI;
+
+    //퀘스트매니저
     public QuestManager questManager;
 
     private GameObject talkPanel;
@@ -16,9 +22,7 @@ public class GameManager : MonoBehaviour
         get { return talkPanel; }
     }
 
-    public Text talkText;
-    public GameObject scanObject;
-    
+
     // 플레이어 ----------------------------------------------------------
     Player_Hero player = null;
     public Player_Hero MainPlayer { get => player; }
@@ -33,7 +37,7 @@ public class GameManager : MonoBehaviour
     ItemDataManager itemData;
     public ItemDataManager ItemData => itemData;
 
-    ItemInventory_UI inventoryUI;
+
     public ItemInventory_UI InvenUI => inventoryUI;
 
     public static GameManager Inst { get => instance;}
@@ -57,9 +61,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        GameLoad();
+    }
+
     void Initialize()
     {
-        // --------------- 플레이어 
+        // --------------- 플레이어
         player = FindObjectOfType<Player_Hero>();
 
         // --------------- NPC
@@ -83,5 +92,37 @@ public class GameManager : MonoBehaviour
             oldSceneIndex = arg0.buildIndex;
         }
 
+    }
+
+    public void GameCountinu()
+    {
+        player.MenuOnOff();
+    }
+
+    public void GameSave()
+    {
+        //저장할꺼
+        PlayerPrefs.SetFloat("PlayerX", player.transform.position.x);
+        PlayerPrefs.SetFloat("PlayerY", player.transform.position.y);
+        PlayerPrefs.Save();
+
+
+
+    }
+
+    public void GameLoad()
+    {
+        if (!PlayerPrefs.HasKey("PlayerX"))
+            return;
+
+        float x = PlayerPrefs.GetFloat("PlayerX");
+        float y = PlayerPrefs.GetFloat("PlayerY");
+
+        player.transform.position = new Vector3(x, y, 0);
+    }
+
+    public void GameExit()
+    {
+        Application.Quit();
     }
 }

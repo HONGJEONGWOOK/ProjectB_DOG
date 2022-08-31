@@ -28,3 +28,48 @@ public enum ItemID
 }
 
 
+public enum SoundID : byte
+{
+    BGM_Village = 0,
+    BGM_Field,
+    BGM_House,
+    BGM_Dungeon,
+    BGM_Boss,
+    BGM_Minigame,
+
+    //Player
+    playerFootStep,
+    playerGetHit,
+    SwordSwing,
+    
+    // UI
+    click,
+    windowOpen,
+    pointerOnSlot,
+    weaponChange,
+    potionUse,
+    QuestComplete,
+
+    //Goblin
+    GoblinGetHit,
+    GoblinAttack,
+    GoblinDie,
+
+    // -- Boss
+    BossHit,
+    BossBite,
+    BossAttack1,
+    BossDie,
+    MeteorFly,
+    MeteorExplosion,
+    BossMove,
+
+    // -- Treant
+    ShootArrow,
+    TreantGetHit,
+    TreantDie,
+
+    ClipNumbers
+}
+
+

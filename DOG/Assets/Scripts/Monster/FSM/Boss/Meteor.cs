@@ -10,6 +10,7 @@ public class Meteor : MonoBehaviour
     Rigidbody2D ballRigid;
     ParticleSystem ballParticle;
     SpriteRenderer ballSprite;
+    AudioSource audioSource;
 
     Animator explosion;
 
@@ -31,6 +32,7 @@ public class Meteor : MonoBehaviour
         ballRigid = ball.GetComponent<Rigidbody2D>();
         ballParticle = ball.GetComponentInChildren<ParticleSystem>();
         ballSprite = ball.GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
 
         explosion = transform.GetChild(2).GetComponent<Animator>();
         explosion.gameObject.SetActive(false);
@@ -39,6 +41,7 @@ public class Meteor : MonoBehaviour
     private void OnEnable()
     {
         InitializeMeteor();
+        audioSource.PlayOneShot(SoundManager.Inst.clips[(byte)SoundID.MeteorFly].clip, 0.3f);
     }
 
     private void FixedUpdate()
@@ -63,6 +66,8 @@ public class Meteor : MonoBehaviour
 
             explosion.gameObject.SetActive(true);
             explosion.SetTrigger("isCollided");
+
+            audioSource.PlayOneShot(SoundManager.Inst.clips[(byte)SoundID.MeteorExplosion].clip, 0.1f);
 
             endTimer += Time.deltaTime;
             if (endTimer > explosion.GetCurrentAnimatorStateInfo(0).length)
