@@ -9,6 +9,7 @@ public class Items : MonoBehaviour
     private float moveDistance = 0.2f;
     private float moveSpeed = 2.0f;
 
+
     float timer = 0;
 
     private void Update()
@@ -16,4 +17,5 @@ public class Items : MonoBehaviour
         timer += Time.deltaTime;
         transform.localPosition = new Vector3(transform.position.x, moveDistance * Mathf.Abs(Mathf.Sin(moveSpeed * timer)), 0) ;
     }
+
 }

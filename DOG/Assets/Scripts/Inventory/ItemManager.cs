@@ -16,6 +16,8 @@ public class ItemManager : MonoBehaviour
 
     Stack<GameObject>[] items = new Stack<GameObject>[4];
 
+
+
     private void Awake()
     {
         if (instance == null)

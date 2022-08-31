@@ -28,6 +28,8 @@ public class QuestManager : MonoBehaviour
     public int killcount = 0;
     public static System.Action goblinQuestCount;
 
+    AudioSource audioSource;
+
     private void Awake()
     {
 
@@ -57,6 +59,8 @@ public class QuestManager : MonoBehaviour
         GenerateData();
 
         goblinQuestCount = () => { GoblinQuestCount(); };
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     //초기화된 questList를 사용하기 위한 함수
@@ -95,6 +99,7 @@ public class QuestManager : MonoBehaviour
         if (questActionIndex == questList[questId].npcId.Length)
         {
             NextQuest();
+            //audioSource.PlayOneShot(SoundManager.Inst.Audios[(byte)SoundID.QuestComplete], 0.5f);
         }
 
         return questList[questId].questName;

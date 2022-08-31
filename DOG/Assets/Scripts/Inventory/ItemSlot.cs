@@ -35,17 +35,41 @@ public class ItemSlot
     {
         SlotData = itemData;
         Count += num;
-        Debug.Log($"아이템 추가 : {data.name}");
+        //Debug.Log($"아이템 추가 : {data.name}");
     }
 
     public void ClearSlot()
     {
         SlotData = null;
-        Debug.Log("아이템 제거");
+        //Debug.Log("아이템 제거");
     }
 
     public void IncreaseItem(uint num = 1)
     {
         Count += num;
     }
+
+    public void DecreaseSlotItem(uint count = 1)
+    {
+        int newCount = (int)Count - (int)count;
+        if (newCount < 1)
+        {
+            ClearSlot();
+        }
+        else
+        {
+            Count = (uint)newCount;
+        }
+    }
+
+    public void UseSlotItem(GameObject target = null)
+    {
+        IUsable usable = SlotData as IUsable;
+        if (usable != null)
+        {
+            usable.Use(target);
+            DecreaseSlotItem();
+        }
+    }
+
 }

@@ -30,6 +30,7 @@ public class Test_Inven : MonoBehaviour
         inven.AddItem(ItemID.HPPotion, 3);
         //inven.MoveItem(0, 2);
 
+
         inven.TestInventory();
 
     }

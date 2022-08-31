@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 
 
-public class Player_Hero : MonoBehaviour, IHealth,IBattle
+public class Player_Hero : MonoBehaviour, IHealth, IBattle
 {
 
     //IHealth--------------------------------------------------------------------------------
@@ -18,7 +18,7 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     public float HP
     {
         get => hp;
-        set 
+        set
         {
             if(hp != value)
             {
@@ -63,8 +63,10 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
 
     bool isAction = false;
 
+
     public GameObject shootPrefab = null;
     public float moveSpeed = 5.0f;
+    public float itemPickupRange = 1.0f;
 
     private Vector3 direction = Vector3.zero;
 
@@ -114,16 +116,6 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     }
 
 
-    private void OnEnable()
-    {
-        actions.Player.Enable();
-        actions.Player.Move.performed += OnMove;
-        actions.Player.Move.canceled += OnMove;
-        actions.Player.Attack.performed += OnAttack;
-        actions.Player.Talk.performed += OnTalk;
-        actions.UI.Enable();
-        actions.UI.Escape.performed += OnEscape;
-    }
 
     private void Start()
     {
@@ -140,16 +132,32 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
         inven.AddItem(ItemID.HPPotion, 3);
     }
 
+    private void OnEnable()
+    {
+        actions.Player.Enable();
+        actions.Player.Move.performed += OnMove;
+        actions.Player.Move.canceled += OnMove;
+        actions.Player.Attack.performed += OnAttack;
+        actions.Player.Talk.performed += OnTalk;
+        actions.Player.PickUp.performed += OnPickUp;
+        actions.UI.Enable();
+        actions.UI.Escape.performed += OnEscape;
+    }
+
+
+
     private void OnDisable()
     {
         actions.UI.Escape.performed -= OnEscape;
         actions.UI.Disable();
+        actions.Player.PickUp.performed -= OnPickUp;
         actions.Player.Talk.performed -= OnTalk;
         actions.Player.Attack.performed -= OnAttack;
         actions.Player.Move.canceled -= OnMove;
         actions.Player.Move.performed -= OnMove;
         actions.Player.Disable();
     }
+
 
 
     public void Attack(IBattle target)
@@ -193,15 +201,17 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     private void FixedUpdate()
     {
         Move();
+
+
     }
 
     // 체력 만들고
     // 맞을때 어떻게 할지 생각해야하고
     // 맞을때 캐릭 잠깐동안 깜빡이고 무적상태
-    // 뒤로 밀려남 
+    // 뒤로 밀려남
 
     // esc눌렀을때 일시정지 및 옵션 생성
-    // 
+    //
 
     private void Move()
     {
@@ -224,7 +234,7 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
             if (footstepCounter < 1)
             {
                 StartCoroutine(footstepCoroutine);
-                footstepCounter++;  
+                footstepCounter++;
             }
         }
         else
@@ -233,7 +243,7 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
             StopCoroutine(footstepCoroutine);
             footstepCounter = 0;
         }
-        
+
         if (direction.x > 0)
         {
             markerRotation = 90f;
@@ -259,7 +269,7 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     {
         Debug.Log("공격");
         anim.SetTrigger("Attack");
-        SoundManager.Inst.PlaySound(SoundID.swingWeapon, 1f, true);
+        SoundManager.Inst.PlaySound(SoundID.SwordSwing, true);
     }
 
 
@@ -267,6 +277,8 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     private void OnEscape(InputAction.CallbackContext obj)
     {
         Debug.Log("메뉴");
+        MenuOnOff();
+
     }
 
     void SearchNpc()
@@ -277,6 +289,31 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
         {
             scanObject = col[0].gameObject;
         }
+        else
+        {
+            //Debug.Log("대상이 없습니다.");
+        }
+    }
+
+
+
+
+    public void MenuOnOff()
+    {
+        if (manager.menuSet == false)
+        {
+            manager.menu.gameObject.SetActive(true);
+            manager.menuSet = true;
+            Time.timeScale = 0;
+
+        }
+        else
+        {
+            manager.menu.gameObject.SetActive(false);
+            manager.menuSet = false;
+            Time.timeScale = 1;
+        }
+        SoundManager.Inst.PlaySound(SoundID.windowOpen);
     }
 
     private void OnTalk(InputAction.CallbackContext obj)
@@ -311,8 +348,8 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
         //QuestManager의 GetQuestTalkIndex의 파라미터에 전달할 questTalkIndex
         //GetQuestTalkIndex는 questId 값을 리턴
         int questTalkIndex = QuestManager.Instance.GetQuestTalkIndex(id);
-        
-        //questId를 
+
+        //questId를
         string talkData = GameManager.Inst.talkManager.GetTalk(id + questTalkIndex, QuestManager.Instance.TalkIndex);
 
         //말할 때 못 움직이게
@@ -364,11 +401,31 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
         Debug.Log($"크리율 : {GameManager.Inst.MainPlayer.criticalRate}");
     }
 
+
+    /// <summary>
+    /// 키를 누르면 주위에 있는 아이템을 인벤토리에 추가한다.
+    /// </summary>
+    private void OnPickUp(InputAction.CallbackContext obj)
+    {
+        Collider2D[] cols = Physics2D.OverlapCircleAll(transform.position, itemPickupRange, LayerMask.GetMask("Items"));
+
+        foreach (var col in cols)
+        {
+            Items item = col.gameObject.GetComponent<Items>();
+
+
+            invenUI.Inven.AddItem(item.data);
+
+            ItemManager.ReturnItem(ItemManager.Inst.PooledItems[item.data.id], col.gameObject);
+        }
+    }
+
+
     IEnumerator PlayFootStepSound()
     {
         while (true)
         {
-            SoundManager.Inst.PlaySound(SoundID.playerFootStep, 0.3f, true);
+            SoundManager.Inst.PlaySound(SoundID.playerFootStep, true);
             yield return footstepWaitSeconds;
         }
     }

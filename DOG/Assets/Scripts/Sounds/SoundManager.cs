@@ -1,7 +1,6 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SoundManager : MonoBehaviour
 {
@@ -9,13 +8,9 @@ public class SoundManager : MonoBehaviour
     public static SoundManager Inst => instance;
 
     AudioSource source;
+    AudioSource backgroundSource;
 
-    SoundID sounds;
-
-    // Environment
-    public AudioClip[] clips;
-
-    Dictionary<byte, AudioClip> audios = new();
+    public AudioClipDatas[] clips;
 
     private void Awake()
     {
@@ -37,25 +32,69 @@ public class SoundManager : MonoBehaviour
     private void Initialize()
     {
         source = GetComponent<AudioSource>();
+        backgroundSource = transform.GetChild(0).GetComponent<AudioSource>();
 
-        for(int i = 0; i < (int)SoundID.ClipNumbers; i++)
+        SceneManager.sceneLoaded += OnSceneLoad;
+    }
+
+    private void OnSceneLoad(Scene scene, LoadSceneMode arg1)
+    {
+        switch (scene.buildIndex)
         {
-            audios.Add((byte)i, clips[i]);
+            case 0: // House
+                backgroundSource.clip = clips[(int)SoundID.BGM_Minigame].clip;
+                backgroundSource.volume = clips[(int)SoundID.BGM_Minigame].volume;
+                backgroundSource.Play();
+                backgroundSource.loop = true;
+                break;
+            case 1: // Field and Village
+                backgroundSource.clip = clips[(int)SoundID.BGM_Field].clip;
+                backgroundSource.volume = clips[(int)SoundID.BGM_Field].volume;
+                backgroundSource.Play();
+                backgroundSource.loop = true;
+                break;
+            case 2: // dungeon
+                backgroundSource.clip = clips[(int)SoundID.BGM_Dungeon].clip;
+                backgroundSource.volume = clips[(int)SoundID.BGM_Dungeon].volume;
+                backgroundSource.Play();
+                backgroundSource.loop = true;
+                break;
+            case 3: // boss
+                backgroundSource.clip = clips[(int)SoundID.BGM_Boss].clip;
+                backgroundSource.volume = clips[(int)SoundID.BGM_Boss].volume;
+                backgroundSource.Play();
+                backgroundSource.loop = true;
+                break;
+            case 4: // minigame
+                backgroundSource.clip = clips[(int)SoundID.BGM_Minigame].clip;
+                backgroundSource.volume = clips[(int)SoundID.BGM_Minigame].volume;
+                backgroundSource.Play();
+                backgroundSource.loop = true;
+                break;
+            case 5: // loading
+                backgroundSource.Stop();
+                break;
         }
     }
 
-    public void PlaySound(SoundID clipID, float volume , bool oneShot = false)
+    public void PlaySound(SoundID clipID, bool oneShot = false)
     {
-        source.clip = clips[(int)clipID];
-        source.volume = volume;
-        
         if (oneShot)
         {
-            source.PlayOneShot(clips[(int)clipID]);
+            source.PlayOneShot(clips[(int)clipID].clip);
         }
         else
         {
+            source.clip = clips[(int)clipID].clip;
             source.Play();
         }
+        source.volume = clips[(int)clipID].volume;
+    }
+
+    public void ChangeBGM(SoundID soundID)
+    {
+        backgroundSource.clip = clips[(int)soundID].clip;
+        backgroundSource.loop = true;
+        backgroundSource.Play();
     }
 }

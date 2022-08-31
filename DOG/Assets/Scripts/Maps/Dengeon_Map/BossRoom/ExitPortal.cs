@@ -7,7 +7,9 @@ using UnityEngine.SceneManagement;
 public class ExitPortal : MonoBehaviour
 {
     ParticleSystem particle;
+#pragma warning disable CS0108 // 멤버가 상속된 멤버를 숨깁니다. new 키워드가 없습니다.
     CircleCollider2D collider;
+#pragma warning restore CS0108 // 멤버가 상속된 멤버를 숨깁니다. new 키워드가 없습니다.
 
     //Fade out 효과
 
