@@ -11,6 +11,7 @@ public class Puzzle : MonoBehaviour
     public GameObject mapAssets;
     float defaultPlayerSpeed;
     Player_Hero player;
+    public GameObject pzGate;
 
     public Sprite[] sprites;
     int[][] correct = new int[4][];
@@ -88,6 +89,9 @@ public class Puzzle : MonoBehaviour
         clear = true;   // 클리어 체크
         QuizModeActive(false);  // 퍼즐 모드 끄기
 
+        pzGate = GameObject.Find("Gate");
+        Destroy(pzGate);
+        Debug.Log("Gate Destroy");
 
         gameObject.SetActive(false);    // 퍼즐 없애기
     }
