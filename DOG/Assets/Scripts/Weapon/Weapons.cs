@@ -42,7 +42,7 @@ public class Weapons : MonoBehaviour
     private void Start()
     {
         weaponParent = GameManager.Inst.MainPlayer.transform.GetChild(1);
-        EquipWeapon(0);        
+        EquipWeapon(0);
     }
 
     private void OnEnable()

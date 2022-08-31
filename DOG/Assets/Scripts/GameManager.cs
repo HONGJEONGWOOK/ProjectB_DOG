@@ -16,9 +16,18 @@ public class GameManager : MonoBehaviour
         get { return talkPanel; }
     }
 
-    public Text talkText;
+    Text talkText;
     public GameObject scanObject;
-    
+
+    public Text TalkText
+    {
+        get => talkText;
+        set
+        {
+            talkText = value;
+        }
+    }
+
     // 플레이어 ----------------------------------------------------------
     Player_Hero player = null;
     public Player_Hero MainPlayer { get => player; }
@@ -37,14 +46,16 @@ public class GameManager : MonoBehaviour
     public ItemInventory_UI InvenUI => inventoryUI;
 
     public static GameManager Inst { get => instance;}
-    static GameManager instance = null;
+    static GameManager instance;
+
+    
 
     public void Awake()
     {
         if (instance == null)
         {
             instance = this;
-            instance.Initialize();
+            Initialize();
             DontDestroyOnLoad(this.gameObject);     // 씬이 변경되더라도 게임 오브젝트가 사라지기 않게 해주는 함수
         }
         else
@@ -52,7 +63,7 @@ public class GameManager : MonoBehaviour
             // 씬의 Gamemanager가 여러번 생성됐다.
             if (instance != this)
             {
-                Destroy(this.gameObject);
+                Destroy(gameObject);
             }
         }
     }
@@ -63,8 +74,9 @@ public class GameManager : MonoBehaviour
         player = FindObjectOfType<Player_Hero>();
 
         // --------------- NPC
-        talkPanel = GameObject.Find("talkPanel");
-        talkPanel.SetActive(false);
+        talkPanel = transform.GetChild(0).GetChild(1).gameObject;
+        talkText = talkPanel.GetComponentInChildren<Text>();
+        //talkPanel.SetActive(false);
 
         //---------------- Inventory
         weaponData = GetComponent<WeaponDataManager>();
@@ -83,5 +95,6 @@ public class GameManager : MonoBehaviour
             oldSceneIndex = arg0.buildIndex;
         }
 
+        talkPanel.SetActive(false);
     }
 }

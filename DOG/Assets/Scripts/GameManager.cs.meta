@@ -4,9 +4,8 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - talkManager: {instanceID: 0}
-  - questManager: {instanceID: 0}
-  - talkPanel: {fileID: 1824681151275083690, guid: 696e737208a0fb947ba0b5df100366ce, type: 3}
+  - talkManager: {fileID: 7013726931673676063, guid: bebe7a4e69663c842ab2b2ba2568447f, type: 3}
+  - questManager: {fileID: 8346926867656867668, guid: cb264d3aec77e4644b13e980ae47b9b5, type: 3}
   - talkText: {fileID: 1689840585477268260, guid: ac08d1ed9b555974fac9ee40fa57274e, type: 3}
   - scanObject: {instanceID: 0}
   executionOrder: 0
