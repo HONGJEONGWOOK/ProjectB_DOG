@@ -288,6 +288,9 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
             Debug.Log("단검 공격");
         }
         SoundManager.Inst.PlaySound(SoundID.swingWeapon, 1f, true);
+        Debug.Log("공격");
+        anim.SetTrigger("Attack");
+        SoundManager.Inst.PlaySound(SoundID.SwordSwing, true);
     }
 
 
@@ -323,6 +326,7 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
             manager.menu.gameObject.SetActive(true);
             manager.menuSet = true;
             Time.timeScale = 0;
+
         }
         else
         {
@@ -330,6 +334,7 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
             manager.menuSet = false;
             Time.timeScale = 1;
         }
+        SoundManager.Inst.PlaySound(SoundID.windowOpen);
     }
 
     private void OnTalk(InputAction.CallbackContext obj)
@@ -352,9 +357,9 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
         scanObject = scanObj;
         ObjectData objData = scanObject.GetComponent<ObjectData>();
         Talk(objData.id, objData.isNpc);
+        GameManager.Inst.TalkPanel.SetActive(isAction);
 
         //대화창 온
-        GameManager.Inst.TalkPanel.SetActive(isAction);
     }
 
     void Talk(int id, bool isNpc)
@@ -374,11 +379,11 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
 
         if (isNpc)
         {
-            GameManager.Inst.talkText.text = talkData;
+            GameManager.Inst.TalkText.text = talkData;
         }
         else
         {
-            GameManager.Inst.talkText.text = talkData;
+            GameManager.Inst.TalkText.text = talkData;
         }
 
         //대화끝
@@ -432,8 +437,7 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
 
             invenUI.Inven.AddItem(item.data);
 
-            Destroy(col.gameObject);
-
+            ItemManager.ReturnItem(ItemManager.Inst.PooledItems[item.data.id], col.gameObject);
         }
     }
 
@@ -442,7 +446,7 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
     {
         while (true)
         {
-            SoundManager.Inst.PlaySound(SoundID.playerFootStep, 0.3f, true);
+            SoundManager.Inst.PlaySound(SoundID.playerFootStep, true);
             yield return footstepWaitSeconds;
         }
     }

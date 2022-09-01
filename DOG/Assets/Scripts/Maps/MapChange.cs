@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MapChange : MonoBehaviour
 {
-    public int sceneID = 1;
+    public int sceneID = 2;
     CanvasFadeInOut fadeInOut;
 
     private void Start()
@@ -24,6 +24,7 @@ public class MapChange : MonoBehaviour
         }
     }
 
+    // 다음 맵으로 넘어갈 씬의 ID
     void SceneLoad()
     {
         LoadingSceneManager.LoadScene(sceneID);

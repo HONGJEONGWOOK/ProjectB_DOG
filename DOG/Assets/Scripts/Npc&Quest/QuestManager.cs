@@ -12,7 +12,7 @@ public class QuestManager : MonoBehaviour
     public int questId;
     public int questActionIndex;
 
-    public GameObject[] questObject;
+    //public GameObject[] questObject;
 
     //퀘스트 데이터를 불러올 리스트
     Dictionary<int, QuestData> questList;
@@ -24,8 +24,11 @@ public class QuestManager : MonoBehaviour
         set {talkIndex = value;}
     }
 
+    //고블린 킬카운트 및 델리게이트
     public int killcount = 0;
     public static System.Action goblinQuestCount;
+
+    AudioSource audioSource;
 
     private void Awake()
     {
@@ -44,8 +47,6 @@ public class QuestManager : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
-
-        
     }
 
     void Initialize()
@@ -58,6 +59,8 @@ public class QuestManager : MonoBehaviour
         GenerateData();
 
         goblinQuestCount = () => { GoblinQuestCount(); };
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     //초기화된 questList를 사용하기 위한 함수
@@ -90,12 +93,13 @@ public class QuestManager : MonoBehaviour
         }
 
         //퀘스트오브젝트 컨트롤
-        ControlObject();
+        //ControlObject();
 
         //대화 완료 및 다음 퀘스트
         if (questActionIndex == questList[questId].npcId.Length)
         {
             NextQuest();
+            //audioSource.PlayOneShot(SoundManager.Inst.Audios[(byte)SoundID.QuestComplete], 0.5f);
         }
 
         return questList[questId].questName;
@@ -110,19 +114,6 @@ public class QuestManager : MonoBehaviour
     {
         questId += 10;
         questActionIndex = 0;
-    }
-
-    void ControlObject()
-    {
-        switch(questId)
-        {
-            case 40:
-                if(questActionIndex == 1)
-                {
-                    questObject[0].SetActive(false);
-                }
-                break;
-        }
     }
 
     void GoblinQuestCount()
