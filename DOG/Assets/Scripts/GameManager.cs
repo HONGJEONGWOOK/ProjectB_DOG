@@ -102,7 +102,7 @@ public class GameManager : MonoBehaviour
         {
             oldSceneIndex = arg0.buildIndex;
         }
-
+        
         talkPanel.SetActive(false);
     }
 
