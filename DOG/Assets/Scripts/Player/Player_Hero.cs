@@ -64,9 +64,11 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
     bool isAction = false;
 
 
+
     public GameObject shootPrefab = null;
     public float moveSpeed = 5.0f;
     public float itemPickupRange = 1.0f;
+    public int weaponCount = 0;
 
     private Vector3 direction = Vector3.zero;
 
@@ -267,8 +269,24 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
     // 자기가 보고있는 방향으로 공격하기
     private void OnAttack(InputAction.CallbackContext context)
     {
-        Debug.Log("공격");
-        anim.SetTrigger("Attack");
+        if (weaponCount == 0)
+        {
+            anim.SetInteger("WeaponCount", 0);
+            anim.SetTrigger("Attack");
+            Debug.Log("검 공격");
+        }
+        else if (weaponCount == 1)
+        {
+            anim.SetInteger("WeaponCount", 1);
+            anim.SetTrigger("Attack");
+            Debug.Log("활 공격");
+        }
+        else if (weaponCount == 2)
+        {
+            anim.SetInteger("WeaponCount", 2);
+            anim.SetTrigger("Attack");
+            Debug.Log("단검 공격");
+        }
         SoundManager.Inst.PlaySound(SoundID.swingWeapon, 1f, true);
     }
 
