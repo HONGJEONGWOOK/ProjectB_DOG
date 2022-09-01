@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public TalkManager talkManager;
-    public Text talkText;
+    Text talkText;
     public GameObject scanObject;
     public MenuSet menu;
     public bool menuSet = false;
@@ -21,9 +21,6 @@ public class GameManager : MonoBehaviour
     {
         get { return talkPanel; }
     }
-
-    Text talkText;
-    public GameObject scanObject;
 
     public Text TalkText
     {

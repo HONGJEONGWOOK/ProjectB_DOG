@@ -41,7 +41,7 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
     [SerializeField] private float knockbackForce = 0.5f;
     private Vector2 knockBackDir = Vector2.zero;
     float knockbackTimer = 0f;
-    private float knockBackCoolTime = 0f;
+    private float knockBackCoolTime = 0.3f;
     protected bool isDying = false;
 
     public System.Action onHealthChange { get; set; }
@@ -179,18 +179,21 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
             return;
         }
 
-        if (( waypoint[waypointIndex].position - transform.position).sqrMagnitude < 0.01f)
+        if (waypoint != null)
         {
-            waypointIndex = (waypointIndex + 1) % waypoint.Length;
-            ChangeStatus(MonsterCurrentState.IDLE);
-        }
-        else
-        {
-            transform.position = Vector2.MoveTowards(transform.position, waypoint[waypointIndex].position,
-                  Time.fixedDeltaTime * moveSpeed);
+            if ((waypoint[waypointIndex].position - transform.position).sqrMagnitude < 0.01f)
+            {
+                waypointIndex = (waypointIndex + 1) % waypoint.Length;
+                ChangeStatus(MonsterCurrentState.IDLE);
+            }
+            else
+            {
+                transform.position = Vector2.MoveTowards(transform.position, waypoint[waypointIndex].position,
+                      Time.fixedDeltaTime * moveSpeed);
 
-            target = waypoint[waypointIndex];
-            SpriteFlip();
+                target = waypoint[waypointIndex];
+                SpriteFlip();
+            }
         }
     }
 
@@ -211,9 +214,6 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
         }
         SpriteFlip();
     }
-
-    protected virtual bool InAttackRange() => (transform.position - target.position).sqrMagnitude < attackRange * attackRange;
-    private bool IsAtSameHeight() => rigid.position.y - target.position.y < 0.05f;
 
     protected virtual void SpriteFlip()
     {
@@ -279,6 +279,7 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
     {
         if (!isDying)
         {
+            isDying = true;
             anim.SetTrigger("onDie");
             currentSpeed = 0;
             StartCoroutine(DisableMonster());
@@ -291,6 +292,7 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
         GameObject obj = ItemManager.GetPooledItem(ItemManager.Inst.PooledItems[(int)ItemID.GoblinsPPP]);
         obj.transform.position = transform.position;
         obj.SetActive(true);
+        ChangeStatus(MonsterCurrentState.IDLE);
         MonsterManager.ReturnPooledMonster(
             MonsterManager.PooledMonster[MonsterManager.Inst.GoblinID], this.gameObject);
     }
@@ -300,10 +302,11 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
         //rigid.position = Vector3.Lerp(rigid.position, knockBackDir, knockbackForce * Time.deltaTime);
         knockbackTimer += Time.deltaTime;
         if (knockbackTimer > knockBackCoolTime)
-        {
             ChangeStatus(MonsterCurrentState.ATTACK);
-        }
     }
+
+    protected virtual bool InAttackRange() => (transform.position - target.position).sqrMagnitude < attackRange * attackRange;
+    private bool IsAtSameHeight() => rigid.position.y - target.position.y < 0.05f;
 
     //########################## Monster Status Check ##################################
     void CheckStatus()
@@ -317,7 +320,7 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
                     break;
 
                 case MonsterCurrentState.PATROL:
-                    //Patrol();
+                    Patrol();
                     break;
 
                 case MonsterCurrentState.TRACK:
@@ -353,7 +356,6 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
                 currentSpeed = moveSpeed;
                 break;
             case MonsterCurrentState.KNOCKBACK:
-                rigid.bodyType = RigidbodyType2D.Kinematic;
                 knockBackDir = Vector2.zero;
                 knockbackTimer = 0f;
                 rigid.velocity = Vector2.zero;
@@ -389,7 +391,6 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
                 knockBackCoolTime = anim.GetCurrentAnimatorClipInfo(0).Length;
                 knockBackDir = transform.position - GameManager.Inst.MainPlayer.transform.position;
                 knockBackDir.Normalize();
-                rigid.bodyType = RigidbodyType2D.Dynamic;
                 rigid.AddForce(knockbackForce * knockBackDir, ForceMode2D.Impulse);
                 break;
             case MonsterCurrentState.DEAD:

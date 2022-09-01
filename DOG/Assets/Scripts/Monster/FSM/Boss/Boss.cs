@@ -79,7 +79,7 @@ public class Boss : Monsters
     {
         status = MonsterCurrentState.TRACK;
         currentSpeed = moveSpeed;
-        //audioSource.clip = SoundManager.Inst.Audios[(byte)SoundID.BossMove];
+        audioSource.clip = SoundManager.Inst.clips[(byte)SoundID.BossMove].clip;
         audioSource.Play();
         audioSource.loop = true;
     }
@@ -107,7 +107,7 @@ public class Boss : Monsters
             { // 원거리 공격 메테오
                 SpawnMeteor();
             }
-            
+
             anim.SetFloat("AttackSelector", attackRand);
             anim.SetTrigger("onAttack");
             attackTimer = 0.0f;
@@ -119,7 +119,7 @@ public class Boss : Monsters
             {
                 ChangeStatus(MonsterCurrentState.TRACK);
                 detectTimer = 0f;
-                //audioSource.clip = SoundManager.Inst.Audios[(byte)SoundID.BossMove];
+                audioSource.clip = SoundManager.Inst.clips[(byte)SoundID.BossMove].clip;
                 audioSource.Play();
                 audioSource.volume = 0.3f;
                 audioSource.loop = true;

@@ -388,8 +388,6 @@ public class Treant : MonoBehaviour, IHealth, IBattle
                 knockBackCoolTime = anim.GetCurrentAnimatorClipInfo(0).Length;
                 knockBackDir =  transform.position - GameManager.Inst.MainPlayer.transform.position;
                 knockBackDir.Normalize();
-
-                rigid.bodyType = RigidbodyType2D.Dynamic;
                 rigid.AddForce(knockBackDir * knockbackForce, ForceMode2D.Impulse);
                 break;
             case MonsterCurrentState.DEAD:
