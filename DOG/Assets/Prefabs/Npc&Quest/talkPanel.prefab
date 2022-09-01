@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1824681151275083688}
   - component: {fileID: 1824681151275083686}
   m_Layer: 5
-  m_Name: TalkPanel
+  m_Name: talkPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

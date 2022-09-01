@@ -336,9 +336,9 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
         scanObject = scanObj;
         ObjectData objData = scanObject.GetComponent<ObjectData>();
         Talk(objData.id, objData.isNpc);
+        GameManager.Inst.TalkPanel.SetActive(isAction);
 
         //대화창 온
-        GameManager.Inst.TalkPanel.SetActive(isAction);
     }
 
     void Talk(int id, bool isNpc)
@@ -358,11 +358,11 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
 
         if (isNpc)
         {
-            GameManager.Inst.talkText.text = talkData;
+            GameManager.Inst.TalkText.text = talkData;
         }
         else
         {
-            GameManager.Inst.talkText.text = talkData;
+            GameManager.Inst.TalkText.text = talkData;
         }
 
         //대화끝
