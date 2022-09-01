@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class NumberBox : MonoBehaviour
 {
@@ -51,7 +52,7 @@ public class NumberBox : MonoBehaviour
 
     void OnMouseDown()       
     {
-        if (Input.GetMouseButtonDown(0) && swapFunc != null)
+        if (Input.GetMouseButtonDown(0) && swapFunc != null)   //Input.GetMouseButtonDown(0) && swapFunc != null
             swapFunc((int)x, (int)y);
     }
 

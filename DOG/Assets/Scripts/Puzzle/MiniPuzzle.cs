@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MiniPuzzle : MonoBehaviour
 {
@@ -17,10 +18,18 @@ public class MiniPuzzle : MonoBehaviour
     public float pzpos_x, pzpos_y;
     int[][] correct = new int[3][];
 
+    PlayerInputActions playerActions;   // PlayerInputActions 객체 선언
+
     bool check;
     public bool clear;
     void Start()
     {
+        // PlayerInputActioin 생성자, 필요한 콜백함수 넣기 및 활성화
+        playerActions = new();
+        playerActions.UI.PuzzleCheat.performed += OnPuzzleCheat;    // 필요한 Input
+        playerActions.UI.Enable();
+        // ===================================================
+
         pzpos_x = transform.position.x;
         pzpos_y = transform.position.y;
 
@@ -28,6 +37,7 @@ public class MiniPuzzle : MonoBehaviour
         defaultPlayerSpeed = player.moveSpeed;  // 플레이어 기본 이동속도 저장
         // Init();
     }
+
     private void Update()
     {
         if (check && !clear)
@@ -35,14 +45,22 @@ public class MiniPuzzle : MonoBehaviour
             QuizModeActive(true);
             SuccessCheck();
         }
+    }
 
-        if (Input.GetKeyDown(KeyCode.Home) && check)             //치트키
+    private void OnPuzzleCheat(InputAction.CallbackContext context)
+    {
+        if (playerActions.UI.PuzzleCheat.ReadValue<float>() > 0)
         {
-            for (int i = 0; i <= 2; i++)
+            Debug.Log("Cheat Button Pressed");
+
+            if (check)             //치트키
             {
-                for (int j = 0; j <= 2; j++)
+                for (int i = 0; i <= 2; i++)
                 {
-                    correct[i][j] = boxes[i, j].index;
+                    for (int j = 0; j <= 2; j++)
+                    {
+                        correct[i][j] = boxes[i, j].index;
+                    }
                 }
             }
         }

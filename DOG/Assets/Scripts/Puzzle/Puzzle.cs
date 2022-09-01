@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Puzzle : MonoBehaviour
 {
@@ -18,8 +19,17 @@ public class Puzzle : MonoBehaviour
 
     bool check;
     public bool clear;
+
+    PlayerInputActions playerActions;   // PlayerInputActions 객체 선언
+
     void Start()
     {
+        // PlayerInputActioin 생성자, 필요한 콜백함수 넣기 및 활성화
+        playerActions = new();
+        playerActions.UI.PuzzleCheat.performed += OnPuzzleCheat;    // 필요한 Input
+        playerActions.UI.Enable();
+        // ===================================================
+
         player = GameObject.FindWithTag("Player").GetComponent<Player_Hero>();  // 플레이어 참조
         defaultPlayerSpeed = player.moveSpeed;  // 플레이어 기본 이동속도 저장
         // Init();
@@ -31,14 +41,22 @@ public class Puzzle : MonoBehaviour
             QuizModeActive(true);
             SuccessCheck();
         }
+    }
 
-        if (Input.GetKeyDown(KeyCode.Home) && check)
+    private void OnPuzzleCheat(InputAction.CallbackContext context)
+    {
+        if (playerActions.UI.PuzzleCheat.ReadValue<float>() > 0)
         {
-            for (int i = 0; i <= 3; i++)
+            Debug.Log("Cheat Button Pressed");
+
+            if (check)
             {
-                for (int j = 0; j <= 3; j++)
+                for (int i = 0; i <= 3; i++)
                 {
-                    correct[i][j] = boxes[i, j].index;
+                    for (int j = 0; j <= 3; j++)
+                    {
+                        correct[i][j] = boxes[i, j].index;
+                    }
                 }
             }
         }
