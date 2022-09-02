@@ -343,12 +343,12 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Escape = m_UI.FindAction("Escape", throwIfNotFound: true);
         m_UI_InventoryButton = m_UI.FindAction("InventoryButton", throwIfNotFound: true);
-        // WeaponSlotRotation
-        m_WeaponSlotRotation = asset.FindActionMap("WeaponSlotRotation", throwIfNotFound: true);
-        m_WeaponSlotRotation_RoatateDirection = m_WeaponSlotRotation.FindAction("RoatateDirection", throwIfNotFound: true);
         m_UI_PuzzleCheat = m_UI.FindAction("PuzzleCheat", throwIfNotFound: true);
         m_UI_OnMouseDown0 = m_UI.FindAction("OnMouseDown0", throwIfNotFound: true);
         m_UI_MousePosition = m_UI.FindAction("MousePosition", throwIfNotFound: true);
+        // WeaponSlotRotation
+        m_WeaponSlotRotation = asset.FindActionMap("WeaponSlotRotation", throwIfNotFound: true);
+        m_WeaponSlotRotation_RoatateDirection = m_WeaponSlotRotation.FindAction("RoatateDirection", throwIfNotFound: true);
     }
 
     public void Dispose()

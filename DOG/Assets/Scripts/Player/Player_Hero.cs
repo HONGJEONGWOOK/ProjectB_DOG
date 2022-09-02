@@ -74,8 +74,9 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
     public PlayerInputActions Actions => actions;
 
     //----------------------------------
-    //WeaponOfPlayer weaponOfPlayer;
-    public WeaponUI weaponUI;
+    Transform weaponOfPlayer;
+    //public WeaponUI weaponUI;
+    Weapon_Item defaultWeapon;
 
     // Inventory ---------------------------------------------
     ItemInventory_UI invenUI;
@@ -116,8 +117,10 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
         invenUI = FindObjectOfType<ItemInventory_UI>();
 
         
-        weaponUI = GetComponent<WeaponUI>();
-        //weaponOfPlayer = gameObject.GetComponent<WeaponOfPlayer>();
+        //weaponUI = GetComponent<WeaponUI>();
+        weaponOfPlayer = transform.Find("Weapon");
+        defaultWeapon = weaponOfPlayer.GetComponentInChildren<Weapon_Item>();
+
         footstepCoroutine = PlayFootStepSound();
         footstepWaitSeconds = new WaitForSeconds(0.3f);
     }
@@ -137,6 +140,9 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
         inven.AddItem(ItemID.HPPotion, 3);
         inven.AddItem(ItemID.HPPotion, 3);
         inven.AddItem(ItemID.HPPotion, 3);
+
+        
+        StatusUpdate(defaultWeapon);
     }
 
     private void OnEnable()

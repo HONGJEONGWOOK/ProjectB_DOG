@@ -25,7 +25,7 @@ public class WeaponOfPlayer : MonoBehaviour
     private void Start()
     {
         AssignWeapon(GameManager.Inst.WeaponData[defaultWeapon]);
-        EquipWeapon(defaultWeapon);
+        //EquipWeapon(defaultWeapon);
     }
 
 
