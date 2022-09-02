@@ -7,7 +7,9 @@ using UnityEngine.SceneManagement;
 public class ExitPortal : MonoBehaviour
 {
     ParticleSystem particle;
+#pragma warning disable CS0108 // 멤버가 상속된 멤버를 숨깁니다. new 키워드가 없습니다.
     CircleCollider2D collider;
+#pragma warning restore CS0108 // 멤버가 상속된 멤버를 숨깁니다. new 키워드가 없습니다.
 
     //Fade out 효과
 
@@ -33,7 +35,7 @@ public class ExitPortal : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            SceneManager.LoadScene(0);  // Field Map으로 이동. 숫자 변경해야함
+            LoadingSceneManager.LoadScene(0);  // Field Map으로 이동.
         }
     }
 }

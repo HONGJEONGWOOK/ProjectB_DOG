@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:DOG/Assets/Script/Weapon.cs.meta
 guid: dcc60cb0a249fe7458fa1dbccc0b4187
-=======
-guid: 80b625b1dcc27af4b806de0540d24db9
->>>>>>> main:DOG/Assets/Scripts/Player/Weapon.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

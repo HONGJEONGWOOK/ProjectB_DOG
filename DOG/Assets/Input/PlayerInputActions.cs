@@ -53,6 +53,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PickUp"",
+                    ""type"": ""Button"",
+                    ""id"": ""54ea610e-d56a-4868-ae7f-b71fbe317125"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -70,7 +79,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""up"",
                     ""id"": ""95cb1e73-c398-4468-9a7b-164e27278643"",
-                    ""path"": ""<Keyboard>/w"",
+                    ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Player"",
@@ -81,7 +90,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""down"",
                     ""id"": ""5e1ff013-3d9d-4bbb-8f6c-8072adac50ea"",
-                    ""path"": ""<Keyboard>/s"",
+                    ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Player"",
@@ -92,7 +101,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""left"",
                     ""id"": ""27c3847f-98c6-4568-82de-04012bd77da4"",
-                    ""path"": ""<Keyboard>/a"",
+                    ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Player"",
@@ -103,7 +112,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""right"",
                     ""id"": ""eca0fef1-2eee-406e-9f7b-3ced80a8c292"",
-                    ""path"": ""<Keyboard>/d"",
+                    ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Player"",
@@ -125,11 +134,22 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""02f2960f-dc76-4039-a158-1d9e3941ffbc"",
-                    ""path"": ""<Keyboard>/f"",
+                    ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Player"",
                     ""action"": ""Talk"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2709d1fa-472b-404f-8a7d-dc293d7ddb0d"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Player"",
+                    ""action"": ""PickUp"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -156,6 +176,33 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PuzzleCheat"",
+                    ""type"": ""Button"",
+                    ""id"": ""68b1e4d1-1f55-4e08-a681-b9bfe8f2feb6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""OnMouseDown0"",
+                    ""type"": ""Button"",
+                    ""id"": ""c73db5af-de6a-4b80-9ad8-54ff98198967"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MousePosition"",
+                    ""type"": ""Value"",
+                    ""id"": ""f47b647f-590b-4c15-b3ce-79fcd47d59db"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -178,6 +225,39 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Player"",
                     ""action"": ""InventoryButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3069b54f-b6e7-4612-aef2-38e0b19388e9"",
+                    ""path"": ""<Keyboard>/home"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Player"",
+                    ""action"": ""PuzzleCheat"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6235f559-acd0-4432-8561-97d62a102f69"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Player"",
+                    ""action"": ""MousePosition"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7783e7e0-2243-4874-b623-02872f17cf09"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Player"",
+                    ""action"": ""OnMouseDown0"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -258,6 +338,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_Talk = m_Player.FindAction("Talk", throwIfNotFound: true);
+        m_Player_PickUp = m_Player.FindAction("PickUp", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Escape = m_UI.FindAction("Escape", throwIfNotFound: true);
@@ -265,6 +346,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         // WeaponSlotRotation
         m_WeaponSlotRotation = asset.FindActionMap("WeaponSlotRotation", throwIfNotFound: true);
         m_WeaponSlotRotation_RoatateDirection = m_WeaponSlotRotation.FindAction("RoatateDirection", throwIfNotFound: true);
+        m_UI_PuzzleCheat = m_UI.FindAction("PuzzleCheat", throwIfNotFound: true);
+        m_UI_OnMouseDown0 = m_UI.FindAction("OnMouseDown0", throwIfNotFound: true);
+        m_UI_MousePosition = m_UI.FindAction("MousePosition", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -327,6 +411,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_Talk;
+    private readonly InputAction m_Player_PickUp;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -334,6 +419,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
         public InputAction @Talk => m_Wrapper.m_Player_Talk;
+        public InputAction @PickUp => m_Wrapper.m_Player_PickUp;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -352,6 +438,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Talk.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTalk;
                 @Talk.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTalk;
                 @Talk.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnTalk;
+                @PickUp.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickUp;
+                @PickUp.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickUp;
+                @PickUp.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPickUp;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -365,6 +454,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Talk.started += instance.OnTalk;
                 @Talk.performed += instance.OnTalk;
                 @Talk.canceled += instance.OnTalk;
+                @PickUp.started += instance.OnPickUp;
+                @PickUp.performed += instance.OnPickUp;
+                @PickUp.canceled += instance.OnPickUp;
             }
         }
     }
@@ -375,12 +467,18 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private IUIActions m_UIActionsCallbackInterface;
     private readonly InputAction m_UI_Escape;
     private readonly InputAction m_UI_InventoryButton;
+    private readonly InputAction m_UI_PuzzleCheat;
+    private readonly InputAction m_UI_OnMouseDown0;
+    private readonly InputAction m_UI_MousePosition;
     public struct UIActions
     {
         private @PlayerInputActions m_Wrapper;
         public UIActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Escape => m_Wrapper.m_UI_Escape;
         public InputAction @InventoryButton => m_Wrapper.m_UI_InventoryButton;
+        public InputAction @PuzzleCheat => m_Wrapper.m_UI_PuzzleCheat;
+        public InputAction @OnMouseDown0 => m_Wrapper.m_UI_OnMouseDown0;
+        public InputAction @MousePosition => m_Wrapper.m_UI_MousePosition;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -396,6 +494,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @InventoryButton.started -= m_Wrapper.m_UIActionsCallbackInterface.OnInventoryButton;
                 @InventoryButton.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnInventoryButton;
                 @InventoryButton.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnInventoryButton;
+                @PuzzleCheat.started -= m_Wrapper.m_UIActionsCallbackInterface.OnPuzzleCheat;
+                @PuzzleCheat.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnPuzzleCheat;
+                @PuzzleCheat.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnPuzzleCheat;
+                @OnMouseDown0.started -= m_Wrapper.m_UIActionsCallbackInterface.OnOnMouseDown0;
+                @OnMouseDown0.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnOnMouseDown0;
+                @OnMouseDown0.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnOnMouseDown0;
+                @MousePosition.started -= m_Wrapper.m_UIActionsCallbackInterface.OnMousePosition;
+                @MousePosition.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnMousePosition;
+                @MousePosition.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnMousePosition;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
@@ -406,6 +513,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @InventoryButton.started += instance.OnInventoryButton;
                 @InventoryButton.performed += instance.OnInventoryButton;
                 @InventoryButton.canceled += instance.OnInventoryButton;
+                @PuzzleCheat.started += instance.OnPuzzleCheat;
+                @PuzzleCheat.performed += instance.OnPuzzleCheat;
+                @PuzzleCheat.canceled += instance.OnPuzzleCheat;
+                @OnMouseDown0.started += instance.OnOnMouseDown0;
+                @OnMouseDown0.performed += instance.OnOnMouseDown0;
+                @OnMouseDown0.canceled += instance.OnOnMouseDown0;
+                @MousePosition.started += instance.OnMousePosition;
+                @MousePosition.performed += instance.OnMousePosition;
+                @MousePosition.canceled += instance.OnMousePosition;
             }
         }
     }
@@ -457,11 +573,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnTalk(InputAction.CallbackContext context);
+        void OnPickUp(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
         void OnEscape(InputAction.CallbackContext context);
         void OnInventoryButton(InputAction.CallbackContext context);
+        void OnPuzzleCheat(InputAction.CallbackContext context);
+        void OnOnMouseDown0(InputAction.CallbackContext context);
+        void OnMousePosition(InputAction.CallbackContext context);
     }
     public interface IWeaponSlotRotationActions
     {

@@ -11,6 +11,7 @@ public class Boss : Monsters
     BossRoomController roomController;
     Transform bossHitBox_1;
     Transform bossHitBox_2;
+    AudioSource audioSource;
 
     [SerializeField] GameObject portalKey;
 
@@ -31,14 +32,16 @@ public class Boss : Monsters
         base.Awake();
         hpBar = FindObjectOfType<HP_Bar_Boss>();
         textController = FindObjectOfType<BossTextController>();
-        roomController = FindObjectOfType<BossRoomController>();
-
+        
         bossHitBox_1 = transform.GetChild(1);
         bossHitBox_2 = transform.GetChild(2);
+
+        audioSource = GetComponent<AudioSource>();
     }
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
+        roomController = FindObjectOfType<BossRoomController>();
         if (roomController != null)
         {
             roomController.onBossEntry = ShowUIs;
@@ -48,7 +51,7 @@ public class Boss : Monsters
         currentSpeed = 0;
         hpBar.enabled = true;
         textController.enabled = true ;
-        status = MonsterCurrentState.IDLE;
+        ChangeStatus(MonsterCurrentState.IDLE);
     }
 
     private void OnDisable()
@@ -56,6 +59,7 @@ public class Boss : Monsters
         hpBar.gameObject.SetActive(false);
         textController.gameObject.SetActive(false);
     }
+
 
     void ShowUIs()
     {
@@ -75,9 +79,14 @@ public class Boss : Monsters
     {
         status = MonsterCurrentState.TRACK;
         currentSpeed = moveSpeed;
+        //audioSource.clip = SoundManager.Inst.Audios[(byte)SoundID.BossMove];
+        audioSource.Play();
+        audioSource.loop = true;
     }
 
     protected override void Idle()  {} // Do Nothing
+
+    protected override void Patrol(){} // Do Nothing
 
     protected override void Track()
     {
@@ -88,17 +97,17 @@ public class Boss : Monsters
     protected override void Attack()
     {
         attackTimer += Time.deltaTime;
-        
+        audioSource.loop = false;
         if (attackTimer > attackCoolTime)
         {
             SpriteFlip();
 
             attackRand = Random.value;
-            Debug.Log(attackRand);
             if (attackRand > (1 - longRangeAttack_Prob))
             { // 원거리 공격 메테오
                 SpawnMeteor();
             }
+            
             anim.SetFloat("AttackSelector", attackRand);
             anim.SetTrigger("onAttack");
             attackTimer = 0.0f;
@@ -110,6 +119,10 @@ public class Boss : Monsters
             {
                 ChangeStatus(MonsterCurrentState.TRACK);
                 detectTimer = 0f;
+                //audioSource.clip = SoundManager.Inst.Audios[(byte)SoundID.BossMove];
+                audioSource.Play();
+                audioSource.volume = 0.3f;
+                audioSource.loop = true;
                 return;
             }
         }
@@ -147,6 +160,9 @@ public class Boss : Monsters
 
     protected override IEnumerator DisableMonster()
     {
+        // 죽는 사운드 재생
+        audioSource.PlayOneShot(SoundManager.Inst.clips[(byte)SoundID.BossDie].clip);
+
         // 시체 남기는 시간
         yield return new WaitForSeconds(anim.GetCurrentAnimatorClipInfo(0).Length + 2.0f);
 
@@ -162,7 +178,7 @@ public class Boss : Monsters
 
         hpBar.gameObject.SetActive(false);
         // 보스 object pool return
-        MonsterManager.Inst.ReturnPooledMonster(MonsterManager.PooledMonster[MonsterManager.Inst.BossID], 
+        MonsterManager.ReturnPooledMonster(MonsterManager.PooledMonster[MonsterManager.Inst.BossID], 
                                                 this.gameObject);
     }
 
@@ -170,6 +186,16 @@ public class Boss : Monsters
     {
         GameObject key = Instantiate(portalKey);
         key.transform.position = this.transform.position;
+    }
+
+    public void PlayBiteSound()
+    {
+        audioSource.PlayOneShot(SoundManager.Inst.clips[(byte)SoundID.BossBite].clip, 0.5f);
+    }
+
+    public void PlayAttack1Sound()
+    {
+        audioSource.PlayOneShot(SoundManager.Inst.clips[(byte)SoundID.BossAttack1].clip, 0.5f);
     }
 
     private bool InLongRange() => (transform.position - target.position).sqrMagnitude < longAttack_Range * longAttack_Range;

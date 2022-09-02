@@ -31,6 +31,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "PickUp",
+                    "type": "Button",
+                    "id": "54ea610e-d56a-4868-ae7f-b71fbe317125",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -48,7 +57,7 @@
                 {
                     "name": "up",
                     "id": "95cb1e73-c398-4468-9a7b-164e27278643",
-                    "path": "<Keyboard>/w",
+                    "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "Player",
@@ -59,7 +68,7 @@
                 {
                     "name": "down",
                     "id": "5e1ff013-3d9d-4bbb-8f6c-8072adac50ea",
-                    "path": "<Keyboard>/s",
+                    "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "Player",
@@ -70,7 +79,7 @@
                 {
                     "name": "left",
                     "id": "27c3847f-98c6-4568-82de-04012bd77da4",
-                    "path": "<Keyboard>/a",
+                    "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "Player",
@@ -81,7 +90,7 @@
                 {
                     "name": "right",
                     "id": "eca0fef1-2eee-406e-9f7b-3ced80a8c292",
-                    "path": "<Keyboard>/d",
+                    "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "Player",
@@ -103,11 +112,22 @@
                 {
                     "name": "",
                     "id": "02f2960f-dc76-4039-a158-1d9e3941ffbc",
-                    "path": "<Keyboard>/f",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "Player",
                     "action": "Talk",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2709d1fa-472b-404f-8a7d-dc293d7ddb0d",
+                    "path": "<Keyboard>/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Player",
+                    "action": "PickUp",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -134,6 +154,33 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "PuzzleCheat",
+                    "type": "Button",
+                    "id": "68b1e4d1-1f55-4e08-a681-b9bfe8f2feb6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "OnMouseDown0",
+                    "type": "Button",
+                    "id": "c73db5af-de6a-4b80-9ad8-54ff98198967",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MousePosition",
+                    "type": "Value",
+                    "id": "f47b647f-590b-4c15-b3ce-79fcd47d59db",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -156,6 +203,39 @@
                     "processors": "",
                     "groups": "Player",
                     "action": "InventoryButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3069b54f-b6e7-4612-aef2-38e0b19388e9",
+                    "path": "<Keyboard>/home",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Player",
+                    "action": "PuzzleCheat",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6235f559-acd0-4432-8561-97d62a102f69",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Player",
+                    "action": "MousePosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7783e7e0-2243-4874-b623-02872f17cf09",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Player",
+                    "action": "OnMouseDown0",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

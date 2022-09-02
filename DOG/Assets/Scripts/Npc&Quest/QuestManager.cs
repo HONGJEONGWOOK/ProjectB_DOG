@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +13,7 @@ public class QuestManager : MonoBehaviour
     public int questId;
     public int questActionIndex;
 
-    public GameObject[] questObject;
+    //public GameObject[] questObject;
 
     //퀘스트 데이터를 불러올 리스트
     Dictionary<int, QuestData> questList;
@@ -24,11 +25,11 @@ public class QuestManager : MonoBehaviour
         set {talkIndex = value;}
     }
 
-    private int goblinQuestCount = 0;
-    public int GoblinQuestCount
-    {
-        get {return goblinQuestCount;}
-    }
+    //고블린 킬카운트 및 델리게이트
+    public int killcount = 0;
+    public static System.Action goblinQuestCount;
+
+    AudioSource audioSource;
 
     private void Awake()
     {
@@ -47,7 +48,10 @@ public class QuestManager : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
+    }
 
+    private void Update()
+    {
         
     }
 
@@ -59,6 +63,10 @@ public class QuestManager : MonoBehaviour
 
         //이 함수를 통해서 실행함
         GenerateData();
+
+        goblinQuestCount = () => { GoblinQuestCount(); };
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     //초기화된 questList를 사용하기 위한 함수
@@ -71,10 +79,10 @@ public class QuestManager : MonoBehaviour
         questList.Add(20, new QuestData("재앙의 원인을 찾아라", new int[] { 1000, 2000 }));
 
         questList.Add(30, new QuestData("마을의 위험요소 처치", new int[] { 2000, 1000}));
-        //4000 - 몬스터 번호
-        questList.Add(40, new QuestData("몬스터 처치 완료", new int[] { 1000, 2000 }));
+        
+        questList.Add(40, new QuestData("몬스터 처치 완료", new int[] { 1000, 3000 }));
 
-        questList.Add(50, new QuestData("의심되는 곳 수색", new int[] { 0 }));
+        questList.Add(50, new QuestData("마법의 공간을 빠져나가자", new int[] { 2000, 3000 }));
     }
 
     public int GetQuestTalkIndex(int id)
@@ -90,13 +98,21 @@ public class QuestManager : MonoBehaviour
             questActionIndex++;
         }
 
-        //퀘스트오브젝트 컨트롤
-        ControlObject();
-
         //대화 완료 및 다음 퀘스트
         if (questActionIndex == questList[questId].npcId.Length)
         {
             NextQuest();
+            //audioSource.PlayOneShot(SoundManager.Inst.Audios[(byte)SoundID.QuestComplete], 0.5f);
+        }
+
+        if(questId == 40 && questActionIndex == 1)
+        {
+            GameObject obj = GameObject.Find("VillageElder");
+            obj.SetActive(false);
+        }
+        else if (questId == 50 && questActionIndex == 0)
+        {
+            LoadingSceneManager.LoadScene(5);
         }
 
         return questList[questId].questName;
@@ -113,16 +129,8 @@ public class QuestManager : MonoBehaviour
         questActionIndex = 0;
     }
 
-    void ControlObject()
+    void GoblinQuestCount()
     {
-        switch(questId)
-        {
-            case 40:
-                if(questActionIndex == 1)
-                {
-                    questObject[0].SetActive(false);
-                }
-                break;
-        }
+        killcount++;
     }
 }

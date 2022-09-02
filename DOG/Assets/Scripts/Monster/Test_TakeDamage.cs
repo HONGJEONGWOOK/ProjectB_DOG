@@ -5,8 +5,8 @@ using UnityEngine.InputSystem;
 
 public class Test_TakeDamage : MonoBehaviour
 {
-    //Goblin monster = null;
-    Boss monster;
+    Boss monster = null;
+    //Boss monster;
 
     private void Start()
     {

@@ -35,13 +35,13 @@ public class ItemSlot
     {
         SlotData = itemData;
         Count += num;
-        Debug.Log($"아이템 추가 : {data.name}");
+        //Debug.Log($"아이템 추가 : {data.name}");
     }
 
     public void ClearSlot()
     {
-        data = null;
-        Debug.Log("아이템 제거");
+        SlotData = null;
+        //Debug.Log("아이템 제거");
     }
 
     public void IncreaseItem(uint num = 1)
