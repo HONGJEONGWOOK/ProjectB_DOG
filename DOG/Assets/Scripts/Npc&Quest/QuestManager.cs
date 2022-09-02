@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -104,13 +105,14 @@ public class QuestManager : MonoBehaviour
             //audioSource.PlayOneShot(SoundManager.Inst.Audios[(byte)SoundID.QuestComplete], 0.5f);
         }
 
-        if (questId == 50 && questActionIndex == 0)
+        if(questId == 40 && questActionIndex == 1)
+        {
+            GameObject obj = GameObject.Find("VillageElder");
+            obj.SetActive(false);
+        }
+        else if (questId == 50 && questActionIndex == 0)
         {
             LoadingSceneManager.LoadScene(5);
-        }
-        else if(killcount >= 5)
-        {
-            NextQuest();
         }
 
         return questList[questId].questName;

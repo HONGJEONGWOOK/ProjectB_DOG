@@ -68,10 +68,10 @@ public class QuestPanel : MonoBehaviour
         {
             qeustName.text = "마을 순찰 및 고블린 처치!";
             qeustDetail.text = $"빈 마을을 노리는 고블린을 처치하고 순찰하자!\n고블린 킬수 : {QuestManager.Instance.killcount}";
-            //if (QuestManager.Instance.killcount >= 5)
-            //{
-            //    QuestManager.Instance.NextQuest();
-            //}
+            if (QuestManager.Instance.killcount >= 5)
+            {
+                QuestManager.Instance.NextQuest();
+            }
         }
         else if (id == 40 && index == 0)
         {
@@ -80,7 +80,7 @@ public class QuestPanel : MonoBehaviour
         }
         else if (id == 40 && index == 1)
         {
-            Invoke("ControlObject", 0.5f);
+            //Invoke("ControlObject", 0.5f);
             qeustName.text = "장로가 자리비운 시간";
             qeustDetail.text = "장로회관에 가루와 관련된 물건이 있는지 한 번 둘러보자";
         }
@@ -107,9 +107,9 @@ public class QuestPanel : MonoBehaviour
         }
     }
 
-    void ControlObject()
-    {
-        GameObject obj = GameObject.Find("VillageElder");
-        obj.SetActive(false);
-    }
+    //void ControlObject()
+    //{
+    //    GameObject obj = GameObject.Find("VillageElder");
+    //    obj.SetActive(false);
+    //}
 }
