@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class ItemInventory_UI : MonoBehaviour, IPointerClickHandler
+public class ItemInventory_UI : MonoBehaviour, IPointerClickHandler, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
     DetailInfoUI detail;
     public DetailInfoUI Detail => detail;
@@ -21,10 +21,18 @@ public class ItemInventory_UI : MonoBehaviour, IPointerClickHandler
 
     uint oldSlotID = 50;
 
+    // Main Inventory
+    Transform mainInven;
+    Transform subInven;
     Button closeButton;
     Button invenMenuButton;
     CanvasGroup canvasGroup;
     bool isOpen = false;
+
+    public Inventory Inven => inven;
+
+    Vector2 dragOffset;
+
 
     public bool IsOpen
     {
@@ -38,9 +46,12 @@ public class ItemInventory_UI : MonoBehaviour, IPointerClickHandler
     private void Awake()
     {
         Actions = new();
+        mainInven = transform.GetChild(0);
+        canvasGroup = mainInven.GetChild(0).GetComponent<CanvasGroup>();
+        closeButton = mainInven.GetChild(0).GetChild(2).GetComponent<Button>();
+
         detail = GetComponentInChildren<DetailInfoUI>();
-        canvasGroup = GetComponent<CanvasGroup>();
-        closeButton = transform.GetChild(4).GetComponent<Button>();
+
         invenMenuButton = transform.parent.GetChild(0).GetChild(1).GetChild(0).GetComponent<Button>();
         //Debug.Log(invenMenuButton.name);
         anim = GetComponent<Animator>();
@@ -64,18 +75,16 @@ public class ItemInventory_UI : MonoBehaviour, IPointerClickHandler
     {
         inven = newInven;
 
-        slotUI = transform.GetChild(2).GetComponentsInChildren<ItemSlot_UI>();
-        movingSlotUI = transform.GetChild(3).GetComponent<MovingSlot_UI>();
+        slotUI = mainInven.GetComponentsInChildren<ItemSlot_UI>();
+        movingSlotUI = GetComponentInChildren<MovingSlot_UI>();
 
         for (int i = 0; i < slotUI.Length; i++)
         {
             slotUI[i].InitializeSlotUI((uint)i, inven[i]);
         }
-        movingSlotUI.InitializeSlotUI(Inventory.MOVINGSLOT_ID, inven.MovingSlot);
+        movingSlotUI.InitializeMovingSlotUI(Inventory.MOVINGSLOT_ID, inven.MovingSlot);
 
         movingSlotUI.ShowMovingSlotUI(false);
-
-        
     }
 
     private void ShowInventory(bool isShow)
@@ -96,39 +105,11 @@ public class ItemInventory_UI : MonoBehaviour, IPointerClickHandler
         if (eventData.button == PointerEventData.InputButton.Left)
         {
             GameObject clickedObject = eventData.pointerCurrentRaycast.gameObject;
-            Debug.Log(clickedObject.name);
             if (clickedObject != null)
             {
                 ItemSlot_UI clickedSlot = clickedObject.transform.parent.GetComponent<ItemSlot_UI>();
                 if (clickedSlot != null)
                 {
-                    //if (clickedSlot.Slot.SlotData != null && movingSlotUI.Slot.SlotData == null)
-                    //{// moving slot에 아무것도 없을 때
-                    //    oldSlotID = clickedSlot.SlotID; // moving slot으로 간 원래 slotID
-                    //    inven.MoveToMovingSlot(clickedSlot.SlotID);
-
-                    //    // Show MovingSlot
-                    //    movingSlotUI.gameObject.SetActive(true);
-                    //    Debug.Log(inven.MovingSlot.SlotData.name);
-                    //}
-                    //else if (clickedSlot.Slot.SlotData != null && movingSlotUI.Slot.SlotData != null)
-                    //{// 이미 아이템이 있는 슬롯에 아이템을 놓을 때
-                    //    inven.MoveItem(clickedSlot.SlotID, oldSlotID);
-                    //    inven.MovingSlotToSlot(clickedSlot.SlotID);  //inven.MoveItem(Inventory.MOVINGSLOT_ID, clickedSlot.SlotID);
-                    //    movingSlotUI.Slot.SlotData = null;
-
-                    //    // Hide MovingSlot
-                    //    movingSlotUI.gameObject.SetActive(false);
-                    //    Debug.Log($"{clickedSlot.SlotID} <-> {oldSlotID} ");
-                    //}
-                    //else  //ClickedSlot이 있을 때
-                    //{// moving slot에 아이템이 있을 때 
-                    //    inven.MovingSlotToSlot(clickedSlot.SlotID);
-
-                    //    // Hide MovingSlot
-                    //    movingSlotUI.gameObject.SetActive(false);
-                    //    Debug.Log("Moving Slot --> Clicked Slot");
-                    //}
                     if (movingSlotUI.Slot.SlotData == null)
                     {// 옮기는 물건이 없으면
                         // 스왑용 oldSlot에 저장
@@ -191,5 +172,20 @@ public class ItemInventory_UI : MonoBehaviour, IPointerClickHandler
                 }
             }
         }
+    }
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        dragOffset = (Vector2)mainInven.GetChild(0).transform.position - eventData.position;
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        mainInven.GetChild(0).transform.position = eventData.position + dragOffset;
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        //if(Camera.main.WorldToScreenPoint(mainInven.GetChild(0).transform.position) > Screen.saf)
     }
 }

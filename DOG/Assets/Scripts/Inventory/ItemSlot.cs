@@ -48,4 +48,28 @@ public class ItemSlot
     {
         Count += num;
     }
+
+    public void DecreaseSlotItem(uint count = 1)
+    {
+        int newCount = (int)Count - (int)count;
+        if (newCount < 1)
+        {
+            ClearSlot();
+        }
+        else
+        {
+            Count = (uint)newCount;
+        }
+    }
+
+    public void UseSlotItem(GameObject target = null)
+    {
+        IUsable usable = SlotData as IUsable;
+        if (usable != null)
+        {
+            usable.Use(target);
+            DecreaseSlotItem();
+        }
+    }
+
 }

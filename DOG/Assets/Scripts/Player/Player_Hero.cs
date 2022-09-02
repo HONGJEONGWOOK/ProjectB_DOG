@@ -60,9 +60,11 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     Rigidbody2D rigid = null;
     CapsuleCollider2D Collider;
     bool isAction = false;
+    ItemInventory_UI inven;
 
     public GameObject shootPrefab = null;
     public float moveSpeed = 5.0f;
+    public float itemPickupRange = 1.0f;
 
     private Vector3 direction = Vector3.zero;
 
@@ -159,6 +161,11 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     private void FixedUpdate()
     {
         Move();
+
+        if(Keyboard.current.digit1Key.wasPressedThisFrame)
+        {
+            OnPickup();
+        }
     }
 
     // 체력 만들고
@@ -318,6 +325,26 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
         Debug.Log($"공격력 : {attackPower}");
         Debug.Log($"방어력 : {defencePower}");
         Debug.Log($"크리율 : {criticalRate}");
+    }
+
+
+    /// <summary>
+    /// 키를 누르면 주위에 있는 아이템을 인벤토리에 추가한다.
+    /// </summary>
+    public void OnPickup()
+    {
+        Collider2D[] cols = Physics2D.OverlapCircleAll(transform.position, itemPickupRange, LayerMask.GetMask("Items"));
+        
+        foreach (var col in cols)
+        {
+            Items item = col.gameObject.GetComponent<Items>();
+
+
+            inven.Inven.AddItem(item.data);
+            
+            //Destroy(col.gameObject);
+            
+        }
     }
 
 

@@ -7,20 +7,20 @@ using TMPro;
 
 public class ItemSlot_UI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    ItemInventory_UI invenUI;    // 인벤토리 UI
+    protected ItemInventory_UI invenUI;    // 인벤토리 UI
     DetailInfoUI detailUI;  // 상세 정보창
 
     protected ItemSlot slot;
 
-    uint slotID;
+    protected uint slotID;
 
     // 표시할 것
-    Image icon;
-    TextMeshProUGUI countText;
+    protected Image icon;
+    protected TextMeshProUGUI countText;
 
     // 마우스 오버 애니메이션
-    RectTransform iconRect;
-    Vector2 originalSize;
+    protected RectTransform iconRect;
+    protected Vector2 originalSize;
 
     // Slot 프로퍼티
     public ItemSlot Slot => slot;
@@ -66,7 +66,6 @@ public class ItemSlot_UI : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         {
             detailUI.Open(slot.SlotData);
         }
-        
     }
 
     public void OnPointerExit(PointerEventData eventData)
