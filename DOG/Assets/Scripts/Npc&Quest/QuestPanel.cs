@@ -10,6 +10,8 @@ public class QuestPanel : MonoBehaviour
     TextMeshProUGUI qeustName;
     TextMeshProUGUI qeustDetail;
 
+    bool VillageElder = false;
+
     private void Awake()
     {
         qeustName = transform.Find("QuestName").GetComponent<TextMeshProUGUI>();
@@ -66,12 +68,10 @@ public class QuestPanel : MonoBehaviour
         {
             qeustName.text = "마을 순찰 및 고블린 처치!";
             qeustDetail.text = $"빈 마을을 노리는 고블린을 처치하고 순찰하자!\n고블린 킬수 : {QuestManager.Instance.killcount}";
-            if (QuestManager.Instance.killcount >= 5)
-            {
-                QuestManager.Instance.NextQuest();
-
-                // 30 and 1에서 40 and 0로 넘어가도록
-            }
+            //if (QuestManager.Instance.killcount >= 5)
+            //{
+            //    QuestManager.Instance.NextQuest();
+            //}
         }
         else if (id == 40 && index == 0)
         {
@@ -88,7 +88,7 @@ public class QuestPanel : MonoBehaviour
         {
             qeustName.text = "마법이 담긴 함정 상자";
             qeustDetail.text = "상자를 열었더니 이상한 공간으로 빨려들어왔다. 탈출 방법을 찾아 탈출하자";
-            LoadingSceneManager.LoadScene(5);
+            
         }
         else if (id == 60 && index == 0)
         {

@@ -49,6 +49,11 @@ public class QuestManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        
+    }
+
     void Initialize()
     {
         //게임 시작할 때 어웨이크로 리스트 불러와줌
@@ -73,10 +78,10 @@ public class QuestManager : MonoBehaviour
         questList.Add(20, new QuestData("재앙의 원인을 찾아라", new int[] { 1000, 2000 }));
 
         questList.Add(30, new QuestData("마을의 위험요소 처치", new int[] { 2000, 1000}));
-        //4000 - 몬스터 번호
-        questList.Add(40, new QuestData("몬스터 처치 완료", new int[] { 1000, 2000 }));
+        
+        questList.Add(40, new QuestData("몬스터 처치 완료", new int[] { 1000, 3000 }));
 
-        questList.Add(50, new QuestData("의심되는 곳 수색", new int[] { 0 }));
+        questList.Add(50, new QuestData("마법의 공간을 빠져나가자", new int[] { 2000, 3000 }));
     }
 
     public int GetQuestTalkIndex(int id)
@@ -92,14 +97,20 @@ public class QuestManager : MonoBehaviour
             questActionIndex++;
         }
 
-        //퀘스트오브젝트 컨트롤
-        //ControlObject();
-
         //대화 완료 및 다음 퀘스트
         if (questActionIndex == questList[questId].npcId.Length)
         {
             NextQuest();
             //audioSource.PlayOneShot(SoundManager.Inst.Audios[(byte)SoundID.QuestComplete], 0.5f);
+        }
+
+        if (questId == 50 && questActionIndex == 0)
+        {
+            LoadingSceneManager.LoadScene(5);
+        }
+        else if(killcount >= 5)
+        {
+            NextQuest();
         }
 
         return questList[questId].questName;

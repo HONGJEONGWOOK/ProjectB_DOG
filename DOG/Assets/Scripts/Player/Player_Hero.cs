@@ -65,7 +65,7 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
 
 
     public GameObject shootPrefab = null;
-    public float moveSpeed = 5.0f;
+    public float moveSpeed = 15.0f;
     public float itemPickupRange = 1.0f;
 
     private Vector3 direction = Vector3.zero;
@@ -201,7 +201,7 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
     private void FixedUpdate()
     {
         Move();
-
+        SceneMoveTest();
 
     }
 
@@ -353,7 +353,7 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
         string talkData = GameManager.Inst.talkManager.GetTalk(id + questTalkIndex, QuestManager.Instance.TalkIndex);
 
         //말할 때 못 움직이게
-        float sspeed = 5.0f;
+        float sspeed = 15.0f;
         float speed = 0;
 
         if (isNpc)
@@ -427,6 +427,14 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
         {
             SoundManager.Inst.PlaySound(SoundID.playerFootStep, true);
             yield return footstepWaitSeconds;
+        }
+    }
+
+    void SceneMoveTest()
+    {
+        if(Keyboard.current.digit1Key.wasPressedThisFrame)
+        {
+            LoadingSceneManager.LoadScene(5);
         }
     }
 }
