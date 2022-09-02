@@ -103,7 +103,7 @@
                 {
                     "name": "",
                     "id": "02f2960f-dc76-4039-a158-1d9e3941ffbc",
-                    "path": "<Keyboard>/q",
+                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "Player",
@@ -158,6 +158,56 @@
                     "action": "InventoryButton",
                     "isComposite": false,
                     "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "WeaponSlotRotation",
+            "id": "499bb830-3c02-4d91-b21a-95ca637297a0",
+            "actions": [
+                {
+                    "name": "RoatateDirection",
+                    "type": "Button",
+                    "id": "a788bdc0-b7c8-49b9-9435-e536f93fef6d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "1D Axis",
+                    "id": "5e8d7f03-0e6a-4b91-85af-7f0f52cdcdc6",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RoatateDirection",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "positive",
+                    "id": "578e08f0-2dff-4fd9-8e27-a41615146716",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RoatateDirection",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "negative",
+                    "id": "253c3383-01e2-498b-a4e3-a8c9162a8fd4",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RoatateDirection",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }

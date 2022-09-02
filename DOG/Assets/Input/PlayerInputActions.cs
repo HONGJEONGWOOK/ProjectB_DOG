@@ -125,7 +125,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""02f2960f-dc76-4039-a158-1d9e3941ffbc"",
-                    ""path"": ""<Keyboard>/q"",
+                    ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Player"",
@@ -182,6 +182,56 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""WeaponSlotRotation"",
+            ""id"": ""499bb830-3c02-4d91-b21a-95ca637297a0"",
+            ""actions"": [
+                {
+                    ""name"": ""RoatateDirection"",
+                    ""type"": ""Button"",
+                    ""id"": ""a788bdc0-b7c8-49b9-9435-e536f93fef6d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""5e8d7f03-0e6a-4b91-85af-7f0f52cdcdc6"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RoatateDirection"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""578e08f0-2dff-4fd9-8e27-a41615146716"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RoatateDirection"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""253c3383-01e2-498b-a4e3-a8c9162a8fd4"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RoatateDirection"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -212,6 +262,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Escape = m_UI.FindAction("Escape", throwIfNotFound: true);
         m_UI_InventoryButton = m_UI.FindAction("InventoryButton", throwIfNotFound: true);
+        // WeaponSlotRotation
+        m_WeaponSlotRotation = asset.FindActionMap("WeaponSlotRotation", throwIfNotFound: true);
+        m_WeaponSlotRotation_RoatateDirection = m_WeaponSlotRotation.FindAction("RoatateDirection", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -357,6 +410,39 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         }
     }
     public UIActions @UI => new UIActions(this);
+
+    // WeaponSlotRotation
+    private readonly InputActionMap m_WeaponSlotRotation;
+    private IWeaponSlotRotationActions m_WeaponSlotRotationActionsCallbackInterface;
+    private readonly InputAction m_WeaponSlotRotation_RoatateDirection;
+    public struct WeaponSlotRotationActions
+    {
+        private @PlayerInputActions m_Wrapper;
+        public WeaponSlotRotationActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @RoatateDirection => m_Wrapper.m_WeaponSlotRotation_RoatateDirection;
+        public InputActionMap Get() { return m_Wrapper.m_WeaponSlotRotation; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(WeaponSlotRotationActions set) { return set.Get(); }
+        public void SetCallbacks(IWeaponSlotRotationActions instance)
+        {
+            if (m_Wrapper.m_WeaponSlotRotationActionsCallbackInterface != null)
+            {
+                @RoatateDirection.started -= m_Wrapper.m_WeaponSlotRotationActionsCallbackInterface.OnRoatateDirection;
+                @RoatateDirection.performed -= m_Wrapper.m_WeaponSlotRotationActionsCallbackInterface.OnRoatateDirection;
+                @RoatateDirection.canceled -= m_Wrapper.m_WeaponSlotRotationActionsCallbackInterface.OnRoatateDirection;
+            }
+            m_Wrapper.m_WeaponSlotRotationActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @RoatateDirection.started += instance.OnRoatateDirection;
+                @RoatateDirection.performed += instance.OnRoatateDirection;
+                @RoatateDirection.canceled += instance.OnRoatateDirection;
+            }
+        }
+    }
+    public WeaponSlotRotationActions @WeaponSlotRotation => new WeaponSlotRotationActions(this);
     private int m_PlayerSchemeIndex = -1;
     public InputControlScheme PlayerScheme
     {
@@ -376,5 +462,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     {
         void OnEscape(InputAction.CallbackContext context);
         void OnInventoryButton(InputAction.CallbackContext context);
+    }
+    public interface IWeaponSlotRotationActions
+    {
+        void OnRoatateDirection(InputAction.CallbackContext context);
     }
 }

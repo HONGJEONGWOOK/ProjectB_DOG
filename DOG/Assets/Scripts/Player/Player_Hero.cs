@@ -68,6 +68,10 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
 
     public PlayerInputActions Actions => actions;
 
+    //----------------------------------
+    //WeaponOfPlayer weaponOfPlayer;
+    public WeaponUI weaponUI;
+
 
     private void Awake()
     {
@@ -75,6 +79,10 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
         anim = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody2D>();
         Collider = GetComponent<CapsuleCollider2D>();
+
+        
+        weaponUI = GetComponent<WeaponUI>();
+        //weaponOfPlayer = gameObject.GetComponent<WeaponOfPlayer>();
     }
 
 
@@ -90,12 +98,16 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
         actions.Player.Talk.performed += OnTalk;
         actions.UI.Enable();
         actions.UI.Escape.performed += OnEscape;
+        actions.WeaponSlotRotation.Enable();
+        actions.WeaponSlotRotation.RoatateDirection.performed += OnWeaponChange;
     }
 
     
 
     private void OnDisable()
     {
+        actions.WeaponSlotRotation.RoatateDirection.performed -= OnWeaponChange;
+        actions.WeaponSlotRotation.Disable();
         actions.UI.Escape.performed -= OnEscape;
         actions.UI.Disable();
         actions.Player.Talk.performed -= OnTalk;
@@ -280,24 +292,34 @@ public class Player_Hero : MonoBehaviour, IHealth,IBattle
     }
 
 
+    
+    private void OnWeaponChange(InputAction.CallbackContext context)
+    {
+        
+        int input = (int)context.ReadValue<float>();                // 입력값을 int로 변경
+        //weaponUI.RotateWeaponUI(input);
+        GameManager.Inst.WeaponUI.RotateWeaponUI(input);
+        uint currentWeapon = GameManager.Inst.WeaponOfPlayer.currentWeapon(input);
+        GameManager.Inst.WeaponOfPlayer.ChangeWeapon(currentWeapon);
+    }
+
+
+    
     public void StatusUpdate(Weapon_Item weapon)
     {
         float defaultAttack = 30;
         float defaultDefence = 10;
         float defaultCritical = 0.3f;
 
-        GameManager.Inst.MainPlayer.attackPower = defaultAttack;
-        GameManager.Inst.MainPlayer.defencePower = defaultDefence;
-        GameManager.Inst.MainPlayer.criticalRate = defaultCritical;
+        attackPower = defaultAttack + weapon.data.attackPower;
+        defencePower = defaultDefence + weapon.data.defencePower;
+        criticalRate = defaultCritical + weapon.data.criticalRate;
 
-        GameManager.Inst.MainPlayer.attackPower += weapon.data.attackPower;
-        GameManager.Inst.MainPlayer.defencePower += weapon.data.defencePower;
-        GameManager.Inst.MainPlayer.criticalRate += weapon.data.criticalRate;
-
-        Debug.Log($"공격력 : {GameManager.Inst.MainPlayer.attackPower}");
-        Debug.Log($"방어력 : {GameManager.Inst.MainPlayer.defencePower}");
-        Debug.Log($"크리율 : {GameManager.Inst.MainPlayer.criticalRate}");
+        Debug.Log($"공격력 : {attackPower}");
+        Debug.Log($"방어력 : {defencePower}");
+        Debug.Log($"크리율 : {criticalRate}");
     }
+
 
 
 }
