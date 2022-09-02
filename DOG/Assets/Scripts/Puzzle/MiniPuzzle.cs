@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MiniPuzzle : MonoBehaviour
 {
@@ -11,15 +12,24 @@ public class MiniPuzzle : MonoBehaviour
     public GameObject mapAssets;
     float defaultPlayerSpeed;
     Player_Hero player;
+    public GameObject RockDestroy;
 
     public Sprite[] sprites;
     public float pzpos_x, pzpos_y;
     int[][] correct = new int[3][];
 
+    PlayerInputActions playerActions;   // PlayerInputActions 객체 선언
+
     bool check;
     public bool clear;
     void Start()
     {
+        // PlayerInputActioin 생성자, 필요한 콜백함수 넣기 및 활성화
+        playerActions = new();
+        playerActions.UI.PuzzleCheat.performed += OnPuzzleCheat;    // 필요한 Input
+        playerActions.UI.Enable();
+        // ===================================================
+
         pzpos_x = transform.position.x;
         pzpos_y = transform.position.y;
 
@@ -27,6 +37,7 @@ public class MiniPuzzle : MonoBehaviour
         defaultPlayerSpeed = player.moveSpeed;  // 플레이어 기본 이동속도 저장
         // Init();
     }
+
     private void Update()
     {
         if (check && !clear)
@@ -34,14 +45,22 @@ public class MiniPuzzle : MonoBehaviour
             QuizModeActive(true);
             SuccessCheck();
         }
+    }
 
-        if (Input.GetKeyDown(KeyCode.Home) && check)             //치트키
+    private void OnPuzzleCheat(InputAction.CallbackContext context)
+    {
+        if (playerActions.UI.PuzzleCheat.ReadValue<float>() > 0)
         {
-            for (int i = 0; i <= 2; i++)
+            Debug.Log("Cheat Button Pressed");
+
+            if (check)             //치트키
             {
-                for (int j = 0; j <= 2; j++)
+                for (int i = 0; i <= 2; i++)
                 {
-                    correct[i][j] = boxes[i, j].index;
+                    for (int j = 0; j <= 2; j++)
+                    {
+                        correct[i][j] = boxes[i, j].index;
+                    }
                 }
             }
         }
@@ -92,107 +111,109 @@ public class MiniPuzzle : MonoBehaviour
         QuizModeActive(false);
 
         //디스트로이 만들예정
+        RockDestroy = GameObject.Find("Rockall");
+        Destroy(RockDestroy);
+        Debug.Log("Rock Destroy");
         gameObject.SetActive(false);
-    }
-
-    void ClickToSwap(int x, int y)
-    {
-        int dx = getDx(x, y);
-        int dy = getDy(x, y);
-        Swap(x, y, dx, dy);
-
-    }
-
-    // Update is called once per frame
-    public void Init()
-    {
-        if(check)
-        {
-            return;
         }
-        int n = 0;
-        for (int y = 2; y >= 0; y--)
-            for(int x = 0; x < 3; x++)
+
+        void ClickToSwap(int x, int y)
+        {
+            int dx = getDx(x, y);
+            int dy = getDy(x, y);
+            Swap(x, y, dx, dy);
+
+        }
+
+        // Update is called once per frame
+        public void Init()
+        {
+            if (check)
             {
-                NumberBox box = Instantiate(boxPrefab, new Vector2(x + pzpos_x, y + pzpos_y), Quaternion.identity);
-                box.transform.parent = transform;
-                box.Init(x + pzpos_x, y + pzpos_y, n + 1, sprites[n], ClickToSwap);
-                boxes[x, y] = box;
-                n++;
+                return;
             }
-        for (int i = 0; i < 999; i++)
-            Shuffle();
-        check = true;
-
-        //정답배열 만들기
-        for(int i = 0; i < 3; i++)
-        {
-            int value = 7 + i;
-            correct[i] = new int[3];
-            for (int j = 0; j < 3; j++)
-            {
-                correct[i][j] = value;
-                value -= 3;
-            }
-        }
-    }
-    void Swap(int x, int y, int dx, int dy)
-    {
-
-        var from = boxes[x, y];
-        var target = boxes[x + dx, y + dy];
-
-        //두 상자를 바꾸는
-        boxes[x, y] = target;
-        boxes[x + dx, y + dy] = from;
-
-        //2 박스 위치 업데이트
-        from.UpdatePos(x + dx + pzpos_x, y + dy + pzpos_y);
-        target.UpdatePos(x + pzpos_x , y + pzpos_y);
-    }
-    
-    int getDx(int x, int y)
-    {
-        //오른쪽이 비어있는
-        if(x<2 && boxes[x + 1, y].IsEmpty_mini())
-            return 1;
-        //왼쪽이 비어있는
-        if (x > 0 && boxes[x + -1, y].IsEmpty_mini())
-            return -1;
-
-       return 0;
-
-        }
-
-    int getDy(int x, int y)
-    {
-        //위가 비어있는
-        if (y < 2 && boxes[x, y + 1].IsEmpty_mini())
-            return 1;
-        //아래가 비어있는
-        if (y > 0 && boxes[x , y - 1].IsEmpty_mini())
-            return -1;
-
-        return 0;
-
-    }
-
-    void Shuffle()
-    {
-        for(int i = 0; i < 3; i++)
-        {
-            for(int j = 0; j < 3; j++)
-            {
-                if(boxes[i, j].IsEmpty_mini())
+            int n = 0;
+            for (int y = 2; y >= 0; y--)
+                for (int x = 0; x < 3; x++)
                 {
-                    Vector2 pos = getValidMove(i , j);
-                    Swap(i , j, (int)pos.x , (int)pos.y);
+                    NumberBox box = Instantiate(boxPrefab, new Vector2(x + pzpos_x, y + pzpos_y), Quaternion.identity);
+                    box.transform.parent = transform;
+                    box.Init(x + pzpos_x, y + pzpos_y, n + 1, sprites[n], ClickToSwap);
+                    boxes[x, y] = box;
+                    n++;
+                }
+            for (int i = 0; i < 999; i++)
+                Shuffle();
+            check = true;
+
+            //정답배열 만들기
+            for (int i = 0; i < 3; i++)
+            {
+                int value = 7 + i;
+                correct[i] = new int[3];
+                for (int j = 0; j < 3; j++)
+                {
+                    correct[i][j] = value;
+                    value -= 3;
                 }
             }
         }
-    }
+        void Swap(int x, int y, int dx, int dy)
+        {
 
-    private Vector2 lastMove;
+            var from = boxes[x, y];
+            var target = boxes[x + dx, y + dy];
+
+            //두 상자를 바꾸는
+            boxes[x, y] = target;
+            boxes[x + dx, y + dy] = from;
+
+            //2 박스 위치 업데이트
+            from.UpdatePos(x + dx + pzpos_x, y + dy + pzpos_y);
+            target.UpdatePos(x + pzpos_x, y + pzpos_y);
+        }
+
+        int getDx(int x, int y)
+        {
+            //오른쪽이 비어있는
+            if (x < 2 && boxes[x + 1, y].IsEmpty_mini())
+                return 1;
+            //왼쪽이 비어있는
+            if (x > 0 && boxes[x + -1, y].IsEmpty_mini())
+                return -1;
+
+            return 0;
+
+        }
+
+        int getDy(int x, int y)
+        {
+            //위가 비어있는
+            if (y < 2 && boxes[x, y + 1].IsEmpty_mini())
+                return 1;
+            //아래가 비어있는
+            if (y > 0 && boxes[x, y - 1].IsEmpty_mini())
+                return -1;
+
+            return 0;
+
+        }
+
+        void Shuffle()
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    if (boxes[i, j].IsEmpty_mini())
+                    {
+                        Vector2 pos = getValidMove(i, j);
+                        Swap(i, j, (int)pos.x, (int)pos.y);
+                    }
+                }
+            }
+        }
+     private Vector2 lastMove;
     Vector2 getValidMove(int x, int y)
     {
         Vector2 pos = new Vector2();

@@ -154,6 +154,33 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "PuzzleCheat",
+                    "type": "Button",
+                    "id": "68b1e4d1-1f55-4e08-a681-b9bfe8f2feb6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "OnMouseDown0",
+                    "type": "Button",
+                    "id": "c73db5af-de6a-4b80-9ad8-54ff98198967",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MousePosition",
+                    "type": "Value",
+                    "id": "f47b647f-590b-4c15-b3ce-79fcd47d59db",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -176,6 +203,39 @@
                     "processors": "",
                     "groups": "Player",
                     "action": "InventoryButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3069b54f-b6e7-4612-aef2-38e0b19388e9",
+                    "path": "<Keyboard>/home",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Player",
+                    "action": "PuzzleCheat",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6235f559-acd0-4432-8561-97d62a102f69",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Player",
+                    "action": "MousePosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7783e7e0-2243-4874-b623-02872f17cf09",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Player",
+                    "action": "OnMouseDown0",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
