@@ -16,6 +16,6 @@ MonoBehaviour:
   type: 2
   weaponSprite: {fileID: 21300000, guid: 6417e195c3072d04ab3f48db526c86e9, type: 3}
   prefab: {fileID: 3018593785648506893, guid: 9228e2e1bdc7f4e44979b9697295985f, type: 3}
-  attackPower: 0
-  defencePower: 0
-  criticalRate: 0
+  attackPower: 2
+  defencePower: 1
+  criticalRate: 0.4
