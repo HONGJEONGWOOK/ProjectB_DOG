@@ -9,6 +9,9 @@ public class Puzzle : MonoBehaviour
 
     public NumberBox[,] boxes = new NumberBox[4, 4];
 
+    //사운드
+    public System.Action OngateOpen;
+
     public GameObject mapAssets;
     float defaultPlayerSpeed;
     Player_Hero player;
@@ -110,6 +113,7 @@ public class Puzzle : MonoBehaviour
         pzGate = GameObject.Find("Gate");
         Destroy(pzGate);
         Debug.Log("Gate Destroy");
+        OngateOpen?.Invoke();
 
         gameObject.SetActive(false);    // 퍼즐 없애기
     }

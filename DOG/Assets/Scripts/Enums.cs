@@ -69,6 +69,9 @@ public enum SoundID : byte
     TreantGetHit,
     TreantDie,
 
+    // -- Minigame
+    Rock,
+    Gate,
     ClipNumbers
 }
 

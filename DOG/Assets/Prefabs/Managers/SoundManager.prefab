@@ -355,3 +355,9 @@ MonoBehaviour:
   - clipName: TreantDie
     clip: {fileID: 8300000, guid: 16ff969c5de32a24a9ee7f1f6d2004c1, type: 3}
     volume: 0.5
+  - clipName: Rock
+    clip: {fileID: 8300000, guid: abc2e548b01f99f4ebf3f9451ae46c3a, type: 3}
+    volume: 0.5
+  - clipName: Gate
+    clip: {fileID: 8300000, guid: 7d80a9a538f8c4147aec67bceccb26c8, type: 3}
+    volume: 0.5

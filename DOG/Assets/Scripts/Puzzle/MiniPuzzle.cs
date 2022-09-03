@@ -13,6 +13,7 @@ public class MiniPuzzle : MonoBehaviour
     float defaultPlayerSpeed;
     Player_Hero player;
     public GameObject RockDestroy;
+    public System.Action OnRockDestroy;
 
     public Sprite[] sprites;
     public float pzpos_x, pzpos_y;
@@ -114,8 +115,9 @@ public class MiniPuzzle : MonoBehaviour
         RockDestroy = GameObject.Find("Rockall");
         Destroy(RockDestroy);
         Debug.Log("Rock Destroy");
+        OnRockDestroy?.Invoke();
         gameObject.SetActive(false);
-        }
+    }
 
         void ClickToSwap(int x, int y)
         {

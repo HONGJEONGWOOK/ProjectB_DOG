@@ -48,6 +48,12 @@ public class GameManager : MonoBehaviour
 
     public ItemInventory_UI InvenUI => inventoryUI;
 
+    WeaponOfPlayer weaponOfPlayer = null;
+    public WeaponOfPlayer WeaponOfPlayer => weaponOfPlayer;
+
+    WeaponUI weaponUI = null;
+    public WeaponUI WeaponUI => weaponUI;   
+
     public static GameManager Inst { get => instance;}
     static GameManager instance;
 
@@ -88,6 +94,8 @@ public class GameManager : MonoBehaviour
 
         //---------------- Inventory
         weaponData = GetComponent<WeaponDataManager>();
+        weaponUI = FindObjectOfType<WeaponUI>();
+        weaponOfPlayer = FindObjectOfType<WeaponOfPlayer>();
         itemData = GetComponent<ItemDataManager>();
 
         SceneManager.sceneLoaded += OnStageStart;   // 씬의 로딩이 끝났을 때 실행될 델리게이트에 OnStageStart 등록
