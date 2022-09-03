@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class MiniPuzzle : MonoBehaviour
 {
     public NumberBox boxPrefab;
+    AudioSource audio;
 
     public NumberBox[,] boxes = new NumberBox[3, 3];
 
@@ -35,6 +36,9 @@ public class MiniPuzzle : MonoBehaviour
 
         player = GameObject.FindWithTag("Player").GetComponent<Player_Hero>();  // 플레이어 참조
         defaultPlayerSpeed = player.moveSpeed;  // 플레이어 기본 이동속도 저장
+
+        //오디오
+        audio = GetComponent<AudioSource>();
         // Init();
     }
 
@@ -111,11 +115,19 @@ public class MiniPuzzle : MonoBehaviour
         QuizModeActive(false);
 
         //디스트로이 만들예정
+        StartCoroutine(DestroyRocks());
+    }
+    IEnumerator DestroyRocks()
+    {
         RockDestroy = GameObject.Find("Rockall");
         Destroy(RockDestroy);
+        audio.clip = SoundManager.Inst.clips[(byte)SoundID.Rock].clip;
+        audio.Play();
+        yield return new WaitForSeconds(0.3f);
         Debug.Log("Rock Destroy");
         gameObject.SetActive(false);
-        }
+        yield return null;
+    }
 
         void ClickToSwap(int x, int y)
         {
