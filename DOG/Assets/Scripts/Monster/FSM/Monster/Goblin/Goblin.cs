@@ -7,11 +7,13 @@ public class Goblin : Monsters, IHealth, IBattle
     private Transform hitBox;
     Collider2D me;
     AudioSource audioSource;
+    QuestPanel questPanel;
+
 
     protected override void Awake()
     {
         base.Awake();
-        
+        questPanel = GetComponent<QuestPanel>();
         hitBox = transform.GetChild(1);
         audioSource = GetComponent<AudioSource>();
     }
@@ -51,12 +53,14 @@ public class Goblin : Monsters, IHealth, IBattle
     {
         if (!isDying)
         {
+            QuestManager.CheckKillCount();
             anim.SetTrigger("onDie");
             currentSpeed = 0;
             StartCoroutine(DisableMonster());
-            QuestManager.goblinQuestCount();
             MonsterManager.ReturnPooledMonster(
                 MonsterManager.PooledMonster[MonsterManager.Inst.GoblinID], this.gameObject);
         }
     }
+
+    
 }
