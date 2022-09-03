@@ -218,8 +218,6 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
     private void FixedUpdate()
     {
         Move();
-        SceneMoveTest();
-
     }
 
     // 체력 만들고
@@ -453,14 +451,6 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
         {
             SoundManager.Inst.PlaySound(SoundID.playerFootStep, true);
             yield return footstepWaitSeconds;
-        }
-    }
-
-    void SceneMoveTest()
-    {
-        if(Keyboard.current.digit1Key.wasPressedThisFrame)
-        {
-            LoadingSceneManager.LoadScene(5);
         }
     }
 }
