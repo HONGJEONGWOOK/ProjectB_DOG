@@ -29,7 +29,6 @@ public class FXManager : MonoBehaviour
         {
             instance = this;
             instance.Initialize();
-            DontDestroyOnLoad(this.gameObject);
         }
         else
         {

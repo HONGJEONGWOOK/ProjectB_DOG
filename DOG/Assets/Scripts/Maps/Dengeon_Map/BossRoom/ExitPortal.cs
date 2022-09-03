@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-[RequireComponent(typeof(CircleCollider2D))]
 public class ExitPortal : MonoBehaviour
 {
     ParticleSystem particle;
 #pragma warning disable CS0108 // 멤버가 상속된 멤버를 숨깁니다. new 키워드가 없습니다.
     CircleCollider2D collider;
+    AudioSource audio;
 #pragma warning restore CS0108 // 멤버가 상속된 멤버를 숨깁니다. new 키워드가 없습니다.
-
-    //Fade out 효과
 
     // 필드로 돌아가기
     Scene field;
@@ -23,12 +21,16 @@ public class ExitPortal : MonoBehaviour
 
         particle.Stop();
         collider.enabled = false;
+        audio = GetComponent<AudioSource>();
+        audio.clip = SoundManager.Inst.clips[(byte)SoundID.Portal].clip;
+        audio.loop = true;
     }
 
     public void ShowPortal()
     {
         particle.Play();
         collider.enabled = true;
+        audio.Play();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

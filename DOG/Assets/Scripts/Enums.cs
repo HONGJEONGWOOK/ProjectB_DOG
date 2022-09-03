@@ -63,6 +63,7 @@ public enum SoundID : byte
     MeteorFly,
     MeteorExplosion,
     BossMove,
+    Portal,
 
     // -- Treant
     ShootArrow,
@@ -72,6 +73,7 @@ public enum SoundID : byte
     // -- Minigame
     Rock,
     Gate,
+
     ClipNumbers
 }
 

@@ -346,6 +346,9 @@ MonoBehaviour:
   - clipName: BossMove
     clip: {fileID: 8300000, guid: 51e89a718059fe7408c81531ddc5be3e, type: 3}
     volume: 0.5
+  - clipName: Portal
+    clip: {fileID: 8300000, guid: cd106a349d6052a44b67993f0c9912f5, type: 3}
+    volume: 0.03
   - clipName: ShootArrow
     clip: {fileID: 8300000, guid: cd5f3f815e9f5cb49ab0675f07b28baa, type: 3}
     volume: 0.5
