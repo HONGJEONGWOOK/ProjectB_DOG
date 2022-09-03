@@ -5705,38 +5705,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1841703641200225452, guid: 71eeb55f71844a0459c0ce8bbce2da2c, type: 3}
-      propertyPath: clips.Array.size
-      value: 31
-      objectReference: {fileID: 0}
-    - target: {fileID: 1841703641200225452, guid: 71eeb55f71844a0459c0ce8bbce2da2c, type: 3}
-      propertyPath: clips.Array.data[28].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 7af6bfe7dfd6bfe4d862b99a869abc1b, type: 3}
-    - target: {fileID: 1841703641200225452, guid: 71eeb55f71844a0459c0ce8bbce2da2c, type: 3}
-      propertyPath: clips.Array.data[28].volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1841703641200225452, guid: 71eeb55f71844a0459c0ce8bbce2da2c, type: 3}
-      propertyPath: clips.Array.data[29].volume
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1841703641200225452, guid: 71eeb55f71844a0459c0ce8bbce2da2c, type: 3}
-      propertyPath: clips.Array.data[30].volume
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1841703641200225452, guid: 71eeb55f71844a0459c0ce8bbce2da2c, type: 3}
-      propertyPath: clips.Array.data[28].clipName
-      value: Rock
-      objectReference: {fileID: 0}
-    - target: {fileID: 1841703641200225452, guid: 71eeb55f71844a0459c0ce8bbce2da2c, type: 3}
-      propertyPath: clips.Array.data[29].clipName
-      value: Puzzle
-      objectReference: {fileID: 0}
-    - target: {fileID: 1841703641200225452, guid: 71eeb55f71844a0459c0ce8bbce2da2c, type: 3}
-      propertyPath: clips.Array.data[30].clipName
-      value: Gate
-      objectReference: {fileID: 0}
     - target: {fileID: 7921215538911954122, guid: 71eeb55f71844a0459c0ce8bbce2da2c, type: 3}
       propertyPath: m_Name
       value: SoundManager
@@ -6175,6 +6143,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1584217222}
   - component: {fileID: 1584217221}
+  - component: {fileID: 1584217223}
   m_Layer: 0
   m_Name: Sound
   m_TagString: Untagged
@@ -6293,6 +6262,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1584217223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584217220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202fc66c81f237f4695975f56778b9d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1729631670
 PrefabInstance:
   m_ObjectHideFlags: 0

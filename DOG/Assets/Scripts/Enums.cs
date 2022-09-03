@@ -71,7 +71,6 @@ public enum SoundID : byte
 
     // -- Minigame
     Rock,
-    Puzzle,
     Gate,
     ClipNumbers
 }
