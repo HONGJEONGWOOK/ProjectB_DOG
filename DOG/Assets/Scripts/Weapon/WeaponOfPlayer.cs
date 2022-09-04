@@ -19,7 +19,7 @@ public class WeaponOfPlayer : MonoBehaviour
         }
     }
     uint defaultWeapon = 0;     // 초기 무기(검)
-    public Vector3 weaponPosition = new Vector3(-0.5f, -0.6f, 0f);   // 무기의 위치
+    public Vector3 weaponPosition = new Vector3(0.21f, 0.76f, 0);  // 무기의 위치
 
 
     private void Start()
