@@ -60,7 +60,6 @@ public class Boss : Monsters
         textController.gameObject.SetActive(false);
     }
 
-
     void ShowUIs()
     {
         hpBar.gameObject.SetActive(true);
@@ -133,7 +132,7 @@ public class Boss : Monsters
         for (int i = 0; i < fireballNum; i++)
         {
             GameObject ball = 
-                EnemyBulletManager.Inst.GetPooledObject(EnemyBulletManager.PooledObjects[EnemyBulletManager.Inst.MeteorID]);
+                EnemyBulletManager.Inst.GetPooledObject(EnemyBulletManager.PooledObjects[(int)ProjectileID.Meteor]);
             Vector2 randPos = Random.insideUnitCircle * meteorSpreadRange;
             ball.transform.position = (Vector2)transform.position + randPos;
             ball.SetActive(true);

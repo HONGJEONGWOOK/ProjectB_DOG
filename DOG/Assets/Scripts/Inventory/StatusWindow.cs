@@ -21,7 +21,7 @@ public class StatusWindow : MonoBehaviour
     
     void Update()
     {
-        AttackPoint.text = GameManager.Inst.MainPlayer.attackPower.ToString();
+        AttackPoint.text = GameManager.Inst.MainPlayer.AttackPower.ToString();
         DefensePoint.text = GameManager.Inst.MainPlayer.defencePower.ToString();
     }
 }

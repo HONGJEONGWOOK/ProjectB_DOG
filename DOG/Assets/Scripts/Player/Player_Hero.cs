@@ -5,15 +5,11 @@ using UnityEditor;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-
-
 public class Player_Hero : MonoBehaviour, IHealth, IBattle
 {
-
     //IHealth--------------------------------------------------------------------------------
     public float hp = 100.0f;
     float maxHP = 100.0f;
-
 
     public float HP
     {
@@ -28,57 +24,51 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
         }
     }
 
-    public float MaxHP
-    {
-        get => maxHP;
-    }
+    public float MaxHP => maxHP;
 
     public System.Action onHealthChange { get; set; }
 
     //IBattle--------------------------------------------------------------------------------
-    public float attackPower = 30.0f;
+    [SerializeField] float attackPower = 30.0f;
     public float defencePower = 10.0f;
     public float criticalRate = 0.3f;
 
-    public float AttackPower{ get => attackPower; }
+    public float AttackPower => attackPower;
 
-    public float Defence { get => defencePower;}
+    public float Defence => defencePower;
 
-    public float CriticalRate { get => criticalRate; }
-
+    public float CriticalRate => criticalRate;
 
     //--------------------------------------------------------------------------------
-
-    public GameManager manager;
     GameObject scanObject;
-    GameObject sword;
 
     PlayerInputActions actions;
     Animator anim;
     Rigidbody2D rigid = null;
-    CapsuleCollider2D Collider;
+    AudioSource audio;
 
     public Puzzle pz;
     public MiniPuzzle mpz;
 
     bool isAction = false;
 
-
-    public GameObject shootPrefab = null;
     public float moveSpeed = 15.0f;
     public float itemPickupRange = 1.0f;
 
-    public int weaponCount = 0;
+    public uint weaponIndex = 0;
 
     private Vector3 direction = Vector3.zero;
 
-    public Vector3 Direction => direction;
     public PlayerInputActions Actions => actions;
 
     //----------------------------------
     Transform weaponOfPlayer;
     //public WeaponUI weaponUI;
     Weapon_Item defaultWeapon;
+
+    Transform shootPosition;
+    float shootOffset = 1.0f;
+    float shootPosRotation = 0f;
 
     // Inventory ---------------------------------------------
     ItemInventory_UI invenUI;
@@ -90,6 +80,7 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
     IEnumerator footstepCoroutine;
     WaitForSeconds footstepWaitSeconds;
     int footstepCounter = 0;
+
     private void OnCollisionEnter2D(Collision2D col)    // 돌 움직이게하는
     {
         if (col.gameObject.CompareTag("Rock"))
@@ -100,8 +91,8 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
         {
            // mpz.Init();
         }
-
     }
+
     private void OnCollisionExit2D(Collision2D other)   //돌을 뒤의 돌과 충돌이 되게해서 멈추게
     {
         if (other.gameObject.CompareTag("Rock"))
@@ -115,19 +106,17 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
         actions = new();
         anim = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody2D>();
-        Collider = GetComponent<CapsuleCollider2D>();
-        invenUI = FindObjectOfType<ItemInventory_UI>();
+        audio = GetComponent<AudioSource>();
 
-        
+        invenUI = FindObjectOfType<ItemInventory_UI>();
         //weaponUI = GetComponent<WeaponUI>();
         weaponOfPlayer = transform.Find("Weapon");
         defaultWeapon = weaponOfPlayer.GetComponentInChildren<Weapon_Item>();
+        shootPosition = transform.Find("ShootPosition");
 
         footstepCoroutine = PlayFootStepSound();
         footstepWaitSeconds = new WaitForSeconds(0.3f);
     }
-
-
 
     private void Start()
     {
@@ -161,8 +150,6 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
         actions.WeaponSlotRotation.RoatateDirection.performed += OnWeaponChange;
     }
 
-
-
     private void OnDisable()
     {
         actions.WeaponSlotRotation.RoatateDirection.performed -= OnWeaponChange;
@@ -176,8 +163,6 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
         actions.Player.Move.performed -= OnMove;
         actions.Player.Disable();
     }
-
-
 
     public void Attack(IBattle target)
     {
@@ -202,7 +187,6 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
 
         HP -= finalDamage;
 
-
         if (HP > 0.0f)
         {
             Debug.Log($"{hp}");
@@ -213,9 +197,7 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
         {
             Debug.Log("죽음");
         }
-
     }
-
 
     private void FixedUpdate()
     {
@@ -234,88 +216,6 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
     {
         rigid.MovePosition(transform.position + (direction * moveSpeed * Time.fixedDeltaTime));
     }
-
-    private void OnMove(InputAction.CallbackContext context)
-    {
-        direction = context.ReadValue<Vector2>();
-
-
-        if (direction.x != 0 || direction.y != 0)
-        {
-            anim.SetBool("Input", true);
-
-            anim.SetFloat("X", direction.x);
-            anim.SetFloat("Y", direction.y);
-
-            // 코루틴이 한 번만 실행되도록
-            if (footstepCounter < 1)
-            {
-                StartCoroutine(footstepCoroutine);
-                footstepCounter++;
-            }
-        }
-        else
-        {
-            anim.SetBool("Input", false);
-            StopCoroutine(footstepCoroutine);
-            footstepCounter = 0;
-        }
-
-        if (direction.x > 0)
-        {
-            markerRotation = 90f;
-        }
-        else if (direction.x < 0)
-        {
-            markerRotation = -90f;
-        }
-        if (direction.y > 0)
-        {
-            markerRotation = 180f;
-        }
-        else if (direction.y < 0)
-        {
-            markerRotation = 0f;
-        }
-        marker.rotation = Quaternion.Euler(0, 0, markerRotation);
-    }
-    // 움직일때 마지막에 봤던 방향으로 멈춰있기
-
-    // 자기가 보고있는 방향으로 공격하기
-    private void OnAttack(InputAction.CallbackContext context)
-    {
-        if (weaponCount == 0)
-        {
-            Debug.Log("칼 공격");
-            anim.SetInteger("WeaponCount", 0);
-            anim.SetTrigger("Attack");
-            SoundManager.Inst.PlaySound(SoundID.SwordSwing, true);
-        }
-        else if (weaponCount == 1)
-        {
-            Debug.Log("활 공격");
-            anim.SetInteger("WeaponCount", 1);
-            anim.SetTrigger("Attack");
-        }
-        else if (weaponCount == 2)
-        {
-            Debug.Log("단검 공격");
-            anim.SetInteger("WeaponCount", 2);
-            anim.SetTrigger("Attack");
-        }
-
-        
-    }
-
-
-
-    private void OnEscape(InputAction.CallbackContext obj)
-    {
-        Debug.Log("메뉴");
-        MenuOnOff();
-
-    }
-
     void SearchNpc()
     {
         Collider2D[] col = Physics2D.OverlapCircleAll(transform.position, 1.5f, LayerMask.GetMask("Npc"));
@@ -330,40 +230,21 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
         }
     }
 
-
-
-
     public void MenuOnOff()
     {
-        if (manager.menuSet == false)
+        if (GameManager.Inst.menuSet == false)
         {
-            manager.menu.gameObject.SetActive(true);
-            manager.menuSet = true;
+            GameManager.Inst.menu.gameObject.SetActive(true);
+            GameManager.Inst.menuSet = true;
             Time.timeScale = 0;
-
         }
         else
         {
-            manager.menu.gameObject.SetActive(false);
-            manager.menuSet = false;
+            GameManager.Inst.menu.gameObject.SetActive(false);
+            GameManager.Inst.menuSet = false;
             Time.timeScale = 1;
         }
         SoundManager.Inst.PlaySound(SoundID.windowOpen);
-    }
-
-    private void OnTalk(InputAction.CallbackContext obj)
-    {
-        SearchNpc();
-
-        if (scanObject != null)
-        {
-            AskAction(scanObject);
-
-        }
-        else
-        {
-            Debug.Log("대상이 없습니다.");
-        }
     }
 
     void AskAction(GameObject scanObj)
@@ -416,20 +297,113 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
         moveSpeed = speed;
     }
 
+    public void ShootArrow()
+    {
+        GameObject obj = EnemyBulletManager.Inst.GetPooledObject(EnemyBulletManager.PooledObjects[(int)ProjectileID.Arrows]);
+        obj.transform.position = shootPosition.position;
+        obj.transform.right = shootPosition.right;
+        obj.SetActive(true);
 
-    
+        audio.volume = SoundManager.Inst.clips[(byte)SoundID.ShootArrow].volume;
+        audio.PlayOneShot(SoundManager.Inst.clips[(byte)SoundID.ShootArrow].clip);
+    }
+
+    private void OnMove(InputAction.CallbackContext context)
+    {
+        direction = context.ReadValue<Vector2>();
+
+
+        if (direction.x != 0 || direction.y != 0)
+        {
+            anim.SetBool("Input", true);
+
+            anim.SetFloat("X", direction.x);
+            anim.SetFloat("Y", direction.y);
+
+            shootPosition.localPosition = direction * shootOffset;
+
+            // 코루틴이 한 번만 실행되도록
+            if (footstepCounter < 1)
+            {
+                StartCoroutine(footstepCoroutine);
+                footstepCounter++;
+            }
+        }
+        else
+        {
+            anim.SetBool("Input", false);
+            StopCoroutine(footstepCoroutine);
+            footstepCounter = 0;
+        }
+
+
+        if (direction.x > 0)
+        {
+            markerRotation = 90f;
+            shootPosRotation = 0f;
+        }
+        else if (direction.x < 0)
+        {
+            markerRotation = -90f;
+            shootPosRotation = 180f;
+        }
+        if (direction.y > 0)
+        {
+            markerRotation = 180f;
+            shootPosRotation = 90f;
+        }
+        else if (direction.y < 0)
+        {
+            markerRotation = 0f;
+            shootPosRotation = -90f;
+        }
+
+        marker.rotation = Quaternion.Euler(0, 0, markerRotation);
+        shootPosition.rotation = Quaternion.Euler(0f, 0f, shootPosRotation);
+    }
+    // 움직일때 마지막에 봤던 방향으로 멈춰있기
+
+    // 자기가 보고있는 방향으로 공격하기
+    private void OnAttack(InputAction.CallbackContext _)
+    {
+        anim.SetInteger("WeaponCount", (int)weaponIndex);
+        anim.SetTrigger("Attack");
+
+        if (weaponIndex != 2)
+        { // ! Arrow
+            audio.volume = SoundManager.Inst.clips[(byte)SoundID.SwordSwing].volume;
+            audio.PlayOneShot(SoundManager.Inst.clips[(byte)SoundID.SwordSwing].clip);
+        }
+    }
+
+    private void OnEscape(InputAction.CallbackContext _)
+    {
+        MenuOnOff();
+    }
+
+    private void OnTalk(InputAction.CallbackContext obj)
+    {
+        SearchNpc();
+
+        if (scanObject != null)
+        {
+            AskAction(scanObject);
+        }
+        else
+        {
+            Debug.Log("대상이 없습니다.");
+        }
+    }
+
     private void OnWeaponChange(InputAction.CallbackContext context)
     {
-        
         int input = (int)context.ReadValue<float>();                // 입력값을 int로 변경
         //weaponUI.RotateWeaponUI(input);
         GameManager.Inst.WeaponUI.RotateWeaponUI(input);
-        uint currentWeapon = GameManager.Inst.WeaponOfPlayer.currentWeapon(input);
-        GameManager.Inst.WeaponOfPlayer.ChangeWeapon(currentWeapon);
+        weaponIndex = GameManager.Inst.WeaponOfPlayer.currentWeapon(input);
+        GameManager.Inst.WeaponOfPlayer.ChangeWeapon(weaponIndex);
     }
 
-
-    
     public void StatusUpdate(Weapon_Item weapon)
     {
         float defaultAttack = 30;
@@ -445,7 +419,6 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
         Debug.Log($"크리율 : {criticalRate}");
     }
 
-
     /// <summary>
     /// 키를 누르면 주위에 있는 아이템을 인벤토리에 추가한다.
     /// </summary>
@@ -457,13 +430,11 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
         {
             Items item = col.gameObject.GetComponent<Items>();
 
-
             invenUI.Inven.AddItem(item.data);
 
             ItemManager.ReturnItem(ItemManager.Inst.PooledItems[item.data.id], col.gameObject);
         }
     }
-
 
     IEnumerator PlayFootStepSound()
     {

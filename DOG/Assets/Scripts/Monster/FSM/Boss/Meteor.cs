@@ -73,7 +73,7 @@ public class Meteor : MonoBehaviour
             if (endTimer > explosion.GetCurrentAnimatorStateInfo(0).length)
             {
                 EnemyBulletManager.Inst.ReturnPooledEnemy(
-                    EnemyBulletManager.PooledObjects[EnemyBulletManager.Inst.MeteorID], this.gameObject);
+                    EnemyBulletManager.PooledObjects[(int)ProjectileID.Meteor], this.gameObject);
                 endTimer = 0f;
             }
         }

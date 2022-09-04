@@ -7,17 +7,21 @@ public class ArrowV2 : MonoBehaviour
 {
     private Rigidbody2D rigid = null;
 
-    public float shootSpeed = 3.0f;
-    private float damage;
+    [SerializeField] float shootSpeed = 5.0f;
+
+    float playerAttackPower;
+    float treantAttackPower;
 
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
-        damage = 5;//MonsterManager.Inst.PoolingMonsters[(int)MonsterID.TREANT].prefab.GetComponent<Treant>().AttackPower;
     }
 
-    private void Start()
+    void Start()
     {
+        playerAttackPower = GameManager.Inst.MainPlayer.AttackPower;
+        treantAttackPower = FindObjectOfType<Treant>().AttackPower;
+
         rigid.velocity = shootSpeed * transform.right;
     }
 
@@ -28,12 +32,22 @@ public class ArrowV2 : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        IBattle target = collision.GetComponent<IBattle>();
+        if (target != null)
         {
-            IBattle target = collision.GetComponent<IBattle>();
+            float damage = 1f ;
+            if (collision.CompareTag("Player"))
+            {
+                damage = treantAttackPower;
+            }
+            else if (collision.CompareTag("Monster"))
+            {
+                damage = playerAttackPower;
+            }
+
             target.TakeDamage(damage);
         }
-        EnemyBulletManager.Inst.ReturnPooledEnemy(EnemyBulletManager.PooledObjects[EnemyBulletManager.Inst.ArrowID],
+        EnemyBulletManager.Inst.ReturnPooledEnemy(EnemyBulletManager.PooledObjects[(int)ProjectileID.Arrows],
                                                   this.gameObject);
     }
 }

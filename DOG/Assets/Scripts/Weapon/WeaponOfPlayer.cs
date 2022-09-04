@@ -39,7 +39,6 @@ public class WeaponOfPlayer : MonoBehaviour
         UnEquipWeapon();
         AssignWeapon(GameManager.Inst.WeaponData[id]);
         EquipWeapon(id);
-        
     }
 
 

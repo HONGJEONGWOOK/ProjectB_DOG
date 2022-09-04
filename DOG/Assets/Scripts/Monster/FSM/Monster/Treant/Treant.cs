@@ -26,7 +26,6 @@ public class Treant : MonoBehaviour, IHealth, IBattle
     [Header("몬스터 기본스탯")]
     [SerializeField] private float healthPoint = 100.0f;
     private float maxHealthPoint = 100.0f;
-    [SerializeField] private int strength = 5;
     [SerializeField] private float moveSpeed = 3.0f;
 
     // ------------------------------------ ATTACK ------------------------------------------
@@ -213,7 +212,7 @@ public class Treant : MonoBehaviour, IHealth, IBattle
     void ShootArrow()
     {
         GameObject arrow =
-            EnemyBulletManager.Inst.GetPooledObject(EnemyBulletManager.PooledObjects[EnemyBulletManager.Inst.ArrowID]);
+            EnemyBulletManager.Inst.GetPooledObject(EnemyBulletManager.PooledObjects[(int)ProjectileID.Arrows]);
         arrow.transform.position = shootPosition.position;
         arrow.transform.rotation = weapon.transform.rotation;
         if (transform.localScale.x < 1f)

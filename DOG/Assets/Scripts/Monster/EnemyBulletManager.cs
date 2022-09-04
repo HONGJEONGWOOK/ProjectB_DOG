@@ -17,14 +17,10 @@ public class EnemyBulletManager : MonoBehaviour
     // ---------------- Arrows -----------------
     private Queue<GameObject> arrows;
     Transform arrowParent;
-    private int arrowID;
-    public int ArrowID => arrowID;
 
     // ---------------- Meteor -----------------
     Transform meteorParent;
     private Queue<GameObject> meteors;
-    private int meteorsID;
-    public int MeteorID => meteorsID;
 
     void Awake()
     {
@@ -46,32 +42,29 @@ public class EnemyBulletManager : MonoBehaviour
     void Initialize()
     {
         arrowParent = transform.GetChild(0);
-        arrowID = poolingObjects[0].objectID;
-
         meteorParent = transform.GetChild(1);
-        meteorsID = poolingObjects[1].objectID;
 
 
         // ------------------- Arrow -----------------------
         arrows = new Queue<GameObject>();
-        pooledObjects.Add(arrowID, arrows);
+        pooledObjects.Add((int)ProjectileID.Arrows , arrows);
 
         GameObject tmp;
         for (int i = 0; i < poolingObjects[0].poolSize; i++)
         {
             tmp = Instantiate(poolingObjects[0].prefab, arrowParent);
-            pooledObjects[arrowID].Enqueue(tmp);
+            pooledObjects[(int)ProjectileID.Arrows].Enqueue(tmp);
             tmp.SetActive(false);
         }
 
         // ------------------- Meteor -----------------------
         meteors = new Queue<GameObject>();
-        pooledObjects.Add(meteorsID, meteors);
+        pooledObjects.Add((int)ProjectileID.Meteor, meteors);
         GameObject tmp_Fire;
         for (int i = 0; i < poolingObjects[1].poolSize; i++)
         {
             tmp_Fire = Instantiate(poolingObjects[1].prefab, meteorParent);
-            pooledObjects[meteorsID].Enqueue(tmp_Fire);
+            pooledObjects[(int)ProjectileID.Meteor].Enqueue(tmp_Fire);
             tmp_Fire.SetActive(false);
         }
     }

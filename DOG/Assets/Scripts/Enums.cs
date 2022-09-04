@@ -27,6 +27,12 @@ public enum ItemID
     Arrows
 }
 
+public enum ProjectileID : byte
+{
+    Arrows = 0,
+    Meteor
+}
+
 
 public enum SoundID : byte
 {
