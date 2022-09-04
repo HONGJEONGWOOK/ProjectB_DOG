@@ -58,7 +58,7 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
     public float moveSpeed = 15.0f;
     public float itemPickupRange = 1.0f;
 
-    public int weaponCount = 0;
+    public uint weaponIndex = 0;
 
     public GameObject gameOver;
 
@@ -123,6 +123,8 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
 
         footstepCoroutine = PlayFootStepSound();
         footstepWaitSeconds = new WaitForSeconds(0.3f);
+
+        DontDestroyOnLoad(this.gameObject);
     }
 
     private void Start()
@@ -139,7 +141,6 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
         inven.AddItem(ItemID.HPPotion, 3);
         inven.AddItem(ItemID.HPPotion, 3);
 
-        
         StatusUpdate(defaultWeapon);
     }
 
@@ -232,13 +233,12 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
 
     private void Move()
     {
-        rigid.MovePosition(transform.position + (direction * moveSpeed * Time.fixedDeltaTime));
+        rigid.MovePosition(transform.position + (moveSpeed * Time.fixedDeltaTime * direction));
     }
 
     private void OnMove(InputAction.CallbackContext context)
     {
         direction = context.ReadValue<Vector2>();
-
 
         if (direction.x != 0 || direction.y != 0)
         {
@@ -246,6 +246,8 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
 
             anim.SetFloat("X", direction.x);
             anim.SetFloat("Y", direction.y);
+
+            shootPosition.localPosition = direction * shootOffset;
 
             // 코루틴이 한 번만 실행되도록
             if (footstepCounter < 1)
@@ -261,50 +263,44 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
             footstepCounter = 0;
         }
 
+
         if (direction.x > 0)
         {
             markerRotation = 90f;
+            shootPosRotation = 0f;
         }
         else if (direction.x < 0)
         {
             markerRotation = -90f;
+            shootPosRotation = 180f;
         }
         if (direction.y > 0)
         {
             markerRotation = 180f;
+            shootPosRotation = 90f;
         }
         else if (direction.y < 0)
         {
             markerRotation = 0f;
+            shootPosRotation = -90f;
         }
+
         marker.rotation = Quaternion.Euler(0, 0, markerRotation);
+        shootPosition.rotation = Quaternion.Euler(0f, 0f, shootPosRotation);
     }
     // 움직일때 마지막에 봤던 방향으로 멈춰있기
 
     // 자기가 보고있는 방향으로 공격하기
-    private void OnAttack(InputAction.CallbackContext context)
+    private void OnAttack(InputAction.CallbackContext _)
     {
-        if (weaponCount == 0)
-        {
-            Debug.Log("칼 공격");
-            anim.SetInteger("WeaponCount", 0);
-            anim.SetTrigger("Attack");
-            SoundManager.Inst.PlaySound(SoundID.SwordSwing, true);
-        }
-        else if (weaponCount == 1)
-        {
-            Debug.Log("활 공격");
-            anim.SetInteger("WeaponCount", 1);
-            anim.SetTrigger("Attack");
-        }
-        else if (weaponCount == 2)
-        {
-            Debug.Log("단검 공격");
-            anim.SetInteger("WeaponCount", 2);
-            anim.SetTrigger("Attack");
-        }
+        anim.SetInteger("WeaponCount", (int)weaponIndex);
+        anim.SetTrigger("Attack");
 
-        
+        if (weaponIndex != 2)
+        { // ! Arrow
+            audio.volume = SoundManager.Inst.clips[(byte)SoundID.SwordSwing].volume;
+            audio.PlayOneShot(SoundManager.Inst.clips[(byte)SoundID.SwordSwing].clip);
+        }
     }
 
 
@@ -404,7 +400,10 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
         obj.transform.right = shootPosition.right;
         obj.SetActive(true);
 
-    
+        audio.volume = SoundManager.Inst.clips[(byte)SoundID.ShootArrow].volume;
+        audio.PlayOneShot(SoundManager.Inst.clips[(byte)SoundID.ShootArrow].clip);
+    }
+
     private void OnWeaponChange(InputAction.CallbackContext context)
     {
         int input = (int)context.ReadValue<float>();                // 입력값을 int로 변경
@@ -446,6 +445,20 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
         }
     }
 
+    private void OnTalk(InputAction.CallbackContext obj)
+    {
+        SearchNpc();
+
+        if (scanObject != null)
+        {
+            AskAction(scanObject);
+
+        }
+        else
+        {
+            Debug.Log("대상이 없습니다.");
+        }
+    }
 
     private void Die()
     {
