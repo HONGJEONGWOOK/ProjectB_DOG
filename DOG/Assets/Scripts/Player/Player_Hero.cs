@@ -296,6 +296,10 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
             Debug.Log("활 공격");
             anim.SetInteger("WeaponCount", 1);
             anim.SetTrigger("Attack");
+            GameObject obj = Instantiate(shootPrefab);      
+            obj.transform.position = transform.position + transform.right * 1.2f;   
+            //obj.transform.rotation = transform.rotation;    
+
         }
         else if (weaponCount == 2)
         {
