@@ -77,10 +77,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        GameLoad();
-    }
 
     void Initialize()
     {
@@ -119,30 +115,13 @@ public class GameManager : MonoBehaviour
         player.MenuOnOff();
     }
 
-    public void GameSave()
-    {
-        //저장할꺼
-        PlayerPrefs.SetFloat("PlayerX", player.transform.position.x);
-        PlayerPrefs.SetFloat("PlayerY", player.transform.position.y);
-        PlayerPrefs.Save();
-
-
-
-    }
-
-    public void GameLoad()
-    {
-        if (!PlayerPrefs.HasKey("PlayerX"))
-            return;
-
-        float x = PlayerPrefs.GetFloat("PlayerX");
-        float y = PlayerPrefs.GetFloat("PlayerY");
-
-        player.transform.position = new Vector3(x, y, 0);
-    }
-
     public void GameExit()
     {
         Application.Quit();
+    }
+
+    public void GameRestart()
+    {
+        SceneManager.LoadScene("Test_Field_Map");
     }
 }

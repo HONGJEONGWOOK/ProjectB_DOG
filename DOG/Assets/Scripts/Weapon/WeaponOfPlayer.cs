@@ -65,6 +65,7 @@ public class WeaponOfPlayer : MonoBehaviour
         {
             weaponOrder++;
             weaponOrder %= 3;
+            GameManager.Inst.MainPlayer.weaponCount = 0;
         }
         if(input == -1)
         {
@@ -72,10 +73,12 @@ public class WeaponOfPlayer : MonoBehaviour
             {
                 weaponOrder--;
                 weaponOrder &= 3;
+                GameManager.Inst.MainPlayer.weaponCount = 2;
             }
             else
             {
                 weaponOrder = 2;
+                GameManager.Inst.MainPlayer.weaponCount = 1;
             }
         }
         return (uint)weaponOrder;

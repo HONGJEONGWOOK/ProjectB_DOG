@@ -4,36 +4,37 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Arrow : MonoBehaviour
-{/*
-    private Rigidbody2D rigid = null;
-    private SpriteRenderer arrowSprite = null;
-
-    public float shootSpeed = 3.0f;
+{
+    public float lifeTime = 3.0f;  
+    public float speed = 10.0f;
+    Rigidbody2D rigid = null;
 
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
-        arrowSprite = GetComponent<SpriteRenderer>();
+        Destroy(this.gameObject, lifeTime);
     }
 
-    private void OnEnable()
+    private void Start()
     {
-        rigid.velocity = shootSpeed * MonsterManager.Inst.Monster_Bow_V3.TrackDirection.normalized;
-        this.transform.right = MonsterManager.Inst.Monster_Bow_V3.TrackDirection;
-        Debug.Log(MonsterManager.Inst.Monster_Bow_V3.TrackDirection);
-    }
-
-    private void OnDisable()
-    {
-        //Monster_Bow.arrowDirection = 1;
-        rigid.velocity = Vector2.zero;
+        rigid.velocity = transform.right * speed;
+        Destroy(this.gameObject, lifeTime); 
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.CompareTag("Monster"))
         {
-            EnemyBulletManager.Inst.ReturnPooledArrow(this.gameObject);
+            IBattle target = collision.GetComponent<IBattle>();
+            target.TakeDamage(GameManager.Inst.MainPlayer.AttackPower);
         }
-    }*/
+        else if (collision.CompareTag("Player"))
+        {
+
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }

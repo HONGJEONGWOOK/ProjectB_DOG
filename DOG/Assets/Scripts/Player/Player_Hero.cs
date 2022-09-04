@@ -46,16 +46,21 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
     Animator anim;
     Rigidbody2D rigid = null;
     AudioSource audio;
+    SpriteRenderer sprite;
 
     public Puzzle pz;
     public MiniPuzzle mpz;
 
     bool isAction = false;
+    bool isHit = false;
 
+    public GameObject shootPrefab = null;
     public float moveSpeed = 15.0f;
     public float itemPickupRange = 1.0f;
 
-    public uint weaponIndex = 0;
+    public int weaponCount = 0;
+
+    public GameObject gameOver;
 
     private Vector3 direction = Vector3.zero;
 
@@ -109,6 +114,8 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
         audio = GetComponent<AudioSource>();
 
         invenUI = FindObjectOfType<ItemInventory_UI>();
+        sprite = GetComponent<SpriteRenderer>();
+        
         //weaponUI = GetComponent<WeaponUI>();
         weaponOfPlayer = transform.Find("Weapon");
         defaultWeapon = weaponOfPlayer.GetComponentInChildren<Weapon_Item>();
@@ -179,29 +186,40 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
 
     public void TakeDamage(float damage)
     {
-        float finalDamage = damage - defencePower;
-        if (finalDamage < 1.0f)
+        if (isHit == false)
         {
-            finalDamage = 1.0f;
-        }
+            float finalDamage = damage - defencePower;
+            if (finalDamage < 1.0f)
+            {
+                finalDamage = 1.0f;
+            }
 
-        HP -= finalDamage;
+            HP -= finalDamage;
 
-        if (HP > 0.0f)
-        {
-            Debug.Log($"{hp}");
-            //살아있다.
-            anim.SetTrigger("Hit");
-        }
-        else
-        {
-            Debug.Log("죽음");
+
+            if (HP > 0.0f)
+            {
+                Debug.Log($"{hp}");
+                //살아있다.
+                anim.SetTrigger("Hit");
+                StartCoroutine(OnHit());
+                isHit = true;
+            }
+            else
+            {
+                Debug.Log("죽음");
+                Die();
+            }
         }
     }
 
     private void FixedUpdate()
     {
         Move();
+        if(Keyboard.current.digit1Key.wasPressedThisFrame)
+        {
+            Die();
+        }
     }
 
     // 체력 만들고
@@ -216,6 +234,88 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
     {
         rigid.MovePosition(transform.position + (direction * moveSpeed * Time.fixedDeltaTime));
     }
+
+    private void OnMove(InputAction.CallbackContext context)
+    {
+        direction = context.ReadValue<Vector2>();
+
+
+        if (direction.x != 0 || direction.y != 0)
+        {
+            anim.SetBool("Input", true);
+
+            anim.SetFloat("X", direction.x);
+            anim.SetFloat("Y", direction.y);
+
+            // 코루틴이 한 번만 실행되도록
+            if (footstepCounter < 1)
+            {
+                StartCoroutine(footstepCoroutine);
+                footstepCounter++;
+            }
+        }
+        else
+        {
+            anim.SetBool("Input", false);
+            StopCoroutine(footstepCoroutine);
+            footstepCounter = 0;
+        }
+
+        if (direction.x > 0)
+        {
+            markerRotation = 90f;
+        }
+        else if (direction.x < 0)
+        {
+            markerRotation = -90f;
+        }
+        if (direction.y > 0)
+        {
+            markerRotation = 180f;
+        }
+        else if (direction.y < 0)
+        {
+            markerRotation = 0f;
+        }
+        marker.rotation = Quaternion.Euler(0, 0, markerRotation);
+    }
+    // 움직일때 마지막에 봤던 방향으로 멈춰있기
+
+    // 자기가 보고있는 방향으로 공격하기
+    private void OnAttack(InputAction.CallbackContext context)
+    {
+        if (weaponCount == 0)
+        {
+            Debug.Log("칼 공격");
+            anim.SetInteger("WeaponCount", 0);
+            anim.SetTrigger("Attack");
+            SoundManager.Inst.PlaySound(SoundID.SwordSwing, true);
+        }
+        else if (weaponCount == 1)
+        {
+            Debug.Log("활 공격");
+            anim.SetInteger("WeaponCount", 1);
+            anim.SetTrigger("Attack");
+        }
+        else if (weaponCount == 2)
+        {
+            Debug.Log("단검 공격");
+            anim.SetInteger("WeaponCount", 2);
+            anim.SetTrigger("Attack");
+        }
+
+        
+    }
+
+
+
+    private void OnEscape(InputAction.CallbackContext obj)
+    {
+        Debug.Log("메뉴");
+        MenuOnOff();
+
+    }
+
     void SearchNpc()
     {
         Collider2D[] col = Physics2D.OverlapCircleAll(transform.position, 1.5f, LayerMask.GetMask("Npc"));
@@ -304,97 +404,7 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
         obj.transform.right = shootPosition.right;
         obj.SetActive(true);
 
-        audio.volume = SoundManager.Inst.clips[(byte)SoundID.ShootArrow].volume;
-        audio.PlayOneShot(SoundManager.Inst.clips[(byte)SoundID.ShootArrow].clip);
-    }
-
-    private void OnMove(InputAction.CallbackContext context)
-    {
-        direction = context.ReadValue<Vector2>();
-
-
-        if (direction.x != 0 || direction.y != 0)
-        {
-            anim.SetBool("Input", true);
-
-            anim.SetFloat("X", direction.x);
-            anim.SetFloat("Y", direction.y);
-
-            shootPosition.localPosition = direction * shootOffset;
-
-            // 코루틴이 한 번만 실행되도록
-            if (footstepCounter < 1)
-            {
-                StartCoroutine(footstepCoroutine);
-                footstepCounter++;
-            }
-        }
-        else
-        {
-            anim.SetBool("Input", false);
-            StopCoroutine(footstepCoroutine);
-            footstepCounter = 0;
-        }
-
-
-        if (direction.x > 0)
-        {
-            markerRotation = 90f;
-            shootPosRotation = 0f;
-        }
-        else if (direction.x < 0)
-        {
-            markerRotation = -90f;
-            shootPosRotation = 180f;
-        }
-        if (direction.y > 0)
-        {
-            markerRotation = 180f;
-            shootPosRotation = 90f;
-        }
-        else if (direction.y < 0)
-        {
-            markerRotation = 0f;
-            shootPosRotation = -90f;
-        }
-
-        marker.rotation = Quaternion.Euler(0, 0, markerRotation);
-        shootPosition.rotation = Quaternion.Euler(0f, 0f, shootPosRotation);
-    }
-    // 움직일때 마지막에 봤던 방향으로 멈춰있기
-
-    // 자기가 보고있는 방향으로 공격하기
-    private void OnAttack(InputAction.CallbackContext _)
-    {
-        anim.SetInteger("WeaponCount", (int)weaponIndex);
-        anim.SetTrigger("Attack");
-
-        if (weaponIndex != 2)
-        { // ! Arrow
-            audio.volume = SoundManager.Inst.clips[(byte)SoundID.SwordSwing].volume;
-            audio.PlayOneShot(SoundManager.Inst.clips[(byte)SoundID.SwordSwing].clip);
-        }
-    }
-
-    private void OnEscape(InputAction.CallbackContext _)
-    {
-        MenuOnOff();
-    }
-
-    private void OnTalk(InputAction.CallbackContext obj)
-    {
-        SearchNpc();
-
-        if (scanObject != null)
-        {
-            AskAction(scanObject);
-        }
-        else
-        {
-            Debug.Log("대상이 없습니다.");
-        }
-    }
-
+    
     private void OnWeaponChange(InputAction.CallbackContext context)
     {
         int input = (int)context.ReadValue<float>();                // 입력값을 int로 변경
@@ -436,6 +446,19 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
         }
     }
 
+
+    private void Die()
+    {
+        Debug.Log("죽음");
+        actions.Player.Disable();
+
+        if (gameOver != null)
+        {
+            gameOver.SetActive(true);
+        }
+    }
+
+
     IEnumerator PlayFootStepSound()
     {
         while (true)
@@ -443,5 +466,28 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
             SoundManager.Inst.PlaySound(SoundID.playerFootStep, true);
             yield return footstepWaitSeconds;
         }
+    }
+
+    IEnumerator OnHit()
+    {
+        int countTime = 0;
+
+        while(countTime < 10)
+        {
+            if (countTime % 2 == 0)
+                sprite.color = new Color32(255, 255, 255, 90);
+            else
+                sprite.color = new Color32(255, 255, 255, 180);
+
+            yield return new WaitForSeconds(0.2f);
+            countTime++;
+        }
+
+        sprite.color = new Color(255, 255, 255, 255);
+
+
+        isHit = false;
+
+        yield return null;
     }
 }
