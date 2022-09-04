@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class QuestButton : MonoBehaviour
 {
-
     GameObject questPanel;
 
     void Awake()

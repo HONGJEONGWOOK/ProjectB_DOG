@@ -378,7 +378,7 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
         }
         else
         {
-            GameManager.Inst.TalkText.text = talkData;
+            Debug.Log("Npc가 아닙니다.");
         }
 
         //대화끝
@@ -388,10 +388,10 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
             QuestManager.Instance.TalkIndex = 0;
             Debug.Log(QuestManager.Instance.CheckQuest(id));
             moveSpeed = sspeed;
-
+            
             return;
         }
-
+        
         isAction = true;
         QuestManager.Instance.TalkIndex++;
         moveSpeed = speed;

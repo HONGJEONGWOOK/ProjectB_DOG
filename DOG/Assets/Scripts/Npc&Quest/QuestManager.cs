@@ -8,13 +8,11 @@ using UnityEngine;
 public class QuestManager : MonoBehaviour
 {
     private static QuestManager instance;
-    public static QuestManager Instance {get {return instance;}}
+    public static QuestManager Instance { get { return instance; } }
 
     //퀘스트 아이디
-    public int questId;
-    public int questActionIndex;
-
-    //public GameObject[] questObject;
+    public int questId = 10;
+    public int questActionIndex = 0;
 
     //퀘스트 데이터를 불러올 리스트
     Dictionary<int, QuestData> questList;
@@ -22,18 +20,23 @@ public class QuestManager : MonoBehaviour
     int talkIndex;
     public int TalkIndex
     {
-        get {return talkIndex;}
-        set {talkIndex = value;}
+        get { return talkIndex; }
+        set { talkIndex = value; }
     }
 
     AudioSource audioSource;
 
     QuestPanel questPanel;
-    int killCount = 0;
+    public int killCount = 0;
     public static System.Action CheckKillCount;
+
+    public int bosskillCount = 0;
+    public static System.Action BossKillCount;
 
     private void Awake()
     {
+        
+
         if (instance == null)
         {
             instance = this;
@@ -56,7 +59,7 @@ public class QuestManager : MonoBehaviour
         {
             questPanel.qeustName.text = "마을 밖 순찰 및 고블린 처치!";
             questPanel.qeustDetail.text = $"마을 밖을 순찰하며 고블린을 5마리 처치하자.\n고블린 킬수 : {killCount}";
-            if(killCount == 5)
+            if (killCount == 5)
             {
                 NextQuest();
                 questPanel.qeustName.text = "마을 순찰 및 고블린 처치 완료";
@@ -64,25 +67,46 @@ public class QuestManager : MonoBehaviour
                 killCount = 0;
             }
         }
+        else if (questId == 40 && questActionIndex == 1)
+        {
+            questPanel.qeustName.text = "장로가 자리비운 시간";
+            questPanel.qeustDetail.text = "장로회관에 가루와 관련된 물건이 있는지 한 번 둘러보자";
+        }
+        else if (questId == 70 && questActionIndex == 0)
+        {
+            if (bosskillCount == 1)
+            {
+                NextQuest();
+                questPanel.qeustName.text = "재앙 제거 완료";
+                questPanel.qeustDetail.text = "영생을 찾아 몬스터가 되어버린 장로를 제거했다....\n다시 마을로 돌아가자.";
+                bosskillCount = 0;
+            }
+        }
+
     }
     void Initialize()
     {
         //게임 시작할 때 어웨이크로 리스트 불러와줌
         //questList를 사용하기 위해 초기화 해주고
         questList = new Dictionary<int, QuestData>();
-        questPanel = GameObject.Find("QuestPanel").GetComponent<QuestPanel>();
+        //questPanel = FindObjectOfType<QuestPanel>();
+        Debug.Log($"{questId},{questActionIndex}");
 
         //이 함수를 통해서 실행함
         GenerateData();
-
-        //맨 처음 시작 시 패널 갱신
-        CheckQuest(questList[questId].npcId[questActionIndex]);
 
         //패널 끄고 열고 오디오
         audioSource = GetComponent<AudioSource>();
 
         //고블린 킬수 체크용 델리게이트
         CheckKillCount = () => { checkkillcount(); };
+
+        //보스 킬 체크용 델리게이트
+        BossKillCount = () => { BossskillCount(); };
+
+        //dd
+        questPanel = FindObjectOfType<QuestPanel>();
+        Panel(questId, questActionIndex);
     }
 
     //초기화된 questList를 사용하기 위한 함수
@@ -94,13 +118,17 @@ public class QuestManager : MonoBehaviour
 
         questList.Add(20, new QuestData("재앙의 원인을 찾아라", new int[] { 1000, 2000 }));
 
-        questList.Add(30, new QuestData("마을의 위험요소 처치", new int[] { 2000, 1000}));
-        
+        questList.Add(30, new QuestData("마을의 위험요소 처치", new int[] { 2000, 1000 }));
+
         questList.Add(40, new QuestData("몬스터 처치 완료", new int[] { 1000, 3000 }));
 
         questList.Add(50, new QuestData("마법의 공간을 빠져나가자", new int[] { 2000, 3000 }));
 
-        questList.Add(60, new QuestData("장로 처치", new int[] { 2000, 1000 }));
+        questList.Add(60, new QuestData("상자 확보", new int[] { 2000, 3000 }));
+
+        questList.Add(70, new QuestData("장로 처치", new int[] { 2000 }));
+
+        questList.Add(80, new QuestData("다시 찾아온 평화", new int[] { 2000 }));
     }
 
     public int GetQuestTalkIndex(int id)
@@ -172,7 +200,7 @@ public class QuestManager : MonoBehaviour
         else if (id == 50 && index == 0)
         {
             questPanel.qeustName.text = "마법이 담긴 함정 상자";
-            questPanel.qeustDetail.text = "상자를 열었더니 이상한 공간으로 빨려들어왔다. 탈출 방법을 찾아 탈출하자";
+            questPanel.qeustDetail.text = "상자를 열었더니 이상한 공간으로 빨려들어왔다. 퍼즐을 풀어 탈출하자";
             LoadingSceneManager.LoadScene(5);
         }
         else if (id == 60 && index == 0)
@@ -180,20 +208,32 @@ public class QuestManager : MonoBehaviour
             questPanel.qeustName.text = "확실해진 재앙의 원인";
             questPanel.qeustDetail.text = "유일하게 남은 주민에게 이 사실을 알리자";
         }
-        else if (id == 60 && index == 1)
+        else if (questId == 60 && questActionIndex == 1)
         {
             questPanel.qeustName.text = "장로를 찾아라";
-            questPanel.qeustDetail.text = "사실을 알렸으니 이제 마을 회관에서 장로를 기다려 주민들을 되찾자.";
+            questPanel.qeustDetail.text = "사실을 알렸으니 이제 마을 회관에서 상자를 회수하고 장로를 기다리자.";
         }
-        else if (id == 70 && index == 0)
+        else if (questId == 70 && questActionIndex == 0)
         {
             questPanel.qeustName.text = "장로를 제거하라";
             questPanel.qeustDetail.text = "마을 근처....옛 놀이터였던 땅굴 입구를 찾아 들어가자.";
+            GameObject objj = GameObject.Find("MiniGameBox");
+            Destroy(objj);
+        }
+        else if (id == 80 && index == 1)
+        {
+            questPanel.qeustName.text = "다시 찾아온 평화";
+            questPanel.qeustDetail.text = "평화로운 마을을 다시 재건하자.";
         }
     }
 
     void checkkillcount()
     {
         killCount++;
+    }
+
+    void BossskillCount()
+    {
+        bosskillCount++;
     }
 }
