@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Arrow : MonoBehaviour
 {
-    public float lifeTime = 3.0f;   // 총알의 수명
+    public float lifeTime = 3.0f;  
     public float speed = 10.0f;
     Rigidbody2D rigid = null;
 
@@ -18,7 +18,7 @@ public class Arrow : MonoBehaviour
     private void Start()
     {
         rigid.velocity = transform.right * speed;
-        Destroy(this.gameObject, lifeTime);     // lifeTime초 후에 게임 오브젝트를 삭제한다.
+        Destroy(this.gameObject, lifeTime); 
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -28,6 +28,13 @@ public class Arrow : MonoBehaviour
             IBattle target = collision.GetComponent<IBattle>();
             target.TakeDamage(GameManager.Inst.MainPlayer.AttackPower);
         }
-        Destroy(this.gameObject);
+        else if (collision.CompareTag("Player"))
+        {
+
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

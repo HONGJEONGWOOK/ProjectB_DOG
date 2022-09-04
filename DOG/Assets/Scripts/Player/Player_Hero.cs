@@ -57,18 +57,21 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
     Animator anim;
     Rigidbody2D rigid = null;
     CapsuleCollider2D Collider;
+    SpriteRenderer sprite;
 
     public Puzzle pz;
     public MiniPuzzle mpz;
 
     bool isAction = false;
-
+    bool isHit = false;
 
     public GameObject shootPrefab = null;
     public float moveSpeed = 15.0f;
     public float itemPickupRange = 1.0f;
 
     public int weaponCount = 0;
+
+    public GameObject gameOver;
 
     private Vector3 direction = Vector3.zero;
 
@@ -117,7 +120,7 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
         rigid = GetComponent<Rigidbody2D>();
         Collider = GetComponent<CapsuleCollider2D>();
         invenUI = FindObjectOfType<ItemInventory_UI>();
-
+        sprite = GetComponent<SpriteRenderer>();
         
         //weaponUI = GetComponent<WeaponUI>();
         weaponOfPlayer = transform.Find("Weapon");
@@ -194,24 +197,30 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
 
     public void TakeDamage(float damage)
     {
-        float finalDamage = damage - defencePower;
-        if (finalDamage < 1.0f)
+        if (isHit == false)
         {
-            finalDamage = 1.0f;
-        }
+            float finalDamage = damage - defencePower;
+            if (finalDamage < 1.0f)
+            {
+                finalDamage = 1.0f;
+            }
 
-        HP -= finalDamage;
+            HP -= finalDamage;
 
 
-        if (HP > 0.0f)
-        {
-            Debug.Log($"{hp}");
-            //살아있다.
-            anim.SetTrigger("Hit");
-        }
-        else
-        {
-            Debug.Log("죽음");
+            if (HP > 0.0f)
+            {
+                Debug.Log($"{hp}");
+                //살아있다.
+                anim.SetTrigger("Hit");
+                StartCoroutine(OnHit());
+                isHit = true;
+            }
+            else
+            {
+                Debug.Log("죽음");
+                Die();
+            }
         }
 
     }
@@ -220,6 +229,10 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
     private void FixedUpdate()
     {
         Move();
+        if(Keyboard.current.digit1Key.wasPressedThisFrame)
+        {
+            Die();
+        }
     }
 
     // 체력 만들고
@@ -293,13 +306,9 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
         }
         else if (weaponCount == 1)
         {
-            Debug.Log("활 공격");
+            Debug.Log("활 공격");  
             anim.SetInteger("WeaponCount", 1);
             anim.SetTrigger("Attack");
-            GameObject obj = Instantiate(shootPrefab);      
-            obj.transform.position = transform.position + transform.right * 1.2f;   
-            //obj.transform.rotation = transform.rotation;    
-
         }
         else if (weaponCount == 2)
         {
@@ -469,6 +478,18 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
     }
 
 
+    private void Die()
+    {
+        Debug.Log("죽음");
+        actions.Player.Disable();
+
+        if (gameOver != null)
+        {
+            gameOver.SetActive(true);
+        }
+    }
+
+
     IEnumerator PlayFootStepSound()
     {
         while (true)
@@ -476,5 +497,28 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
             SoundManager.Inst.PlaySound(SoundID.playerFootStep, true);
             yield return footstepWaitSeconds;
         }
+    }
+
+    IEnumerator OnHit()
+    {
+        int countTime = 0;
+
+        while(countTime < 10)
+        {
+            if (countTime % 2 == 0)
+                sprite.color = new Color32(255, 255, 255, 90);
+            else
+                sprite.color = new Color32(255, 255, 255, 180);
+
+            yield return new WaitForSeconds(0.2f);
+            countTime++;
+        }
+
+        sprite.color = new Color(255, 255, 255, 255);
+
+
+        isHit = false;
+
+        yield return null;
     }
 }
