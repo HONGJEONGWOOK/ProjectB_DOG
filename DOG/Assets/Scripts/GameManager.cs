@@ -90,7 +90,6 @@ public class GameManager : MonoBehaviour
         // --------------- NPC
         talkPanel = transform.GetChild(0).GetChild(1).gameObject;
         talkText = talkPanel.GetComponentInChildren<Text>();
-        //talkPanel.SetActive(false);
 
         //---------------- Inventory
         weaponData = GetComponent<WeaponDataManager>();

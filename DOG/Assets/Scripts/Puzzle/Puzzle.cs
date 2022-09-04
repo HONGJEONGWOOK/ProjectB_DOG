@@ -115,6 +115,9 @@ public class Puzzle : MonoBehaviour
         Debug.Log("Gate Destroy");
         OngateOpen?.Invoke();
 
+        //퍼즐 완료 시 다음 퀘스트로 
+        QuestManager.Instance.NextQuest();
+
         gameObject.SetActive(false);    // 퍼즐 없애기
     }
 
