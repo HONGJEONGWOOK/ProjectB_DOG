@@ -63,7 +63,25 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
 
     bool isAction = false;
 
+    // 활 관련------------------------------------------------------------------------------------
+    float charge = 0.0f;
+    const float MaxCharge = 5.0f;
+    bool charging = false;
+    public Slider arrowbar;
 
+    public float Charge
+    {
+        get => charge;
+
+        set
+        {
+            charge = Mathf.Clamp(value, 0.0f, MaxCharge);
+            arrowbar.value = charge;
+        }
+    }
+
+
+    //--------------------------------------------------------------------------------
 
     public GameObject shootPrefab = null;
     public float moveSpeed = 5.0f;
@@ -121,6 +139,12 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
 
     private void Start()
     {
+
+        arrowbar.minValue = 0;
+        arrowbar.maxValue = MaxCharge;
+        arrowbar.value = charge;
+        charge = 0.0f;
+
         Inventory inven = new Inventory();
         invenUI.InitializeInven(inven);
 
@@ -191,10 +215,13 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
             Debug.Log($"{hp}");
             //살아있다.
             anim.SetTrigger("Hit");
+            // 알파값이 0과 1 반복 2초 코루틴 추가
+            //추가
         }
         else
         {
             Debug.Log("죽음");
+            Die(); 
         }
 
     }
@@ -203,7 +230,10 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
     private void FixedUpdate()
     {
         Move();
-
+        if(charging == true)
+        {
+            Charge += Time.deltaTime;
+        }
 
     }
 
@@ -277,9 +307,26 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
         }
         else if (weaponCount == 1)
         {
-            anim.SetInteger("WeaponCount", 1);
-            anim.SetTrigger("Attack");
-            Debug.Log("활 공격");
+            if(context.started)
+            {
+                // 플레이어 멈추기
+
+                anim.SetInteger("WeaponCount", 1);
+                anim.SetTrigger("Attack");
+                charging = true;  // 이걸 업데이트에서 실행되게 
+                                  // charg증가함에 따라 대미지랑 속도 증가
+                                  // 화살에 연동해서 추가
+
+
+
+                // 마우스 움직임따라 활이 움직이고 마지막 방향으로 활이 날라가기
+            }
+            if (context.canceled)    // charg초기화 및 업데이트에서 멈추기
+            {
+                charging = false;
+                charge = 0;
+            }
+
         }
         else if (weaponCount == 2)
         {
@@ -287,9 +334,6 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
             anim.SetTrigger("Attack");
             Debug.Log("단검 공격");
         }
-        SoundManager.Inst.PlaySound(SoundID.swingWeapon, 1f, true);
-        Debug.Log("공격");
-        anim.SetTrigger("Attack");
         SoundManager.Inst.PlaySound(SoundID.SwordSwing, true);
     }
 
@@ -450,4 +494,11 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
             yield return footstepWaitSeconds;
         }
     }
+
+    void Die()
+    {
+        // 못움직이게 하고 게임 오버 타이틀 추가
+        //추가
+    }
+
 }

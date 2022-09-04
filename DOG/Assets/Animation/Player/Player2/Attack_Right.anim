@@ -55,7 +55,7 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 0.8333333
-        value: {x: 0, y: 180, z: 0.46487427}
+        value: {x: 0, y: 180, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -206,6 +206,8 @@ AnimationClip:
       value: {fileID: 21300000, guid: afcfb31c2e79f4edcacff6d2ae846b1e, type: 3}
     - time: 0.6666667
       value: {fileID: 21300000, guid: afcfb31c2e79f4edcacff6d2ae846b1e, type: 3}
+    - time: 0.8333333
+      value: {fileID: 21300000, guid: ba299c80d09de4d4696f394e503ac933, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -251,6 +253,7 @@ AnimationClip:
     - {fileID: 21300000, guid: 461602cf177724a5b9780734e1f408fb, type: 3}
     - {fileID: 21300000, guid: afcfb31c2e79f4edcacff6d2ae846b1e, type: 3}
     - {fileID: 21300000, guid: afcfb31c2e79f4edcacff6d2ae846b1e, type: 3}
+    - {fileID: 21300000, guid: ba299c80d09de4d4696f394e503ac933, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -467,6 +470,15 @@ AnimationClip:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.8333333
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -479,6 +491,15 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.8333333
         value: 0
         inSlope: 0
         outSlope: 0
@@ -589,7 +610,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.8333333
-        value: 0.46487427
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 136
