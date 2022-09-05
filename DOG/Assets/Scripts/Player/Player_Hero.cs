@@ -375,13 +375,13 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
             isAction = false;
             QuestManager.Instance.TalkIndex = 0;
             Debug.Log(QuestManager.Instance.CheckQuest(id));
-            actions.Player.Enable();
+            actions.Player.Move.Enable();
             return;
         }
         
         isAction = true;
         QuestManager.Instance.TalkIndex++;
-        actions.Player.Disable();
+        actions.Player.Move.Disable();
     }
 
     public void ShootArrow()
