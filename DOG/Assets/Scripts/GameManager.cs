@@ -122,6 +122,6 @@ public class GameManager : MonoBehaviour
 
     public void GameRestart()
     {
-        SceneManager.LoadScene("Test_Field_Map");
+        LoadingSceneManager.LoadScene(0);
     }
 }
