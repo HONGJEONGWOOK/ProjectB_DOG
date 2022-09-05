@@ -45,7 +45,6 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
     PlayerInputActions actions;
     Animator anim;
     Rigidbody2D rigid = null;
-    AudioSource audio;
     SpriteRenderer sprite;
 
     public Puzzle pz;
@@ -110,7 +109,6 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
         actions = new();
         anim = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody2D>();
-        audio = GetComponent<AudioSource>();
 
         invenUI = FindObjectOfType<ItemInventory_UI>();
         sprite = GetComponent<SpriteRenderer>();
@@ -122,8 +120,6 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
 
         footstepCoroutine = PlayFootStepSound();
         footstepWaitSeconds = new WaitForSeconds(0.3f);
-
-        DontDestroyOnLoad(this.gameObject);
     }
 
     private void Start()
@@ -297,8 +293,8 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
 
         if (weaponIndex != 2)
         { // ! Arrow
-            audio.volume = SoundManager.Inst.clips[(byte)SoundID.SwordSwing].volume;
-            audio.PlayOneShot(SoundManager.Inst.clips[(byte)SoundID.SwordSwing].clip);
+            GetComponent<AudioSource>().volume = SoundManager.Inst.clips[(byte)SoundID.SwordSwing].volume;
+            GetComponent<AudioSource>().PlayOneShot(SoundManager.Inst.clips[(byte)SoundID.SwordSwing].clip);
         }
     }
 
@@ -399,8 +395,8 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
         obj.transform.right = shootPosition.right;
         obj.SetActive(true);
 
-        audio.volume = SoundManager.Inst.clips[(byte)SoundID.ShootArrow].volume;
-        audio.PlayOneShot(SoundManager.Inst.clips[(byte)SoundID.ShootArrow].clip);
+        GetComponent<AudioSource>().volume = SoundManager.Inst.clips[(byte)SoundID.ShootArrow].volume;
+        GetComponent<AudioSource>().PlayOneShot(SoundManager.Inst.clips[(byte)SoundID.ShootArrow].clip);
     }
 
     private void OnWeaponChange(InputAction.CallbackContext context)

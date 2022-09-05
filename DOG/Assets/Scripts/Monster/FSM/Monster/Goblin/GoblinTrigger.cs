@@ -11,9 +11,13 @@ public class GoblinTrigger : MonoBehaviour
     {
         AttackPower = transform.parent.GetComponent<Goblin>().AttackPower;
         audioSource = GetComponentInParent<AudioSource>();
-
-        audioSource.clip = SoundManager.Inst.clips[(byte)SoundID.GoblinGetHit].clip ;
     }
+
+    private void Start()
+    {
+        audioSource.clip = SoundManager.Inst.clips[(byte)SoundID.GoblinGetHit].clip;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
