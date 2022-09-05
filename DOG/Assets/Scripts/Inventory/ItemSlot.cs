@@ -62,12 +62,13 @@ public class ItemSlot
         }
     }
 
-    public void UseSlotItem(GameObject target = null)
+    public void UseSlotItem(GameObject target)
     {
         IUsable usable = SlotData as IUsable;
         if (usable != null)
         {
             usable.Use(target);
+            SoundManager.Inst.PlaySound(SoundID.potionUse, true);
             DecreaseSlotItem();
         }
     }

@@ -203,6 +203,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""ItemUse"",
+                    ""type"": ""Button"",
+                    ""id"": ""1a0c8cf8-ee3d-4480-812c-509fe80f3b08"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -258,6 +267,50 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Player"",
                     ""action"": ""OnMouseDown0"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""284eada7-d68e-41e0-b55a-d4087febf4cb"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ItemUse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e2b511f7-8bb2-4ec5-997d-e0dacacb491a"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ItemUse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7f1ffb26-f6b1-4b79-9dad-130258c52540"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ItemUse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""00fe5d3c-2ce3-4c38-b877-48cf9f9f3338"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ItemUse"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -346,6 +399,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_UI_PuzzleCheat = m_UI.FindAction("PuzzleCheat", throwIfNotFound: true);
         m_UI_OnMouseDown0 = m_UI.FindAction("OnMouseDown0", throwIfNotFound: true);
         m_UI_MousePosition = m_UI.FindAction("MousePosition", throwIfNotFound: true);
+        m_UI_ItemUse = m_UI.FindAction("ItemUse", throwIfNotFound: true);
         // WeaponSlotRotation
         m_WeaponSlotRotation = asset.FindActionMap("WeaponSlotRotation", throwIfNotFound: true);
         m_WeaponSlotRotation_RoatateDirection = m_WeaponSlotRotation.FindAction("RoatateDirection", throwIfNotFound: true);
@@ -470,6 +524,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_PuzzleCheat;
     private readonly InputAction m_UI_OnMouseDown0;
     private readonly InputAction m_UI_MousePosition;
+    private readonly InputAction m_UI_ItemUse;
     public struct UIActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -479,6 +534,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @PuzzleCheat => m_Wrapper.m_UI_PuzzleCheat;
         public InputAction @OnMouseDown0 => m_Wrapper.m_UI_OnMouseDown0;
         public InputAction @MousePosition => m_Wrapper.m_UI_MousePosition;
+        public InputAction @ItemUse => m_Wrapper.m_UI_ItemUse;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -503,6 +559,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @MousePosition.started -= m_Wrapper.m_UIActionsCallbackInterface.OnMousePosition;
                 @MousePosition.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnMousePosition;
                 @MousePosition.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnMousePosition;
+                @ItemUse.started -= m_Wrapper.m_UIActionsCallbackInterface.OnItemUse;
+                @ItemUse.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnItemUse;
+                @ItemUse.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnItemUse;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
@@ -522,6 +581,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @MousePosition.started += instance.OnMousePosition;
                 @MousePosition.performed += instance.OnMousePosition;
                 @MousePosition.canceled += instance.OnMousePosition;
+                @ItemUse.started += instance.OnItemUse;
+                @ItemUse.performed += instance.OnItemUse;
+                @ItemUse.canceled += instance.OnItemUse;
             }
         }
     }
@@ -582,6 +644,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnPuzzleCheat(InputAction.CallbackContext context);
         void OnOnMouseDown0(InputAction.CallbackContext context);
         void OnMousePosition(InputAction.CallbackContext context);
+        void OnItemUse(InputAction.CallbackContext context);
     }
     public interface IWeaponSlotRotationActions
     {

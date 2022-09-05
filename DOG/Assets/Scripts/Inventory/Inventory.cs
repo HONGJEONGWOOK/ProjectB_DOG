@@ -133,7 +133,7 @@ public class Inventory
             currentSlot.Count = tempSlot.Count;
 
             tempSlot = null;
-            Debug.Log($"{current}를 {destination}으로 옮깁니다.");
+            //Debug.Log($"{current}를 {destination}으로 옮깁니다.");
         }
     }
 
