@@ -480,6 +480,8 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
     private void Die()
     {
         Debug.Log("죽음");
+        QuestManager.Instance.questId = 10;
+        QuestManager.Instance.questActionIndex = 0;
         actions.Player.Disable();
 
         if (gameOver != null)

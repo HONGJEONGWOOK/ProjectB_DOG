@@ -59,6 +59,4 @@ public class Goblin : Monsters, IHealth, IBattle
             StartCoroutine(DisableMonster());
         }
     }
-
-    
 }

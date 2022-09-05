@@ -9,15 +9,24 @@ public class MenuButton : MonoBehaviour
 
     GameObject Menu;
 
+    bool isopen;
+
     void Awake()
     {
+        isopen = false;
         Menu = GameObject.Find("MenuBackground");
+    }
+
+    private void Update()
+    {
+        
     }
 
     public void MenuOn()
     {
-        Menu.SetActive(true);
-        SoundManager.Inst.PlaySound(SoundID.click, true);
+        
+            Menu.SetActive(true);
+            SoundManager.Inst.PlaySound(SoundID.click, true);
     }
 
     public void MenuOff()
