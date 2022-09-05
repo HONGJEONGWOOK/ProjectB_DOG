@@ -8,6 +8,8 @@ TagManager:
   - Undefined
   - WeaponSlot
   - ItemInven
+  - Rock
+  - Box
   layers:
   - Default
   - TransparentFX

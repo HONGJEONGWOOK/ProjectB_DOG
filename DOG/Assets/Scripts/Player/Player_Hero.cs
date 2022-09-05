@@ -20,6 +20,7 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
             {
                 hp = Mathf.Clamp(value, 0, maxHP);
                 onHealthChange?.Invoke();
+                Debug.Log(hp);
             }
         }
     }
@@ -153,6 +154,7 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
         actions.Player.PickUp.performed += OnPickUp;
         actions.UI.Enable();
         actions.UI.Escape.performed += OnEscape;
+        actions.UI.ItemUse.performed += OnItemUse;
         actions.WeaponSlotRotation.Enable();
         actions.WeaponSlotRotation.RoatateDirection.performed += OnWeaponChange;
     }
@@ -161,6 +163,7 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
     {
         actions.WeaponSlotRotation.RoatateDirection.performed -= OnWeaponChange;
         actions.WeaponSlotRotation.Disable();
+        actions.UI.ItemUse.performed += OnItemUse;
         actions.UI.Escape.performed -= OnEscape;
         actions.UI.Disable();
         actions.Player.PickUp.performed -= OnPickUp;
@@ -216,7 +219,7 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
     private void FixedUpdate()
     {
         Move();
-        if(Keyboard.current.digit1Key.wasPressedThisFrame)
+        if(Keyboard.current.digit0Key.wasPressedThisFrame)
         {
             Die();
         }
@@ -378,13 +381,13 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
             isAction = false;
             QuestManager.Instance.TalkIndex = 0;
             Debug.Log(QuestManager.Instance.CheckQuest(id));
-            actions.Player.Enable();
+            actions.Player.Move.Enable();
             return;
         }
         
         isAction = true;
         QuestManager.Instance.TalkIndex++;
-        actions.Player.Disable();
+        actions.Player.Move.Disable();
     }
 
     public void ShootArrow()
@@ -417,9 +420,29 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
         defencePower = defaultDefence + weapon.data.defencePower;
         criticalRate = defaultCritical + weapon.data.criticalRate;
 
-        Debug.Log($"공격력 : {attackPower}");
-        Debug.Log($"방어력 : {defencePower}");
-        Debug.Log($"크리율 : {criticalRate}");
+        //Debug.Log($"공격력 : {attackPower}");
+        //Debug.Log($"방어력 : {defencePower}");
+        //Debug.Log($"크리율 : {criticalRate}");
+    }
+
+    public void OnItemUse(InputAction.CallbackContext context)
+    {
+        if (Keyboard.current.digit1Key.wasPressedThisFrame)
+        {// 9번 슬롯
+            invenUI.Inven[9].UseSlotItem(this.gameObject);
+        }
+        else if (Keyboard.current.digit2Key.wasPressedThisFrame)
+        {// 10번 슬롯
+            invenUI.Inven[10].UseSlotItem(this.gameObject);
+        }
+        else if (Keyboard.current.digit3Key.wasPressedThisFrame)
+        {// 11번 슬롯
+            invenUI.Inven[11].UseSlotItem(this.gameObject);
+        }
+        else if (Keyboard.current.digit4Key.wasPressedThisFrame)
+        {// 12번 슬롯
+            invenUI.Inven[12].UseSlotItem(this.gameObject);
+        }
     }
 
     /// <summary>

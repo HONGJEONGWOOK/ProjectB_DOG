@@ -51,7 +51,7 @@ public class Boss : Monsters
         currentSpeed = 0;
         hpBar.enabled = true;
         textController.enabled = true ;
-        ChangeStatus(MonsterCurrentState.IDLE);
+        ChangeStatus(MonsterCurrentState.PATROL);   //처음 시작할 때 아무것도 안하기
     }
 
     private void OnDisable()
@@ -83,7 +83,7 @@ public class Boss : Monsters
         audioSource.loop = true;
     }
 
-    protected override void Idle()  {} // Do Nothing
+    protected override void Idle() => ChangeStatus(MonsterCurrentState.TRACK);
 
     protected override void Patrol(){} // Do Nothing
 

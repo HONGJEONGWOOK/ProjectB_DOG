@@ -48,8 +48,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   talkManager: {fileID: 0}
-  questManager: {fileID: 0}
   scanObject: {fileID: 0}
+  menu: {fileID: 0}
+  menuSet: 0
+  questManager: {fileID: 0}
 --- !u!114 &1876037011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,7 +81,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemDatas:
-  - {fileID: 11400000, guid: 856da45e833cc44489919c0107c590cc, type: 2}
+  - {fileID: 11400000, guid: ffb4f9628766eb842a8ae528c07ffa71, type: 2}
   - {fileID: 11400000, guid: c8612473259fd23408011fa52bb1b579, type: 2}
   - {fileID: 11400000, guid: 50f99ce5bb77e394eab6a6184448cddc, type: 2}
   - {fileID: 11400000, guid: 32bbb12df42b2554a867a1a8f3c1acd0, type: 2}
@@ -262,7 +264,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1824681151275083689, guid: 696e737208a0fb947ba0b5df100366ce, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 120
+      value: 205
       objectReference: {fileID: 0}
     - target: {fileID: 1824681151275083689, guid: 696e737208a0fb947ba0b5df100366ce, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
