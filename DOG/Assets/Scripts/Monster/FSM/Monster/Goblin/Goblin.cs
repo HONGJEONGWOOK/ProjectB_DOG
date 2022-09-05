@@ -17,17 +17,20 @@ public class Goblin : Monsters, IHealth, IBattle
 
     protected override void SpriteFlip()
     {
-        trackDirection = target.position - this.transform.position;
-        var cross = Vector3.Cross(trackDirection, this.transform.up);
-        if (Vector3.Dot(cross, transform.forward) < 0)
-        {   // 왼쪽
-            sprite.flipX = true;
-            hitBox.localPosition = new Vector3(-1.79f, 0f);
-        }
-        else
-        {   // 오른쪽
-            sprite.flipX = false;
-            hitBox.localPosition = new Vector3(1.79f, 0f);
+        if (target != null)
+        {
+            trackDirection = target.position - this.transform.position;
+            var cross = Vector3.Cross(trackDirection, this.transform.up);
+            if (Vector3.Dot(cross, transform.forward) < 0)
+            {   // 왼쪽
+                sprite.flipX = true;
+                hitBox.localPosition = new Vector3(-1.79f, 0f);
+            }
+            else
+            {   // 오른쪽
+                sprite.flipX = false;
+                hitBox.localPosition = new Vector3(1.79f, 0f);
+            }
         }
     }
 
@@ -54,8 +57,6 @@ public class Goblin : Monsters, IHealth, IBattle
             anim.SetTrigger("onDie");
             currentSpeed = 0;
             StartCoroutine(DisableMonster());
-            MonsterManager.ReturnPooledMonster(
-                MonsterManager.PooledMonster[MonsterManager.Inst.GoblinID], this.gameObject);
         }
     }
 
