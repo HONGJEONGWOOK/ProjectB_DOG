@@ -80,26 +80,25 @@ public class GameManager : MonoBehaviour
 
     void Initialize()
     {
-        // --------------- 플레이어
-        player = FindObjectOfType<Player_Hero>();
-
         // --------------- NPC
         talkPanel = transform.GetChild(0).GetChild(1).gameObject;
         talkText = talkPanel.GetComponentInChildren<Text>();
 
+        SceneManager.sceneLoaded += OnStageStart;   // 씬의 로딩이 끝났을 때 실행될 델리게이트에 OnStageStart 등록
+    }
+
+    private void OnStageStart(Scene arg0, LoadSceneMode arg1)
+    {
+        // --------------- 플레이어
+        player = FindObjectOfType<Player_Hero>();
+
         //---------------- Inventory
+        inventoryUI = FindObjectOfType<ItemInventory_UI>();
         weaponData = GetComponent<WeaponDataManager>();
         weaponUI = FindObjectOfType<WeaponUI>();
         weaponOfPlayer = FindObjectOfType<WeaponOfPlayer>();
         itemData = GetComponent<ItemDataManager>();
 
-        SceneManager.sceneLoaded += OnStageStart;   // 씬의 로딩이 끝났을 때 실행될 델리게이트에 OnStageStart 등록
-
-        inventoryUI = FindObjectOfType<ItemInventory_UI>();
-    }
-
-    private void OnStageStart(Scene arg0, LoadSceneMode arg1)
-    {
 
         if (oldSceneIndex != arg0.buildIndex)
         {

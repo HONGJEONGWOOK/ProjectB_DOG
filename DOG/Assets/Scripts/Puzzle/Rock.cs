@@ -7,6 +7,7 @@ public class Rock : MonoBehaviour
     public bool check;
     public int dir;
     public float freezePos_x,freezePos_y;
+
     void Start()
     {
         check = false;
@@ -16,9 +17,9 @@ public class Rock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(check)
+        if (check)
         {
- //           transform.GetComponent<Rigidbody2D>().simulated = true;
+            //           transform.GetComponent<Rigidbody2D>().simulated = true;
 
             if (dir == 0 || dir == 2)
             {
@@ -35,7 +36,7 @@ public class Rock : MonoBehaviour
         }
         else
         {
-//           transform.GetComponent<Rigidbody2D>().simulated = false;
+            //           transform.GetComponent<Rigidbody2D>().simulated = false;
         }
     }
 }
