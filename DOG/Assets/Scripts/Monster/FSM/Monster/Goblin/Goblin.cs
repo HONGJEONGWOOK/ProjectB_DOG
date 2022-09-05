@@ -53,7 +53,7 @@ public class Goblin : Monsters, IHealth, IBattle
     {
         if (!isDying)
         {
-            QuestManager.CheckKillCount();
+            QuestPanel.CheckKillCount();
             anim.SetTrigger("onDie");
             currentSpeed = 0;
             StartCoroutine(DisableMonster());
