@@ -360,9 +360,6 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
         string talkData = GameManager.Inst.talkManager.GetTalk(id + questTalkIndex, QuestManager.Instance.TalkIndex);
 
         //말할 때 못 움직이게
-        float sspeed = 15.0f;
-        float speed = 0;
-
         if (isNpc)
         {
             GameManager.Inst.TalkText.text = talkData;
@@ -378,14 +375,13 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
             isAction = false;
             QuestManager.Instance.TalkIndex = 0;
             Debug.Log(QuestManager.Instance.CheckQuest(id));
-            moveSpeed = sspeed;
-            
+            actions.Player.Enable();
             return;
         }
         
         isAction = true;
         QuestManager.Instance.TalkIndex++;
-        moveSpeed = speed;
+        actions.Player.Disable();
     }
 
     public void ShootArrow()

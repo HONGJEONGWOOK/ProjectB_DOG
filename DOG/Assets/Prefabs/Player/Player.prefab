@@ -660,9 +660,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1495316837161236791}
     m_Modifications:
+    - target: {fileID: 4784061962614049416, guid: 6426be143f0997642a5f1fc5511c63e1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4784061964108054755, guid: 6426be143f0997642a5f1fc5511c63e1, type: 3}
       propertyPath: m_Name
       value: PlayerCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4784061964108054758, guid: 6426be143f0997642a5f1fc5511c63e1, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1031658584}
+    - target: {fileID: 4784061964108054758, guid: 6426be143f0997642a5f1fc5511c63e1, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4784061964108054758, guid: 6426be143f0997642a5f1fc5511c63e1, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4784061964108054758, guid: 6426be143f0997642a5f1fc5511c63e1, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1893012387
       objectReference: {fileID: 0}
     - target: {fileID: 4784061964108054759, guid: 6426be143f0997642a5f1fc5511c63e1, type: 3}
       propertyPath: m_Pivot.x
