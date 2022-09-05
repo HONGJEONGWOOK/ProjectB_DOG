@@ -301,7 +301,7 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
         knockbackTimer += Time.deltaTime;
         if (knockbackTimer > knockBackCoolTime)
         {
-            ChangeStatus(MonsterCurrentState.ATTACK);
+            ChangeStatus(MonsterCurrentState.IDLE);
         }
     }
 

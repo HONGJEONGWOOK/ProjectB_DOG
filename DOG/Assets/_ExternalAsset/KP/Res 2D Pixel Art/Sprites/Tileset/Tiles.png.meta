@@ -1645,7 +1645,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 8
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -1686,6 +1686,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -6186,9 +6198,9 @@ TextureImporter:
       Dirt13Tiles_137: -6349967763104249912
       Hill11Tiles_459: 7238738429251388315
       Hill44Tiles_275: -8749472929602134184
-      Dirt7Tiles_73: 7663075464098576306
-      Cliff_54: -1742090798937858409
       LakeGrass8aTiles_86: 7307207491082985977
+      Cliff_54: -1742090798937858409
+      Dirt7Tiles_73: 7663075464098576306
       Cliff32_Minifantasy_ForgottenPlainsTiles_524: -7792671821749925123
       HillDiagonal4_Minifantasy_ForgottenPlainsTiles_16: -4043459509603987514
       Dirt3Tiles_22: -8988517981366986819

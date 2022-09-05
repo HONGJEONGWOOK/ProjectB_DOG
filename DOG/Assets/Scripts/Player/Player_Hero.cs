@@ -54,7 +54,6 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
     bool isAction = false;
     bool isHit = false;
 
-    public GameObject shootPrefab = null;
     public float moveSpeed = 15.0f;
     public float itemPickupRange = 1.0f;
 
