@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5871040905239685127}
   - component: {fileID: 1865341562685495197}
   - component: {fileID: 3196038894813057197}
+  - component: {fileID: 4359976452826629315}
   - component: {fileID: 4840262324281560584}
   m_Layer: 0
   m_Name: Dagger
@@ -102,6 +103,18 @@ CapsuleCollider2D:
   m_Offset: {x: -0.1666081, y: -0.08043158}
   m_Size: {x: 0.5266262, y: 0.5266262}
   m_Direction: 0
+--- !u!114 &4359976452826629315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2907754584576809109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1e885a88a584de49b090c688968c76d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4840262324281560584
 MonoBehaviour:
   m_ObjectHideFlags: 0
