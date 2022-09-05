@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
+using static UnityEngine.Rendering.VolumeComponent;
 
 //퀘스트 넘버를 관리할 스크립트
 public class QuestManager : MonoBehaviour
@@ -11,8 +12,8 @@ public class QuestManager : MonoBehaviour
     public static QuestManager Instance { get { return instance; } }
 
     //퀘스트 아이디
-    public int questId = 10;
-    public int questActionIndex = 0;
+    public int questId;
+    public int questActionIndex;
 
     //퀘스트 데이터를 불러올 리스트
     Dictionary<int, QuestData> questList;
@@ -35,8 +36,6 @@ public class QuestManager : MonoBehaviour
 
     private void Awake()
     {
-        
-
         if (instance == null)
         {
             instance = this;
@@ -82,7 +81,6 @@ public class QuestManager : MonoBehaviour
                 bosskillCount = 0;
             }
         }
-
     }
     void Initialize()
     {
@@ -104,7 +102,7 @@ public class QuestManager : MonoBehaviour
         //보스 킬 체크용 델리게이트
         BossKillCount = () => { BossskillCount(); };
 
-        //dd
+        //시작 시 패널 갱신
         questPanel = FindObjectOfType<QuestPanel>();
         Panel(questId, questActionIndex);
     }

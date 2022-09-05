@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,7 +14,8 @@ public class GameManager : MonoBehaviour
     ItemInventory_UI inventoryUI;
 
     //퀘스트매니저
-    public QuestManager questManager;
+    QuestManager questManager;
+    public QuestManager questmanager { get => questManager; }
 
     private GameObject talkPanel;
     public GameObject TalkPanel
@@ -98,13 +100,13 @@ public class GameManager : MonoBehaviour
         weaponUI = FindObjectOfType<WeaponUI>();
         weaponOfPlayer = FindObjectOfType<WeaponOfPlayer>();
         itemData = GetComponent<ItemDataManager>();
-
+        questManager = GetComponent<QuestManager>();
 
         if (oldSceneIndex != arg0.buildIndex)
         {
             oldSceneIndex = arg0.buildIndex;
         }
-        
+
         talkPanel.SetActive(false);
     }
 
