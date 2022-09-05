@@ -73,6 +73,7 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
     float shootOffset = 1.0f;
     float shootPosRotation = 0f;
 
+
     // Inventory ---------------------------------------------
     ItemInventory_UI invenUI;
     // Minimap -----------------------------------------------
@@ -120,10 +121,13 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
 
         footstepCoroutine = PlayFootStepSound();
         footstepWaitSeconds = new WaitForSeconds(0.3f);
+
+
     }
 
     private void Start()
     {
+
         Inventory inven = new Inventory();
         invenUI.InitializeInven(inven);
 
@@ -304,7 +308,6 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
     {
         Debug.Log("메뉴");
         MenuOnOff();
-
     }
 
     void SearchNpc()
