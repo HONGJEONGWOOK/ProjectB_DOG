@@ -120,6 +120,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 103106699
       objectReference: {fileID: 0}
+    - target: {fileID: 9181820295667796300, guid: 7af492448809d284d84a29407f8cf39b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.68
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7af492448809d284d84a29407f8cf39b, type: 3}
 --- !u!4 &230760456233960475 stripped
