@@ -219,7 +219,7 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
     {
         trackDirection = target.position - this.transform.position;
         var cross = Vector3.Cross(trackDirection, this.transform.up);
-        sprite.flipX = Vector3.Dot(cross, transform.forward) < 0? true : false;
+        sprite.flipX = Vector3.Dot(cross, transform.forward) < 0;
     }
 
     // -------------------------------  ATTACK  ----------------------------------------

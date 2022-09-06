@@ -23,9 +23,8 @@ public class ItemInventory_UI : MonoBehaviour, IPointerClickHandler, IDragHandle
 
     // Main Inventory
     Transform mainInven;
-    Transform subInven;
     Button closeButton;
-    Button invenMenuButton;
+    public Button invenMenuButton;
     CanvasGroup canvasGroup;
     bool isOpen = false;
 
@@ -46,13 +45,13 @@ public class ItemInventory_UI : MonoBehaviour, IPointerClickHandler, IDragHandle
     private void Awake()
     {
         Actions = new();
-        mainInven = transform.GetChild(0);
+        mainInven = transform.GetChild(0);  //inventories
         canvasGroup = mainInven.GetChild(0).GetComponent<CanvasGroup>();
         closeButton = mainInven.GetChild(0).GetChild(2).GetComponent<Button>();
 
         detail = GetComponentInChildren<DetailInfoUI>();
 
-        invenMenuButton = transform.parent.GetChild(0).GetChild(1).GetChild(0).GetComponent<Button>();
+        //invenMenuButton = transform.parent.GetChild(0).GetChild(1).GetChild(0).GetComponent<Button>();
         //Debug.Log(invenMenuButton.name);
         anim = GetComponent<Animator>();
 
@@ -89,6 +88,7 @@ public class ItemInventory_UI : MonoBehaviour, IPointerClickHandler, IDragHandle
 
     private void ShowInventory(bool isShow)
     {
+        Debug.Log(this.gameObject.name);
         canvasGroup.alpha = isShow ? 1.0f: 0.0f;
         canvasGroup.blocksRaycasts = isShow;
         SoundManager.Inst.PlaySound(SoundID.windowOpen, true);

@@ -66,7 +66,7 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
     public PlayerInputActions Actions => actions;
 
     //----------------------------------
-    Transform weaponOfPlayer;
+    WeaponOfPlayer weaponOfPlayer;
     //public WeaponUI weaponUI;
     Weapon_Item defaultWeapon;
 
@@ -115,8 +115,10 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
         sprite = GetComponent<SpriteRenderer>();
         
         //weaponUI = GetComponent<WeaponUI>();
-        weaponOfPlayer = transform.Find("Weapon");
+        weaponOfPlayer = FindObjectOfType<WeaponOfPlayer>();
         defaultWeapon = weaponOfPlayer.GetComponentInChildren<Weapon_Item>();
+        weaponOfPlayer.gameObject.SetActive(false);
+        
         shootPosition = transform.Find("ShootPosition");
 
         footstepCoroutine = PlayFootStepSound();
@@ -302,7 +304,6 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
     }
 
 
-
     private void OnEscape(InputAction.CallbackContext obj)
     {
         Debug.Log("메뉴");
@@ -403,8 +404,8 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
         int input = (int)context.ReadValue<float>();                // 입력값을 int로 변경
         //weaponUI.RotateWeaponUI(input);
         GameManager.Inst.WeaponUI.RotateWeaponUI(input);
-        weaponIndex = GameManager.Inst.WeaponOfPlayer.currentWeapon(input);
-        GameManager.Inst.WeaponOfPlayer.ChangeWeapon(weaponIndex);
+        weaponIndex = weaponOfPlayer.currentWeapon(input);
+        weaponOfPlayer.ChangeWeapon(weaponIndex);
     }
 
     public void StatusUpdate(Weapon_Item weapon)

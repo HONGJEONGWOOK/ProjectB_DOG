@@ -8,7 +8,6 @@ public class BossTextController : MonoBehaviour
     TextMeshProUGUI textPro;
     [SerializeField] private string text;
     [SerializeField] private float typingInterval = 0.5f;
-    private string textTemp;
 
     private float typingTime;
 

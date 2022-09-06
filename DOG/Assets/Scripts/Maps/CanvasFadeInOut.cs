@@ -12,19 +12,19 @@ public class CanvasFadeInOut : MonoBehaviour
     private void Awake()
     {
         anim = GetComponent<Animator>();
-        //SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    //private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    //{
-    //    // 씬에 있는 오브젝트가 enable이 되면 실행
-    //    StartFadeIn();
-    //}
-
-    private void Start()
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        // 씬에 있는 오브젝트가 enable이 되면 실행
         StartFadeIn();
     }
+
+    //private void Start()
+    //{
+    //    StartFadeIn();
+    //}
 
     public void StartFadeOut()
     {

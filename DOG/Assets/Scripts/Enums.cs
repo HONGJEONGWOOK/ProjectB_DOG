@@ -33,6 +33,11 @@ public enum ProjectileID : byte
     Meteor
 }
 
+public enum FxID : byte
+{
+    Explosion = 0
+}
+
 
 public enum SoundID : byte
 {

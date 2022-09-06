@@ -48,8 +48,8 @@ public class GameManager : MonoBehaviour
 
     public ItemInventory_UI InvenUI => inventoryUI;
 
-    WeaponOfPlayer weaponOfPlayer = null;
-    public WeaponOfPlayer WeaponOfPlayer => weaponOfPlayer;
+    //WeaponOfPlayer weaponOfPlayer = null;
+    //public WeaponOfPlayer WeaponOfPlayer => weaponOfPlayer;
 
     WeaponUI weaponUI = null;
     public WeaponUI WeaponUI => weaponUI;   
@@ -94,10 +94,10 @@ public class GameManager : MonoBehaviour
 
         //---------------- Inventory
         inventoryUI = FindObjectOfType<ItemInventory_UI>();
+        itemData = GetComponent<ItemDataManager>();
         weaponData = GetComponent<WeaponDataManager>();
         weaponUI = FindObjectOfType<WeaponUI>();
-        weaponOfPlayer = FindObjectOfType<WeaponOfPlayer>();
-        itemData = GetComponent<ItemDataManager>();
+        //weaponOfPlayer = FindObjectOfType<WeaponOfPlayer>();
 
 
         if (oldSceneIndex != arg0.buildIndex)
