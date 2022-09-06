@@ -159,11 +159,11 @@ public class ItemInventory_UI : MonoBehaviour, IPointerClickHandler, IDragHandle
                 {// 인벤토리 밖에 버릴 때 클릭한게 슬롯이 아닐 때
                     if (movingSlotUI.Slot.SlotData != null)
                     {
-                        Debug.Log("아이템 버림");
+                        //Debug.Log("아이템 버림");
                         for (int i = 0; i < movingSlotUI.Slot.Count; i++)
                         {
                             uint droppingItemID = movingSlotUI.Slot.SlotData.id;
-                            GameObject obj = ItemManager.GetPooledItem(ItemManager.Inst.PooledItems[droppingItemID]);
+                            GameObject obj = ItemManager.GetPooledItem((ItemID)droppingItemID);
                             obj.transform.position = eventData.pointerCurrentRaycast.worldPosition + (Vector3)UnityEngine.Random.insideUnitCircle;
                             obj.SetActive(true);
                         }

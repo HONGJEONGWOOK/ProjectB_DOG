@@ -60,26 +60,24 @@ public class Meteor : MonoBehaviour
 
         if (IsCollided())
         {
-            ballParticle.Stop();
-            ballSprite.color = Color.clear;
-            shadowRenderer.color = Color.clear;
-
-            explosion.gameObject.SetActive(true);
-            explosion.SetTrigger("isCollided");
-
-            audioSource.PlayOneShot(SoundManager.Inst.clips[(byte)SoundID.MeteorExplosion].clip, 0.1f);
+            TurnOffParticle();
+            PlayExplosionAnimation();
 
             endTimer += Time.deltaTime;
             if (endTimer > explosion.GetCurrentAnimatorStateInfo(0).length)
             {
-                EnemyBulletManager.Inst.ReturnPooledEnemy(
-                    EnemyBulletManager.PooledObjects[(int)ProjectileID.Meteor], this.gameObject);
+                EnemyBulletManager.Inst.ReturnPooledObject(ProjectileID.Meteor, this.gameObject);
                 endTimer = 0f;
             }
         }
     }
 
-    bool IsCollided() => ((Vector2)shadow.position - ballRigid.position ).sqrMagnitude < 0.1f;
+    private void PlayExplosionAnimation()
+    {
+        explosion.gameObject.SetActive(true);
+        explosion.SetTrigger("isCollided");
+        audioSource.PlayOneShot(SoundManager.Inst.clips[(byte)SoundID.MeteorExplosion].clip, 0.1f);
+    }
 
     void InitializeMeteor()
     {
@@ -88,4 +86,13 @@ public class Meteor : MonoBehaviour
         ball.transform.localPosition = initialPosition;
         shadowRenderer.color = Color.white;
     }
+
+
+    void TurnOffParticle()
+    {
+        ballParticle.Stop();
+        ballSprite.color = Color.clear;
+        shadowRenderer.color = Color.clear;
+    }
+    bool IsCollided() => ((Vector2)shadow.position - ballRigid.position ).sqrMagnitude < 0.1f;
 }

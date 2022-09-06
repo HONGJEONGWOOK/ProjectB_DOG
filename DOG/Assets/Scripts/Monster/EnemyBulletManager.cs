@@ -86,10 +86,21 @@ public class EnemyBulletManager : MonoBehaviour
         return null;
     }
 
-    public void ReturnPooledEnemy(Queue<GameObject> returnQueue, GameObject uselessObject)
+    public GameObject GetPooledObject(ProjectileID projectileID)
+    {
+        return GetPooledObject(pooledObjects[(int)projectileID]);
+    }
+
+
+    public void ReturnPooledObject(Queue<GameObject> returnQueue, GameObject uselessObject)
     {
         returnQueue.Enqueue(uselessObject);
         uselessObject.SetActive(false);
         uselessObject.transform.position = Vector2.zero;
+    }
+
+    public void ReturnPooledObject(ProjectileID projectileID, GameObject uselessObject)
+    {
+        ReturnPooledObject(pooledObjects[(int)projectileID], uselessObject);
     }
 }

@@ -131,8 +131,7 @@ public class Boss : Monsters
     {
         for (int i = 0; i < fireballNum; i++)
         {
-            GameObject ball = 
-                EnemyBulletManager.Inst.GetPooledObject(EnemyBulletManager.PooledObjects[(int)ProjectileID.Meteor]);
+            GameObject ball = EnemyBulletManager.Inst.GetPooledObject(ProjectileID.Meteor);
             Vector2 randPos = Random.insideUnitCircle * meteorSpreadRange;
             ball.transform.position = (Vector2)transform.position + randPos;
             ball.SetActive(true);
@@ -166,19 +165,17 @@ public class Boss : Monsters
         yield return new WaitForSeconds(anim.GetCurrentAnimatorClipInfo(0).Length + 2.0f);
 
         // 죽은 뒤 폭발 애니메이션 재생
-        GameObject explosion = 
-            FXManager.Inst.GetPooledFX(FXManager.PooledFX[FXManager.Inst.ExplosionID]);
-        explosion.transform.position = this.transform.position * Random.insideUnitCircle * 1.5f;
-        explosion.gameObject.SetActive(true);
+        GameObject explosion = FXManager.Inst.GetPooledFX(FxID.Explosion);
+        explosion.transform.position = this.transform.position;
+        explosion.SetActive(true);
         yield return new WaitForSeconds(explosion.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0).Length);
-        FXManager.Inst.ReturnFX(FXManager.PooledFX[FXManager.Inst.ExplosionID], explosion);
+        FXManager.Inst.ReturnFX(FxID.Explosion, explosion);
 
         DropPortalKey();
 
         hpBar.gameObject.SetActive(false);
         // 보스 object pool return
-        MonsterManager.ReturnPooledMonster(MonsterManager.PooledMonster[MonsterManager.Inst.BossID], 
-                                                this.gameObject);
+        MonsterManager.ReturnPooledMonster(MonsterID.BOSS, this.gameObject);
     }
 
     void DropPortalKey()

@@ -8,8 +8,8 @@ public class ItemManager : MonoBehaviour
     private static ItemManager instance;
     public static ItemManager Inst => instance;
 
-    private Dictionary<uint, Stack<GameObject>> pooledItems = new();
-    public Dictionary<uint, Stack<GameObject>> PooledItems => pooledItems;
+    private static Dictionary<uint, Stack<GameObject>> pooledItems = new();
+    public static Dictionary<uint, Stack<GameObject>> PooledItems => pooledItems;
 
     [SerializeField] private ItemData[] poolingObjects;
     public ItemData[] PoolingObjects => poolingObjects;
@@ -65,10 +65,20 @@ public class ItemManager : MonoBehaviour
         return null;
     }
 
+    public static GameObject GetPooledItem(ItemID itemID)
+    {
+        return GetPooledItem(pooledItems[(uint)itemID]);
+    }
+
     public static void ReturnItem(Stack<GameObject> returningStack, GameObject uselessItem)
     {
         returningStack.Push(uselessItem);
         uselessItem.SetActive(false);
         uselessItem.transform.position = Vector2.zero;
+    }
+
+    public static void ReturnItem(ItemID itemID, GameObject uselessItem)
+    {
+        ReturnItem(PooledItems[(uint)itemID], uselessItem);
     }
 }

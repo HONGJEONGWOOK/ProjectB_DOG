@@ -48,7 +48,7 @@ public class FieldMonsterSpawner : MonoBehaviour
                 type = MonsterID.TREANT;
                 break;
         }
-        spawnedMonster = MonsterManager.GetPooledMonster(MonsterManager.PooledMonster[randMonster]);
+        spawnedMonster = MonsterManager.GetPooledMonster((MonsterID)randMonster);
         spawnedMonster.transform.position = spawnPoint.transform.position;
         spawnPoint.monster = spawnedMonster;
 
