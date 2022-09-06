@@ -27,6 +27,8 @@ public class MakeRandomMap : MonoBehaviour
     private HashSet<Vector2Int> floor;
     private HashSet<Vector2Int> wall;
 
+    public GameObject startPoint;
+
     // ################################################## Property ############################################
     public DivideSpace Divide => divideSpace;
 
@@ -63,7 +65,7 @@ public class MakeRandomMap : MonoBehaviour
         spreadTilemap.SpreadFloorTilemap(floor);
         spreadTilemap.SpreadWallTilemap(wall);
 
-        player.transform.position = (Vector2)divideSpace.spaceList[0].Center();
+        startPoint.transform.position = (Vector2)divideSpace.spaceList[0].Center();
         bossRoomChange.transform.position = (Vector2)divideSpace.spaceList[divideSpace.spaceList.Count - 1].Center();
 
     }
