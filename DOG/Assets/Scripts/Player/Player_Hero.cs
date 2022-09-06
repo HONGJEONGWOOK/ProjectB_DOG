@@ -108,7 +108,10 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
 
     private void Awake()
     {
+
+       
         DontDestroyOnLoad(this.gameObject);
+
 
         actions = new();
         anim = GetComponent<Animator>();
