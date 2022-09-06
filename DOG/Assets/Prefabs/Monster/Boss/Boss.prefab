@@ -585,7 +585,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Boss Name
+  m_text: "\uC5B4\uB9AC\uC11D\uAD6C\uB098, \uB9C8\uC744\uC744 \uB5A0\uB098\uB77C\uACE0
+    \uD560 \uB54C \uB5A0\uB0AC\uC73C\uBA74 \uC8FD\uC744 \uC77C\uB3C4 \uC5C6\uC5C8\uC744
+    \uAC83\uC744 \uD750\uD750, \uBE44\uBC00\uC744 \uBAA8\uB450 \uC54C\uC558\uC73C\uB2C8
+    \uC8FD\uC74C \uBFD0\uC774\uB2E4...."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2cbabb018901d3c4dac224bc80fd66ae, type: 2}
   m_sharedMaterial: {fileID: -7873764655710497161, guid: 2cbabb018901d3c4dac224bc80fd66ae, type: 2}

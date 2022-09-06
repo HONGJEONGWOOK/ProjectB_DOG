@@ -74,6 +74,7 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
     float shootOffset = 1.0f;
     float shootPosRotation = 0f;
 
+
     // Inventory ---------------------------------------------
     ItemInventory_UI invenUI;
     // Minimap -----------------------------------------------
@@ -123,10 +124,13 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
 
         footstepCoroutine = PlayFootStepSound();
         footstepWaitSeconds = new WaitForSeconds(0.3f);
+
+
     }
 
     private void Start()
     {
+
         Inventory inven = new Inventory();
         invenUI.InitializeInven(inven);
 
@@ -308,7 +312,6 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
     {
         Debug.Log("메뉴");
         MenuOnOff();
-
     }
 
     void SearchNpc()
@@ -478,6 +481,8 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
     private void Die()
     {
         Debug.Log("죽음");
+        QuestManager.Instance.questId = 10;
+        QuestManager.Instance.questActionIndex = 0;
         actions.Player.Disable();
 
         if (gameOver != null)
