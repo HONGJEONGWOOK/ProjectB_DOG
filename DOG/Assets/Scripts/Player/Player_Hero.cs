@@ -310,7 +310,7 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
 
     private void OnEscape(InputAction.CallbackContext obj)
     {
-        Debug.Log("메뉴");
+        //Debug.Log("메뉴");
         MenuOnOff();
     }
 
@@ -393,7 +393,7 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
 
     public void ShootArrow()
     {
-        GameObject obj = EnemyBulletManager.Inst.GetPooledObject(EnemyBulletManager.PooledObjects[(int)ProjectileID.Arrows]);
+        GameObject obj = EnemyBulletManager.Inst.GetPooledObject(ProjectileID.Arrows);
         obj.transform.position = shootPosition.position;
         obj.transform.right = shootPosition.right;
         obj.SetActive(true);
@@ -459,7 +459,7 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
 
             invenUI.Inven.AddItem(item.data);
 
-            ItemManager.ReturnItem(ItemManager.Inst.PooledItems[item.data.id], col.gameObject);
+            ItemManager.ReturnItem((ItemID)item.data.id, col.gameObject);
         }
     }
 

@@ -113,12 +113,22 @@ public class MonsterManager : MonoBehaviour
         return null;
     }
 
+    public static GameObject GetPooledMonster(MonsterID monsterID)
+    {
+        return GetPooledMonster(pooledMonster[(int)monsterID]);
+    }
+
     public static void ReturnPooledMonster(Queue<GameObject> returningQueue, GameObject uselessMonster)
     {
         returningQueue.Enqueue(uselessMonster);
         uselessMonster.SetActive(false);
         uselessMonster.transform.position = Vector2.zero;
         uselessMonster.transform.localScale = new Vector2(1f, 1f);
+    }
+    
+    public static void ReturnPooledMonster(MonsterID monsterID, GameObject uselessMonster)
+    {
+        ReturnPooledMonster(pooledMonster[(int)monsterID], uselessMonster);
     }
 
     public static void ReturnAllMonsters()
@@ -128,11 +138,11 @@ public class MonsterManager : MonoBehaviour
 
         for (int i = 0; i < gob.Length; i++)
         {
-            ReturnPooledMonster(pooledMonster[(int)MonsterID.GOBLIN], gob[i].transform.parent.gameObject);
+            ReturnPooledMonster(MonsterID.GOBLIN, gob[i].transform.parent.gameObject);
         }
         for (int i = 0; i < trea.Length; i++)
         {
-            ReturnPooledMonster(pooledMonster[(int)MonsterID.TREANT], trea[i].transform.parent.gameObject);
+            ReturnPooledMonster(MonsterID.TREANT, trea[i].transform.parent.gameObject);
         }
     }
 }

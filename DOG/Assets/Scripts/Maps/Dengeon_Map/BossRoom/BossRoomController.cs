@@ -42,7 +42,7 @@ public class BossRoomController : MonoBehaviour
 
     private void Start()
     {
-        GameObject obj =  MonsterManager.GetPooledMonster(MonsterManager.PooledMonster[MonsterManager.Inst.BossID]);
+        GameObject obj =  MonsterManager.GetPooledMonster(MonsterID.BOSS);
         obj.transform.position = bossPosition.position;
         obj.SetActive(true);
 

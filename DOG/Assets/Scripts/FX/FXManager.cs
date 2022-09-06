@@ -15,13 +15,9 @@ public class FXManager : MonoBehaviour
     public ObjectPoolingData[] fxData;
         // [0] : Big Explosion
 
-    private Animator[] anims;
-
     // --------------------- Big Explosion -------------------------
     Queue<GameObject> bigExplosion;
     private Transform bigExplosionParent;
-    private int explosionID;
-    public int ExplosionID => explosionID;
 
     private void Awake()
     {
@@ -47,13 +43,12 @@ public class FXManager : MonoBehaviour
         pooledFX.Add(fxData[0].objectID, bigExplosion);
 
         bigExplosionParent = transform.GetChild(0);
-        explosionID = fxData[0].objectID;
-
+        
         // ---------------- Big Explosion --------------------------------
         for (int i = 0; i < fxData[0].poolSize; i++)
         {
             GameObject obj = Instantiate(fxData[0].prefab, bigExplosionParent);
-            pooledFX[explosionID].Enqueue(obj);
+            pooledFX[0].Enqueue(obj);
             obj.SetActive(false);
         }
     }
@@ -74,10 +69,20 @@ public class FXManager : MonoBehaviour
         return null;
     }
 
+    public GameObject GetPooledFX(FxID fxID)
+    {
+        return GetPooledFX(pooledFX[(byte)fxID]);
+    }
+
     public void ReturnFX(Queue<GameObject> returningQueue, GameObject uselessFX)
     {
         returningQueue.Enqueue(uselessFX);
         uselessFX.SetActive(false);
         uselessFX.transform.position = Vector2.zero;
+    }
+
+    public void ReturnFX(FxID fxID, GameObject uselessFX)
+    {
+        ReturnFX(pooledFX[(byte)fxID], uselessFX);
     }
 }

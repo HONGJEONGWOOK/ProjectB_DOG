@@ -212,7 +212,7 @@ public class Treant : MonoBehaviour, IHealth, IBattle
     void ShootArrow()
     {
         GameObject arrow =
-            EnemyBulletManager.Inst.GetPooledObject(EnemyBulletManager.PooledObjects[(int)ProjectileID.Arrows]);
+            EnemyBulletManager.Inst.GetPooledObject(ProjectileID.Arrows);
         arrow.transform.position = shootPosition.position;
         arrow.transform.rotation = weapon.transform.rotation;
         if (transform.localScale.x < 1f)
@@ -305,11 +305,10 @@ public class Treant : MonoBehaviour, IHealth, IBattle
     private IEnumerator DisableMonster()
     {
         yield return new WaitForSeconds(anim.GetCurrentAnimatorClipInfo(0).Length + 2.0f);
-        GameObject obj = ItemManager.GetPooledItem(ItemManager.Inst.PooledItems[(int)ItemID.Arrows]);
+        GameObject obj = ItemManager.GetPooledItem(ItemID.Arrows);
         obj.transform.position = transform.position;
         obj.SetActive(true);
-        MonsterManager.ReturnPooledMonster(
-            MonsterManager.PooledMonster[(int)MonsterID.TREANT], this.gameObject);
+        MonsterManager.ReturnPooledMonster(MonsterID.TREANT, this.gameObject);
     }
 
     //########################## Monster Status Check ##################################
@@ -386,7 +385,7 @@ public class Treant : MonoBehaviour, IHealth, IBattle
                 knockbackTimer = 0f;
                 knockBackCoolTime = anim.GetCurrentAnimatorClipInfo(0).Length;
                 knockBackDir =  transform.position - GameManager.Inst.MainPlayer.transform.position;
-                knockBackDir.Normalize();
+                knockBackDir = knockBackDir.normalized;
 
                 rigid.bodyType = RigidbodyType2D.Dynamic;
                 rigid.AddForce(knockBackDir * knockbackForce, ForceMode2D.Impulse);

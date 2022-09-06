@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6022732403860598593}
   - component: {fileID: 4155371243116274839}
   - component: {fileID: 3652265416496801456}
+  - component: {fileID: 8126640284978964655}
   m_Layer: 7
   m_Name: Treant
   m_TagString: Monster
@@ -148,7 +149,6 @@ MonoBehaviour:
   status: 0
   detectRange: 8
   healthPoint: 100
-  strength: 5
   moveSpeed: 3
   attackRange: 6
   attackCoolTime: 3
@@ -274,6 +274,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8126640284978964655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935523781236129370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000f33bb2d28b482506c36203605dec2a8f
+  m_ShapePath:
+  - {x: -0.39703876, y: -0.7652693, z: 0}
+  - {x: -0.5860194, y: 0.5884811, z: 0}
+  - {x: 0.51286566, y: 0.52751964, z: 0}
+  - {x: 0.34217352, y: -0.78965396, z: 0}
+  m_ShapePathHash: 988180209
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -290004
 --- !u!1 &2172451679000632993
 GameObject:
   m_ObjectHideFlags: 0

@@ -47,7 +47,6 @@ public class ArrowV2 : MonoBehaviour
 
             target.TakeDamage(damage);
         }
-        EnemyBulletManager.Inst.ReturnPooledEnemy(EnemyBulletManager.PooledObjects[(int)ProjectileID.Arrows],
-                                                  this.gameObject);
+        EnemyBulletManager.Inst.ReturnPooledObject(ProjectileID.Arrows, this.gameObject);
     }
 }
