@@ -1,9 +1,9 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player_Hero : MonoBehaviour, IHealth, IBattle
 {
@@ -86,8 +86,6 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
     WaitForSeconds footstepWaitSeconds;
     int footstepCounter = 0;
 
-    static Player_Hero instance;
-
     private void OnCollisionEnter2D(Collision2D col)    // 돌 움직이게하는
     {
         if (col.gameObject.CompareTag("Rock"))
@@ -110,20 +108,7 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
 
     private void Awake()
     {
-
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(this.gameObject);     // 씬이 변경되더라도 게임 오브젝트가 사라지기 않게 해주는 함수
-        }
-        else
-        {
-            // 씬의 Gamemanager가 여러번 생성됐다.
-            if (instance != this)
-            {
-                Destroy(gameObject);
-            }
-        }
+        DontDestroyOnLoad(this.gameObject);
 
         actions = new();
         anim = GetComponent<Animator>();
@@ -141,13 +126,10 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
 
         footstepCoroutine = PlayFootStepSound();
         footstepWaitSeconds = new WaitForSeconds(0.3f);
-
-
     }
 
     private void Start()
     {
-
         Inventory inven = new Inventory();
         invenUI.InitializeInven(inven);
 

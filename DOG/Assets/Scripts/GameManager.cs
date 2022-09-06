@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Inst { get => instance;}
     static GameManager instance;
 
-    
+    public System.Action OnFieldLoad;
 
     public void Awake()
     {
@@ -85,6 +85,7 @@ public class GameManager : MonoBehaviour
         // --------------- NPC
         talkPanel = transform.GetChild(0).GetChild(1).gameObject;
         talkText = talkPanel.GetComponentInChildren<Text>();
+        player = FindObjectOfType<Player_Hero>();
 
         SceneManager.sceneLoaded += OnStageStart;   // 씬의 로딩이 끝났을 때 실행될 델리게이트에 OnStageStart 등록
     }
@@ -92,7 +93,17 @@ public class GameManager : MonoBehaviour
     private void OnStageStart(Scene arg0, LoadSceneMode arg1)
     {
         // --------------- 플레이어
-        player = FindObjectOfType<Player_Hero>();
+        //player = FindObjectOfType<Player_Hero>();
+        if (arg0.buildIndex == 0)
+        {
+            Player_Hero playerTemp = FindObjectOfType<Player_Hero>(false);
+            if (playerTemp != player)
+            {
+                Destroy(playerTemp);
+            }
+        }
+        MainPlayer.gameObject.SetActive(true);
+
 
         //---------------- Inventory
         inventoryUI = FindObjectOfType<ItemInventory_UI>();

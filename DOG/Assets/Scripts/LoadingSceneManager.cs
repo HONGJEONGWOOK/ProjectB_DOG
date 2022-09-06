@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,14 +12,19 @@ public class LoadingSceneManager : MonoBehaviour
 
     [SerializeField] float loadSpeed = 3.0f;
 
-    MonsterManager monManager;
-
     private void Awake()
     {
-        monManager = FindObjectOfType<MonsterManager>();
+        SceneManager.sceneLoaded += OnSceneLoad;
     }
 
-    // Start is called before the first frame update
+    private void OnSceneLoad(Scene arg0, LoadSceneMode arg1)
+    {
+        if (arg0.buildIndex == 4)
+        {
+            GameManager.Inst.MainPlayer.gameObject.SetActive(false);
+        }
+    }
+
     void Start()
     {// 로딩씬 재생
         StartCoroutine(LoadScene());
@@ -31,6 +37,7 @@ public class LoadingSceneManager : MonoBehaviour
     public static void LoadScene(int nextSceneIndex)
     {
         MonsterManager.ReturnAllMonsters();
+        GameManager.Inst.MainPlayer.gameObject.SetActive(false);
 
         nextScene = nextSceneIndex;
         SceneManager.LoadScene("LoadingScene");

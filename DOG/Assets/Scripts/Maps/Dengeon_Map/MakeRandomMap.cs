@@ -19,8 +19,6 @@ public class MakeRandomMap : MonoBehaviour
     [SerializeField]
     private int minRoomHeight;
     [SerializeField]
-    private GameObject player;
-    [SerializeField]
     private GameObject bossRoomChange;
 
 

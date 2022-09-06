@@ -10,6 +10,7 @@ public class Minimap : MonoBehaviour
     {
         player = GameManager.Inst.MainPlayer;
     }
+
     private void LateUpdate()
     {
         Vector3 playerPos = player.transform.position;

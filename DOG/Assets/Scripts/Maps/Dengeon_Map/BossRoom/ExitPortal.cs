@@ -37,7 +37,7 @@ public class ExitPortal : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            LoadingSceneManager.LoadScene(6);  // Field Map으로 이동.
+            LoadingSceneManager.LoadScene(0);  // Field Map으로 이동.
         }
     }
 }
