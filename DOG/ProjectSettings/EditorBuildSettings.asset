@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Test_Field_Map.unity
+    path: Assets/Scenes/Start_Field_Map.unity
     guid: 9d98efab7f770f0408093635e33ad2b7
   - enabled: 1
     path: Assets/Scenes/Test_Dungeon_Map.unity
@@ -23,5 +23,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PuzzleScene.unity
     guid: 3439470e34a5c1c48ab08118ac8afcfc
+  - enabled: 1
+    path: Assets/Scenes/Test_Field_Map 1.unity
+    guid: 40e4966c7e385234a844751dc31dbf19
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 0949d4ea9a5d2c74a9953b1c2795e4bd, type: 2}
