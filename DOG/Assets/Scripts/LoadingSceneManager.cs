@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,11 +13,17 @@ public class LoadingSceneManager : MonoBehaviour
 
     [SerializeField] float loadSpeed = 3.0f;
 
-    MonsterManager monManager;
-
     private void Awake()
     {
-        monManager = FindObjectOfType<MonsterManager>();
+        SceneManager.sceneLoaded += ActivatePlayer;
+    }
+
+    private void ActivatePlayer(Scene arg0, LoadSceneMode arg1)
+    {
+        if(arg0.buildIndex == 4)
+        {
+            GameManager.Inst.MainPlayer.gameObject.SetActive(false);
+        }
     }
 
     // Start is called before the first frame update
@@ -55,6 +63,7 @@ public class LoadingSceneManager : MonoBehaviour
                 LoadingBar.value = Mathf.Lerp(LoadingBar.value, 1f, loadSpeed * Time.deltaTime);
                 if (LoadingBar.value > 0.95f)
                 {
+                    GameManager.Inst.MainPlayer.gameObject.SetActive(true);
                     AsyncOp.allowSceneActivation = true;
                     yield break;
                 }
