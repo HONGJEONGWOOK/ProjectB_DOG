@@ -459,7 +459,7 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
 
             invenUI.Inven.AddItem(item.data);
 
-            ItemManager.ReturnItem((ItemID)item.data.id, col.gameObject);
+            ItemManager.Inst.ReturnItem((ItemID)item.data.id, col.gameObject);
         }
     }
 

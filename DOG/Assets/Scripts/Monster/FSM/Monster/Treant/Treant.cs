@@ -305,7 +305,7 @@ public class Treant : MonoBehaviour, IHealth, IBattle
     private IEnumerator DisableMonster()
     {
         yield return new WaitForSeconds(anim.GetCurrentAnimatorClipInfo(0).Length + 2.0f);
-        GameObject obj = ItemManager.GetPooledItem(ItemID.Arrows);
+        GameObject obj = ItemManager.Inst.GetPooledItem(ItemID.Arrows);
         obj.transform.position = transform.position;
         obj.SetActive(true);
         MonsterManager.ReturnPooledMonster(MonsterID.TREANT, this.gameObject);

@@ -274,7 +274,7 @@ MonoBehaviour:
   maxHealthPoint: 1000
   strength: 5
   moveSpeed: 3
-  attackRange: 1.5
+  attackRange: 2.5
   attackCoolTime: 7
   attackPower: 5
   defence: 1
@@ -555,7 +555,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 800, y: 800}
+  m_SizeDelta: {x: 1200, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3719018062565069385
 CanvasRenderer:
@@ -615,8 +615,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 70
-  m_fontSizeBase: 70
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -669,7 +669,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40a1dc843b0fd4e42afe6e91d1c8326b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: "\uBCF4\uC2A4 \uB4F1\uC7A5 \uD14D\uC2A4\uD2B8\uB97C \uC785\uB825\uD558\uC138\uC694"
+  text: "\uC5B4\uB9AC\uC11D\uAD6C\uB098, \uB9C8\uC744\uC744 \uB5A0\uB098\uB77C\uACE0
+    \uD560 \uB54C \uB5A0\uB0AC\uC73C\uBA74 \uC8FD\uC744 \uC77C\uB3C4 \uC5C6\uC5C8\uC744
+    \uAC83\uC744 \uD750\uD750, \uBE44\uBC00\uC744 \uBAA8\uB450 \uC54C\uC558\uC73C\uB2C8
+    \uC8FD\uC74C \uBFD0\uC774\uB2E4...."
   typingInterval: 0.2
 --- !u!1001 &1619956241
 PrefabInstance:
