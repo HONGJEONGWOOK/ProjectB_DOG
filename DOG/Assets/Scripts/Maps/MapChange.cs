@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,10 +9,18 @@ public class MapChange : MonoBehaviour
     public int sceneID = 2;
     CanvasFadeInOut fadeInOut;
 
-    private void Start()
+    private void Awake()
     {
-        fadeInOut = FindObjectOfType<CanvasFadeInOut>();
+        SceneManager.sceneLoaded += OnSceneLoad;
         //fadeInOut.OnFadeOutEnd += SceneLoad;
+    }
+
+    private void OnSceneLoad(Scene arg0, LoadSceneMode arg1)
+    {
+        if (fadeInOut == null)
+        {
+            fadeInOut = FindObjectOfType<CanvasFadeInOut>();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -163,7 +163,7 @@ public class ItemInventory_UI : MonoBehaviour, IPointerClickHandler, IDragHandle
                         for (int i = 0; i < movingSlotUI.Slot.Count; i++)
                         {
                             uint droppingItemID = movingSlotUI.Slot.SlotData.id;
-                            GameObject obj = ItemManager.GetPooledItem((ItemID)droppingItemID);
+                            GameObject obj = ItemManager.Inst.GetPooledItem((ItemID)droppingItemID);
                             obj.transform.position = eventData.pointerCurrentRaycast.worldPosition + (Vector3)UnityEngine.Random.insideUnitCircle;
                             obj.SetActive(true);
                         }
