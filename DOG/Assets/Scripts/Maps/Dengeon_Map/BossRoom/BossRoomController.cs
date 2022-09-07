@@ -14,12 +14,13 @@ public class BossRoomController : MonoBehaviour
     // 5. 필드로 이동.
 
     public Camera playerCam;
+    public Camera movingCam;
     BossTextController textController;
     Player_Hero player;
 
     [SerializeField] private Transform bossPosition;
     [SerializeField] private Transform playerPosition;
-    private float playerCamZ;
+    private float movingCamZ;
 
     [Range(0.001f, 0.1f)]
     [SerializeField] private float cameraSpeed = 0.02f;
@@ -31,7 +32,9 @@ public class BossRoomController : MonoBehaviour
     private void Awake()
     {
         player = GameManager.Inst.MainPlayer;
-        playerCamZ = playerCam.transform.position.z;
+
+        movingCam.transform.position = player.transform.position + new Vector3(0,0,-10f);
+        movingCamZ = movingCam.transform.position.z;
     }
 
     private void OnEnable()
@@ -47,6 +50,7 @@ public class BossRoomController : MonoBehaviour
 
         player.transform.position = playerPosition.position;
         player.Actions.Disable();
+        playerCam.enabled = false;
     }
 
     private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
@@ -57,10 +61,10 @@ public class BossRoomController : MonoBehaviour
     IEnumerator FirstCamMove()
     {
         yield return new WaitForSeconds(2.0f);
-        while ((playerCam.transform.position - bossPosition.position).sqrMagnitude > playerCamZ * playerCamZ + 0.1f)
+        while ((movingCam.transform.position - bossPosition.position).sqrMagnitude > movingCamZ * movingCamZ + 0.1f)
         {
-            playerCam.transform.position = new Vector3(0,
-                Mathf.Lerp(playerCam.transform.position.y, bossPosition.position.y, cameraSpeed), playerCamZ) ;
+            movingCam.transform.position = new Vector3(0,
+                Mathf.Lerp(movingCam.transform.position.y, bossPosition.position.y, cameraSpeed), movingCamZ) ;
 
             yield return null;
         }
@@ -74,14 +78,16 @@ public class BossRoomController : MonoBehaviour
 
     IEnumerator CamBacktoPlayer()
     {
-        while ((playerCam.transform.position - playerPosition.position).sqrMagnitude > playerCamZ * playerCamZ + 0.1f)
+        while ((movingCam.transform.position - playerPosition.position).sqrMagnitude > movingCamZ * movingCamZ + 0.1f)
         {
-            playerCam.transform.position = new Vector3(0,
-                Mathf.Lerp(playerCam.transform.position.y, playerPosition.position.y, cameraSpeed), playerCamZ);
+            movingCam.transform.position = new Vector3(0,
+                Mathf.Lerp(playerCam.transform.position.y, playerPosition.position.y, cameraSpeed), movingCamZ);
             yield return null;
         }
         // player + boss 움직임 활성화
         onReadyToFight?.Invoke();
         player.Actions.Enable();
+        movingCam.enabled = false;
+        playerCam.enabled = true;
     }
 }
