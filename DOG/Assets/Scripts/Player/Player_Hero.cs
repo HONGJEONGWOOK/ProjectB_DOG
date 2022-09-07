@@ -139,6 +139,10 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
 
         footstepCoroutine = PlayFootStepSound();
         footstepWaitSeconds = new WaitForSeconds(0.3f);
+
+        //puzzle
+        pz = FindObjectOfType<Puzzle>();
+        mpz = FindObjectOfType<MiniPuzzle>();
     }
 
     private void Start()
