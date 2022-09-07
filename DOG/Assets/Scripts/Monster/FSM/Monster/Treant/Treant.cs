@@ -279,7 +279,7 @@ public class Treant : MonoBehaviour, IHealth, IBattle
         anim.SetFloat("Direction_X", trackDirection.x);
         anim.SetFloat("Direction_Y", trackDirection.y);
 
-        weaponSprite.flipY = trackDirection.x < 0 ? true : false;
+        weaponSprite.flipY = trackDirection.x < 0;
     }
 
     private void KnockBack()
@@ -288,7 +288,7 @@ public class Treant : MonoBehaviour, IHealth, IBattle
         //rigid.position = Vector3.Lerp(rigid.position, knockBackDir, knockbackForce * Time.deltaTime);
         if (knockbackTimer > knockBackCoolTime)
         {
-            ChangeStatus(MonsterCurrentState.ATTACK);
+            ChangeStatus(MonsterCurrentState.IDLE);
         }
     }
 

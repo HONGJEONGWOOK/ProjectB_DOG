@@ -33,12 +33,9 @@ public class BossRoomController : MonoBehaviour
     {
         player = GameManager.Inst.MainPlayer;
 
-        movingCam.transform.position = player.transform.position + new Vector3(0,0,-10f);
+        movingCam.transform.position = playerPosition.position + new Vector3(0,0,-10f);
         movingCamZ = movingCam.transform.position.z;
-    }
 
-    private void OnEnable()
-    {
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
@@ -55,7 +52,8 @@ public class BossRoomController : MonoBehaviour
 
     private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
     {
-        StartCoroutine(FirstCamMove());
+        if(arg0.buildIndex == 2)
+            StartCoroutine(FirstCamMove());
     }
 
     IEnumerator FirstCamMove()
@@ -81,7 +79,7 @@ public class BossRoomController : MonoBehaviour
         while ((movingCam.transform.position - playerPosition.position).sqrMagnitude > movingCamZ * movingCamZ + 0.1f)
         {
             movingCam.transform.position = new Vector3(0,
-                Mathf.Lerp(playerCam.transform.position.y, playerPosition.position.y, cameraSpeed), movingCamZ);
+                Mathf.Lerp(movingCam.transform.position.y, playerPosition.position.y, cameraSpeed), movingCamZ);
             yield return null;
         }
         // player + boss 움직임 활성화

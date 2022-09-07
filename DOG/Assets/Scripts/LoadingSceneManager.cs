@@ -19,10 +19,10 @@ public class LoadingSceneManager : MonoBehaviour
 
     private void OnSceneLoad(Scene arg0, LoadSceneMode arg1)
     {
-        if (arg0.buildIndex == 4)
-        {
-            GameManager.Inst.MainPlayer.gameObject.SetActive(false);
-        }
+        //if (arg0.buildIndex == 4)
+        //{
+        //    GameManager.Inst.MainPlayer.gameObject.SetActive(false);
+        //}
     }
 
     void Start()

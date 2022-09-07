@@ -673,7 +673,7 @@ MonoBehaviour:
     \uD560 \uB54C \uB5A0\uB0AC\uC73C\uBA74 \uC8FD\uC744 \uC77C\uB3C4 \uC5C6\uC5C8\uC744
     \uAC83\uC744 \uD750\uD750, \uBE44\uBC00\uC744 \uBAA8\uB450 \uC54C\uC558\uC73C\uB2C8
     \uC8FD\uC74C \uBFD0\uC774\uB2E4...."
-  typingInterval: 0.1
+  typingInterval: 0.05
 --- !u!1001 &1619956241
 PrefabInstance:
   m_ObjectHideFlags: 0

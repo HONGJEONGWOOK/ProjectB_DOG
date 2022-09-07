@@ -20,7 +20,11 @@ public class ArrowV2 : MonoBehaviour
     void Start()
     {
         playerAttackPower = GameManager.Inst.MainPlayer.AttackPower;
-        treantAttackPower = FindObjectOfType<Treant>().AttackPower;
+        Treant treaTemp = FindObjectOfType<Treant>();
+        if (treaTemp != null)
+        {
+            treantAttackPower = treaTemp.AttackPower;
+        }
 
         rigid.velocity = shootSpeed * transform.right;
     }
