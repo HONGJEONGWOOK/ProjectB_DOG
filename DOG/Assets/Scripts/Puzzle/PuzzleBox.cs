@@ -8,9 +8,9 @@ public class PuzzleBox : MonoBehaviour
     public float reach;
     bool clear;
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
-
+        player = GameManager.Inst.MainPlayer.gameObject;
     }
 
     // Update is called once per frame
