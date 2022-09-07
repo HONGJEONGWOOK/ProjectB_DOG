@@ -5,22 +5,22 @@ using UnityEngine.SceneManagement;
 public class Canvas : MonoBehaviour
 {
     private static Canvas instance;
-    public static Canvas Instance { get { return instance; } }
 
     CanvasGroup group;
+
+    public System.Action OnFadeLoad;
 
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
-            SceneManager.sceneLoaded += OnSceneLoad;
             group = GetComponent<CanvasGroup>();
-            DontDestroyOnLoad(this.gameObject);     // 씬이 변경되더라도 게임 오브젝트가 사라지기 않게 해주는 함수
+            SceneManager.sceneLoaded += OnSceneLoad;
+            DontDestroyOnLoad(this.gameObject);
         }
         else
         {
-            // 씬의 Gamemanager가 여러번 생성됐다.
             if (instance != this)
             {
                 Destroy(this.gameObject);
@@ -38,5 +38,6 @@ public class Canvas : MonoBehaviour
         {
             group.alpha = 1f;
         }
+        OnFadeLoad?.Invoke();
     }
 }

@@ -6,13 +6,21 @@ using UnityEngine.SceneManagement;
 
 public class CanvasFadeInOut : MonoBehaviour
 {
+    Canvas canvas;
+
     Animator anim = null;
     public System.Action OnFadeOutEnd;
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        canvas = transform.parent.GetComponent<Canvas>();
+        canvas.OnFadeLoad += OnSceneLoad;
+        //SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    void OnSceneLoad()
+    {
+        StartFadeIn();
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)

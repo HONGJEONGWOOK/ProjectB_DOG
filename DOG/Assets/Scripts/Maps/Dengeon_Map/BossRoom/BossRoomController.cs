@@ -13,7 +13,7 @@ public class BossRoomController : MonoBehaviour
     // 4. 보스 사망 시 포탈 열기
     // 5. 필드로 이동.
 
-    Camera playerCam;
+    public Camera playerCam;
     BossTextController textController;
     Player_Hero player;
 
@@ -31,7 +31,6 @@ public class BossRoomController : MonoBehaviour
     private void Awake()
     {
         player = GameManager.Inst.MainPlayer;
-        playerCam = player.transform.Find("Main Camera").GetComponent<Camera>();
         playerCamZ = playerCam.transform.position.z;
     }
 
