@@ -32,7 +32,6 @@ public class ItemInventory_UI : MonoBehaviour, IPointerClickHandler, IDragHandle
 
     Vector2 dragOffset;
 
-
     public bool IsOpen
     {
         get
@@ -120,6 +119,7 @@ public class ItemInventory_UI : MonoBehaviour, IPointerClickHandler, IDragHandle
 
                         inven.MoveItem(clickedSlot.SlotID, Inventory.MOVINGSLOT_ID);
                         clickedSlot.Slot.SlotData = null;
+                        clickedSlot.Slot.Count = 0;
                         movingSlotUI.ShowMovingSlotUI(true);
                     }
                     else
@@ -164,7 +164,8 @@ public class ItemInventory_UI : MonoBehaviour, IPointerClickHandler, IDragHandle
                         {
                             uint droppingItemID = movingSlotUI.Slot.SlotData.id;
                             GameObject obj = ItemManager.Inst.GetPooledItem((ItemID)droppingItemID);
-                            obj.transform.position = eventData.pointerCurrentRaycast.worldPosition + (Vector3)UnityEngine.Random.insideUnitCircle;
+                            Vector3 pos = GameManager.Inst.MainCam.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+                            obj.transform.position = (Vector2)pos + UnityEngine.Random.insideUnitCircle;
                             obj.SetActive(true);
                         }
                         movingSlotUI.Slot.SlotData = null;

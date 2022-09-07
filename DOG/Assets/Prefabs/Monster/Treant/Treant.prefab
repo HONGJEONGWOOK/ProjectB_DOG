@@ -154,7 +154,7 @@ MonoBehaviour:
   attackCoolTime: 3
   attackPower: 5
   defence: 1
-  knockbackForce: 1
+  knockbackForce: 0.5
   patrolRange: 4
   waitTime: 4
   waypoint:

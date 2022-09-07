@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public MenuSet menu;
     public bool menuSet = false;
     ItemInventory_UI inventoryUI;
+    Camera mainCam;
+    public Camera MainCam => mainCam;
 
     //퀘스트매니저
     QuestManager questManager;
@@ -97,6 +99,7 @@ public class GameManager : MonoBehaviour
             MainPlayer.gameObject.SetActive(true);
         }
 
+        mainCam = GameObject.Find("Main Camera").GetComponent<Camera>() ;
 
         //---------------- Inventory
         inventoryUI = FindObjectOfType<ItemInventory_UI>();
@@ -106,6 +109,7 @@ public class GameManager : MonoBehaviour
         weaponOfPlayer = FindObjectOfType<WeaponOfPlayer>();
         itemData = GetComponent<ItemDataManager>();
         questManager = GetComponent<QuestManager>();
+
 
         if (oldSceneIndex != arg0.buildIndex)
         {
