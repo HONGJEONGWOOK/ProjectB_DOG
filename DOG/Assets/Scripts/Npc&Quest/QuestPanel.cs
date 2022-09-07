@@ -13,22 +13,10 @@ public class QuestPanel : MonoBehaviour
     int id;
     int index;
 
-    public int killCount = 0;
-    public static System.Action CheckKillCount;
-
-    public int bosskillCount = 0;
-    public static System.Action BossKillCount;
-
     private void Awake()
     {
         qeustName = transform.Find("QuestName").GetComponent<TextMeshProUGUI>();
         qeustDetail = transform.Find("QuestDetail").GetComponent<TextMeshProUGUI>();
-
-        //고블린 킬수 체크용 델리게이트
-        CheckKillCount = () => { checkkillcount(); };
-
-        //보스 킬 체크용 델리게이트
-        BossKillCount = () => { BossskillCount(); };
     }
 
     private void Update()
@@ -66,13 +54,11 @@ public class QuestPanel : MonoBehaviour
         if (id == 30 && index == 0)
         {
             qeustName.text = "마을 밖 순찰 및 고블린 처치!";
-            qeustDetail.text = $"마을 밖을 순찰하며 고블린을 5마리 처치하자.\n고블린 킬수 : {killCount}";
-            if (killCount == 5)
+            qeustDetail.text = $"마을 밖을 순찰하며 고블린을 5마리 처치하자.\n고블린 킬수 : {QuestManager.Instance.killCount}";
+            if (QuestManager.Instance.killCount == 5)
             {
-                QuestManager.Instance.NextQuest();
                 qeustName.text = "마을 순찰 및 고블린 처치 완료";
                 qeustDetail.text = "고블린 5마리를 처치하며 순찰을 완료했다. 장로에게 돌아가보자";
-                killCount = 0;
             }
         }
         else if (id == 40 && index == 1)
@@ -99,12 +85,10 @@ public class QuestPanel : MonoBehaviour
         {
             qeustName.text = "장로를 제거하라";
             qeustDetail.text = "마을 근처....옛 놀이터였던 땅굴 입구를 찾아 들어가자.";
-            if (bosskillCount == 1)
+            if (QuestManager.Instance.bosskillCount == 1)
             {
-                QuestManager.Instance.NextQuest();
                 qeustName.text = "재앙 제거 완료";
                 qeustDetail.text = "영생을 찾아 몬스터가 되어버린 장로를 제거했다....\n다시 마을로 돌아가자.";
-                bosskillCount = 0;
             }
         }
         else if (id == 80 && index == 1)
@@ -113,15 +97,7 @@ public class QuestPanel : MonoBehaviour
             qeustDetail.text = "평화로운 마을을 다시 재건하자.";
         }
     }
-    void checkkillcount()
-    {
-        killCount++;
-    }
-
-    void BossskillCount()
-    {
-        bosskillCount++;
-    }
+    
 
     private void Start()
     {

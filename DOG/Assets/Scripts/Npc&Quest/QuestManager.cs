@@ -15,6 +15,12 @@ public class QuestManager : MonoBehaviour
     public int questId;
     public int questActionIndex;
 
+    public int killCount = 0;
+    public static System.Action CheckKillCount;
+
+    public int bosskillCount = 0;
+    public static System.Action BossKillCount;
+
     //퀘스트 데이터를 불러올 리스트
     Dictionary<int, QuestData> questList;
 
@@ -61,7 +67,12 @@ public class QuestManager : MonoBehaviour
         //패널 끄고 열고 오디오
         audioSource = GetComponent<AudioSource>();
 
-        
+        //고블린 킬수 체크용 델리게이트
+        CheckKillCount = () => { checkkillcount(); };
+
+        //보스 킬 체크용 델리게이트
+        BossKillCount = () => { BossskillCount(); };
+
     }
 
     //초기화된 questList를 사용하기 위한 함수
@@ -122,6 +133,14 @@ public class QuestManager : MonoBehaviour
 
     void QuestObject()
     {
+        if (questId == 30 && questActionIndex == 0)
+        {
+            if (killCount == 5)
+            {
+                NextQuest();
+                killCount = 0;
+            }
+        }
         if (questId == 40 && questActionIndex == 1)
         {
             GameObject obj = GameObject.Find("VillageElder");
@@ -135,7 +154,26 @@ public class QuestManager : MonoBehaviour
         {
             GameObject objj = GameObject.Find("MiniGameBox");
             Destroy(objj);
-        }
 
+            
+        }
+        else if(questId == 80 && questActionIndex == 0)
+        {
+            if (bosskillCount == 1)
+            {
+                NextQuest();
+                bosskillCount = 0;
+            }
+        }
+    }
+
+    void checkkillcount()
+    {
+        killCount++;
+    }
+
+    void BossskillCount()
+    {
+        bosskillCount++;
     }
 }
