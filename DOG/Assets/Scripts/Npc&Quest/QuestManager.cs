@@ -95,6 +95,8 @@ public class QuestManager : MonoBehaviour
         questList.Add(70, new QuestData("장로 처치", new int[] { 2000 }));
 
         questList.Add(80, new QuestData("다시 찾아온 평화", new int[] { 2000 }));
+
+        questList.Add(90, new QuestData("새로운 시작을 하다", new int[] { 2000 }));
     }
 
     public int GetQuestTalkIndex(int id)
@@ -133,14 +135,6 @@ public class QuestManager : MonoBehaviour
 
     void QuestObject()
     {
-        if (questId == 30 && questActionIndex == 0)
-        {
-            if (killCount == 5)
-            {
-                NextQuest();
-                killCount = 0;
-            }
-        }
         if (questId == 40 && questActionIndex == 1)
         {
             GameObject obj = GameObject.Find("VillageElder");
@@ -154,16 +148,6 @@ public class QuestManager : MonoBehaviour
         {
             GameObject objj = GameObject.Find("MiniGameBox");
             Destroy(objj);
-
-            
-        }
-        else if(questId == 80 && questActionIndex == 0)
-        {
-            if (bosskillCount == 1)
-            {
-                NextQuest();
-                bosskillCount = 0;
-            }
         }
     }
 

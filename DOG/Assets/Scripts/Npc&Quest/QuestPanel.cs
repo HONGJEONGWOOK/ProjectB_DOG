@@ -59,6 +59,8 @@ public class QuestPanel : MonoBehaviour
             {
                 qeustName.text = "마을 순찰 및 고블린 처치 완료";
                 qeustDetail.text = "고블린 5마리를 처치하며 순찰을 완료했다. 장로에게 돌아가보자";
+                QuestManager.Instance.NextQuest();
+                QuestManager.Instance.killCount = 0;
             }
         }
         else if (id == 40 && index == 1)
@@ -87,6 +89,8 @@ public class QuestPanel : MonoBehaviour
             qeustDetail.text = "마을 근처....옛 놀이터였던 땅굴 입구를 찾아 들어가자.";
             if (QuestManager.Instance.bosskillCount == 1)
             {
+                QuestManager.Instance.NextQuest();
+                QuestManager.Instance.bosskillCount = 0;
                 qeustName.text = "재앙 제거 완료";
                 qeustDetail.text = "영생을 찾아 몬스터가 되어버린 장로를 제거했다....\n다시 마을로 돌아가자.";
             }
@@ -96,6 +100,7 @@ public class QuestPanel : MonoBehaviour
             qeustName.text = "다시 찾아온 평화";
             qeustDetail.text = "평화로운 마을을 다시 재건하자.";
         }
+
     }
     
 
