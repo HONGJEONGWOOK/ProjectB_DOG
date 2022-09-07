@@ -37,5 +37,13 @@ public class MapChange : MonoBehaviour
     void SceneLoad()
     {
         LoadingSceneManager.LoadScene(sceneID);
+        if(sceneID == 1)
+        {
+            GameManager.Inst.MainPlayer.transform.localScale *= 0.5f;
+        }
+        else if (sceneID == 2)
+        {
+            GameManager.Inst.MainPlayer.transform.localScale *= 2.0f;
+        }    
     }
 }
