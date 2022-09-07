@@ -92,17 +92,10 @@ public class GameManager : MonoBehaviour
 
     private void OnStageStart(Scene arg0, LoadSceneMode arg1)
     {
-        // --------------- 플레이어
-        //player = FindObjectOfType<Player_Hero>();
-        if (arg0.buildIndex == 0)
+        if (arg0.buildIndex != 4)
         {
-            Player_Hero playerTemp = FindObjectOfType<Player_Hero>(false);
-            if (playerTemp != player)
-            {
-                Destroy(playerTemp);
-            }
+            MainPlayer.gameObject.SetActive(true);
         }
-        MainPlayer.gameObject.SetActive(true);
 
 
         //---------------- Inventory

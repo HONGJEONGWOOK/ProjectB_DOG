@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class Player_Hero : MonoBehaviour, IHealth, IBattle
 {
+    static Player_Hero instance;
+
     //IHealth--------------------------------------------------------------------------------
     public float hp = 100.0f;
     float maxHP = 100.0f;
@@ -108,10 +110,18 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
 
     private void Awake()
     {
-
-       
-        DontDestroyOnLoad(this.gameObject);
-
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this);
+        }
+        else
+        {
+            if (instance != this)
+            {
+                Destroy(this.gameObject);
+            }
+        }
 
         actions = new();
         anim = GetComponent<Animator>();
@@ -165,17 +175,20 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
 
     private void OnDisable()
     {
-        actions.WeaponSlotRotation.RoatateDirection.performed -= OnWeaponChange;
-        actions.WeaponSlotRotation.Disable();
-        actions.UI.ItemUse.performed += OnItemUse;
-        actions.UI.Escape.performed -= OnEscape;
-        actions.UI.Disable();
-        actions.Player.PickUp.performed -= OnPickUp;
-        actions.Player.Talk.performed -= OnTalk;
-        actions.Player.Attack.performed -= OnAttack;
-        actions.Player.Move.canceled -= OnMove;
-        actions.Player.Move.performed -= OnMove;
-        actions.Player.Disable();
+        if (actions != null)
+        {
+            actions.WeaponSlotRotation.RoatateDirection.performed -= OnWeaponChange;
+            actions.WeaponSlotRotation.Disable();
+            actions.UI.ItemUse.performed += OnItemUse;
+            actions.UI.Escape.performed -= OnEscape;
+            actions.UI.Disable();
+            actions.Player.PickUp.performed -= OnPickUp;
+            actions.Player.Talk.performed -= OnTalk;
+            actions.Player.Attack.performed -= OnAttack;
+            actions.Player.Move.canceled -= OnMove;
+            actions.Player.Move.performed -= OnMove;
+            actions.Player.Disable();
+        }
     }
 
     public void Attack(IBattle target)
