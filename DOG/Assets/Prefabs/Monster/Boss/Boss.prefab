@@ -555,7 +555,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1200, y: 800}
+  m_SizeDelta: {x: 1300, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3719018062565069385
 CanvasRenderer:
@@ -681,6 +681,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 174966244}
     m_Modifications:
+    - target: {fileID: 90885140, guid: bb7a954fe8d5a8c41860484a12d2f2d8, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2379976210923981625, guid: bb7a954fe8d5a8c41860484a12d2f2d8, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -768,6 +772,14 @@ PrefabInstance:
     - target: {fileID: 2743042670403119294, guid: bb7a954fe8d5a8c41860484a12d2f2d8, type: 3}
       propertyPath: m_Name
       value: HPBar_Boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631329311214595570, guid: bb7a954fe8d5a8c41860484a12d2f2d8, type: 3}
+      propertyPath: m_text
+      value: Flying Eye
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631329311214595570, guid: bb7a954fe8d5a8c41860484a12d2f2d8, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8473003229585950626, guid: bb7a954fe8d5a8c41860484a12d2f2d8, type: 3}
       propertyPath: m_AnchorMax.x

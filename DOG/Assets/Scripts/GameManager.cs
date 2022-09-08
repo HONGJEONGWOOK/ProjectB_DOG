@@ -1,9 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using TMPro;
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,6 +11,8 @@ public class GameManager : MonoBehaviour
     public MenuSet menu;
     public bool menuSet = false;
     ItemInventory_UI inventoryUI;
+
+    // Camera
     Camera mainCam;
     public Camera MainCam => mainCam;
 
@@ -80,7 +81,6 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-
 
     void Initialize()
     {
