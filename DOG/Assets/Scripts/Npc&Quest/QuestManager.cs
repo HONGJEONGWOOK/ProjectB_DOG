@@ -21,8 +21,13 @@ public class QuestManager : MonoBehaviour
     public int bosskillCount = 0;
     public static System.Action BossKillCount;
 
+    public int checkObject = 0;
+    public static System.Action CObject;
+
     //퀘스트 데이터를 불러올 리스트
     Dictionary<int, QuestData> questList;
+
+    public int questSum = 0;
 
     int talkIndex;
     public int TalkIndex
@@ -51,10 +56,6 @@ public class QuestManager : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        
-    }
     void Initialize()
     {
         //게임 시작할 때 어웨이크로 리스트 불러와줌
@@ -73,6 +74,7 @@ public class QuestManager : MonoBehaviour
         //보스 킬 체크용 델리게이트
         BossKillCount = () => { BossskillCount(); };
 
+        CObject = () => { CheckObject(); };
     }
 
     //초기화된 questList를 사용하기 위한 함수
@@ -159,5 +161,18 @@ public class QuestManager : MonoBehaviour
     void BossskillCount()
     {
         bosskillCount++;
+    }
+
+    private void CheckObject()
+    {
+        if (questId >= 40 && questActionIndex >= 0)
+        {
+            GameObject obj = GameObject.Find("VillageElder");
+            Destroy(obj, 0.5f);
+        }
+        else
+        {
+            Debug.Log("삭제 대상이 없습니다.");
+        }
     }
 }

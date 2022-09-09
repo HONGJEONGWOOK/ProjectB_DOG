@@ -89,6 +89,7 @@ public class GameManager : MonoBehaviour
         talkText = talkPanel.GetComponentInChildren<Text>();
         player = FindObjectOfType<Player_Hero>();
 
+
         SceneManager.sceneLoaded += OnStageStart;   // 씬의 로딩이 끝났을 때 실행될 델리게이트에 OnStageStart 등록
     }
 
@@ -99,7 +100,7 @@ public class GameManager : MonoBehaviour
             MainPlayer.gameObject.SetActive(true);
         }
 
-        mainCam = GameObject.Find("Main Camera").GetComponent<Camera>() ;
+        mainCam = GameObject.Find("Main Camera").GetComponent<Camera>();
 
         //---------------- Inventory
         inventoryUI = FindObjectOfType<ItemInventory_UI>();
@@ -108,7 +109,6 @@ public class GameManager : MonoBehaviour
         weaponUI = FindObjectOfType<WeaponUI>();
         weaponOfPlayer = FindObjectOfType<WeaponOfPlayer>();
         itemData = GetComponent<ItemDataManager>();
-        questManager = GetComponent<QuestManager>();
 
 
         if (oldSceneIndex != arg0.buildIndex)
@@ -116,8 +116,10 @@ public class GameManager : MonoBehaviour
             oldSceneIndex = arg0.buildIndex;
         }
 
+        QuestManager.CObject();
         talkPanel.SetActive(false);
     }
+    
 
     public void GameCountinu()
     {
