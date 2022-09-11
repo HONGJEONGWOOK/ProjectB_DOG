@@ -1,8 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 using UnityEngine.SceneManagement;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 
 public class Boss : Monsters
 {
@@ -196,6 +199,7 @@ public class Boss : Monsters
 
     private bool InLongRange() => (transform.position - target.position).sqrMagnitude < longAttack_Range * longAttack_Range;
 
+#if UNITY_EDITOR
     protected override void OnDrawGizmos()
     {
         base.OnDrawGizmos();
@@ -207,4 +211,5 @@ public class Boss : Monsters
             Handles.color = Color.red;
         }
     }
+#endif
 }

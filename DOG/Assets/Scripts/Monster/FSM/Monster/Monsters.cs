@@ -1,7 +1,10 @@
 using System.Collections;
 using UnityEngine;
-using UnityEditor;
 using System.Linq;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class Monsters : MonoBehaviour, IHealth, IBattle
 {
@@ -53,7 +56,6 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
     [SerializeField] float waitTime = 2.0f;
     int waypointIndex = 0;
     public Transform[] waypoint = null;
-
 
     //################################## PROPERTIES ########################################
     public float HP
@@ -401,6 +403,7 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
         anim.SetInteger("CurrentStatus", (int)newState);
     }
 
+#if UNITY_EDITOR
     // ########################################### GIZMOS ########################################
     protected virtual void OnDrawGizmos()
     {
@@ -413,4 +416,5 @@ public class Monsters : MonoBehaviour, IHealth, IBattle
         Handles.color = Color.white;
         Handles.DrawWireDisc(transform.position, transform.forward, attackRange);
     }
+#endif
 }

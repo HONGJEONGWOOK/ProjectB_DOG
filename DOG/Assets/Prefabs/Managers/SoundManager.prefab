@@ -44,7 +44,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.602
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -273,22 +273,22 @@ MonoBehaviour:
   clips:
   - clipName: BGM_Village
     clip: {fileID: 8300000, guid: 513197e4ea0798a4aa5c273b234bf22b, type: 3}
-    volume: 0.03
+    volume: 0.02
   - clipName: BGM_Field
     clip: {fileID: 8300000, guid: 73e800617cbae8843909627cf37f3b01, type: 3}
-    volume: 0.03
+    volume: 0.02
   - clipName: BGM_House
     clip: {fileID: 8300000, guid: 38f0d46dcf6d14a4ba06281a895c7718, type: 3}
-    volume: 0.03
+    volume: 0.02
   - clipName: BGM_Dungeon
     clip: {fileID: 8300000, guid: 5995433f9955b154d8e01395644cea7b, type: 3}
-    volume: 0.03
+    volume: 0.02
   - clipName: BGM_Boss
     clip: {fileID: 8300000, guid: 77dc4732fe1ac8040827da3ba15e613b, type: 3}
-    volume: 0.03
+    volume: 0.02
   - clipName: BGM_Minigame
     clip: {fileID: 8300000, guid: 947516b9eac5a88438a208e9cf2f0670, type: 3}
-    volume: 0.03
+    volume: 0.02
   - clipName: PlayerFootStep
     clip: {fileID: 8300000, guid: 7d02140a255b8294ea671f79348c8d7f, type: 3}
     volume: 0.3
@@ -357,7 +357,7 @@ MonoBehaviour:
     volume: 0.5
   - clipName: TreantDie
     clip: {fileID: 8300000, guid: 16ff969c5de32a24a9ee7f1f6d2004c1, type: 3}
-    volume: 0.5
+    volume: 0.138
   - clipName: Rock
     clip: {fileID: 8300000, guid: abc2e548b01f99f4ebf3f9451ae46c3a, type: 3}
     volume: 0.5

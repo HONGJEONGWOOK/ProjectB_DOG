@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 
 public class Treant : MonoBehaviour, IHealth, IBattle
 {
@@ -400,6 +402,8 @@ public class Treant : MonoBehaviour, IHealth, IBattle
         anim.SetInteger("CurrentStatus", (int)newState);
     }
 
+
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         Handles.color = Color.green;
@@ -412,4 +416,5 @@ public class Treant : MonoBehaviour, IHealth, IBattle
         Handles.color = Color.white;
         Handles.DrawWireDisc(transform.position, transform.forward, attackRange);
     }
+#endif
 }
