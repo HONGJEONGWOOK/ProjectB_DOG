@@ -27,8 +27,6 @@ public class QuestManager : MonoBehaviour
     //퀘스트 데이터를 불러올 리스트
     Dictionary<int, QuestData> questList;
 
-    public int questSum = 0;
-
     int talkIndex;
     public int TalkIndex
     {

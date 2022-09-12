@@ -385,7 +385,7 @@ public class Player_Hero : MonoBehaviour, IHealth, IBattle
         //questId를
         string talkData = GameManager.Inst.talkManager.GetTalk(id + questTalkIndex, QuestManager.Instance.TalkIndex);
 
-        //말할 때 못 움직이게
+        //Npc가 true면 talkData의 내용 가져와서 GameManager의 TalkText에 넣음
         if (isNpc)
         {
             GameManager.Inst.TalkText.text = talkData;

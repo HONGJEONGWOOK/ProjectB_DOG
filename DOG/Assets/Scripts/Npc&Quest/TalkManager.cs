@@ -36,10 +36,6 @@ public class TalkManager : MonoBehaviour
     private void GenerateData()
     {
         ////일반 대화
-        //talkData.Add(1000, new string[] {"무슨 일 있는가?", "자네라도 얼른 마을을 떠나게....", "난 마을의 장로로서 끝까지 마을을 지키겠네."});
-        //
-        //talkData.Add(2000, new string[] { "당신은 정말 운이 좋았군요.", "언젠가 부터 마을 사람들이 사라지기 시작했어요.", "장로 말을 듣고 마을 밖으로 나간 주민들은 돌아오지 못했어요."});
-        //
         talkData.Add(3000, new string[] { "보기엔 평범한 상자이다." });
 
         //퀘스트 대화
