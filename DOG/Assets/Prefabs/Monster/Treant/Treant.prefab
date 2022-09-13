@@ -152,7 +152,7 @@ MonoBehaviour:
   moveSpeed: 3
   attackRange: 6
   attackCoolTime: 3
-  attackPower: 5
+  attackPower: 20
   defence: 1
   knockbackForce: 0.5
   patrolRange: 4
@@ -300,7 +300,7 @@ MonoBehaviour:
   - {x: 0.34217352, y: -0.78965396, z: 0}
   m_ShapePathHash: 988180209
   m_Mesh: {fileID: 0}
-  m_InstanceId: -290004
+  m_InstanceId: 72140
 --- !u!1 &2172451679000632993
 GameObject:
   m_ObjectHideFlags: 0

@@ -276,7 +276,7 @@ MonoBehaviour:
   moveSpeed: 3
   attackRange: 2.5
   attackCoolTime: 7
-  attackPower: 5
+  attackPower: 30
   defence: 1
   detectCoolTime: 1
   knockbackForce: 0.5

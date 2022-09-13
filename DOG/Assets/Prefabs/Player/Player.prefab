@@ -236,11 +236,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 50
   attackPower: 30
-  defencePower: 10
+  defencePower: 1
   criticalRate: 0.3
   pz: {fileID: 0}
   mpz: {fileID: 0}
-  moveSpeed: 15
+  moveSpeed: 10
   itemPickupRange: 1
   weaponIndex: 0
   gameOver: {fileID: 0}
