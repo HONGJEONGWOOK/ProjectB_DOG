@@ -223,7 +223,12 @@ public class Treant : MonoBehaviour, IHealth, IBattle
         }
         arrow.SetActive(true);
         audioSource.clip = SoundManager.Inst.clips[(byte)SoundID.ShootArrow].clip;
-        audioSource.PlayOneShot(SoundManager.Inst.clips[(byte)SoundID.ShootArrow].clip, 0.5f);
+        audioSource.PlayOneShot(SoundManager.Inst.clips[(byte)SoundID.ShootArrow].clip, 0.3f);
+    }
+
+    public void PlayGetHitSound()
+    {
+        audioSource.PlayOneShot(SoundManager.Inst.clips[(byte)SoundID.TreantGetHit].clip, 0.3f);
     }
 
     void Attack()
@@ -299,7 +304,7 @@ public class Treant : MonoBehaviour, IHealth, IBattle
         if (!isDying)
         {
             anim.SetTrigger("onDie");
-            audioSource.PlayOneShot(SoundManager.Inst.clips[(byte)SoundID.TreantDie].clip);
+            audioSource.PlayOneShot(SoundManager.Inst.clips[(byte)SoundID.TreantDie].clip, 0.3f);
             StartCoroutine(DisableMonster());
         }
     }
