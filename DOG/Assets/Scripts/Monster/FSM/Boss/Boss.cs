@@ -161,6 +161,8 @@ public class Boss : Monsters
 
     protected override IEnumerator DisableMonster()
     {
+        QuestManager.BossKillCount();
+
         // 죽는 사운드 재생
         audioSource.PlayOneShot(SoundManager.Inst.clips[(byte)SoundID.BossDie].clip);
 

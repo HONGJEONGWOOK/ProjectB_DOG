@@ -94,7 +94,7 @@ public class QuestPanel : MonoBehaviour
                 qeustDetail.text = "영생을 찾아 몬스터가 되어버린 장로를 제거했다....\n다시 마을로 돌아가자.";
             }
         }
-        else if (id == 80 && index == 1)
+        else if (id == 90 && index == 0)
         {
             qeustName.text = "다시 찾아온 평화";
             qeustDetail.text = "평화로운 마을을 다시 재건하자.";
